@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- 主题背景颜色-->
+    <color name="app_bg">#FC5F20</color>
+    <!--字体-->
+    <!-- 透明 -->
+    <color name="white">#ffffff</color>
+    <!-- 海军色 -->
+    <color name="black">#000000</color>
+    <!--暗红色 -->
+    <color name="car_text_red">#EE5460</color>
+    <!--红色-->
+    <color name="red">#FF0000</color>
+    <!--浅黑-->
+    <color name="car_text_black">#333333</color>
+    <!--灰色背景-->
+    <color name="gay">#f2f2f2</color>
+    <!--浅灰色-->
+    <color name="split">#cccccc</color>
+    <!--浅蓝色-->
+    <color name="blue_light">#84b9ff</color>
+    <color name="blue">#3a96e9</color>
+    <color name="dark_black">#373737</color>
+    <!--亮黄色-->
+    <color name="yellow">#E4E315</color>
+    <color name="transparent">#00000000</color>
+    <color name="gay2">#cccccc</color>
+    <color name="blue_3a96e9">#3A96E9</color>
+    <color name="blue_ff94dfd2">#ff94dfd2</color>
+
+    <color name="province_line_border">#D0D0D0</color>
+    <color name="background">#f7f7f7</color>
+    <color name="gray">#a5abad</color>
+    <color name="dark_blue">#005e83</color>
+    <color name="pink">#E80046</color>
+    <color name="bg_app">#F1F1F1</color>
+    <color name="oranger">#ff6633</color>
+    <color name="gragline">#f6f6f6</color>
+    <color name="gray_444444">#444444</color>
+    <color name="gray_666666">#666666</color>
+    <color name="black_222222">#222222</color>
+    <color name="black_000000">#000000</color>
+    <color name="grayline_ececec">#ececec</color>
+    <color name="grayline_cecece">#cecece</color>
+    <color name="activity_bg_color">#f5f5f5</color>
+    <color name="grayfff5f5f5">#fff5f5f5</color>
+    <color name="color_cd013d">#cd013d</color>
+    <color name="color_999999">#999999</color>
+    <color name="black_666666">#666666</color>
+    <color name="black_111111">#111111</color>
+
+    <color name="grayf3f3f3">#fff3f3f3</color>
+
+    <color name="orange_fa7e00">#fffa7e00</color>
+    <color name="red_61832">#ffd61832</color>
+    <color name="black_ff232323">#ff232323</color>
+    <color name="red_e1938">#ffE31938</color>
+    <color name="FC0100">#FC0100</color>
+    <color name="E21838">#E21838</color>
+    <color name="color_loading_status">#ffffff</color>
+    <color name="color_FFFC0100">#FFFC0100</color>
+    <color name="gray_999999">#999999</color>
+
+    <!--  客户端主颜色  -->
+    <color name="text_red">#FC0100</color>
+    <color name="blue00fff">#00FFFF</color>
+    <color name="gray999999">#999999</color>
+    <color name="bg_app_new">#02222B</color>
+    <color name="bg_title_new">#00151B</color>
+    <color name="blue_ff3a85f8">#ff3a85f8</color>
+
+
+    <color name="text_color_main">#3A85F8</color>
+    <color name="text_coler_tab">#4E4E4E</color>
+    <color name="text_color_blue">#00FFFF</color>
+
+    <color name="text_color_3">#333333</color>
+    <color name="text_color_6">#666666</color>
+    <color name="text_color_9">#999999</color>
+    <color name="text_color_c">#CCCCCC</color>
+    <color name="text_color_e">#EEEEEE</color>
+    <color name="text_color_anniu">#FF7000</color>
+
+    <color name="text_color_shuinuan_main">#23CEFD</color>
+
+
+    <!--分割线-->
+    <color name="line">#EEEEEE</color>
+
+
+    <color name="jg_text">#F39200</color>
+    <color name="jn_text">#FEB113</color>
+    <color name="ty_text">#00FFFF</color>
+    <color name="wzw_shuinuan_text">#00FFB4</color>
+    <color name="wzw_shuinuan_text_new">#F7FF00</color>
+    <color name="wzw_shuinuan_text_shu">#00FFB4</color>
+
+
+</resources>

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50pt" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88pt">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="88pt"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="33pt"
+                android:layout_height="33pt"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/back_white" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="风暖加热器"
+            android:textColor="@color/white"
+            android:textSize="33pt"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/rl_set"
+            android:layout_width="88pt"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="46pt"
+                android:layout_height="46pt"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/jg_shezhi_icon_white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="480pt"
+                android:background="@mipmap/jinnuo_shouye_pic_1">
+
+                <FrameLayout
+                    android:layout_width="88pt"
+                    android:layout_height="84pt"
+                    android:layout_marginLeft="36pt"
+                    android:layout_marginTop="1pt">
+
+                    <ImageView
+                        android:layout_width="84pt"
+                        android:layout_height="84pt"
+                        android:src="@mipmap/jinnuo_logo" />
+
+                    <ImageView
+                        android:layout_width="16pt"
+                        android:layout_height="16pt"
+                        android:layout_gravity="right"
+                        android:src="@mipmap/jinnuo_r" />
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="374pt"
+                    android:layout_alignParentBottom="true"
+                    android:background="@mipmap/jinnuo_shouye_pic_2">
+
+                    <ImageView
+                        android:id="@+id/iv_jiareqi"
+                        android:layout_width="360pt"
+                        android:layout_height="270pt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="60pt"
+                        android:src="@mipmap/jg_home_pic_kongtiao_nor" />
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_shuoming"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100pt"
+                        android:layout_marginTop="50pt"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="46pt"
+                            android:layout_height="46pt"
+                            android:background="@drawable/jinggong_circle_nor"
+                            android:gravity="center"
+                            android:text="\?"
+                            android:textColor="@color/jg_text"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8pt"
+                            android:includeFontPadding="false"
+                            android:text="说明"
+                            android:textColor="@color/jg_text"
+                            android:textSize="33pt" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="50pt"
+                        android:layout_marginRight="100pt"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/iv_xinhao"
+                            android:layout_width="46pt"
+                            android:layout_height="46pt"
+                            android:src="@mipmap/fengnuan_icon_signal_no" />
+
+                        <TextView
+                            android:id="@+id/tv_zaixian"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8pt"
+                            android:includeFontPadding="false"
+                            android:text="在线"
+                            android:textColor="@color/split"
+                            android:textSize="33pt" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10pt"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="科技"
+                    android:textColor="#FF0000"
+                    android:textSize="35pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="温暖您的爱车"
+                    android:textColor="@color/jn_text"
+                    android:textSize="35pt" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="368pt"
+                android:layout_marginHorizontal="42pt"
+                android:background="@mipmap/jinnuo_shouye_pic_3">
+
+                <LinearLayout
+                    android:id="@+id/bt_mode_shoudong"
+                    android:layout_width="165pt"
+                    android:layout_height="96pt"
+                    android:layout_marginLeft="35pt"
+                    android:layout_marginTop="35pt"
+                    android:background="@mipmap/jinnuo_icon_shoudong"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_mode_shoudong"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="手动模式"
+                        android:textColor="@color/white"
+                        android:textSize="30pt" />
+
+                    <TextView
+                        android:id="@+id/tv_mode_shoudong_kai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="开机/关机"
+                        android:textColor="@color/white"
+                        android:textSize="23pt" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/bt_mode_hengwen"
+                    android:layout_width="165pt"
+                    android:layout_height="96pt"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="35pt"
+                    android:background="@mipmap/jinnuo_icon_shoudong"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_mode_hengwen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="恒温模式"
+                        android:textColor="@color/white"
+                        android:textSize="30pt" />
+
+                    <TextView
+                        android:id="@+id/tv_mode_hengwen_kai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="开机/关机"
+                        android:textColor="@color/white"
+                        android:textSize="23pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bt_mode_bengyou"
+                    android:layout_width="165pt"
+                    android:layout_height="96pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="35pt"
+                    android:layout_marginRight="35pt"
+                    android:background="@mipmap/jinnuo_icon_shoudong"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_mode_bengyou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="泵油模式"
+                        android:textColor="@color/white"
+                        android:textSize="30pt" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_dangwei"
+                    android:layout_width="255pt"
+                    android:layout_height="61pt"
+                    android:layout_marginLeft="35pt"
+                    android:layout_marginTop="159pt"
+                    android:background="@mipmap/fn_cao_pic_wendu"
+                    android:gravity="center"
+                    android:text="当前档位:1档"
+                    android:textColor="@color/white"
+                    android:textSize="31pt" />
+
+                <SeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30pt"
+                    android:layout_marginTop="250pt"
+                    android:background="@color/transparent"
+                    android:max="5"
+                    android:maxHeight="12pt"
+                    android:min="1"
+                    android:minHeight="12pt"
+                    android:progress="1"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/fn_cao_icon_huaikuai" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/seekBar1"
+                    android:layout_marginHorizontal="40pt"
+                    android:layout_marginTop="10pt">
+
+                    <TextView
+                        android:id="@+id/tv_seek_qian"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:includeFontPadding="false"
+                        android:text="1档"
+                        android:textColor="@color/white"
+                        android:textSize="35pt" />
+
+                    <TextView
+                        android:id="@+id/tv_seek_hou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="5档"
+                        android:textColor="@color/white"
+                        android:textSize="35pt" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_shebei_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18pt"
+                android:includeFontPadding="false"
+                android:text="设备状态:关机"
+                android:textColor="@color/jn_text"
+                android:textSize="31pt" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="246pt"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="48pt"
+                android:layout_marginTop="12pt"
+                android:background="@mipmap/fn_cao_pic_shebeizhuangtai">
+
+                <TextView
+                    android:id="@+id/tv_dianya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53pt"
+                    android:layout_marginTop="33pt"
+                    android:includeFontPadding="false"
+                    android:text="当前电压：--v"
+                    android:textColor="@color/jn_text"
+                    android:textSize="27pt" />
+
+                <TextView
+                    android:id="@+id/tv_huanjingwendu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="326pt"
+                    android:layout_marginTop="33pt"
+                    android:includeFontPadding="false"
+                    android:text="环境温度：--℃"
+                    android:textColor="@color/jn_text"
+                    android:textSize="27pt" />
+
+                <TextView
+                    android:id="@+id/tv_chufengkouwendu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53pt"
+                    android:layout_marginTop="85pt"
+                    android:includeFontPadding="false"
+                    android:text="出风口温度：--℃"
+                    android:textColor="@color/jn_text"
+                    android:textSize="27pt" />
+
+                <TextView
+                    android:id="@+id/tv_rufengkouwendu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="326pt"
+                    android:layout_marginTop="85pt"
+                    android:includeFontPadding="false"
+                    android:text="入风口温度：--℃"
+                    android:textColor="@color/jn_text"
+                    android:textSize="27pt" />
+
+
+                <TextView
+                    android:id="@+id/tv_daqiya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53pt"
+                    android:layout_marginTop="137pt"
+                    android:includeFontPadding="false"
+                    android:text="大气压：--kpa"
+                    android:textColor="@color/jn_text"
+                    android:textSize="27pt" />
+
+                <TextView
+                    android:id="@+id/tv_haibagaodu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="326pt"
+                    android:layout_marginTop="137pt"
+                    android:includeFontPadding="false"
+                    android:text="海拔高度：--m"
+                    android:textColor="@color/jn_text"
+                    android:textSize="27pt" />
+
+                <TextView
+                    android:id="@+id/tv_hanyangliang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53pt"
+                    android:layout_marginTop="189pt"
+                    android:includeFontPadding="false"
+                    android:text="含氧量：--g/m³"
+                    android:textColor="@color/jn_text"
+                    android:textSize="27pt" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

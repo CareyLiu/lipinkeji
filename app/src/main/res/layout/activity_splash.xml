@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/iv_welcome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="200pt"
+        android:layout_height="200pt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150pt"
+        android:src="@mipmap/logi_icon"
+        android:visibility="gone"
+        app:riv_corner_radius="5dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="154pt"
+        android:layout_alignParentBottom="true"
+        android:src="@mipmap/zdjh_pic_ic_lanch" />
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constrain"
+    android:layout_width="match_parent"
+    android:layout_height="184pt"
+    android:layout_marginHorizontal="29pt"
+    android:layout_marginTop="21pt"
+    android:background="@drawable/biankuang_cccccc"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_left"
+        android:layout_width="150pt"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_image"
+            android:layout_width="75pt"
+            android:layout_height="75pt" />
+
+        <TextView
+            android:id="@+id/tv_shiyong_zhuangtai"
+            android:layout_width="104pt"
+            android:layout_height="35pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15pt"
+            android:gravity="center_horizontal"
+            android:text="使用中"
+            android:textColor="#009ECE"
+            android:textSize="23pt" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21pt"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="风暖加热器"
+            android:textColor="@color/text_color_3"
+            android:textSize="31pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_ccid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="83pt"
+            android:includeFontPadding="false"
+            android:text="ccid：123456789012345678901234"
+            android:textColor="@color/text_color_6"
+            android:textSize="27pt" />
+
+        <TextView
+            android:id="@+id/tv_youxiaoqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="133pt"
+            android:includeFontPadding="false"
+            android:text="设备有效期至：2020-12-12 10:10:10"
+            android:textColor="@color/text_color_6"
+            android:textSize="27pt" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="31pt"
+        android:layout_height="31pt"
+        android:layout_marginLeft="12pt"
+        android:layout_marginRight="19pt"
+        android:src="@mipmap/push_gray_999" />
+</LinearLayout>

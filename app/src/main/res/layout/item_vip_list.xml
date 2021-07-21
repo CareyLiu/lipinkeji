@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="184pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="32pt"
+        android:background="@drawable/bg_white_radius_15"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="23pt">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31pt"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="水暖加热器"
+                android:textColor="@color/black"
+                android:textSize="31pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_ccid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="85pt"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="ccid：123456789011118888aaaaaa"
+                android:textColor="@color/text_color_6"
+                android:textSize="25pt" />
+
+            <TextView
+                android:id="@+id/tv_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="131pt"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="设备有效期至：2020-12-12 10:10:10"
+                android:textColor="@color/text_color_6"
+                android:textSize="25pt" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/bt_xufei"
+            android:layout_width="154pt"
+            android:layout_height="69pt"
+            android:background="@drawable/bg_vip_bt"
+            android:gravity="center"
+            android:text="立即续费"
+            android:textColor="@color/black"
+            android:textSize="29pt"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
