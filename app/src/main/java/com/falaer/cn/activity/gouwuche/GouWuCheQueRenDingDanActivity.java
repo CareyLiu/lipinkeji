@@ -72,7 +72,7 @@ import rx.functions.Action1;
 
 
 /**
- * 确认订单  知迪商城
+ * 确认订单  法拉尔商城
  */
 public class GouWuCheQueRenDingDanActivity extends BaseActivity implements QueRenDingDanInterface {
     GoodsDetails_f.DataBean dataBean = new GoodsDetails_f.DataBean();

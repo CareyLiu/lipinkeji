@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -147,6 +148,8 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
     private String dangwei;
     private String yushewendu;
     private TishiDialog bengyouDialog;
+    private TishiDialog tongfengDialog;
+    private TishiDialog shuibengDialog;
     private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
 
 
@@ -284,13 +287,20 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         String dianya = Y.getInt(messageData.substring(10, 13)) + "." + messageData.substring(13, 14);
 
         //风机转速->13245    5
-        String fenjizhuansu = messageData.substring(14, 19);
+        String fenjizhuansu = Y.getInt(messageData.substring(14, 19)) + "";
 
         //加热塞功率->0264=26.4	    4
         String jiaresaigonglv = Y.getInt(messageData.substring(19, 22)) + "." + messageData.substring(22, 23);
 
         //油泵频率->0265=26.5       4
-        String youbengpinlv = Y.getInt(messageData.substring(23, 26)) + "." + messageData.substring(26, 27);
+
+        String a = messageData.substring(26, 27);
+        String youbengpinlv;
+        if (a.equals("a")) {
+            youbengpinlv = "aa.a";
+        } else {
+            youbengpinlv = Y.getInt(messageData.substring(23, 26)) + "." + messageData.substring(26, 27);
+        }
 
         //入风口温度->例如:-026       4
         String wendu_rufengkou = messageData.substring(27, 31);
@@ -319,10 +329,27 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         //含氧量g/立方米      2
         String hanyangliang = messageData.substring(53);
 
-        tv_huanjingwendu.setText("当前温度：" + Y.getInt(wendu_rufengkou) + "℃");
+
+        tv_huanjingwendu.setText("环境温度：" + Y.getInt(dangqianwendu) + "℃");
         tv_daqiya.setText("大气压：" + Y.getInt(daqiya) + "kpa");
         tv_haibagaodu.setText("海拔高度：" + Y.getInt(haibagaodu) + "m");
         tv_hanyangliang.setText("含氧量：" + Y.getInt(hanyangliang) + "g/m³");
+        tv_youbengpinlv.setText("油泵频率:" + youbengpinlv + "Hz");
+        tv_fengjizhuansu.setText("风机转速:" + Y.getInt(fenjizhuansu) + "r");
+        tv_gangtiwendu.setText("缸体温度:" + Y.getInt(wendu_chufengkou) + "℃");
+
+        if (shuibengzhuangtai.equals("0")) {
+            bt_mode_shuibeng.setEnabled(true);
+            setUiGuanji();
+        } else if (shuibengzhuangtai.equals("1")) {
+            bt_mode_shuibeng.setEnabled(true);
+            setUiShuibeng();
+        } else {
+            bt_mode_shuibeng.setEnabled(false);
+            bt_mode_shuibeng.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
+            bt_mode_shuibeng.setTextColor(Y.getColor(R.color.text_color_9));
+        }
+
 
         if (jiareqizhuangtai.equals("1")) {
             setUiShoudong(dangwei);
@@ -332,6 +359,8 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
             setUiGuanji();
         } else if (jiareqizhuangtai.equals("6")) {
             setUiBengyou();
+        } else if (jiareqizhuangtai.equals("7")) {
+            setUiTongfeng();
         } else {
             setUiGuanji();
         }
@@ -370,6 +399,84 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
     }
 
     private void initDialog() {
+        initShuibeng();
+        initTongfeng();
+        initBengyou();
+
+
+        myCarCaoZuoDialog_notify = new MyCarCaoZuoDialog_Notify(getAppContext(), new MyCarCaoZuoDialog_Notify.OnDialogItemClickListener() {
+            @Override
+            public void clickLeft() {
+                finish();
+            }
+
+            @Override
+            public void clickRight() {
+                DiagnosisActivity.actionStart(mContext);
+            }
+        });
+        myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
+    }
+
+    private void initShuibeng() {
+        shuibengDialog = new TishiDialog(mContext, TishiDialog.TYPE_XIAOXI, new TishiDialog.TishiDialogListener() {
+            @Override
+            public void onClickCancel(View v, TishiDialog dialog) {
+
+            }
+
+            @Override
+            public void onClickConfirm(View v, TishiDialog dialog) {
+                shuibengDialog.setTextConfirm("正在停止...");
+                typeMingling = 7;
+                sendMingling();
+                initHandlerMingling();
+            }
+
+            @Override
+            public void onDismiss(TishiDialog dialog) {
+
+            }
+        });
+        shuibengDialog.setTextTitle("水泵模式运行中");
+        shuibengDialog.setTextContent("水泵模式开启");
+        shuibengDialog.setTextConfirm("停止水泵模式");
+        shuibengDialog.setTextCancel("");
+        shuibengDialog.setCancelable(false);
+        shuibengDialog.setDismissAfterClick(false);
+        shuibengDialog.setCanceledOnTouchOutside(false);
+    }
+
+    private void initTongfeng() {
+        tongfengDialog = new TishiDialog(mContext, TishiDialog.TYPE_XIAOXI, new TishiDialog.TishiDialogListener() {
+            @Override
+            public void onClickCancel(View v, TishiDialog dialog) {
+
+            }
+
+            @Override
+            public void onClickConfirm(View v, TishiDialog dialog) {
+                tongfengDialog.setTextConfirm("正在停止...");
+                typeMingling = 3;
+                sendMingling();
+                initHandlerMingling();
+            }
+
+            @Override
+            public void onDismiss(TishiDialog dialog) {
+
+            }
+        });
+        tongfengDialog.setTextTitle("预通风模式运行中");
+        tongfengDialog.setTextContent("正在通风");
+        tongfengDialog.setTextConfirm("停止通风");
+        tongfengDialog.setTextCancel("");
+        tongfengDialog.setCancelable(false);
+        tongfengDialog.setDismissAfterClick(false);
+        tongfengDialog.setCanceledOnTouchOutside(false);
+    }
+
+    private void initBengyou() {
         bengyouDialog = new TishiDialog(mContext, TishiDialog.TYPE_XIAOXI, new TishiDialog.TishiDialogListener() {
             @Override
             public void onClickCancel(View v, TishiDialog dialog) {
@@ -396,19 +503,6 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         bengyouDialog.setCancelable(false);
         bengyouDialog.setDismissAfterClick(false);
         bengyouDialog.setCanceledOnTouchOutside(false);
-
-        myCarCaoZuoDialog_notify = new MyCarCaoZuoDialog_Notify(getAppContext(), new MyCarCaoZuoDialog_Notify.OnDialogItemClickListener() {
-            @Override
-            public void clickLeft() {
-                finish();
-            }
-
-            @Override
-            public void clickRight() {
-                DiagnosisActivity.actionStart(mContext);
-            }
-        });
-        myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
     }
 
 
@@ -502,6 +596,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
             }
         }
     }
+
     @OnClick({R.id.rl_back, R.id.iv_set, R.id.ll_shuoming})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -534,10 +629,10 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
                     clickBengyou();
                     break;
                 case R.id.bt_mode_tongfeng:
-                    clickBengyou();
+                    clickTongfeng();
                     break;
                 case R.id.bt_mode_shuibeng:
-                    clickBengyou();
+                    clickShuibeng();
                     break;
             }
         } else if (typeZaixian == 3) {
@@ -597,6 +692,32 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         initHandlerMingling();
     }
 
+    private void clickTongfeng() {
+        if (isKaiji) {
+            Y.t("请关机后再执行通风操作！");
+            return;
+        }
+
+        SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
+        typeMingling = 5;//预通风
+        setUiTongfeng();
+        sendMingling();
+        initHandlerMingling();
+    }
+
+    private void clickShuibeng() {
+        if (isKaiji) {
+            Y.t("请关机后再开启水泵模式！");
+            return;
+        }
+
+        SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
+        typeMingling = 6;//水泵模式
+        setUiShuibeng();
+        sendMingling();
+        initHandlerMingling();
+    }
+
     @SuppressLint("NewApi")
     private void setUiHengwen(String yushewendu) {
         isKaiji = true;
@@ -609,15 +730,14 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         seekBar1.setProgress(Y.getInt(yushewendu));
         tv_dangwei.setText("设定温度:" + Y.getInt(yushewendu) + "℃");
 
-        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
+        tv_jia.setText("升温");
+        tv_jian.setText("降温");
+
+        Glide.with(mContext).load(R.mipmap.falaer_shebei_hengwen).into(iv_jiareqi);
         isKaiji = true;
-//        tv_mode_hengwen.setTextColor(Y.getColor(R.color.jn_text));
-//        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.jn_text));
-//
-//        tv_mode_shoudong.setTextColor(Y.getColor(R.color.text_color_9));
-//        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.text_color_9));
-//
-//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.text_color_9));
+
+        bt_mode_hengwen.setBackgroundResource(R.mipmap.falaer_bt_sel);
+        bt_mode_shoudong.setBackgroundResource(R.mipmap.falaer_bt_nor);
 
         tv_shebei_state.setText("设备状态:恒温模式");
     }
@@ -634,33 +754,39 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         seekBar1.setProgress(Y.getInt(dangwei));
         tv_dangwei.setText("当前档位:" + dangwei + "档");
 
-        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
+        tv_jia.setText("加档");
+        tv_jian.setText("减档");
+
+        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji_falaer).into(iv_jiareqi);
         isKaiji = true;
-//        tv_mode_shoudong.setTextColor(Y.getColor(R.color.jn_text));
-//        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.jn_text));
-//
-//        tv_mode_hengwen.setTextColor(Y.getColor(R.color.text_color_9));
-//        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.text_color_9));
-//
-//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.text_color_9));
+
+        bt_mode_shoudong.setBackgroundResource(R.mipmap.falaer_bt_sel);
+        bt_mode_hengwen.setBackgroundResource(R.mipmap.falaer_bt_nor);
 
         tv_shebei_state.setText("设备状态:手动模式");
     }
 
     private void setUiGuanji() {
         isKaiji = false;
-        Glide.with(mContext).load(R.mipmap.jg_home_pic_kongtiao_nor).into(iv_jiareqi);
+        Glide.with(mContext).load(R.mipmap.falaer_shebei_guanji).into(iv_jiareqi);
         seekBar1.setPressed(false);
-//        tv_mode_shoudong.setTextColor(Y.getColor(R.color.white));
-//        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.white));
-//
-//        tv_mode_hengwen.setTextColor(Y.getColor(R.color.white));
-//        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.white));
-//
-//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.white));
+
+        bt_mode_hengwen.setBackgroundResource(R.mipmap.falaer_bt_nor);
+        bt_mode_shoudong.setBackgroundResource(R.mipmap.falaer_bt_nor);
+        bt_mode_youbeng.setBackgroundResource(R.mipmap.falaer_bt_nor);
+        bt_mode_tongfeng.setBackgroundResource(R.mipmap.falaer_bt_nor);
+        bt_mode_shuibeng.setBackgroundResource(R.mipmap.falaer_bt_nor);
 
         if (bengyouDialog != null && bengyouDialog.isShowing()) {
             bengyouDialog.dismiss();
+        }
+
+        if (tongfengDialog != null && tongfengDialog.isShowing()) {
+            tongfengDialog.dismiss();
+        }
+
+        if (shuibengDialog != null && shuibengDialog.isShowing()) {
+            shuibengDialog.dismiss();
         }
 
         if (isHenwenMode) {
@@ -675,14 +801,39 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
     }
 
     private void setUiBengyou() {
+        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji_mode).into(iv_jiareqi);
         isKaiji = false;
-//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.jn_text));
+        bt_mode_youbeng.setBackgroundResource(R.mipmap.falaer_bt_sel);
         bengyouDialog.setTextConfirm("停止泵油");
         if (bengyouDialog != null && !bengyouDialog.isShowing()) {
             bengyouDialog.show();
         }
 
         tv_shebei_state.setText("设备状态:预泵油");
+    }
+
+    private void setUiTongfeng() {
+        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji_mode).into(iv_jiareqi);
+        isKaiji = false;
+        bt_mode_tongfeng.setBackgroundResource(R.mipmap.falaer_bt_sel);
+        tongfengDialog.setTextConfirm("停止通风");
+        if (tongfengDialog != null && !tongfengDialog.isShowing()) {
+            tongfengDialog.show();
+        }
+
+        tv_shebei_state.setText("设备状态:预通风");
+    }
+
+    private void setUiShuibeng() {
+        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji_mode).into(iv_jiareqi);
+        isKaiji = false;
+        bt_mode_shuibeng.setBackgroundResource(R.mipmap.falaer_bt_sel);
+        shuibengDialog.setTextConfirm("停止水泵模式");
+        if (shuibengDialog != null && !shuibengDialog.isShowing()) {
+            shuibengDialog.show();
+        }
+
+        tv_shebei_state.setText("设备状态:水泵模式");
     }
 
     private void sendMingling() {
@@ -737,6 +888,51 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         } else if (typeMingling == 4) {//预泵油
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg("M616.")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+        } else if (typeMingling == 5) {//预通风
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("M617.")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+        } else if (typeMingling == 6) {//水泵模式
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("M711.")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+        } else if (typeMingling == 7) {//水泵模式关
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("M712.")
                     .setQos(2).setRetained(false)
                     .setTopic(CAR_CTROL), new IMqttActionListener() {
                 @Override

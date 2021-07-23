@@ -189,7 +189,7 @@ public class SettingActivity extends BaseActivity implements Observer, TakePhoto
                     @Override
                     public void onSuccess(Response<AppResponse<FenLeiThirdModel.DataBean>> response) {
                         if (str.equals("1")) {
-                            UIHelper.ToastMessage(SettingActivity.this, "知迪商城已开启");
+                            UIHelper.ToastMessage(SettingActivity.this, "法拉尔商城已开启");
                             PreferenceHelper.getInstance(SettingActivity.this).putString(App.ZHIDISHANGCHEGN, "1");
 
                             Notice n = new Notice();
@@ -197,7 +197,7 @@ public class SettingActivity extends BaseActivity implements Observer, TakePhoto
                             //  n.content = message.toString();
                             RxBus.getDefault().sendRx(n);
                         } else if (str.equals("2")) {
-                            UIHelper.ToastMessage(SettingActivity.this, "知迪商城已关闭");
+                            UIHelper.ToastMessage(SettingActivity.this, "法拉尔商城已关闭");
                             PreferenceHelper.getInstance(SettingActivity.this).putString(App.ZHIDISHANGCHEGN, "2");
 
 
