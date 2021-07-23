@@ -9,15 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.bumptech.glide.Glide;
-import com.flyco.animation.BaseAnimatorSet;
-import com.flyco.animation.BounceEnter.BounceBottomEnter;
-import com.flyco.animation.SlideExit.SlideBottomExit;
-import com.flyco.dialog.listener.OnBtnClickL;
-import com.flyco.dialog.widget.NormalDialog;
-import com.flyco.roundview.RoundRelativeLayout;
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
 import com.falaer.cn.R;
 import com.falaer.cn.activity.MessageActivity;
 import com.falaer.cn.activity.SettingActivity;
@@ -37,13 +33,18 @@ import com.falaer.cn.config.PreferenceHelper;
 import com.falaer.cn.config.UserManager;
 import com.falaer.cn.get_net.Urls;
 import com.falaer.cn.model.MineModel;
-import com.falaer.cn.util.AlertUtil;
-import com.falaer.cn.util.CleanMessageUtil;
 import com.falaer.cn.util.phoneview.sample.ImageShowActivity;
+import com.flyco.animation.BaseAnimatorSet;
+import com.flyco.animation.BounceEnter.BounceBottomEnter;
+import com.flyco.animation.SlideExit.SlideBottomExit;
+import com.flyco.roundview.RoundRelativeLayout;
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
@@ -52,9 +53,6 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -165,6 +163,10 @@ public class MineFragment extends BaseFragment implements Observer {
     LinearLayout llDianpushoucang;
     @BindView(R.id.ll_shangpinshoucang)
     LinearLayout llShangpinshoucang;
+    @BindView(R.id.cls_header)
+    ClassicsHeader clsHeader;
+    @BindView(R.id.view_zhanwei)
+    View viewZhanwei;
     private Unbinder unbinder;
 
     @Override
@@ -208,6 +210,7 @@ public class MineFragment extends BaseFragment implements Observer {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        clsHeader.setAccentColor(getResources().getColor(R.color.white));
         srLSmart.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
@@ -272,7 +275,7 @@ public class MineFragment extends BaseFragment implements Observer {
         }
     }
 
-    @OnClick({R.id.ll_dianpushoucang,R.id.ll_shangpinshoucang,R.id.iv_tongji, R.id.iv_tuiguangma, R.id.iv_about_us, R.id.riv_image, R.id.rl_xiaoxi, R.id.rl_set,
+    @OnClick({R.id.ll_dianpushoucang, R.id.ll_shangpinshoucang, R.id.iv_tongji, R.id.iv_tuiguangma, R.id.iv_about_us, R.id.riv_image, R.id.rl_xiaoxi, R.id.rl_set,
             R.id.tv_all, R.id.iv_daifukuan, R.id.tv_daifukuan, R.id.iv_daishouhuo, R.id.tv_daishouhuo, R.id.iv_daifahuo, R.id.tv_daifahuo,
             R.id.iv_pingjia, R.id.tv_pingjia, R.id.iv_daodian, R.id.tv_daodian
     })
@@ -357,11 +360,13 @@ public class MineFragment extends BaseFragment implements Observer {
 
     @Override
     protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.white).init();
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.shenlanhei).init();
     }
+
 
     @Override
     protected boolean immersionEnabled() {
         return true;
     }
+
 }

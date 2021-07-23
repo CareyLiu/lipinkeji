@@ -8,18 +8,31 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:layout_width="200pt"
-        android:layout_height="200pt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150pt"
-        android:src="@mipmap/logi_icon"
-        android:visibility="gone"
-        app:riv_corner_radius="5dp" />
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
+
         android:layout_height="154pt"
         android:layout_alignParentBottom="true"
-        android:src="@mipmap/zdjh_pic_ic_lanch" />
+        android:gravity="center">
+
+        <ImageView
+
+            android:layout_width="100pt"
+            android:layout_height="100pt"
+            android:src="@mipmap/logi_icon" />
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="40pt"
+            android:text="法拉尔远程遥控平台"
+            android:textSize="30pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+    </LinearLayout>
 </RelativeLayout>

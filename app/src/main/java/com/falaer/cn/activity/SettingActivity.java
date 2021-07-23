@@ -448,7 +448,7 @@ public class SettingActivity extends BaseActivity implements Observer, TakePhoto
                                 Notice n = new Notice();
                                 n.type = ConstanceValue.MSG_UNSUB_MQTT;
                                 RxBus.getDefault().sendRx(n);
-                                RongIM.getInstance().logout();
+                                //RongIM.getInstance().logout();
                                 startActivity(new Intent(SettingActivity.this, LoginActivity.class));
 
                             }

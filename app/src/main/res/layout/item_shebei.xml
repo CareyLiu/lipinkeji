@@ -3,74 +3,114 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/constrain"
     android:layout_width="match_parent"
-    android:layout_height="184pt"
-    android:layout_marginHorizontal="29pt"
+    android:layout_height="204pt"
+    android:layout_marginHorizontal="30pt"
     android:layout_marginTop="21pt"
-    android:background="@drawable/biankuang_cccccc"
-    android:gravity="center_vertical">
+    android:background="@mipmap/liebiaokuang">
 
     <LinearLayout
         android:id="@+id/ll_left"
         android:layout_width="150pt"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_image"
             android:layout_width="75pt"
-            android:layout_height="75pt" />
+            android:layout_height="75pt"
+            android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/tv_shiyong_zhuangtai"
-            android:layout_width="104pt"
-            android:layout_height="35pt"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15pt"
-            android:gravity="center_horizontal"
-            android:text="使用中"
-            android:textColor="#009ECE"
-            android:textSize="23pt" />
+
     </LinearLayout>
 
     <RelativeLayout
+
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginLeft="36pt"
+        android:layout_marginTop="45pt"
         android:layout_weight="1"
         android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/tv_name"
+        <LinearLayout
+            android:id="@+id/ll_mingcheng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="21pt"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="风暖加热器"
+                android:textColor="#0EA9F4"
+                android:textSize="27pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_shiyong_zhuangtai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3pt"
+                android:gravity="center_vertical"
+
+                android:text="使用中"
+                android:textColor="#FF5A00"
+                android:textSize="17pt" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_below="@+id/ll_mingcheng"
+            android:id="@+id/tv_youxiaoqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23.5pt"
             android:includeFontPadding="false"
-            android:maxLines="1"
-            android:text="风暖加热器"
-            android:textColor="@color/text_color_3"
-            android:textSize="31pt"
-            android:textStyle="bold" />
+            android:text="设备有效期至：2020-12-12 10:10:10"
+            android:textColor="#0EA9F4"
+            android:textSize="23pt" />
 
         <TextView
             android:id="@+id/tv_ccid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="83pt"
+            android:layout_below="@+id/tv_youxiaoqi"
+            android:layout_marginTop="23.5pt"
             android:includeFontPadding="false"
             android:text="ccid：123456789012345678901234"
-            android:textColor="@color/text_color_6"
-            android:textSize="27pt" />
+            android:textColor="#FFFFFF"
+            android:textSize="23pt" />
+
+
+        <ImageView
+
+            android:id="@+id/iv_biaozhi"
+            android:layout_width="122pt"
+            android:layout_height="19pt"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="16pt"
+            android:layout_marginRight="79pt"
+            android:src="@mipmap/zhuangshi" />
 
         <TextView
-            android:id="@+id/tv_youxiaoqi"
+            android:id="@+id/tv_gongxiang"
+            android:layout_marginRight="15pt"
+            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="133pt"
-            android:includeFontPadding="false"
-            android:text="设备有效期至：2020-12-12 10:10:10"
-            android:textColor="@color/text_color_6"
-            android:textSize="27pt" />
+            android:text="共享设备"
+            android:textColor="#ffff5a00"
+            android:textSize="23pt" />
+
+
     </RelativeLayout>
 
     <ImageView
@@ -78,5 +118,6 @@
         android:layout_height="31pt"
         android:layout_marginLeft="12pt"
         android:layout_marginRight="19pt"
-        android:src="@mipmap/push_gray_999" />
+        android:src="@mipmap/push_gray_999"
+        android:visibility="gone" />
 </LinearLayout>

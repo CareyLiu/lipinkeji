@@ -1,7 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ll_main"
     android:fitsSystemWindows="true"
+    android:background="#192231"
     android:orientation="vertical">
 
     <com.falaer.cn.view.NoScrollViewPager
@@ -10,16 +12,14 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1pt"
-        android:background="@color/line" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="95pt">
 
         <LinearLayout
+            android:background="#192231"
             android:id="@+id/ll_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -31,7 +31,7 @@
                 android:id="@+id/iv_home"
                 android:layout_width="52pt"
                 android:layout_height="52pt"
-                android:src="@mipmap/tuya_tab_icon_shouye_sel" />
+                android:src="@mipmap/shebei" />
 
             <TextView
                 android:id="@+id/tv_home"
@@ -39,13 +39,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3pt"
                 android:includeFontPadding="false"
-                android:text="首页"
-                android:textColor="@color/text_color_main"
+                android:text="设备"
+                android:textColor="#0EA9F4"
                 android:textSize="23pt" />
         </LinearLayout>
 
 
         <LinearLayout
+            android:background="#192231"
             android:id="@+id/ll_device"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -57,21 +58,22 @@
                 android:id="@+id/iv_device"
                 android:layout_width="52pt"
                 android:layout_height="52pt"
-                android:src="@mipmap/tuya_tab_icon_device_nor" />
+                android:src="@mipmap/shuoming_bottom" />
 
             <TextView
                 android:id="@+id/tv_device"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3pt"
+
                 android:includeFontPadding="false"
-                android:text="设备"
-                android:textColor="@color/text_color_9"
+                android:text="说明"
+                android:textColor="@color/white"
                 android:textSize="23pt" />
         </LinearLayout>
 
 
         <LinearLayout
+            android:background="#192231"
             android:id="@+id/ll_mine"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -83,16 +85,16 @@
                 android:id="@+id/iv_mine"
                 android:layout_width="52pt"
                 android:layout_height="52pt"
-                android:src="@mipmap/tuya_tab_icon_mine_nor" />
+                android:src="@mipmap/wd" />
 
             <TextView
                 android:id="@+id/tv_mine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3pt"
+
                 android:includeFontPadding="false"
                 android:text="我的"
-                android:textColor="@color/text_color_9"
+                android:textColor="@color/white"
                 android:textSize="23pt" />
         </LinearLayout>
     </LinearLayout>
