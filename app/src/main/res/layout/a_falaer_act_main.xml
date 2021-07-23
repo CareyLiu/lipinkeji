@@ -148,7 +148,7 @@
                         android:layout_height="228pt"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="102pt"
-                        android:src="@mipmap/falaer_shebei_sel" />
+                        android:src="@mipmap/falaer_shebei_hengwen" />
 
                     <TextView
                         android:id="@+id/tv_dangwei"
@@ -263,7 +263,7 @@
                     android:layout_marginTop="17pt"
                     android:background="@mipmap/falaer_bt_nor"
                     android:gravity="center"
-                    android:text="油泵"
+                    android:text="泵油"
                     android:textColor="@color/white"
                     android:textSize="40pt"
                     android:textStyle="bold" />
@@ -407,11 +407,11 @@
                         android:textSize="25pt" />
 
                     <TextView
-                        android:id="@+id/tv_huanjingwendu"
+                        android:id="@+id/tv_fengjizhuansu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
-                        android:text="环境温度:--℃"
+                        android:text="风机转速:--r"
                         android:textColor="@color/falaer_text"
                         android:textSize="25pt" />
                 </LinearLayout>
@@ -425,11 +425,11 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_fengjizhuansu"
+                        android:id="@+id/tv_huanjingwendu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
-                        android:text="风机转速:--r"
+                        android:text="环境温度:--℃"
                         android:textColor="@color/falaer_text"
                         android:textSize="25pt" />
 
