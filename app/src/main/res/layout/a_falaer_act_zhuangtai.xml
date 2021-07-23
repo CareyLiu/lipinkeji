@@ -15,7 +15,7 @@
 
         <RelativeLayout
             android:id="@+id/rl_back"
-            android:layout_width="80pt"
+            android:layout_width="88pt"
             android:layout_height="match_parent">
 
             <ImageView
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="设置"
+            android:text="设备状态"
             android:textColor="@color/white"
             android:textSize="33pt"
             android:textStyle="bold" />
@@ -58,53 +58,27 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="设备码"
+                    android:text="设备状态"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
                 <TextView
-                    android:id="@+id/tv_shebeima"
+                    android:id="@+id/tv_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
                     android:includeFontPadding="false"
+                    android:text="在线"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
             </LinearLayout>
 
+
             <LinearLayout
-                android:id="@+id/ll_guzhangdaima"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
                 android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="54pt"
-                android:background="@mipmap/falaer_set_bg"
-                android:gravity="center_vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="36pt"
-                    android:layout_weight="1"
-                    android:includeFontPadding="false"
-                    android:text="故障代码、故障说明"
-                    android:textColor="@color/white"
-                    android:textSize="33pt" />
-
-                <ImageView
-                    android:layout_width="46pt"
-                    android:layout_height="46pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/back_yellow" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_guzhang"
-                android:layout_width="match_parent"
-                android:layout_height="96pt"
-                android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="54pt"
+                android:layout_marginTop="30pt"
                 android:background="@mipmap/falaer_set_bg"
                 android:gravity="center_vertical">
 
@@ -114,23 +88,26 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="加热器诊断"
+                    android:text="设备模式"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
-                <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
+                <TextView
+                    android:id="@+id/tv_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:includeFontPadding="false"
+                    android:text="风暖模式"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_dingshi"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
                 android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="54pt"
+                android:layout_marginTop="30pt"
                 android:background="@mipmap/falaer_set_bg"
                 android:gravity="center_vertical">
 
@@ -140,23 +117,26 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="定时"
+                    android:text="电源电压"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
-                <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
+                <TextView
+                    android:id="@+id/tv_dianya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:includeFontPadding="false"
+                    android:text="0V"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_jiareqizhuangtai"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
                 android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="52pt"
+                android:layout_marginTop="30pt"
                 android:background="@mipmap/falaer_set_bg"
                 android:gravity="center_vertical">
 
@@ -166,23 +146,27 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="加热器状态"
+                    android:text="入风口温度"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
-                <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
+                <TextView
+                    android:id="@+id/tv_rufengkouwendu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:includeFontPadding="false"
+                    android:text="0℃"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
             </LinearLayout>
 
+
             <LinearLayout
-                android:id="@+id/ll_jiebang"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
                 android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="52pt"
+                android:layout_marginTop="30pt"
                 android:background="@mipmap/falaer_set_bg"
                 android:gravity="center_vertical">
 
@@ -192,24 +176,26 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="解绑设备"
+                    android:text="出风口温度"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
-                <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
+                <TextView
+                    android:id="@+id/tv_chufengkouwendu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:includeFontPadding="false"
+                    android:text="0℃"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
             </LinearLayout>
 
-
             <LinearLayout
-                android:id="@+id/rl_gongxiang"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
                 android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="52pt"
+                android:layout_marginTop="30pt"
                 android:background="@mipmap/falaer_set_bg"
                 android:gravity="center_vertical">
 
@@ -219,24 +205,26 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="设备共享"
+                    android:text="风机转速"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
-                <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
+                <TextView
+                    android:id="@+id/tv_fengjizhuansu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:includeFontPadding="false"
+                    android:text="0rpm"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
             </LinearLayout>
 
-
             <LinearLayout
-                android:id="@+id/rl_gongxiang_jie"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
                 android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="52pt"
+                android:layout_marginTop="30pt"
                 android:background="@mipmap/falaer_set_bg"
                 android:gravity="center_vertical">
 
@@ -246,26 +234,28 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="退出共享"
+                    android:text="油泵频率"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
-                <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
+                <TextView
+                    android:id="@+id/tv_youbengpinlv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:includeFontPadding="false"
+                    android:text="0Hz"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_lixianjilu"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
                 android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="52pt"
+                android:layout_marginTop="30pt"
                 android:background="@mipmap/falaer_set_bg"
-                android:gravity="center_vertical"
-                android:visibility="gone">
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="0dp"
@@ -273,15 +263,136 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="离线记录"
+                    android:text="加热塞功率"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
-                <ImageView
-                    android:layout_width="46pt"
-                    android:layout_height="46pt"
+                <TextView
+                    android:id="@+id/tv_jiaresaigonglv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="36pt"
-                    android:src="@mipmap/back_yellow" />
+                    android:includeFontPadding="false"
+                    android:text="0kw"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96pt"
+                android:layout_marginHorizontal="36pt"
+                android:layout_marginTop="30pt"
+                android:background="@mipmap/falaer_set_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36pt"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="大气压"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+
+                <TextView
+                    android:id="@+id/tv_daqiya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="36pt"
+                    android:includeFontPadding="false"
+                    android:text="0Kpa"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96pt"
+                android:layout_marginHorizontal="36pt"
+                android:layout_marginTop="30pt"
+                android:background="@mipmap/falaer_set_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36pt"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="海拔高度"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+
+                <TextView
+                    android:id="@+id/tv_haibagaodu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="36pt"
+                    android:includeFontPadding="false"
+                    android:text="0km"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96pt"
+                android:layout_marginHorizontal="36pt"
+                android:layout_marginTop="30pt"
+                android:background="@mipmap/falaer_set_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36pt"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="含氧量"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+
+                <TextView
+                    android:id="@+id/tv_hanyangliang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="36pt"
+                    android:includeFontPadding="false"
+                    android:text="0g/m³"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96pt"
+                android:layout_marginHorizontal="36pt"
+                android:layout_marginTop="30pt"
+                android:layout_marginBottom="50pt"
+                android:background="@mipmap/falaer_set_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36pt"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="信号强度"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+
+                <TextView
+                    android:id="@+id/tv_xinhaoqiangdu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="36pt"
+                    android:includeFontPadding="false"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

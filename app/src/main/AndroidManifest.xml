@@ -621,21 +621,21 @@
 
         <!--设备共享-->
         <activity
-            android:name="com.falaer.cn.activity.device_jn.gongxiang.GongxiangJnActivity"
+            android:name=".activity.device_falaer.gongxiang.GongxiangFalaerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
         <!--删除设备共享成员-->
         <activity
-            android:name="com.falaer.cn.activity.device_jn.gongxiang.GongxiangJnDelectActivity"
+            android:name=".activity.device_falaer.gongxiang.GongxiangFalaerDelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
         <!--添加设备共享成员-->
         <activity
-            android:name="com.falaer.cn.activity.device_jn.gongxiang.GongxiangJnAddActivity"
+            android:name=".activity.device_falaer.gongxiang.GongxiangFalaerAddActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
@@ -934,145 +934,11 @@
             android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
-        <!-- 精工首页 -->
-        <activity
-            android:name=".activity.device_jg.JinggongMainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 精工设置 -->
-        <activity
-            android:name=".activity.device_jg.JinggongSetActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 精工定时 -->
-        <activity
-            android:name=".activity.device_jg.JinggongDingshiActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 精工加热器状态 -->
-        <activity
-            android:name=".activity.device_jg.JinggongStateActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 精工维修记录 -->
-        <activity
-            android:name=".activity.device_jg.JinggongWeixiuActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 精工说明书 -->
-        <activity
-            android:name=".activity.device_jg.JinggongShuomingActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 精工解绑 -->
-        <activity
-            android:name=".activity.device_jg.JinggongJiebangActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
         <!-- 金诺首页 -->
         <activity
             android:name=".activity.device_jn.JinnuoMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 金诺设置 -->
-        <activity
-            android:name=".activity.device_jn.JinnuoSetActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 金诺定时 -->
-        <activity
-            android:name=".activity.device_jn.JinnuoDingshiActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-
-        <!-- 金诺加热器状态 -->
-        <activity
-            android:name=".activity.device_jn.JinnuoStateActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 金诺维修记录 -->
-        <activity
-            android:name=".activity.device_jn.JinnuoWeixiuActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 金诺说明书 -->
-        <activity
-            android:name=".activity.device_jn.JinnuoShuomingActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 金诺解绑 -->
-        <activity
-            android:name=".activity.device_jn.JinnuoJiebangActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 通用首页 -->
-        <activity
-            android:name=".activity.device_ty.TongyongMainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 通用设置 -->
-        <activity
-            android:name=".activity.device_ty.TongyongSetActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 通用说明 -->
-        <activity
-            android:name=".activity.device_ty.TongyongShuomingActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 通用定时 -->
-        <activity
-            android:name=".activity.device_ty.TongyongDingshiActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 通用状态 -->
-        <activity
-            android:name=".activity.device_ty.TongyongStateActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <!-- 通用解绑 -->
-        <activity
-            android:name=".activity.device_ty.TongyongJiebangActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
         <!-- 离线记录 -->
@@ -1117,5 +983,48 @@
             android:configChanges="locale|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
+
+        <!-- 法拉尔首页 -->
+        <activity
+            android:name=".activity.device_falaer.FalaerMainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <!-- 法拉尔设置页 -->
+        <activity
+            android:name=".activity.device_falaer.FalaerSetActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <!-- 法拉尔设备状态 -->
+        <activity
+            android:name=".activity.device_falaer.FalaerStateActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <!-- 法拉尔设备解绑 -->
+        <activity
+            android:name=".activity.device_falaer.FalaerJiebangActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <!-- 法拉尔明书 -->
+        <activity
+            android:name=".activity.device_falaer.FalaerShuomingActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+
+        <!-- 法拉尔定时 -->
+        <activity
+            android:name=".activity.device_falaer.FalaerDingshiActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
     </application>
 </manifest>

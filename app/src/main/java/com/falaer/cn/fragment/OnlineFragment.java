@@ -6,14 +6,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.falaer.cn.activity.device_falaer.FalaerMainActivity;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.falaer.cn.R;
 import com.falaer.cn.activity.BindBoxActivity;
 import com.falaer.cn.activity.ShangchengActivity;
-import com.falaer.cn.activity.device_jg.JinggongMainActivity;
-import com.falaer.cn.activity.device_jn.JinnuoMainActivity;
-import com.falaer.cn.activity.device_ty.TongyongMainActivity;
 import com.falaer.cn.activity.shuinuan_wzw.ShuinuanWzwMainActivityNew;
 import com.falaer.cn.activity.zckt.AirConditionerActivity;
 import com.falaer.cn.adapter.SheBeiListAdapter;
@@ -125,16 +123,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        String xinghao = mDatas.get(position).ccid.substring(17, 23);
-                                        if (xinghao.equals("001001")) {
-                                            JinnuoMainActivity.actionStart(getContext());
-                                        } else if (xinghao.equals("001002")) {
-                                            JinggongMainActivity.actionStart(getContext());
-                                        } else if (xinghao.equals("001003")) {
-                                            TongyongMainActivity.actionStart(getContext());
-                                        } else {
-                                            TongyongMainActivity.actionStart(getContext());
-                                        }
+                                        FalaerMainActivity.actionStart(getContext());
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");

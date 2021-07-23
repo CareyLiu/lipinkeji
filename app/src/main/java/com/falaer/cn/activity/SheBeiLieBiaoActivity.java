@@ -12,9 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
-import com.falaer.cn.activity.device_jg.JinggongMainActivity;
-import com.falaer.cn.activity.device_jn.JinnuoMainActivity;
-import com.falaer.cn.activity.device_ty.TongyongMainActivity;
 import com.falaer.cn.activity.shuinuan_wzw.ShuinuanWzwMainActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -88,16 +85,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        String xinghao = mDatas.get(position).ccid.substring(17, 23);
-                                        if (xinghao.equals("001001")) {
-                                            JinnuoMainActivity.actionStart(mContext);
-                                        } else if (xinghao.equals("001002")) {
-                                            JinggongMainActivity.actionStart(mContext);
-                                        } else if (xinghao.equals("001003")) {
-                                            TongyongMainActivity.actionStart(mContext);
-                                        } else {
-                                            FengNuanActivity.actionStart(mContext, mDatas.get(position).sim_ccid_save_type);
-                                        }
+                                        FengNuanActivity.actionStart(mContext, mDatas.get(position).sim_ccid_save_type);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");

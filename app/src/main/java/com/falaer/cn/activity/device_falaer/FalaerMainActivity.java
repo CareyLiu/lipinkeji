@@ -1,4 +1,4 @@
-package com.falaer.cn.activity.device_jn;
+package com.falaer.cn.activity.device_falaer;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,8 +18,6 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
-import com.falaer.cn.activity.device_falaer.FalaerShuomingActivity;
-import com.gyf.barlibrary.ImmersionBar;
 import com.falaer.cn.R;
 import com.falaer.cn.activity.DiagnosisActivity;
 import com.falaer.cn.activity.shuinuan.Y;
@@ -34,6 +32,7 @@ import com.falaer.cn.dialog.MyCarCaoZuoDialog_Notify;
 import com.falaer.cn.dialog.newdia.TishiDialog;
 import com.falaer.cn.util.DoMqttValue;
 import com.falaer.cn.util.SoundPoolUtils;
+import com.gyf.barlibrary.ImmersionBar;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttSubscribe;
@@ -54,78 +53,69 @@ import static com.falaer.cn.config.MyApplication.CAR_CTROL;
 import static com.falaer.cn.config.MyApplication.CAR_NOTIFY;
 import static com.falaer.cn.config.MyApplication.getAppContext;
 
-public class JinnuoMainActivity extends BaseActivity implements View.OnLongClickListener {
+public class FalaerMainActivity extends BaseActivity implements View.OnLongClickListener {
+
 
     @BindView(R.id.rl_back)
     RelativeLayout rl_back;
-    @BindView(R.id.rl_set)
-    RelativeLayout rl_set;
+    @BindView(R.id.bt_mode_shuibeng)
+    TextView bt_mode_shuibeng;
+    @BindView(R.id.iv_set)
+    ImageView iv_set;
     @BindView(R.id.ll_shuoming)
     LinearLayout ll_shuoming;
+    @BindView(R.id.iv_xinhao)
+    ImageView iv_xinhao;
     @BindView(R.id.tv_zaixian)
     TextView tv_zaixian;
-    @BindView(R.id.tv_mode_shoudong)
-    TextView tv_mode_shoudong;
-    @BindView(R.id.tv_mode_shoudong_kai)
-    TextView tv_mode_shoudong_kai;
-    @BindView(R.id.bt_mode_shoudong)
-    LinearLayout bt_mode_shoudong;
-    @BindView(R.id.tv_mode_hengwen)
-    TextView tv_mode_hengwen;
-    @BindView(R.id.tv_mode_hengwen_kai)
-    TextView tv_mode_hengwen_kai;
-    @BindView(R.id.bt_mode_hengwen)
-    LinearLayout bt_mode_hengwen;
-    @BindView(R.id.tv_mode_bengyou)
-    TextView tv_mode_bengyou;
-    @BindView(R.id.bt_mode_bengyou)
-    LinearLayout bt_mode_bengyou;
+    @BindView(R.id.iv_jiareqi)
+    ImageView iv_jiareqi;
     @BindView(R.id.tv_dangwei)
     TextView tv_dangwei;
     @BindView(R.id.seekBar1)
     SeekBar seekBar1;
-    @BindView(R.id.tv_shebei_state)
-    TextView tv_shebei_state;
-    @BindView(R.id.tv_dianya)
-    TextView tv_dianya;
-    @BindView(R.id.tv_huanjingwendu)
-    TextView tv_huanjingwendu;
-    @BindView(R.id.tv_chufengkouwendu)
-    TextView tv_chufengkouwendu;
-    @BindView(R.id.tv_rufengkouwendu)
-    TextView tv_rufengkouwendu;
+    @BindView(R.id.tv_seek_qian)
+    TextView tv_seek_qian;
+    @BindView(R.id.tv_seek_hou)
+    TextView tv_seek_hou;
+    @BindView(R.id.bt_mode_shoudong)
+    TextView bt_mode_shoudong;
+    @BindView(R.id.bt_mode_hengwen)
+    TextView bt_mode_hengwen;
     @BindView(R.id.tv_daqiya)
     TextView tv_daqiya;
     @BindView(R.id.tv_haibagaodu)
     TextView tv_haibagaodu;
     @BindView(R.id.tv_hanyangliang)
     TextView tv_hanyangliang;
-    @BindView(R.id.tv_seek_qian)
-    TextView tv_seek_qian;
-    @BindView(R.id.tv_seek_hou)
-    TextView tv_seek_hou;
-    @BindView(R.id.iv_jiareqi)
-    ImageView iv_jiareqi;
-    @BindView(R.id.iv_xinhao)
-    ImageView iv_xinhao;
-
-    private boolean isFirst;//是否第一次进入
-    private boolean isKaiji;//是否开机
-    private boolean isOnActivity;//是否处于当前页面
-    private boolean isHenwenMode;//true恒温模式   false档位模式
-    private boolean isCanGetNs;//是否处于操作中   false 操作中、true 未操作
-    private int typeZaixian;//1 在线、2 离线、3 连接中
-    private int typeMingling;//0 发送实时数据、1 档位模式、2 恒温模式、3 关机、4 预泵油
-
-    private String jiareqizhuangtai;//1.档位开机2.空调开机3.关机 4.水泵开机9.关机中6.预泵油7.预通风
-    private String dangwei;
-    private String yushewendu;
-    private TishiDialog bengyouDialog;
-    private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
+    @BindView(R.id.tv_jia)
+    TextView tv_jia;
+    @BindView(R.id.bt_jia)
+    LinearLayout bt_jia;
+    @BindView(R.id.tv_jian)
+    TextView tv_jian;
+    @BindView(R.id.bt_jian)
+    LinearLayout bt_jian;
+    @BindView(R.id.tv_shebei_state)
+    TextView tv_shebei_state;
+    @BindView(R.id.tv_gangtiwendu)
+    TextView tv_gangtiwendu;
+    @BindView(R.id.tv_huanjingwendu)
+    TextView tv_huanjingwendu;
+    @BindView(R.id.tv_fengjizhuansu)
+    TextView tv_fengjizhuansu;
+    @BindView(R.id.tv_youbengpinlv)
+    TextView tv_youbengpinlv;
+    @BindView(R.id.ll_center_kuang)
+    LinearLayout ll_center_kuang;
+    @BindView(R.id.bt_mode_youbeng)
+    TextView bt_mode_youbeng;
+    @BindView(R.id.bt_mode_tongfeng)
+    TextView bt_mode_tongfeng;
 
     @Override
     public int getContentViewResId() {
-        return R.layout.a_jinnuo_act_main;
+        return R.layout.a_falaer_act_main;
     }
 
     @Override
@@ -139,10 +129,26 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
      * 用于其他Activty跳转到该Activity
      */
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, JinnuoMainActivity.class);
+        Intent intent = new Intent(context, FalaerMainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
+
+
+    private boolean isFirst;//是否第一次进入
+    private boolean isKaiji;//是否开机
+    private boolean isOnActivity;//是否处于当前页面
+    private boolean isHenwenMode;//true恒温模式   false档位模式
+    private boolean isCanGetNs;//是否处于操作中   false 操作中、true 未操作
+    private int typeZaixian;//1 在线、2 离线、3 连接中
+    private int typeMingling;//0 发送实时数据、1 档位模式、2 恒温模式、3 关机、4 预泵油、5 预通风、6 水泵
+
+    private String jiareqizhuangtai;//1.档位开机2.空调开机3.关机 4.水泵开机9.关机中6.预泵油7.预通风
+    private String dangwei;
+    private String yushewendu;
+    private TishiDialog bengyouDialog;
+    private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,96 +163,6 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
         initHandlerNS();
     }
 
-    private void initSeekBar() {
-        seekBar1.setPressed(false);
-        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (isHenwenMode) {
-                    if (progress < 10) {
-                        yushewendu = "0" + progress;
-                    } else {
-                        yushewendu = "" + progress;
-                    }
-                    setSeekBar();
-                } else {
-                    dangwei = progress + "";
-                    setSeekBar();
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                int progress = seekBar.getProgress();
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                int progress = seekBar.getProgress();
-                if (isHenwenMode) {
-                    if (progress < 10) {
-                        yushewendu = "0" + progress;
-                    } else {
-                        yushewendu = "" + progress;
-                    }
-                    String mingling = 50 + progress + "";
-                    AndMqtt.getInstance().publish(new MqttPublish()
-                            .setMsg("M6" + mingling + ".")
-                            .setQos(2).setRetained(false)
-                            .setTopic(CAR_CTROL), new IMqttActionListener() {
-                        @Override
-                        public void onSuccess(IMqttToken asyncActionToken) {
-
-                        }
-
-                        @Override
-                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-
-                        }
-                    });
-                    setSeekBar();
-                } else {
-                    dangwei = progress + "";
-                    AndMqtt.getInstance().publish(new MqttPublish()
-                            .setMsg("M62" + dangwei + ".")
-                            .setQos(2).setRetained(false)
-                            .setTopic(CAR_CTROL), new IMqttActionListener() {
-                        @Override
-                        public void onSuccess(IMqttToken asyncActionToken) {
-
-                        }
-
-                        @Override
-                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-
-                        }
-                    });
-                    setSeekBar();
-                }
-            }
-        });
-    }
-
-    @SuppressLint("NewApi")
-    private void setSeekBar() {
-        if (isHenwenMode) {
-            if (jiareqizhuangtai.equals("3")) {
-                tv_dangwei.setText("设定温度:0℃");
-                seekBar1.setProgress(0);
-            } else {
-                tv_dangwei.setText("设定温度:" + Y.getInt(yushewendu) + "℃");
-                seekBar1.setProgress(Y.getInt(yushewendu));
-            }
-        } else {
-            if (jiareqizhuangtai.equals("3")) {
-                tv_dangwei.setText("当前档位:1档");
-                seekBar1.setProgress(1);
-            } else {
-                tv_dangwei.setText("当前档位:" + dangwei + "档");
-                seekBar1.setProgress(Y.getInt(dangwei));
-            }
-        }
-    }
 
     private void initData() {
         PreferenceHelper.getInstance(mContext).putString(App.CHOOSE_KONGZHI_XIANGMU, DoMqttValue.FENGNUAN);
@@ -265,7 +181,9 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
 
         bt_mode_shoudong.setOnLongClickListener(this);
         bt_mode_hengwen.setOnLongClickListener(this);
-        bt_mode_bengyou.setOnLongClickListener(this);
+        bt_mode_shuibeng.setOnLongClickListener(this);
+        bt_mode_youbeng.setOnLongClickListener(this);
+        bt_mode_tongfeng.setOnLongClickListener(this);
     }
 
     private void initMqtt() {
@@ -318,25 +236,6 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
             @Override
             public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
 
-            }
-        });
-    }
-
-    private void getNData() {
-        //向风暖加热器发送获取实时数据
-        AndMqtt.getInstance().publish(new MqttPublish()
-                .setMsg("N.")
-                .setQos(2)
-                .setTopic(CAR_CTROL)
-                .setRetained(false), new IMqttActionListener() {
-            @Override
-            public void onSuccess(IMqttToken asyncActionToken) {
-                Y.i("Rair", "订阅风暖实时数据");
-            }
-
-            @Override
-            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                Y.i("Rair", "订阅风暖实时数据失败");
             }
         });
     }
@@ -420,10 +319,7 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
         //含氧量g/立方米      2
         String hanyangliang = messageData.substring(53);
 
-        tv_dianya.setText("当前电压：" + dianya + "v");
         tv_huanjingwendu.setText("当前温度：" + Y.getInt(wendu_rufengkou) + "℃");
-        tv_chufengkouwendu.setText("出风口温度：" + Y.getInt(wendu_chufengkou) + "℃");
-        tv_rufengkouwendu.setText("入风口温度：" + Y.getInt(wendu_rufengkou) + "℃");
         tv_daqiya.setText("大气压：" + Y.getInt(daqiya) + "kpa");
         tv_haibagaodu.setText("海拔高度：" + Y.getInt(haibagaodu) + "m");
         tv_hanyangliang.setText("含氧量：" + Y.getInt(hanyangliang) + "g/m³");
@@ -515,13 +411,105 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
         myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
     }
 
-    @OnClick({R.id.rl_back, R.id.rl_set, R.id.ll_shuoming})
+
+    private void initSeekBar() {
+        seekBar1.setPressed(false);
+        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (isHenwenMode) {
+                    if (progress < 10) {
+                        yushewendu = "0" + progress;
+                    } else {
+                        yushewendu = "" + progress;
+                    }
+                    setSeekBar();
+                } else {
+                    dangwei = progress + "";
+                    setSeekBar();
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                int progress = seekBar.getProgress();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                int progress = seekBar.getProgress();
+                if (isHenwenMode) {
+                    if (progress < 10) {
+                        yushewendu = "0" + progress;
+                    } else {
+                        yushewendu = "" + progress;
+                    }
+                    String mingling = 50 + progress + "";
+                    AndMqtt.getInstance().publish(new MqttPublish()
+                            .setMsg("M6" + mingling + ".")
+                            .setQos(2).setRetained(false)
+                            .setTopic(CAR_CTROL), new IMqttActionListener() {
+                        @Override
+                        public void onSuccess(IMqttToken asyncActionToken) {
+
+                        }
+
+                        @Override
+                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                        }
+                    });
+                    setSeekBar();
+                } else {
+                    dangwei = progress + "";
+                    AndMqtt.getInstance().publish(new MqttPublish()
+                            .setMsg("M62" + dangwei + ".")
+                            .setQos(2).setRetained(false)
+                            .setTopic(CAR_CTROL), new IMqttActionListener() {
+                        @Override
+                        public void onSuccess(IMqttToken asyncActionToken) {
+
+                        }
+
+                        @Override
+                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                        }
+                    });
+                    setSeekBar();
+                }
+            }
+        });
+    }
+
+    @SuppressLint("NewApi")
+    private void setSeekBar() {
+        if (isHenwenMode) {
+            if (jiareqizhuangtai.equals("3")) {
+                tv_dangwei.setText("设定温度:0℃");
+                seekBar1.setProgress(0);
+            } else {
+                tv_dangwei.setText("设定温度:" + Y.getInt(yushewendu) + "℃");
+                seekBar1.setProgress(Y.getInt(yushewendu));
+            }
+        } else {
+            if (jiareqizhuangtai.equals("3")) {
+                tv_dangwei.setText("当前档位:1档");
+                seekBar1.setProgress(1);
+            } else {
+                tv_dangwei.setText("当前档位:" + dangwei + "档");
+                seekBar1.setProgress(Y.getInt(dangwei));
+            }
+        }
+    }
+    @OnClick({R.id.rl_back, R.id.iv_set, R.id.ll_shuoming})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
                 finish();
                 break;
-            case R.id.rl_set:
+            case R.id.iv_set:
+                FalaerSetActivity.actionStart(mContext);
                 break;
             case R.id.ll_shuoming:
                 FalaerShuomingActivity.actionStart(mContext);
@@ -542,7 +530,13 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
                 case R.id.bt_mode_hengwen:
                     cilckHengwen();
                     break;
-                case R.id.bt_mode_bengyou:
+                case R.id.bt_mode_youbeng:
+                    clickBengyou();
+                    break;
+                case R.id.bt_mode_tongfeng:
+                    clickBengyou();
+                    break;
+                case R.id.bt_mode_shuibeng:
                     clickBengyou();
                     break;
             }
@@ -617,13 +611,13 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
 
         Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
         isKaiji = true;
-        tv_mode_hengwen.setTextColor(Y.getColor(R.color.jn_text));
-        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.jn_text));
-
-        tv_mode_shoudong.setTextColor(Y.getColor(R.color.text_color_9));
-        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.text_color_9));
-
-        tv_mode_bengyou.setTextColor(Y.getColor(R.color.text_color_9));
+//        tv_mode_hengwen.setTextColor(Y.getColor(R.color.jn_text));
+//        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.jn_text));
+//
+//        tv_mode_shoudong.setTextColor(Y.getColor(R.color.text_color_9));
+//        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.text_color_9));
+//
+//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.text_color_9));
 
         tv_shebei_state.setText("设备状态:恒温模式");
     }
@@ -642,13 +636,13 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
 
         Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
         isKaiji = true;
-        tv_mode_shoudong.setTextColor(Y.getColor(R.color.jn_text));
-        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.jn_text));
-
-        tv_mode_hengwen.setTextColor(Y.getColor(R.color.text_color_9));
-        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.text_color_9));
-
-        tv_mode_bengyou.setTextColor(Y.getColor(R.color.text_color_9));
+//        tv_mode_shoudong.setTextColor(Y.getColor(R.color.jn_text));
+//        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.jn_text));
+//
+//        tv_mode_hengwen.setTextColor(Y.getColor(R.color.text_color_9));
+//        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.text_color_9));
+//
+//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.text_color_9));
 
         tv_shebei_state.setText("设备状态:手动模式");
     }
@@ -657,13 +651,13 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
         isKaiji = false;
         Glide.with(mContext).load(R.mipmap.jg_home_pic_kongtiao_nor).into(iv_jiareqi);
         seekBar1.setPressed(false);
-        tv_mode_shoudong.setTextColor(Y.getColor(R.color.white));
-        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.white));
-
-        tv_mode_hengwen.setTextColor(Y.getColor(R.color.white));
-        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.white));
-
-        tv_mode_bengyou.setTextColor(Y.getColor(R.color.white));
+//        tv_mode_shoudong.setTextColor(Y.getColor(R.color.white));
+//        tv_mode_shoudong_kai.setTextColor(Y.getColor(R.color.white));
+//
+//        tv_mode_hengwen.setTextColor(Y.getColor(R.color.white));
+//        tv_mode_hengwen_kai.setTextColor(Y.getColor(R.color.white));
+//
+//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.white));
 
         if (bengyouDialog != null && bengyouDialog.isShowing()) {
             bengyouDialog.dismiss();
@@ -682,7 +676,7 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
 
     private void setUiBengyou() {
         isKaiji = false;
-        tv_mode_bengyou.setTextColor(Y.getColor(R.color.jn_text));
+//        tv_mode_bengyou.setTextColor(Y.getColor(R.color.jn_text));
         bengyouDialog.setTextConfirm("停止泵油");
         if (bengyouDialog != null && !bengyouDialog.isShowing()) {
             bengyouDialog.show();
@@ -831,6 +825,25 @@ public class JinnuoMainActivity extends BaseActivity implements View.OnLongClick
     private void initHandlerNS() {
         Message message = handlerTime10.obtainMessage(1);
         handlerTime10.sendMessageDelayed(message, 10000);
+    }
+
+    private void getNData() {
+        //向风暖加热器发送获取实时数据
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg("N.")
+                .setQos(2)
+                .setTopic(CAR_CTROL)
+                .setRetained(false), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+                Y.i("Rair", "订阅风暖实时数据");
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                Y.i("Rair", "订阅风暖实时数据失败");
+            }
+        });
     }
 
     @Override

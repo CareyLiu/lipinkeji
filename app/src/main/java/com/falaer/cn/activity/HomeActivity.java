@@ -14,13 +14,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.falaer.cn.activity.device_falaer.FalaerMainActivity;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jaeger.library.StatusBarUtil;
 import com.falaer.cn.R;
-import com.falaer.cn.activity.device_jg.JinggongMainActivity;
 import com.falaer.cn.activity.device_jn.JinnuoMainActivity;
-import com.falaer.cn.activity.device_ty.TongyongMainActivity;
 import com.falaer.cn.activity.shuinuan.Y;
 import com.falaer.cn.app.AppManager;
 import com.falaer.cn.app.BaseActivity;
@@ -182,13 +181,9 @@ public class HomeActivity extends BaseActivity {
     private void tuiSongTanChuang(Notice notice) {
         String message = (String) notice.content;
         alarmClass = new Gson().fromJson(message, AlarmClass.class);
-        if (MyApplication.activity_main.getClass().getSimpleName().equals(JinnuoMainActivity.class.getSimpleName())) {
+        if (MyApplication.activity_main.getClass().getSimpleName().equals(FalaerMainActivity.class.getSimpleName())) {
             return;
         } else if (MyApplication.activity_main.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
-            return;
-        } else if (MyApplication.activity_main.getClass().getSimpleName().equals(JinggongMainActivity.class.getSimpleName())) {
-            return;
-        } else if (MyApplication.activity_main.getClass().getSimpleName().equals(TongyongMainActivity.class.getSimpleName())) {
             return;
         } else if (MyApplication.activity_main.getClass().getSimpleName().equals(FengNuanActivity.class.getSimpleName())) {
             return;
