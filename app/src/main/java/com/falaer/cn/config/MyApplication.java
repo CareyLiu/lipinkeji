@@ -218,7 +218,7 @@ public class MyApplication extends MultiDexApplication {
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
         strategy.setUploadProcess(processName == null || processName.equals(packageName));
         // 初始化Bugly
-        Bugly.init(getApplicationContext(), "062ad00ef8", false);
+        Bugly.init(getApplicationContext(), "9067f261f0", false);
 
         CompositeSubscription _subscriptions = new CompositeSubscription();
         _subscriptions = RxUtils.getNewCompositeSubIfUnsubscribed(_subscriptions);
