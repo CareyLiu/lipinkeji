@@ -1,8 +1,11 @@
 package com.falaer.cn.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -15,6 +18,7 @@ import com.falaer.cn.app.BaseActivity;
 import com.falaer.cn.app.ConstanceValue;
 import com.falaer.cn.app.Notice;
 import com.falaer.cn.util.AppToast;
+import com.gyf.barlibrary.ImmersionBar;
 
 import java.util.List;
 
@@ -35,6 +39,16 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
     public void onCreate(Bundle savedInstanceStateundle) {
         super.onCreate(savedInstanceStateundle);
         initView();
+    }
+
+
+    @Override
+    public void initImmersion() {
+      //  super.initImmersion();
+
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.shenlanhei).init();
+
     }
 
 
@@ -112,13 +126,15 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
         context.startActivity(intent);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void initToolbar() {
         super.initToolbar();
         tv_title.setText("绑定设备");
         tv_title.setTextSize(17);
-        tv_title.setTextColor(getResources().getColor(R.color.black));
-        mToolbar.setNavigationIcon(R.mipmap.backbutton);
+        tv_title.setTextColor(getResources().getColor(R.color.white));
+        mToolbar.setNavigationIcon(R.mipmap.back_white);
+        mToolbar.setBackgroundColor(getResources().getColor(R.color.shenlanhei));
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,4 +147,6 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
     public boolean showToolBar() {
         return true;
     }
+
+
 }

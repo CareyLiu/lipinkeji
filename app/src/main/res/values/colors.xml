@@ -97,6 +97,7 @@
     <color name="wzw_shuinuan_text">#00FFB4</color>
     <color name="wzw_shuinuan_text_new">#F7FF00</color>
     <color name="wzw_shuinuan_text_shu">#00FFB4</color>
-
+    <color name="shenlanhei">#192231</color>
+    <color name="text_blue">#0EA9F4</color>
 
 </resources>

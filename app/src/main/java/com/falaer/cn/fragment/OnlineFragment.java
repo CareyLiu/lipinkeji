@@ -6,8 +6,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.falaer.cn.R;
 import com.falaer.cn.activity.BindBoxActivity;
 import com.falaer.cn.activity.ShangchengActivity;
@@ -32,10 +34,13 @@ import com.falaer.cn.model.SheBeiLieBieListModel;
 import com.falaer.cn.model.SheBeiModel;
 import com.falaer.cn.tools.NetworkUtils;
 import com.falaer.cn.util.AlertUtil;
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
@@ -44,10 +49,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,6 +74,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
     RelativeLayout ivShangcheng;
     @BindView(R.id.iv_close)
     ImageView ivClose;
+    @BindView(R.id.cls_header)
+    ClassicsHeader clsHeader;
     private Unbinder unbinder;
 
     private SheBeiListAdapter sheBeiListAdapter;
@@ -94,8 +97,11 @@ public class OnlineFragment extends BaseFragment implements Observer {
     protected void initView(View view) {
         view.setClickable(true);// 防止点击穿透，底层的fragment响应上层点击触摸事件
         unbinder = ButterKnife.bind(this, view);
-        sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei_two, R.layout.item_shebei_header, mDatas);
-        mList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        //  sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
+        //  mList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        clsHeader.setAccentColor(getResources().getColor(R.color.white));
+        sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
+        mList.setLayoutManager(new LinearLayoutManager(getActivity()));
         mList.setAdapter(sheBeiListAdapter);
         sheBeiListAdapter.notifyDataSetChanged();
         sheBeiListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
@@ -214,7 +220,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
 
     @Override
     protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.white).init();
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.shenlanhei).init();
     }
 
 

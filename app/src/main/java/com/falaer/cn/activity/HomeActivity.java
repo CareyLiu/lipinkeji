@@ -14,9 +14,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
-import com.jaeger.library.StatusBarUtil;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+
 import com.falaer.cn.R;
 import com.falaer.cn.activity.device_jg.JinggongMainActivity;
 import com.falaer.cn.activity.device_jn.JinnuoMainActivity;
@@ -30,10 +33,14 @@ import com.falaer.cn.config.MyApplication;
 import com.falaer.cn.dialog.newdia.TishiDialog;
 import com.falaer.cn.fragment.MineFragment;
 import com.falaer.cn.fragment.OnlineFragment;
+import com.falaer.cn.fragment.ShuoMingFragment;
 import com.falaer.cn.model.AlarmClass;
 import com.falaer.cn.util.AppToast;
 import com.falaer.cn.util.SoundPoolUtils;
 import com.falaer.cn.view.NoScrollViewPager;
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
+import com.jaeger.library.StatusBarUtil;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 
@@ -42,12 +49,6 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,6 +79,8 @@ public class HomeActivity extends BaseActivity {
     TextView tvMine;
     @BindView(R.id.ll_mine)
     LinearLayout llMine;
+    @BindView(R.id.ll_main)
+    LinearLayout llMain;
 
 
     private AlarmClass alarmClass;
@@ -93,8 +96,8 @@ public class HomeActivity extends BaseActivity {
     @Override
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.statusBarColor("#192231");
         mImmersionBar.init();
-        mImmersionBar.statusBarDarkFont(true);
     }
 
     @Override
@@ -145,14 +148,16 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initData() {
-        List<Fragment> fragments = new ArrayList<>(2);
+        List<Fragment> fragments = new ArrayList<>(3);
 
-        llHome.setVisibility(View.GONE);
+        // llHome.setVisibility(View.GONE);
 
         OnlineFragment onlineFragment = new OnlineFragment();
         MineFragment mineFragment = new MineFragment();
+        ShuoMingFragment shuoMingFragment = new ShuoMingFragment();
 
         fragments.add(onlineFragment);
+        fragments.add(shuoMingFragment);
         fragments.add(mineFragment);
 
         // set adapter
@@ -295,29 +300,35 @@ public class HomeActivity extends BaseActivity {
     @OnClick({R.id.ll_home, R.id.ll_device, R.id.ll_mine})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.ll_device:
+            case R.id.ll_home:
                 select(0);
                 break;
-            case R.id.ll_mine:
+            case R.id.ll_device:
                 select(1);
+                break;
+            case R.id.ll_mine:
+                select(2);
                 break;
         }
     }
 
     private void select(int pos) {
         mVp.setCurrentItem(pos);
-        ivHome.setImageResource(R.mipmap.tuya_tab_icon_shouye_nor);
-        ivDevice.setImageResource(R.mipmap.tuya_tab_icon_device_nor);
-        ivMine.setImageResource(R.mipmap.tuya_tab_icon_mine_nor);
+        ivHome.setImageResource(R.mipmap.shebei_n);
+        ivDevice.setImageResource(R.mipmap.shuoming_noneselect);
+        ivMine.setImageResource(R.mipmap.wd);
         tvHome.setTextColor(Y.getColor(R.color.text_color_9));
         tvDevice.setTextColor(Y.getColor(R.color.text_color_9));
         tvMine.setTextColor(Y.getColor(R.color.text_color_9));
         if (pos == 0) {
-            ivDevice.setImageResource(R.mipmap.tuya_tab_icon_device_sel);
-            tvDevice.setTextColor(Y.getColor(R.color.text_color_main));
+            ivHome.setImageResource(R.mipmap.shebei);
+            tvHome.setTextColor(Y.getColor(R.color.text_blue));
         } else if (pos == 1) {
-            ivMine.setImageResource(R.mipmap.tuya_tab_icon_mine_sel);
-            tvMine.setTextColor(Y.getColor(R.color.text_color_main));
+            ivDevice.setImageResource(R.mipmap.shuoming_s);
+            tvDevice.setTextColor(Y.getColor(R.color.text_blue));
+        } else if (pos == 2) {
+            ivMine.setImageResource(R.mipmap.wd_s);
+            tvMine.setTextColor(Y.getColor(R.color.text_blue));
         }
     }
 

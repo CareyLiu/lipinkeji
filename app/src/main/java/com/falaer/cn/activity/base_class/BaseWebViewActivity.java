@@ -13,6 +13,7 @@ import com.falaer.cn.app.BaseActivity;
  * 作者:刘佳钊
  */
 public abstract class BaseWebViewActivity extends BaseActivity {
+
     private WebView webView;
 
     @Override

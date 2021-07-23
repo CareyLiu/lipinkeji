@@ -4,10 +4,9 @@
     android:id="@+id/constrain"
     android:layout_width="match_parent"
     android:layout_height="204pt"
-    android:layout_marginHorizontal="33pt"
+    android:layout_marginHorizontal="30pt"
     android:layout_marginTop="21pt"
-    android:background="@mipmap/liebiaokuang"
-    android:gravity="center_vertical">
+    android:background="@mipmap/liebiaokuang">
 
     <LinearLayout
         android:id="@+id/ll_left"
@@ -37,6 +36,7 @@
 
 
         <LinearLayout
+            android:id="@+id/ll_mingcheng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -61,17 +61,18 @@
                 android:layout_marginLeft="3pt"
                 android:gravity="center_vertical"
 
-                android:text="<使用中>"
+                android:text="使用中"
                 android:textColor="#FF5A00"
                 android:textSize="17pt" />
         </LinearLayout>
 
 
         <TextView
+            android:layout_below="@+id/ll_mingcheng"
             android:id="@+id/tv_youxiaoqi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="51pt"
+            android:layout_marginTop="23.5pt"
             android:includeFontPadding="false"
             android:text="设备有效期至：2020-12-12 10:10:10"
             android:textColor="#0EA9F4"
@@ -82,21 +83,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_youxiaoqi"
-            android:layout_marginTop="15pt"
+            android:layout_marginTop="23.5pt"
             android:includeFontPadding="false"
             android:text="ccid：123456789012345678901234"
             android:textColor="#FFFFFF"
             android:textSize="23pt" />
 
+
         <ImageView
-            android:layout_marginTop="31pt"
-            android:layout_marginRight="39pt"
+
+            android:id="@+id/iv_biaozhi"
             android:layout_width="122pt"
             android:layout_height="19pt"
             android:layout_alignParentRight="true"
-            android:src="@mipmap/zhuangshi">
+            android:layout_marginTop="16pt"
+            android:layout_marginRight="79pt"
+            android:src="@mipmap/zhuangshi" />
 
-        </ImageView>
+        <TextView
+            android:id="@+id/tv_gongxiang"
+            android:layout_marginRight="15pt"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共享设备"
+            android:textColor="#ffff5a00"
+            android:textSize="23pt" />
+
+
     </RelativeLayout>
 
     <ImageView

@@ -11,6 +11,7 @@ import com.falaer.cn.R;
 import com.falaer.cn.activity.shuinuan.Y;
 import com.falaer.cn.baseadapter.baserecyclerviewadapterhelper.BaseSectionQuickAdapter;
 import com.falaer.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder;
+import com.falaer.cn.common.StringUtils;
 import com.falaer.cn.model.SheBeiModel;
 
 import java.util.List;
@@ -46,26 +47,40 @@ public class SheBeiListAdapter extends BaseSectionQuickAdapter<SheBeiModel, Base
 
         helper.setText(R.id.tv_youxiaoqi, "设备有效期至：" + item.validity_time);
         helper.setText(R.id.tv_shiyong_zhuangtai, item.validity_term);
+
+
+
         Glide.with(mContext).load(item.device_img_url).into((ImageView) helper.getView(R.id.iv_image));
+        //1.使用中 2.已过期 3.长久有效
+
         if (item.validity_state.equals("1")) {
             helper.getView(R.id.tv_shiyong_zhuangtai).setBackgroundResource(R.drawable.bg_shebei_shiyongzhuangtai_red);
             TextView tv = (TextView) helper.getView(R.id.tv_shiyong_zhuangtai);
-            tv.setTextColor(Color.parseColor("#009ECE"));
+            tv.setTextColor(Color.parseColor("#FF5A00"));
+            tv.setText("<使用中>");
+
         } else if (item.validity_state.equals("2")) {
             helper.getView(R.id.tv_shiyong_zhuangtai).setBackgroundResource(R.drawable.bg_shebei_shiyongzhuangtai_gray);
             TextView tv = (TextView) helper.getView(R.id.tv_shiyong_zhuangtai);
             tv.setTextColor(mContext.getResources().getColor(R.color.gray_999999));
+            tv.setText("<已失效>");
         }
 
         TextView tv_gongxiang = helper.getView(R.id.tv_gongxiang);
         if (!TextUtils.isEmpty(item.share_type)) {
             if (item.share_type.equals("2")) {
                 tv_gongxiang.setVisibility(View.VISIBLE);
+                helper.setVisible(R.id.tv_gongxiang, true);
+                helper.setVisible(R.id.iv_biaozhi, true);
             } else {
                 tv_gongxiang.setVisibility(View.GONE);
+                helper.setVisible(R.id.tv_gongxiang, false);
+                helper.setVisible(R.id.iv_biaozhi, false);
             }
         } else {
             tv_gongxiang.setVisibility(View.GONE);
+            helper.setVisible(R.id.tv_gongxiang, false);
+            helper.setVisible(R.id.iv_biaozhi, false);
         }
 
         helper.setText(R.id.tv_name, item.device_name);
