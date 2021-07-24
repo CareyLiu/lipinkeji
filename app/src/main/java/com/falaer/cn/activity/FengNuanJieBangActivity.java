@@ -144,7 +144,7 @@ public class FengNuanJieBangActivity extends BaseActivity {
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(this).getAppToken());
         map.put("user_phone", user_phone);
-        map.put("mod_id", "0344");
+        map.put("mod_id", "0356");
         Gson gson = new Gson();
         OkGo.<AppResponse<Message.DataBean>>post(Urls.SERVER_URL + "msg")
                 .tag(this)//

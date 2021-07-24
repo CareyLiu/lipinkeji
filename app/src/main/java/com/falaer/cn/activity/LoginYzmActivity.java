@@ -106,7 +106,7 @@ public class LoginYzmActivity extends BaseActivity {
         map.put("code", "00001");
         map.put("key", Urls.key);
         map.put("user_phone", ed_phone.getText().toString());
-        map.put("mod_id", "0342");//老温家修改
+        map.put("mod_id", "0354");//法拉尔修改密码
         Gson gson = new Gson();
         OkGo.<AppResponse<Message.DataBean>>post(Urls.MSG)
                 .tag(this)//

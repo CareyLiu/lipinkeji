@@ -243,8 +243,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
 
     public void getSheBeiData() {
         Map<String, String> map = new HashMap<>();
-//        map.put("code", "03510");//我们自己的
         map.put("code", "03517");//老温的
+//        map.put("code", "03522");//法拉尔
         map.put("key", Urls.key);
         map.put("user_car_type", "1");
         map.put("token", UserManager.getManager(getActivity()).getAppToken());

@@ -20,6 +20,9 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.Glide;
+import com.falaer.cn.activity.shuinuan.Y;
+import com.falaer.cn.callback.DialogCallback;
+import com.falaer.cn.model.LoginUser;
 import com.flyco.animation.BaseAnimatorSet;
 import com.flyco.animation.BounceEnter.BounceBottomEnter;
 import com.flyco.animation.SlideExit.SlideBottomExit;
@@ -79,6 +82,7 @@ import butterknife.OnClick;
 import io.rong.imkit.RongIM;
 
 import static com.falaer.cn.get_net.Urls.HOME_PICTURE_HOME;
+import static com.falaer.cn.get_net.Urls.SERVER_URL;
 
 public class SettingActivity extends BaseActivity implements Observer, TakePhoto.TakeResultListener, InvokeListener {
     @BindView(R.id.iv_header)
@@ -440,21 +444,48 @@ public class SettingActivity extends BaseActivity implements Observer, TakePhoto
                         new OnBtnClickL() {
                             @Override
                             public void onBtnClick() {
+                                loginOut();
                                 UserManager.getManager(SettingActivity.this).removeUser();
                                 PreferenceHelper.getInstance(SettingActivity.this).removeKey(AppConfig.SERVERID);
                                 PreferenceHelper.getInstance(SettingActivity.this).removeKey(AppConfig.DEVICECCID);
                                 normalDialog.dismiss();
+
                                 //发送通知 -- 关闭所有订阅的mqtt
                                 Notice n = new Notice();
                                 n.type = ConstanceValue.MSG_UNSUB_MQTT;
                                 RxBus.getDefault().sendRx(n);
-                                //RongIM.getInstance().logout();
-                                startActivity(new Intent(SettingActivity.this, LoginActivity.class));
 
+                                startActivity(new Intent(SettingActivity.this, LoginActivity.class));
                             }
                         });
                 break;
         }
+    }
+
+
+    /**
+     * 退出登陆
+     */
+    private void loginOut() {
+        Map<String, String> map = new HashMap<>();
+        map.put("code", "03528");
+        map.put("key", Urls.key);
+        map.put("token", UserManager.getManager(this).getAppToken());
+        Gson gson = new Gson();
+        OkGo.<AppResponse<LoginUser.DataBean>>post(SERVER_URL + "index/login")
+                .tag(this)//
+                .upJson(gson.toJson(map))
+                .execute(new DialogCallback<AppResponse<LoginUser.DataBean>>(this) {
+                    @Override
+                    public void onSuccess(Response<AppResponse<LoginUser.DataBean>> response) {
+
+                    }
+
+                    @Override
+                    public void onError(Response<AppResponse<LoginUser.DataBean>> response) {
+
+                    }
+                });
     }
 
     @Override

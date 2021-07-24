@@ -272,7 +272,7 @@ public class LoginActivity extends BaseActivity {
             map.put("code", "00001");
             map.put("key", Urls.key);
             map.put("user_phone", mEtPhone.getText().toString());
-            map.put("mod_id", "0343");//老温家登录
+            map.put("mod_id", "0355");//法拉尔登录
             Gson gson = new Gson();
             OkGo.<AppResponse<Message.DataBean>>post(SERVER_URL + "msg")
                     .tag(this)//
@@ -304,7 +304,7 @@ public class LoginActivity extends BaseActivity {
             UIHelper.ToastMessage(this, "手机号码不能为空");
         } else {
             Map<String, String> map = new HashMap<>();
-            map.put("code", "00061");
+            map.put("code", "00065");
             map.put("key", Urls.key);
             map.put("req_type", req_type);
             map.put("user_phone", mEtPhone.getText().toString());
