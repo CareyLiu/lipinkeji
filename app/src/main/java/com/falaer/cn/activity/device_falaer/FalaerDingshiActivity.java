@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.falaer.cn.activity.shuinuan.Y;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.falaer.cn.R;
@@ -258,7 +259,7 @@ public class FalaerDingshiActivity extends BaseActivity {
 
                     @Override
                     public void onError(Response<AppResponse<DingShiResultModel.DataBean>> response) {
-                        UIHelper.ToastMessage(mContext, response.body().msg);
+                        Y.tError(response);
                     }
                 });
     }

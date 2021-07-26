@@ -287,19 +287,20 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         String dianya = Y.getInt(messageData.substring(10, 13)) + "." + messageData.substring(13, 14);
 
         //风机转速->13245    5
-        String fenjizhuansu = Y.getInt(messageData.substring(14, 19)) + "";
+        int fenjizhuansu = Y.getInt(messageData.substring(14, 19));
+        tv_fengjizhuansu.setText("风机转速:" + fenjizhuansu + "r");
 
         //加热塞功率->0264=26.4	    4
         String jiaresaigonglv = Y.getInt(messageData.substring(19, 22)) + "." + messageData.substring(22, 23);
 
         //油泵频率->0265=26.5       4
-
         String a = messageData.substring(26, 27);
         String youbengpinlv;
         if (a.equals("a")) {
-            youbengpinlv = "aa.a";
+            tv_youbengpinlv.setText("油泵频率：0Hz");
         } else {
             youbengpinlv = Y.getInt(messageData.substring(23, 26)) + "." + messageData.substring(26, 27);
+            tv_youbengpinlv.setText("油泵频率：" + youbengpinlv + "Hz");
         }
 
         //入风口温度->例如:-026       4
@@ -334,9 +335,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         tv_daqiya.setText("大气压：" + Y.getInt(daqiya) + "kpa");
         tv_haibagaodu.setText("海拔高度：" + Y.getInt(haibagaodu) + "m");
         tv_hanyangliang.setText("含氧量：" + Y.getInt(hanyangliang) + "g/m³");
-        tv_youbengpinlv.setText("油泵频率:" + youbengpinlv + "Hz");
-        tv_fengjizhuansu.setText("风机转速:" + Y.getInt(fenjizhuansu) + "r");
-        tv_gangtiwendu.setText("缸体温度:" + Y.getInt(wendu_chufengkou) + "℃");
+        tv_gangtiwendu.setText("缸体温度：" + Y.getInt(wendu_chufengkou) + "℃");
 
         if (shuibengzhuangtai.equals("0")) {
             bt_mode_shuibeng.setEnabled(true);
@@ -597,7 +596,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         }
     }
 
-    @OnClick({R.id.rl_back, R.id.iv_set, R.id.ll_shuoming})
+    @OnClick({R.id.rl_back, R.id.iv_set, R.id.ll_shuoming, R.id.bt_jia, R.id.bt_jian})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
@@ -609,7 +608,182 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
             case R.id.ll_shuoming:
                 FalaerShuomingActivity.actionStart(mContext);
                 break;
+            case R.id.bt_jia:
+                clickUp();
+                break;
+            case R.id.bt_jian:
+                clickDown();
+                break;
         }
+    }
+
+    private void clickUp() {
+        if (typeZaixian != 1) {
+            return;
+        }
+
+        if (!isKaiji) {
+            return;
+        }
+
+        if (isHenwenMode) {
+            int wendu = Y.getInt(yushewendu);
+            if (wendu >= 33) {
+                Y.t("预设温度已达最高值，无法调高！");
+                return;
+            }
+
+            if (wendu < 33) {
+                wendu++;
+            }
+
+            if (wendu < 10) {
+                yushewendu = "0" + wendu;
+            } else {
+                yushewendu = "" + wendu;
+            }
+            setwendu(yushewendu);
+            String mingling = 50 + wendu + "";
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("M6" + mingling + ".")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+        } else {
+            if (dangwei.equals("5")) {
+                Y.t("已是最高档位，无法升档！");
+                return;
+            }
+
+            switch (dangwei) {
+                case "1":
+                    dangwei = "2";
+                    break;
+                case "2":
+                    dangwei = "3";
+                    break;
+                case "3":
+                    dangwei = "4";
+                    break;
+                case "4":
+                    dangwei = "5";
+                    break;
+            }
+            setDangwei(dangwei);
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("M62" + dangwei + ".")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+        }
+    }
+
+    private void clickDown() {
+        if (typeZaixian != 1) {
+            return;
+        }
+
+        if (!isKaiji) {
+            return;
+        }
+
+        if (isHenwenMode) {
+            int wendu = Y.getInt(yushewendu);
+            if (wendu <= 0) {
+                Y.t("预设温度已达最低值，无法降低！");
+                return;
+            }
+
+            wendu--;
+
+            if (wendu < 10) {
+                yushewendu = "0" + wendu;
+            } else {
+                yushewendu = "" + wendu;
+            }
+
+            setwendu(yushewendu);
+            String mingling = 50 + wendu + "";
+
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("M6" + mingling + ".")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+        } else {
+            if (dangwei.equals("1")) {
+                Y.t("已是最低档位，无法降档！");
+                return;
+            }
+
+            switch (dangwei) {
+                case "2":
+                    dangwei = "1";
+                    break;
+                case "3":
+                    dangwei = "2";
+                    break;
+                case "4":
+                    dangwei = "3";
+                    break;
+                case "5":
+                    dangwei = "4";
+                    break;
+            }
+            setDangwei(dangwei);
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("M62" + dangwei + ".")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+        }
+    }
+
+    private void setDangwei(String dangwei) {
+        seekBar1.setProgress(Y.getInt(dangwei));
+        tv_dangwei.setText("当前档位:" + dangwei + "档");
+    }
+
+
+    private void setwendu(String yushewendu) {
+        seekBar1.setProgress(Y.getInt(yushewendu));
+        tv_dangwei.setText("设定温度:" + Y.getInt(yushewendu) + "℃");
     }
 
     @Override

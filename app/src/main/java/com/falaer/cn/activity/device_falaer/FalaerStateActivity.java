@@ -85,6 +85,7 @@ public class FalaerStateActivity extends BaseActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -241,13 +242,21 @@ public class FalaerStateActivity extends BaseActivity {
         String dianya = Y.getInt(messageData.substring(10, 13)) + "." + messageData.substring(13, 14);
 
         //风机转速->13245    5
-        String fenjizhuansu = messageData.substring(14, 19);
+        int fenjizhuansu = Y.getInt(messageData.substring(14, 19));
+        tv_fengjizhuansu.setText(fenjizhuansu + "r");
 
         //加热塞功率->0264=26.4	    4
         String jiaresaigonglv = Y.getInt(messageData.substring(19, 22)) + "." + messageData.substring(22, 23);
 
         //油泵频率->0265=26.5       4
-        String youbengpinlv = Y.getInt(messageData.substring(23, 26)) + "." + messageData.substring(26, 27);
+        String a = messageData.substring(26, 27);
+        String youbengpinlv;
+        if (a.equals("a")) {
+            tv_youbengpinlv.setText("0Hz");
+        } else {
+            youbengpinlv = Y.getInt(messageData.substring(23, 26)) + "." + messageData.substring(26, 27);
+            tv_youbengpinlv.setText(youbengpinlv + "Hz");
+        }
 
         //入风口温度->例如:-026       4
         String wendu_rufengkou = messageData.substring(27, 31);
@@ -289,8 +298,6 @@ public class FalaerStateActivity extends BaseActivity {
         tv_dianya.setText(dianya + "V");
         tv_rufengkouwendu.setText(Y.getInt(wendu_rufengkou) + "℃");
         tv_chufengkouwendu.setText(Y.getInt(wendu_chufengkou) + "℃");
-        tv_fengjizhuansu.setText(Y.getInt(fenjizhuansu) + "rpm");
-        tv_youbengpinlv.setText(youbengpinlv + "Hz");
         tv_jiaresaigonglv.setText(jiaresaigonglv + "kw");
         tv_daqiya.setText(Y.getInt(daqiya) + "Kpa");
         tv_haibagaodu.setText(Y.getInt(haibagaodu) + "km");

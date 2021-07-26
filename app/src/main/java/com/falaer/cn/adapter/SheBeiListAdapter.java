@@ -41,8 +41,9 @@ public class SheBeiListAdapter extends BaseSectionQuickAdapter<SheBeiModel, Base
     protected void convert(BaseViewHolder helper, SheBeiModel item) {
         helper.addOnClickListener(R.id.constrain);
 
-        String substring = item.ccid.substring(11);
-        helper.setText(R.id.tv_ccid, "设备码: " + substring);
+//        String substring = item.ccid.substring(11);
+//        helper.setText(R.id.tv_ccid, "设备码: " + substring);
+        helper.setText(R.id.tv_ccid, "设备码: " + item.ccid);
 
 
         helper.setText(R.id.tv_youxiaoqi, "设备有效期至：" + item.validity_time);

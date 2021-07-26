@@ -123,8 +123,9 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 PreferenceHelper.getInstance(getActivity()).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
                                 PreferenceHelper.getInstance(getActivity()).putString("ccid", mDatas.get(position).ccid);
+//                                PreferenceHelper.getInstance(getActivity()).putString("ccid", "aaaaaaaaaaaaaaa110020018");
                                 PreferenceHelper.getInstance(getContext()).putString("sim_ccid_save_type", mDatas.get(position).sim_ccid_save_type);
-                                MyApplication.CARBOX_GETNOW = "wit/cbox/app/" + getServer_id() + mDatas.get(position).ccid;
+                                MyApplication.CARBOX_GETNOW = "wit/cbox/app/" + getServer_id() + MyApplication.getCcid();
                                 MyApplication.CAR_NOTIFY = "wit/server/" + getServer_id() + MyApplication.getUser_id();
                                 MyApplication.CAR_CTROL = "wit/cbox/hardware/" + getServer_id() + MyApplication.getCcid();
 
@@ -243,8 +244,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
 
     public void getSheBeiData() {
         Map<String, String> map = new HashMap<>();
-        map.put("code", "03517");//老温的
-//        map.put("code", "03522");//法拉尔
+        map.put("code", "03522");//法拉尔
         map.put("key", Urls.key);
         map.put("user_car_type", "1");
         map.put("token", UserManager.getManager(getActivity()).getAppToken());
