@@ -38,6 +38,16 @@
                 android:layout_centerInParent="true"
                 android:src="@mipmap/tinjia" />
         </RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_falaer_shangcheng"
+            android:layout_width="50pt"
+            android:layout_height="50pt"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20pt"
+            android:layout_toLeftOf="@+id/iv_add"
+            android:src="@mipmap/sheibeiliebiao_shangcheng">
+
+        </ImageView>
     </RelativeLayout>
 
 

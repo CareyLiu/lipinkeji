@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.blankj.utilcode.util.StringUtils;
+import com.falaer.cn.model.ChuLiGuZhangMa;
 import com.flyco.animation.BaseAnimatorSet;
 import com.flyco.animation.BounceEnter.BounceTopEnter;
 import com.flyco.animation.SlideExit.SlideBottomExit;
@@ -256,44 +257,11 @@ public class DiagnosisActivity extends BaseActivity {
                         layoutInfo.setVisibility(View.VISIBLE);
 
 
+                        String ccid = PreferenceHelper.getInstance(mContext).getString("ccid", "");
+                        zhu_car_stoppage_no =ChuLiGuZhangMa.getGuZhangMa(ccid,zhu_car_stoppage_no);
+                        mTvMessage.setText(ChuLiGuZhangMa.codeXinXiShow(ccid,zhu_car_stoppage_no));
 
 
-                        switch (zhu_car_stoppage_no) {
-
-                            case "1":
-                                mTvMessage.setText("电压过低或过高");
-                                break;
-                            case "2":
-                                mTvMessage.setText("油泵开路或短路");
-                                break;
-                            case "3":
-                                mTvMessage.setText("壳体温度传感器开路或短路");
-                                break;
-                            case "4":
-                                mTvMessage.setText("入风口传感器开路或短路");
-                                break;
-                            case "5":
-                                mTvMessage.setText("点火塞开路或短路");
-                                break;
-                            case "6":
-                                mTvMessage.setText("入风口传感器高温报警");
-                                break;
-                            case "8":
-                                mTvMessage.setText("风机传感器开路或短路");
-                                break;
-                            case "9":
-                                mTvMessage.setText("火焰熄灭故障");
-                                break;
-                            case "10":
-                                mTvMessage.setText("点火失败故障");
-                                break;
-                            case "11":
-                                mTvMessage.setText("壳体高温报警");
-                                break;
-                            case "18":
-                                mTvMessage.setText("晶屏与主机失联故障");
-                                break;
-                        }
                     }else {
                         if (StringUtils.isEmpty(zhu_car_stoppage_no)) {
 
@@ -504,11 +472,11 @@ public class DiagnosisActivity extends BaseActivity {
                                 //      UIHelper.ToastMessage(DiagnosisActivity.this, "故障清除中，请稍候", Toast.LENGTH_SHORT);
                                 // dialog.dismiss();
                                 UIHelper.ToastMessage(DiagnosisActivity.this, "故障清除中", Toast.LENGTH_SHORT);
-                                mTvTitle.setText("整机运转正常");
+                              //  mTvTitle.setText("整机运转正常");
 //                                layoutInfo.setVisibility(View.VISIBLE);
 //                                layoutMessage.setVisibility(View.VISIBLE);
 //                                btnClean.setVisibility(View.VISIBLE);
-                                whatUWant = "qingchuguzhang";
+                                //whatUWant = "qingchuguzhang";
                                 //finish();
                             }
 

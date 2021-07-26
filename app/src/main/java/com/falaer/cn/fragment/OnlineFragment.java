@@ -10,12 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.falaer.cn.activity.device_falaer.FalaerMainActivity;
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
 import com.falaer.cn.R;
 import com.falaer.cn.activity.BindBoxActivity;
 import com.falaer.cn.activity.ShangchengActivity;
+import com.falaer.cn.activity.device_falaer.FalaerMainActivity;
 import com.falaer.cn.activity.shuinuan_wzw.ShuinuanWzwMainActivityNew;
 import com.falaer.cn.activity.zckt.AirConditionerActivity;
 import com.falaer.cn.adapter.SheBeiListAdapter;
@@ -76,6 +74,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
     ImageView ivClose;
     @BindView(R.id.cls_header)
     ClassicsHeader clsHeader;
+    @BindView(R.id.iv_falaer_shangcheng)
+    ImageView ivFalaerShangcheng;
     private Unbinder unbinder;
 
     private SheBeiListAdapter sheBeiListAdapter;
@@ -206,6 +206,12 @@ public class OnlineFragment extends BaseFragment implements Observer {
             @Override
             public void onClick(View v) {
                 ivShangcheng.setVisibility(View.GONE);
+            }
+        });
+        ivFalaerShangcheng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShangchengActivity.actionStart(getActivity());
             }
         });
     }
