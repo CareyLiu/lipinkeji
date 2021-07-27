@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/black"
+            android:textSize="30pt"
             android:visibility="visible"
             tools:text="Toobar" />
 

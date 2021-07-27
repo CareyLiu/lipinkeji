@@ -2,21 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/bg"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/bazi_renzheng"
+        android:layout_marginRight="15dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="84pt"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -24,10 +24,10 @@
                 android:id="@+id/tv_pwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="67pt"
                 android:text="登录密码"
-                android:textColor="@color/text_color_3"
-                android:textSize="15sp"
+                android:textColor="@color/text_blue"
+                android:textSize="29pt"
                 android:textStyle="bold" />
 
             <EditText
@@ -39,19 +39,23 @@
                 android:hint="请输登录密码"
                 android:inputType="textPassword"
                 android:paddingLeft="14dp"
-                android:textColor="@color/black_666666"
-                android:textColorHint="@color/black_666666"
-                android:textSize="15sp" />
+                android:textColor="@color/text_blue_80"
+                android:textColorHint="@color/text_blue_80"
+                android:textSize="29pt" />
         </LinearLayout>
 
-        <View
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#EEEEEE" />
+            android:layout_height="4pt"
+            android:layout_marginLeft="50pt"
+            android:layout_marginRight="10pt"
+            android:scaleType="fitXY"
+            android:src="@mipmap/denglu_shurukuang" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="84pt"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -59,10 +63,10 @@
                 android:id="@+id/tv_pwd_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="67pt"
                 android:text="确认密码"
-                android:textColor="@color/text_color_3"
-                android:textSize="15sp"
+                android:textColor="@color/text_blue"
+                android:textSize="29pt"
                 android:textStyle="bold" />
 
             <EditText
@@ -74,20 +78,31 @@
                 android:hint="请确认登录密码"
                 android:inputType="textPassword"
                 android:paddingLeft="14dp"
-                android:textColor="@color/black_666666"
-                android:textColorHint="@color/black_666666"
-                android:textSize="15sp" />
+                android:textColor="@color/text_blue_80"
+                android:textColorHint="@color/text_blue_80"
+                android:textSize="29pt" />
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4pt"
+            android:layout_marginLeft="50pt"
+            android:layout_marginRight="10pt"
+            android:scaleType="fitXY"
+            android:src="@mipmap/denglu_shurukuang" />
     </LinearLayout>
 
     <Button
         android:id="@+id/bt_ok"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_height="88pt"
+        android:layout_below="@+id/ll_qiehuan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="42pt"
         android:layout_marginTop="30dp"
-        android:background="@drawable/bt_login_bacground"
+        android:background="@mipmap/denglu"
+        android:maxLines="1"
         android:text="确定"
-        android:textColor="@color/white" />
+        android:textColor="@color/text_blue"
+        android:textSize="30pt" />
 </LinearLayout>

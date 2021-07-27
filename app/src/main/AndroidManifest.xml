@@ -163,9 +163,9 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name="com.falaer.cn.activity.LoginActivity"
-            android:configChanges="locale|keyboardHidden|orientation"
+            android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
         <activity
             android:name="com.falaer.cn.activity.LoginPwdActivity"

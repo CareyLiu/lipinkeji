@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.falaer.cn.R;
@@ -53,8 +54,30 @@ public class LoginPwdActivity extends BaseActivity {
     }
 
     @Override
+    public void initImmersion() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.statusBarColor(R.color.black);
+        mImmersionBar.init();
+        mImmersionBar.statusBarDarkFont(true);
+    }
+
+    @Override
     public boolean showToolBar() {
         return true;
+    }
+
+    @Override
+    protected void initToolbar() {
+        super.initToolbar();
+        mToolbar.setBackgroundColor(Y.getColor(R.color.black));
+        mToolbar.setNavigationIcon(R.mipmap.back_white);
+        tv_title.setTextColor(Y.getColor(R.color.text_blue));
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /**
@@ -77,7 +100,6 @@ public class LoginPwdActivity extends BaseActivity {
     }
 
     private void init() {
-        mToolbar.setNavigationIcon(R.mipmap.backbutton);
         sms_id = PreferenceHelper.getInstance(this).getString("SMS_ID", "");
         sms_code = PreferenceHelper.getInstance(this).getString("SMS_CODE", "");
         mod_id = getIntent().getStringExtra("mod_id");

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.flyco.dialog.listener.OnOperItemClickL;
 import com.flyco.dialog.widget.ActionSheetDialog;
 import com.google.gson.Gson;
-import com.jaeger.library.StatusBarUtil;
+import com.gyf.barlibrary.ImmersionBar;
 import com.jakewharton.rxbinding.view.RxView;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -56,8 +56,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jpush.android.api.JPushInterface;
-import io.rong.imkit.RongIM;
-import io.rong.imlib.RongIMClient;
 import rx.functions.Action1;
 
 import static com.falaer.cn.get_net.Urls.SERVER_URL;
@@ -105,14 +103,19 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initImmersion() {
-        mImmersionBar.with(this).statusBarColor(R.color.white).init();
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.init();
+        mImmersionBar.statusBarDarkFont(true);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        StatusBarUtil.setLightMode(this);
+        init();
+    }
+
+    private void init() {
         timeCount = new TimeCount(60000, 1000, mTvGetCode);
         mEtPhone.setText(PreferenceHelper.getInstance(this).getString("user_phone", ""));
         String strToken = getIntent().getStringExtra("token_guoqi");

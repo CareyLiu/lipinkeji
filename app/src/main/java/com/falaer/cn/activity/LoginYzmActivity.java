@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.falaer.cn.R;
@@ -50,6 +51,14 @@ public class LoginYzmActivity extends BaseActivity {
     }
 
     @Override
+    public void initImmersion() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.statusBarColor(R.color.black);
+        mImmersionBar.init();
+        mImmersionBar.statusBarDarkFont(true);
+    }
+
+    @Override
     public boolean showToolBar() {
         return true;
     }
@@ -57,8 +66,17 @@ public class LoginYzmActivity extends BaseActivity {
     @Override
     protected void initToolbar() {
         super.initToolbar();
+        mToolbar.setBackgroundColor(Y.getColor(R.color.black));
+        mToolbar.setNavigationIcon(R.mipmap.back_white);
+        tv_title.setTextColor(Y.getColor(R.color.text_blue));
         tv_title.setText("手机验证");
-        mToolbar.setNavigationIcon(R.mipmap.backbutton);
+
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /**

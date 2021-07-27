@@ -20,7 +20,7 @@ public class TimeCount extends CountDownTimer {
     public TimeCount(long millisInFuture, long countDownInterval, TextView view) {
         super(millisInFuture, countDownInterval);
         this.view = view;
-        colorId = R.color.text_color_main;
+        colorId = R.color.text_blue_80;
     }
 
     public TimeCount(long millisInFuture, long countDownInterval, TextView view, int type) {

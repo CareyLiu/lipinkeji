@@ -102,5 +102,6 @@
 
     <color name="shenlanhei">#192231</color>
     <color name="text_blue">#0EA9F4</color>
+    <color name="text_blue_80">#CC0EA9F4</color>
 
 </resources>
