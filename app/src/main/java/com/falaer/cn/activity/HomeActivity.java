@@ -58,6 +58,7 @@ import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
+import static com.falaer.cn.app.ConfigValue.JIESHOUP;
 import static com.falaer.cn.config.MyApplication.CAR_NOTIFY;
 
 public class HomeActivity extends BaseActivity {
@@ -114,7 +115,12 @@ public class HomeActivity extends BaseActivity {
         initHandler();
     }
 
+
+
     private void initHandler() {
+        if (JIESHOUP.equals("1")) {
+            return;
+        }
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -180,6 +186,7 @@ public class HomeActivity extends BaseActivity {
                 if (notice.type == ConstanceValue.MSG_GUZHANG_SHOUYE) {
                     tuiSongTanChuang(notice);
                 } else if (notice.type == ConstanceValue.MSG_P) {
+                    JIESHOUP = "1";
                     handler.removeCallbacks(runnable);
                 }
             }
