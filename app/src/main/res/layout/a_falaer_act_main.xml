@@ -226,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:includeFontPadding="false"
-                            android:text="大气压数值:--KPA"
+                            android:text="大气压数值:--kpa"
                             android:textColor="@color/falaer_text"
                             android:textSize="25pt" />
 
@@ -236,7 +236,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:includeFontPadding="false"
-                            android:text="海拔高度:3000M"
+                            android:text="海拔高度:--m"
                             android:textColor="@color/falaer_text"
                             android:textSize="25pt" />
                     </LinearLayout>

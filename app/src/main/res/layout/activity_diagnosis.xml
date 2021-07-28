@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="故障诊断"
+            android:text="加热器诊断"
             android:textColor="@color/white" />
 
         <RelativeLayout
