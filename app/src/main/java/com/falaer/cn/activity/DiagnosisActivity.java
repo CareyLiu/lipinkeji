@@ -1,5 +1,6 @@
 package com.falaer.cn.activity;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -251,10 +252,13 @@ public class DiagnosisActivity extends BaseActivity {
                     String zhu_car_stoppage_no = messageData.substring(35, 37);
                     zhu_car_stoppage_no = 0 <= zhu_car_stoppage_no.indexOf("a") ? "" : String.valueOf(Integer.parseInt(zhu_car_stoppage_no));
 
+                    Application application =new Application();
+
                     if (!StringUtils.isEmpty(zhu_car_stoppage_no)) {
                         layoutMessage.setVisibility(View.VISIBLE);
                         btnClean.setVisibility(View.VISIBLE);
                         layoutInfo.setVisibility(View.VISIBLE);
+
 
 
                         String ccid = PreferenceHelper.getInstance(mContext).getString("ccid", "");

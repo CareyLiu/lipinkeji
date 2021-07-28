@@ -550,7 +550,11 @@ public class MyApplication extends MultiDexApplication {
 
                     @Override
                     public void deliveryComplete(IMqttDeliveryToken token) {
-                        Log.i("Rair", "(MainActivity.java:44)-deliveryComplete:-&gt;消息已送达");
+                        try {
+                            Log.i("Rair", "消息送达完成： "+token.getMessage().toString());
+                        } catch (MqttException e) {
+                            e.printStackTrace();
+                        }
                         sendRx(ConstanceValue.MSG_MQTT_CONNECTCOMPLETE, "");
                     }
                 }).connect(builder
