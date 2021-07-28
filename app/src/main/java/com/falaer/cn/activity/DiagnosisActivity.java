@@ -276,7 +276,7 @@ public class DiagnosisActivity extends BaseActivity {
                             layoutMessage.setVisibility(View.GONE);
                             btnClean.setVisibility(View.GONE);
                             mTvTitle.setText("整机运转正常");
-                            UIHelper.ToastMessage(DiagnosisActivity.this, "故障已清除", Toast.LENGTH_LONG);
+                           // UIHelper.ToastMessage(DiagnosisActivity.this, "故障已清除", Toast.LENGTH_LONG);
 
                         }
                     }

@@ -188,6 +188,7 @@ public class HomeActivity extends BaseActivity {
                 } else if (notice.type == ConstanceValue.MSG_P) {
                     JIESHOUP = "1";
                     handler.removeCallbacks(runnable);
+                    handler=null;
                 }
             }
         }));
