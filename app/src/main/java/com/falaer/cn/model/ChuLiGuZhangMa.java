@@ -1,5 +1,7 @@
 package com.falaer.cn.model;
 
+import android.util.Log;
+
 public class ChuLiGuZhangMa {
 
 
@@ -64,7 +66,8 @@ public class ChuLiGuZhangMa {
             newCode = "12";
         }
 
-
+        Log.i("ChuLiGuZhang", "codeMa"+codeMa);
+        Log.i("ChuLiGuZhang", "newCode"+newCode);
         return newCode;
     }
 
