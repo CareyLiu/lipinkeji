@@ -872,7 +872,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
             return;
         }
 
-        SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
+        SoundPoolUtils.soundPool(mContext, R.raw.yutongfeng);
         typeMingling = 5;//预通风
         setUiTongfeng();
         sendMingling();
@@ -885,7 +885,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
             return;
         }
 
-        SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
+        SoundPoolUtils.soundPool(mContext, R.raw.shuibeng);
         typeMingling = 6;//水泵模式
         setUiShuibeng();
         sendMingling();
@@ -1206,12 +1206,12 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
                 .setRetained(false), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                Y.i("Rair", "订阅风暖实时数据");
+
             }
 
             @Override
             public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                Y.i("Rair", "订阅风暖实时数据失败");
+
             }
         });
     }
@@ -1238,39 +1238,38 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(CAR_NOTIFY), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                Log.i("Rair", "(MainActivity.java:93)-onSuccess:-&gt;取消订阅成功");
+
             }
 
             @Override
             public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                Log.i("Rair", "(MainActivity.java:98)-onFailure:-&gt;取消订阅失败");
+
             }
         });
 
         AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(CARBOX_GETNOW), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                Log.i("Rair", "(MainActivity.java:93)-onSuccess:-&gt;取消订阅成功");
+
             }
 
             @Override
             public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                Log.i("Rair", "(MainActivity.java:98)-onFailure:-&gt;取消订阅失败");
+
             }
         });
 
         AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(CAR_CTROL), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                Log.i("Rair", "(MainActivity.java:93)-onSuccess:-&gt;取消订阅成功");
+
             }
 
             @Override
             public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                Log.i("Rair", "(MainActivity.java:98)-onFailure:-&gt;取消订阅失败");
+
             }
         });
-
 
         for (int i = 0; i < MyApplication.mqttDingyue.size(); i++) {
             if (MyApplication.mqttDingyue.get(i).equals(CAR_NOTIFY)) {

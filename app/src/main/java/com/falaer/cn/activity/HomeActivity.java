@@ -25,7 +25,6 @@ import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jaeger.library.StatusBarUtil;
 import com.falaer.cn.R;
-import com.falaer.cn.activity.device_jn.JinnuoMainActivity;
 import com.falaer.cn.activity.shuinuan.Y;
 import com.falaer.cn.app.AppManager;
 import com.falaer.cn.app.BaseActivity;
@@ -40,9 +39,6 @@ import com.falaer.cn.model.AlarmClass;
 import com.falaer.cn.util.AppToast;
 import com.falaer.cn.util.SoundPoolUtils;
 import com.falaer.cn.view.NoScrollViewPager;
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
-import com.jaeger.library.StatusBarUtil;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 
