@@ -148,7 +148,7 @@
                         android:layout_height="228pt"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="102pt"
-                        android:src="@mipmap/falaer_shebei_hengwen" />
+                        android:src="@mipmap/falaer_shebei_guanji" />
 
                     <TextView
                         android:id="@+id/tv_dangwei"

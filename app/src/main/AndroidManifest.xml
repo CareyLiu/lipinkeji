@@ -934,13 +934,6 @@
             android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
-        <!-- 金诺首页 -->
-        <activity
-            android:name=".activity.device_jn.JinnuoMainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
         <!-- 离线记录 -->
         <activity
             android:name=".activity.lixianjilu.LixianjiluActivity"
