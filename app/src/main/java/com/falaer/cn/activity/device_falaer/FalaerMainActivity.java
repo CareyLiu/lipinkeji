@@ -275,7 +275,13 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         jiareqizhuangtai = messageData.substring(3, 4);
 
         //当前温度 256=25.6     3
-        String dangqianwendu = Y.getInt(messageData.substring(4, 6)) + "." + messageData.substring(6, 7);
+        int dangqianwenduDian = Y.getInt(messageData.substring(6, 7));
+        if (dangqianwenduDian==0){
+            tv_huanjingwendu.setText("环境温度：" + Y.getInt(messageData.substring(4, 6)) + "℃");
+        }else {
+            String dangqianwendu = Y.getInt(messageData.substring(4, 6)) + "." + messageData.substring(6, 7);
+            tv_huanjingwendu.setText(dangqianwendu);
+        }
 
         //信号强度 00-35    2
         String xinhaoqiangdu = messageData.substring(7, 9);
@@ -331,7 +337,6 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         String hanyangliang = messageData.substring(53);
 
 
-        tv_huanjingwendu.setText("环境温度：" + Y.getInt(dangqianwendu) + "℃");
         tv_daqiya.setText("大气压：" + Y.getInt(daqiya) + "kpa");
         tv_haibagaodu.setText("海拔高度：" + Y.getInt(haibagaodu) + "m");
         tv_hanyangliang.setText("含氧量：" + Y.getInt(hanyangliang) + "g/m³");

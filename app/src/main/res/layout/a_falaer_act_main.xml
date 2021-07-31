@@ -96,14 +96,11 @@
                         android:layout_marginTop="70pt"
                         android:gravity="center">
 
-                        <TextView
+                        <ImageView
                             android:layout_width="46pt"
                             android:layout_height="46pt"
-                            android:background="@drawable/jinggong_circle_nor"
-                            android:gravity="center"
-                            android:text="\?"
-                            android:textColor="@color/jg_text"
-                            android:textSize="35pt" />
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/falaer_wenhao" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -111,10 +108,9 @@
                             android:layout_marginLeft="8pt"
                             android:includeFontPadding="false"
                             android:text="说明"
-                            android:textColor="@color/jg_text"
-                            android:textSize="33pt" />
+                            android:textColor="@color/falaer_text"
+                            android:textSize="30pt" />
                     </LinearLayout>
-
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -140,7 +136,6 @@
                             android:textColor="@color/split"
                             android:textSize="33pt" />
                     </LinearLayout>
-
 
                     <ImageView
                         android:id="@+id/iv_jiareqi"
@@ -253,7 +248,6 @@
                         android:textSize="25pt" />
                 </LinearLayout>
 
-
                 <TextView
                     android:id="@+id/bt_mode_youbeng"
                     android:layout_width="225pt"
@@ -282,7 +276,6 @@
                     android:textColor="@color/white"
                     android:textSize="40pt"
                     android:textStyle="bold" />
-
 
                 <TextView
                     android:id="@+id/bt_mode_shoudong"
