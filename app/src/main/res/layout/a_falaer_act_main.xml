@@ -257,7 +257,7 @@
                     android:layout_marginTop="17pt"
                     android:background="@mipmap/falaer_bt_nor"
                     android:gravity="center"
-                    android:text="泵油"
+                    android:text="预泵油"
                     android:textColor="@color/white"
                     android:textSize="40pt"
                     android:textStyle="bold" />
@@ -272,7 +272,7 @@
                     android:layout_marginRight="45pt"
                     android:background="@mipmap/falaer_bt_nor"
                     android:gravity="center"
-                    android:text="通风"
+                    android:text="预通风"
                     android:textColor="@color/white"
                     android:textSize="40pt"
                     android:textStyle="bold" />
