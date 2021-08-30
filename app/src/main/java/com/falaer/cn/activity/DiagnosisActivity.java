@@ -1,13 +1,25 @@
 package com.falaer.cn.activity;
 
+import android.app.Activity;
 import android.app.Application;
+import android.app.Notification;
+import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.text.TextUtils;
+import android.transition.Scene;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -19,6 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.blankj.utilcode.util.StringUtils;
@@ -71,11 +84,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.rong.imlib.model.Conversation;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action;
 import rx.functions.Action1;
 
 import static com.falaer.cn.config.MyApplication.CARBOX_GETNOW;
 import static com.falaer.cn.config.MyApplication.CAR_CTROL;
-
+import static com.falaer.cn.config.MyApplication.application;
 
 
 /**
@@ -154,7 +168,7 @@ public class DiagnosisActivity extends BaseActivity {
         intent.putExtra("alarmClass", alarmClass);
         context.startActivity(intent);
     }
-
+    String guZhangMa="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,21 +266,35 @@ public class DiagnosisActivity extends BaseActivity {
                     String zhu_car_stoppage_no = messageData.substring(35, 37);
                     zhu_car_stoppage_no = 0 <= zhu_car_stoppage_no.indexOf("a") ? "" : String.valueOf(Integer.parseInt(zhu_car_stoppage_no));
 
-                    Application application =new Application();
+
+
 
                     if (!StringUtils.isEmpty(zhu_car_stoppage_no)) {
                         layoutMessage.setVisibility(View.VISIBLE);
                         btnClean.setVisibility(View.VISIBLE);
                         layoutInfo.setVisibility(View.VISIBLE);
 
+//                            MyCarCaoZuoDialog_Success dialog_success = new MyCarCaoZuoDialog_Success(DiagnosisActivity.this);
+//                            dialog_success.show();
 
+
+                        
+
+//                            MyCarCaoZuoDialog_Success dialog_success = new MyCarCaoZuoDialog_Success(DiagnosisActivity.this);
+//                             dialog_success.show();
 
                         String ccid = PreferenceHelper.getInstance(mContext).getString("ccid", "");
-                        zhu_car_stoppage_no =ChuLiGuZhangMa.getGuZhangMa(ccid,zhu_car_stoppage_no);
-                        mTvMessage.setText(ChuLiGuZhangMa.codeXinXiShow(ccid,zhu_car_stoppage_no));
+                        guZhangMa = zhu_car_stoppage_no;
+                        guZhangMa = ChuLiGuZhangMa.getGuZhangMa(ccid, zhu_car_stoppage_no);
+                        mTvMessage.setText(ChuLiGuZhangMa.codeXinXiShow(ccid, guZhangMa));
 
 
-                    }else {
+                    } else {
+
+                        Activity activity =new Activity();
+
+
+
                         if (StringUtils.isEmpty(zhu_car_stoppage_no)) {
 
                             whatUWant = "";
@@ -276,7 +304,7 @@ public class DiagnosisActivity extends BaseActivity {
                             layoutMessage.setVisibility(View.GONE);
                             btnClean.setVisibility(View.GONE);
                             mTvTitle.setText("整机运转正常");
-                           // UIHelper.ToastMessage(DiagnosisActivity.this, "故障已清除", Toast.LENGTH_LONG);
+                            // UIHelper.ToastMessage(DiagnosisActivity.this, "故障已清除", Toast.LENGTH_LONG);
 
                         }
                     }
@@ -476,7 +504,7 @@ public class DiagnosisActivity extends BaseActivity {
                                 //      UIHelper.ToastMessage(DiagnosisActivity.this, "故障清除中，请稍候", Toast.LENGTH_SHORT);
                                 // dialog.dismiss();
                                 UIHelper.ToastMessage(DiagnosisActivity.this, "故障清除中", Toast.LENGTH_SHORT);
-                              //  mTvTitle.setText("整机运转正常");
+                                //  mTvTitle.setText("整机运转正常");
 //                                layoutInfo.setVisibility(View.VISIBLE);
 //                                layoutMessage.setVisibility(View.VISIBLE);
 //                                btnClean.setVisibility(View.VISIBLE);

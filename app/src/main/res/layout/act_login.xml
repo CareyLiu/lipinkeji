@@ -154,13 +154,20 @@
         android:gravity="center"
         android:padding="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="登录即表示同意"
-            android:textColor="@color/text_blue"
-            android:textSize="19pt" />
+        <LinearLayout
+            android:id="@+id/ll_tongyi"
+            android:gravity="center_vertical"
+            android:layout_width="20dp"
+            android:layout_height="30dp">
+            <ImageView
+                android:scaleType="centerInside"
+                android:padding="10dp"
+                android:id="@+id/iv_tongyi"
+                android:layout_width="15dp"
+                android:layout_height="15dp">
+
+            </ImageView>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_yinsi"

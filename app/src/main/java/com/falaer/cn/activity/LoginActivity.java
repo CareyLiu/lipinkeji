@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,13 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.flyco.dialog.listener.OnOperItemClickL;
-import com.flyco.dialog.widget.ActionSheetDialog;
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
-import com.jakewharton.rxbinding.view.RxView;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.model.Response;
 import com.falaer.cn.R;
 import com.falaer.cn.activity.shuinuan.Y;
 import com.falaer.cn.app.AppConfig;
@@ -43,6 +35,13 @@ import com.falaer.cn.get_net.Urls;
 import com.falaer.cn.model.LoginUser;
 import com.falaer.cn.model.Message;
 import com.falaer.cn.util.TimeCount;
+import com.flyco.dialog.listener.OnOperItemClickL;
+import com.flyco.dialog.widget.ActionSheetDialog;
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
+import com.jakewharton.rxbinding.view.RxView;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,6 +85,10 @@ public class LoginActivity extends BaseActivity {
     TextView tvYinsi;
     @BindView(R.id.tv_yonghu)
     TextView tvYonghushiyong;
+    @BindView(R.id.iv_tongyi)
+    ImageView ivTongyi;
+    @BindView(R.id.ll_tongyi)
+    LinearLayout llTongyi;
 
     private boolean isExit;
     private TimeCount timeCount;
@@ -95,7 +98,7 @@ public class LoginActivity extends BaseActivity {
 
     public static List<LoginUser.DataBean> userlist = new ArrayList<>();
     private Response<AppResponse<LoginUser.DataBean>> response;
-
+    private String shifoutongyi = "0";//默认不同意
     @Override
     public int getContentViewResId() {
         return R.layout.act_login;
@@ -110,9 +113,24 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         init();
+        ivTongyi.setBackgroundResource(R.mipmap.kaquan_select_n);
+        llTongyi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (shifoutongyi.equals("0")) {
+                    ivTongyi.setBackgroundResource(R.mipmap.tuya_faxian_icon_selector_sel_1);
+                    shifoutongyi = "1";
+                } else {
+                    ivTongyi.setBackgroundResource(R.mipmap.kaquan_select_n);
+                    shifoutongyi = "0";
+                }
+
+            }
+        });
     }
 
     private void init() {

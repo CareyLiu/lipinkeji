@@ -1,11 +1,16 @@
 package com.falaer.cn.activity;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.Service;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -15,6 +20,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -41,6 +48,7 @@ import com.falaer.cn.util.SoundPoolUtils;
 import com.falaer.cn.view.NoScrollViewPager;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
+import com.readystatesoftware.chuck.internal.ui.MainActivity;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
@@ -109,11 +117,24 @@ public class HomeActivity extends BaseActivity {
         initData();
         initHuidiao();
         initHandler();
+
+//        Service service = new Service() {
+//            @Nullable
+//            @Override
+//            public IBinder onBind(Intent intent) {
+//                return null;
+//            }
+//        };
+//        Notification notification = new Notification();
+//        notification.when = 1;
+//        service.startForeground(1, notification);
+
+
     }
 
 
-
     private void initHandler() {
+
         if (JIESHOUP.equals("1")) {
             return;
         }
@@ -182,9 +203,12 @@ public class HomeActivity extends BaseActivity {
                 if (notice.type == ConstanceValue.MSG_GUZHANG_SHOUYE) {
                     tuiSongTanChuang(notice);
                 } else if (notice.type == ConstanceValue.MSG_P) {
-                    JIESHOUP = "1";
-                    handler.removeCallbacks(runnable);
-                    handler=null;
+                    if (handler != null) {
+                        JIESHOUP = "1";
+                        handler.removeCallbacks(runnable);
+                        handler = null;
+                    }
+
                 }
             }
         }));

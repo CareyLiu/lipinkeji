@@ -9,11 +9,12 @@ public class ChuLiGuZhangMa {
     public static String getGuZhangMa(String ccid, String codeMa) {
 
         String code = ccid.substring(17, 20);
+        String newCode=codeMa;
         switch (code) {
             case "001":
             case "002":
 
-                code = zhuanCode(codeMa);
+                newCode = zhuanCode(codeMa);
 
                 break;
             case "003":
@@ -34,9 +35,11 @@ public class ChuLiGuZhangMa {
                 break;
             case "011":
                 break;
+            default:
+                return codeMa;
         }
 
-        return code;
+        return newCode;
     }
 
     public static String zhuanCode(String codeMa) {
