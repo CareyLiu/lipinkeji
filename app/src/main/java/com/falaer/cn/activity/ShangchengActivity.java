@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.falaer.cn.activity.shuinuan.Y;
 import com.google.gson.Gson;
 import com.falaer.cn.R;
 import com.falaer.cn.activity.zijian_shangcheng.ZiJianShopMallDetailsActivity;
@@ -139,25 +140,7 @@ public class ShangchengActivity extends BaseActivity {
                         indexShowList.addAll(shangpinModel);
                         shangchengAdapter.notifyDataSetChanged();
 
-                        List<String> items = new ArrayList<>();
-                        if (bannerList.size() > 0) {
-                            for (int i = 0; i < bannerList.size(); i++) {
-                                items.add(bannerList.get(i).getImg_url());
-                            }
-                        }
-
-                        banner.setImageLoader(new Radius_GlideImageLoader());
-                        //设置图片集合
-                        banner.setImages(items);
-                        //banner设置方法全部调用完毕时最后调用
-                        banner.start();
-                        banner.setOnBannerListener(new OnBannerListener() {
-                            @Override
-                            public void OnBannerClick(int position) {
-                                String html_url = bannerList.get(position).getHtml_url();
-                                DefaultX5WebViewActivity.actionStart(mContext, html_url);
-                            }
-                        });
+                      setBanner();
                     }
 
                     @Override
@@ -166,6 +149,25 @@ public class ShangchengActivity extends BaseActivity {
                         smartRefreshLayout.finishRefresh();
                     }
                 });
+    }
+
+    private void setBanner() {
+        List<String> items = new ArrayList<>();
+        for (int i = 0; i < bannerList.size(); i++) {
+            items.add(bannerList.get(i).getImg_url());
+        }
+        banner.setImageLoader(new Radius_GlideImageLoader());
+        //设置图片集合
+        banner.setImages(items);
+        //banner设置方法全部调用完毕时最后调用
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                String html_url = bannerList.get(position).getHtml_url();
+                DefaultX5WebViewActivity.actionStart(mContext, html_url);
+            }
+        });
+        banner.start();
     }
 
     private void lordData() {
