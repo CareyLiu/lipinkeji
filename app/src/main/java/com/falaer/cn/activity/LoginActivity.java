@@ -1,9 +1,15 @@
 package com.falaer.cn.activity;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -15,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -104,6 +111,7 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
     public static List<LoginUser.DataBean> userlist = new ArrayList<>();
     private Response<AppResponse<LoginUser.DataBean>> response;
     private String shifoutongyi = "0";//默认不同意
+
     @Override
     public int getContentViewResId() {
         return R.layout.act_login;
@@ -198,13 +206,13 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
                 @Override
                 public void onClickConfirm() {
-                    fuWuDialog.dismiss();
 
                     String[] perms = {
                             Manifest.permission.ACCESS_COARSE_LOCATION,
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE};
                     EasyPermissions.requestPermissions(LoginActivity.this, "申请开启app需要的权限", 0, perms);
+                    fuWuDialog.dismiss();
                 }
 
                 @Override
@@ -225,7 +233,7 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
             fuWuDialog.setCancelable(false);
             fuWuDialog.show();
-            PreferenceHelper.getInstance(this).putString(AppConfig.TANCHUFUWUTANKUANG, "1");
+
         }
     }
 
@@ -288,6 +296,10 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
                 break;
             case R.id.bt_login:
+                if (shifoutongyi.equals("0")) {
+                    UIHelper.ToastMessage(mContext, "请您先点击勾选同意按钮，再进行后续操作");
+                    return;
+                }
                 beforehand_login();
                 break;
         }
@@ -420,19 +432,68 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
         if (fuWuDialog.isShowing()) {
             fuWuDialog.dismiss();
         }
+        PreferenceHelper.getInstance(this).putString(AppConfig.TANCHUFUWUTANKUANG, "1");
     }
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
         //UIHelper.ToastMessage(mContext, "拒绝了");
         Log.i("LoginActivity_xx", "拒绝了......");
-        fuWuDialog.show();
+       // fuWuDialog.show();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            Log.i("LoginActivity_xx", "onRequestPermissionsResult granted");
+//        } else {
+//            Log.i("LoginActivity_xx", "onRequestPermissionsResult denied");
+//            //弹出框 让用户去应用详情页手动设置权限
+//
+//            showWaringDialog();
+//            return;
+//        }
+
         // 将结果转发到EasyPermissions
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    private void showWaringDialog() {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("警告！")
+                .setMessage("请前往设置->应用->PermissionDemo->权限中打开相关权限，否则功能无法正常运行！")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        goHuaWeiMainager();
+                    }
+
+                }).show();
+    }
+
+    private void goHuaWeiMainager() {
+        try {
+            Intent intent = new Intent("com.falaer.cn");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            ComponentName comp = new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity");
+            intent.setComponent(comp);
+            mContext.startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(mContext, "跳转失败", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+            goIntentSetting();
+        }
+    }
+
+    private void goIntentSetting() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", mContext.getPackageName(), null);
+        intent.setData(uri);
+        try {
+            mContext.startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
