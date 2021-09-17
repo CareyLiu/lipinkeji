@@ -85,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="636pt"
                     android:layout_marginHorizontal="34pt"
-                    android:layout_marginTop="41pt"
+                    android:layout_marginTop="45pt"
                     android:background="@mipmap/falaer_bg_main">
 
                     <LinearLayout
@@ -203,7 +203,7 @@
                 <LinearLayout
                     android:id="@+id/ll_center_kuang"
                     android:layout_width="666pt"
-                    android:layout_height="120pt"
+                    android:layout_height="140pt"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="522pt"
                     android:background="@mipmap/falaer_bg_shujushang"
@@ -241,7 +241,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="45pt"
-                        android:layout_marginTop="10pt"
+                        android:layout_marginTop="20pt"
                         android:includeFontPadding="false"
                         android:text="含氧量:--g/m³"
                         android:textColor="@color/falaer_text"
@@ -257,7 +257,7 @@
                     android:layout_marginTop="17pt"
                     android:background="@mipmap/falaer_bt_nor"
                     android:gravity="center"
-                    android:text="泵油"
+                    android:text="预泵油"
                     android:textColor="@color/white"
                     android:textSize="40pt"
                     android:textStyle="bold" />
@@ -272,7 +272,7 @@
                     android:layout_marginRight="45pt"
                     android:background="@mipmap/falaer_bt_nor"
                     android:gravity="center"
-                    android:text="通风"
+                    android:text="预通风"
                     android:textColor="@color/white"
                     android:textSize="40pt"
                     android:textStyle="bold" />
@@ -310,7 +310,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14pt">
+                android:layout_marginTop="20pt">
 
                 <LinearLayout
                     android:id="@+id/bt_jia"
@@ -367,9 +367,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="168pt"
+                android:layout_height="188pt"
                 android:layout_marginHorizontal="12pt"
-                android:layout_marginTop="11pt"
+                android:layout_marginTop="20pt"
+                android:layout_marginBottom="20pt"
                 android:background="@mipmap/falaer_bg_shujuxia">
 
                 <TextView
@@ -403,6 +404,7 @@
                         android:id="@+id/tv_fengjizhuansu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt"
                         android:includeFontPadding="false"
                         android:text="风机转速:--r"
                         android:textColor="@color/falaer_text"
@@ -430,6 +432,7 @@
                         android:id="@+id/tv_youbengpinlv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt"
                         android:includeFontPadding="false"
                         android:text="油泵频率:--Hz"
                         android:textColor="@color/falaer_text"

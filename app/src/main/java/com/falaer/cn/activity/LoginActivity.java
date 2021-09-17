@@ -177,13 +177,13 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
         tvYonghushiyong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/w_user_agreements");
+                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
             }
         });
         tvYinsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/w_privacy_clause");
+                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
             }
         });
 
@@ -214,12 +214,12 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
                 @Override
                 public void fuwu() {
-                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/w_user_agreements");
+                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
                 }
 
                 @Override
                 public void yinsixieyi() {
-                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/w_privacy_clause");
+                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
                 }
             });
 
