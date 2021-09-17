@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.falaer.cn.R;
+import com.falaer.cn.util.SoundPoolUtils;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class GuzhangDialog extends Dialog implements View.OnClickListener {
     public LinearLayout ll_guzhang;
     public TextView bt_clear;
     public TextView tv_cancel;
+    private Context mContext;
 
 
     protected boolean dismissAfterClick = true;
@@ -30,6 +32,7 @@ public class GuzhangDialog extends Dialog implements View.OnClickListener {
     public GuzhangDialog(Context context, Guzhang mListener) {
         this(context, R.style.dialogBaseBlur);
         this.mListener = mListener;
+        mContext = context;
     }
 
     public GuzhangDialog(Context context, int theme) {
@@ -103,21 +106,27 @@ public class GuzhangDialog extends Dialog implements View.OnClickListener {
 
     private String guzhangsTextNow = "";
 
-    public void showDD(List<String> guzhangs) {
+    public void showDD(List<String> guzhangs, int yuyinId) {
         setGuzhang(guzhangs);
         boolean canPlay = isCanPlay(guzhangs);
         if (isShowing()) {
             if (canPlay) {
-                playYuyin();
+                playYuyin(yuyinId);
             }
         } else {
-            playYuyin();
+            playYuyin(yuyinId);
             show();
         }
     }
 
-    private void playYuyin() {
+    public void showDD(List<String> guzhangs) {
 
+    }
+
+    private void playYuyin(int yuyinId) {
+        if (yuyinId!=-1){
+            SoundPoolUtils.soundPool(mContext, yuyinId);
+        }
     }
 
     public void setGuzhang(List<String> guzhangs) {

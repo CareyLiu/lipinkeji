@@ -15,6 +15,7 @@ import com.falaer.cn.activity.BindBoxActivity;
 import com.falaer.cn.activity.ShangchengActivity;
 import com.falaer.cn.activity.device_falaer.FalaerMainActivity;
 import com.falaer.cn.activity.shuinuan.ShuinuanMainActivity;
+import com.falaer.cn.activity.shuinuan_falaer.ShuinuanFalaerMainActivity;
 import com.falaer.cn.activity.shuinuan_wzw.ShuinuanWzwMainActivityNew;
 import com.falaer.cn.activity.zckt.AirConditionerActivity;
 import com.falaer.cn.adapter.SheBeiListAdapter;
@@ -149,7 +150,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        ShuinuanMainActivity.actionStart(getActivity(), ccid, count, mDatas.get(position).validity_time);
+                                        ShuinuanFalaerMainActivity.actionStart(getActivity(), ccid, count, mDatas.get(position).validity_time);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");

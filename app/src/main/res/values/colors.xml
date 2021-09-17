@@ -99,6 +99,8 @@
     <color name="wzw_shuinuan_text_shu">#00FFB4</color>
 
     <color name="falaer_text">#E59301</color>
+    <color name="falaer_text_shuinuan">#A0E0FF</color>
+    <color name="falaer_text_shuinuan_lan">#0EA9F4</color>
 
     <color name="shenlanhei">#192231</color>
     <color name="text_blue">#0EA9F4</color>

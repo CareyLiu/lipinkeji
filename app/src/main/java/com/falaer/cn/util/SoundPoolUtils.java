@@ -66,8 +66,10 @@ public class SoundPoolUtils {
 
     }
 
-    public void setSoundPoolRelease() {
-        soundPool.release();
+    public static void setSoundPoolRelease() {
+        if (soundPool!=null){
+            soundPool.release();
+        }
     }
 
 

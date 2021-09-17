@@ -982,42 +982,57 @@
             android:name=".activity.device_falaer.FalaerMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
 
         <!-- 法拉尔设置页 -->
         <activity
             android:name=".activity.device_falaer.FalaerSetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
 
         <!-- 法拉尔设备状态 -->
         <activity
             android:name=".activity.device_falaer.FalaerStateActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
 
         <!-- 法拉尔设备解绑 -->
         <activity
             android:name=".activity.device_falaer.FalaerJiebangActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
 
         <!-- 法拉尔明书 -->
         <activity
             android:name=".activity.device_falaer.FalaerShuomingActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
 
 
         <!-- 法拉尔定时 -->
         <activity
             android:name=".activity.device_falaer.FalaerDingshiActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+
+        <!-- 法拉尔水暖主页面 -->
+        <activity
+            android:name=".activity.shuinuan_falaer.ShuinuanFalaerMainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 </manifest>
