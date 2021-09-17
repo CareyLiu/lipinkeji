@@ -26,7 +26,7 @@ import java.util.List;
 import pub.devrel.easypermissions.EasyPermissions;
 
 
-public class SplashActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
+public class SplashActivity extends AppCompatActivity  {
 
     public static final int UPDATE_OK = 2;
     public static final int OVERTIME = 1;
@@ -129,13 +129,9 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
 
             @Override
             public void onAnimationEnd(Animation animation) { // 动画结束时执行此方法
-                String[] perms = {
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                EasyPermissions.requestPermissions(SplashActivity.this, "申请开启app需要的权限", 0, perms);
-                isAnimationEnd = true;
 
+                isAnimationEnd = true;
+                mHandler.sendEmptyMessage(UPDATE_OK);
             }
         });
 
@@ -146,25 +142,9 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
     }
 
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // 将结果转发到EasyPermissions
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
-    }
 
 
-    @Override
-    public void onPermissionsGranted(int requestCode, List<String> perms) {
-//        startActivity(new Intent(this, ScanActivity.class));
-        mHandler.sendEmptyMessage(UPDATE_OK);
-    }
 
-    @Override
-    public void onPermissionsDenied(int requestCode, List<String> perms) {
-//        AppToast.makeShortToast(this, getString(R.string.get_error));
-        mHandler.sendEmptyMessage(UPDATE_OK);
-    }
 
 
     @Override

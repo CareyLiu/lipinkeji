@@ -1,10 +1,12 @@
 package com.falaer.cn.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.falaer.cn.R;
 import com.falaer.cn.activity.shuinuan.Y;
@@ -55,12 +59,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jpush.android.api.JPushInterface;
+import pub.devrel.easypermissions.EasyPermissions;
 import rx.functions.Action1;
 
 import static com.falaer.cn.get_net.Urls.SERVER_URL;
 
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements EasyPermissions.PermissionCallbacks {
     @BindView(R.id.iv_icon)
     ImageView ivIcon;
     @BindView(R.id.tv_title)
@@ -188,12 +193,18 @@ public class LoginActivity extends BaseActivity {
             fuWuDialog = new FuWuDialog(mContext, new FuWuDialog.FuWuDiaLogClikListener() {
                 @Override
                 public void onClickCancel() {
-                    fuWuDialog.dismiss();
+
                 }
 
                 @Override
                 public void onClickConfirm() {
                     fuWuDialog.dismiss();
+
+                    String[] perms = {
+                            Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                    EasyPermissions.requestPermissions(LoginActivity.this, "申请开启app需要的权限", 0, perms);
                 }
 
                 @Override
@@ -401,5 +412,27 @@ public class LoginActivity extends BaseActivity {
 //            notice.type = ConstanceValue.MSG_RONGYUN_CHONGZHI;
 //            RxBus.getDefault().sendRx(notice);
 //        }
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+        Log.i("LoginActivity_xx", "通过了......");
+        if (fuWuDialog.isShowing()) {
+            fuWuDialog.dismiss();
+        }
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        //UIHelper.ToastMessage(mContext, "拒绝了");
+        Log.i("LoginActivity_xx", "拒绝了......");
+        fuWuDialog.show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // 将结果转发到EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 }
