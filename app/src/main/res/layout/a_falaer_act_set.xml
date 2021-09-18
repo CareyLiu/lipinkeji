@@ -100,32 +100,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_guzhang"
-                android:layout_width="match_parent"
-                android:layout_height="96pt"
-                android:layout_marginHorizontal="36pt"
-                android:layout_marginTop="54pt"
-                android:background="@mipmap/falaer_set_bg"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="36pt"
-                    android:layout_weight="1"
-                    android:includeFontPadding="false"
-                    android:text="加热器诊断"
-                    android:textColor="@color/white"
-                    android:textSize="33pt" />
-
-                <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/ll_dingshi"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"
@@ -145,10 +119,38 @@
                     android:textSize="33pt" />
 
                 <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:layout_width="29pt"
+                    android:layout_height="29pt"
+                    android:layout_marginRight="20pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_guzhang"
+                android:layout_width="match_parent"
+                android:layout_height="96pt"
+                android:layout_marginHorizontal="36pt"
+                android:layout_marginTop="54pt"
+                android:background="@mipmap/falaer_set_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36pt"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="加热器诊断"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+
+                <ImageView
+                    android:layout_width="29pt"
+                    android:layout_height="29pt"
+                    android:layout_marginRight="20pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
             </LinearLayout>
 
             <LinearLayout
@@ -171,10 +173,11 @@
                     android:textSize="33pt" />
 
                 <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:layout_width="29pt"
+                    android:layout_height="29pt"
+                    android:layout_marginRight="20pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
             </LinearLayout>
 
             <LinearLayout
@@ -197,10 +200,11 @@
                     android:textSize="33pt" />
 
                 <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:layout_width="29pt"
+                    android:layout_height="29pt"
+                    android:layout_marginRight="20pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
             </LinearLayout>
 
 
@@ -219,17 +223,17 @@
                     android:layout_marginLeft="36pt"
                     android:layout_weight="1"
                     android:includeFontPadding="false"
-                    android:text="设备共享"
+                    android:text="共享成员"
                     android:textColor="@color/white"
                     android:textSize="33pt" />
 
                 <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:layout_width="29pt"
+                    android:layout_height="29pt"
+                    android:layout_marginRight="20pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/rl_gongxiang_jie"
@@ -251,10 +255,11 @@
                     android:textSize="33pt" />
 
                 <ImageView
-                    android:layout_width="21pt"
-                    android:layout_height="38pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/falaer_fanhui" />
+                    android:layout_width="29pt"
+                    android:layout_height="29pt"
+                    android:layout_marginRight="20pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
             </LinearLayout>
 
             <LinearLayout

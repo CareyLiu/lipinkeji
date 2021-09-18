@@ -14,9 +14,7 @@ import com.falaer.cn.R;
 import com.falaer.cn.activity.BindBoxActivity;
 import com.falaer.cn.activity.ShangchengActivity;
 import com.falaer.cn.activity.device_falaer.FalaerMainActivity;
-import com.falaer.cn.activity.shuinuan.ShuinuanMainActivity;
 import com.falaer.cn.activity.shuinuan_falaer.ShuinuanFalaerMainActivity;
-import com.falaer.cn.activity.shuinuan_wzw.ShuinuanWzwMainActivityNew;
 import com.falaer.cn.activity.zckt.AirConditionerActivity;
 import com.falaer.cn.adapter.SheBeiListAdapter;
 import com.falaer.cn.app.AppManager;
@@ -118,14 +116,11 @@ public class OnlineFragment extends BaseFragment implements Observer {
                         case R.id.constrain:
                             PreferenceHelper.getInstance(getContext()).putString("is_platform_bendi", mDatas.get(position).is_platform);
                             if (mDatas.get(position).device_type.equals("1")) {
-                                // mDatas.get(position).ccid = "aaaaaaaaaaaaaa1010010018";
                                 int i = mDatas.get(position).ccid.length() - 1;
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
-
                                 PreferenceHelper.getInstance(getActivity()).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
                                 PreferenceHelper.getInstance(getActivity()).putString("ccid", mDatas.get(position).ccid);
-//                                PreferenceHelper.getInstance(getActivity()).putString("ccid", "aaaaaaaaaaaaaaa110020018");
                                 PreferenceHelper.getInstance(getContext()).putString("sim_ccid_save_type", mDatas.get(position).sim_ccid_save_type);
                                 MyApplication.CARBOX_GETNOW = "wit/cbox/app/" + getServer_id() + MyApplication.getCcid();
                                 MyApplication.CAR_NOTIFY = "wit/server/" + getServer_id() + MyApplication.getUser_id();

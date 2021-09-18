@@ -43,12 +43,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="107pt"
+        android:layout_height="96pt"
+        android:layout_marginHorizontal="36pt"
         android:layout_marginTop="31pt"
-        android:background="@mipmap/kuang"
+        android:background="@mipmap/jinnuo_kuang_bg"
         android:gravity="center_vertical"
-        android:paddingLeft="73pt"
-        android:paddingRight="35pt">
+        android:paddingHorizontal="36pt">
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,7 +63,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:paddingRight="28pt"
             android:textColor="@color/white"
             android:textSize="30pt" />
     </LinearLayout>
@@ -82,10 +81,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="107pt"
-        android:background="@mipmap/kuang"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="35pt">
+        android:layout_height="96pt"
+        android:layout_marginHorizontal="36pt"
+        android:background="@mipmap/jinnuo_kuang_bg"
+        android:gravity="center_vertical">
 
         <EditText
             android:id="@+id/ed_pwd"
@@ -115,9 +114,10 @@
     <LinearLayout
         android:id="@+id/ll_jiebang"
         android:layout_width="match_parent"
-        android:layout_height="107pt"
+        android:layout_height="96pt"
+        android:layout_marginHorizontal="36pt"
         android:layout_marginTop="31pt"
-        android:background="@mipmap/kuang"
+        android:background="@mipmap/jinnuo_kuang_bg"
         android:gravity="center">
 
         <TextView

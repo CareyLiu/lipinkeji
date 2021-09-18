@@ -80,7 +80,7 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
 
         if (type == TYPE_SHUINUAN) {
             rlGuzhang.setVisibility(View.GONE);
-            rlZhujicanshu.setVisibility(View.VISIBLE);
+            rlZhujicanshu.setVisibility(View.GONE);
             rlKongtiaoState.setVisibility(View.GONE);
         } else if (type == TYPE_FENGNUAN) {
             rlGuzhang.setVisibility(View.VISIBLE);

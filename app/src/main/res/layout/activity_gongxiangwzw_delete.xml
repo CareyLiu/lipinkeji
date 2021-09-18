@@ -86,9 +86,10 @@
         <TextView
             android:id="@+id/tv_delect"
             android:layout_width="match_parent"
-            android:layout_height="107pt"
+            android:layout_height="96pt"
+            android:layout_marginHorizontal="36pt"
             android:layout_marginTop="18pt"
-            android:background="@mipmap/kuang"
+            android:background="@mipmap/jinnuo_kuang_bg"
             android:gravity="center"
             android:text="删除此共享成员"
             android:textColor="@color/white"

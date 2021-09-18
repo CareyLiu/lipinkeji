@@ -57,10 +57,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt">
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -89,10 +89,10 @@
             <RelativeLayout
                 android:id="@+id/rl_dingshi"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt">
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -116,10 +116,10 @@
             <RelativeLayout
                 android:id="@+id/rl_kongtiao_state"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt">
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -144,10 +144,10 @@
             <RelativeLayout
                 android:id="@+id/rl_jiareqicanshu"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt">
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -173,10 +173,10 @@
             <RelativeLayout
                 android:id="@+id/rl_zhujicanshu"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt"
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt"
                 android:visibility="gone">
 
                 <TextView
@@ -201,10 +201,10 @@
             <RelativeLayout
                 android:id="@+id/rl_guzhang"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt">
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -229,10 +229,10 @@
             <RelativeLayout
                 android:id="@+id/rl_jiebangshebei"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt">
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -257,10 +257,10 @@
             <RelativeLayout
                 android:id="@+id/rl_gongxiang"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt"
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt"
                 android:visibility="visible">
 
                 <TextView
@@ -269,7 +269,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="38pt"
                     android:includeFontPadding="false"
-                    android:text="设备共享"
+                    android:text="共享成员"
                     android:textColor="@color/white"
                     android:textSize="31pt" />
 
@@ -285,10 +285,10 @@
             <RelativeLayout
                 android:id="@+id/rl_gongxiang_jie"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt"
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt"
                 android:visibility="visible">
 
                 <TextView
@@ -313,10 +313,10 @@
             <RelativeLayout
                 android:id="@+id/rl_shebeijilu"
                 android:layout_width="match_parent"
-                android:layout_height="107pt"
+                android:layout_height="96pt"
                 android:layout_marginTop="31pt"
-                android:background="@mipmap/kuang"
-                android:paddingHorizontal="35pt"
+                android:background="@mipmap/jinnuo_kuang_bg"
+                android:layout_marginHorizontal="36pt"
                 android:visibility="gone">
 
                 <TextView
