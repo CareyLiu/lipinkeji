@@ -130,7 +130,7 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         init();
-        ivTongyi.setBackgroundResource(R.mipmap.kaquan_select_n);
+        ivTongyi.setBackgroundResource(R.mipmap.gouxuankuang_1);
         llTongyi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,7 +138,7 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
                     ivTongyi.setBackgroundResource(R.mipmap.tuya_faxian_icon_selector_sel_1);
                     shifoutongyi = "1";
                 } else {
-                    ivTongyi.setBackgroundResource(R.mipmap.kaquan_select_n);
+                    ivTongyi.setBackgroundResource(R.mipmap.gouxuankuang_1);
                     shifoutongyi = "0";
                 }
 
@@ -439,7 +439,7 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
     public void onPermissionsDenied(int requestCode, List<String> perms) {
         //UIHelper.ToastMessage(mContext, "拒绝了");
         Log.i("LoginActivity_xx", "拒绝了......");
-       // fuWuDialog.show();
+        // fuWuDialog.show();
     }
 
     @Override
