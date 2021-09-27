@@ -127,12 +127,11 @@ public class ShuinuanFalaerMainActivity extends ShuinuanBaseNewActivity implemen
     /**
      * 用于其他Activty跳转到该Activity
      */
-    public static void actionStart(Context context, String ccid, String car_server_id, String time) {
+    public static void actionStart(Context context, String ccid, String car_server_id) {
         Intent intent = new Intent(context, ShuinuanFalaerMainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("ccid", ccid);
         intent.putExtra("car_server_id", car_server_id);
-        intent.putExtra("time", time);
         context.startActivity(intent);
     }
 
@@ -150,8 +149,9 @@ public class ShuinuanFalaerMainActivity extends ShuinuanBaseNewActivity implemen
     }
 
     private void init() {
-        String time = getIntent().getStringExtra("time");
-        tv_youxiaoqi.setText("有效期至:" + time);
+        String validdate = PreferenceHelper.getInstance(mContext).getString("validdate", "0");
+        tv_youxiaoqi.setText("有效期至:" + validdate);
+
         String car_server_id = getIntent().getStringExtra("car_server_id");
         ccid = getIntent().getStringExtra("ccid");
 
@@ -258,7 +258,7 @@ public class ShuinuanFalaerMainActivity extends ShuinuanBaseNewActivity implemen
             String haibagaodu = msg.substring(48, 52);//海拔高度
             String hanyangliang = msg.substring(52, 55);//含氧量
 
-            firstCaozuo(msg);
+            firstCaozuo();
 
             String xinhaoStr = msg.substring(55, 57);
             String banbenhao = msg.substring(57, 60);
@@ -596,7 +596,7 @@ public class ShuinuanFalaerMainActivity extends ShuinuanBaseNewActivity implemen
         }
     });
 
-    private void firstCaozuo(String msg) {
+    private void firstCaozuo() {
         if (isFirst) {
             //向水暖加热器发送获取实时数据
             if (!sim_ccid_save_type.equals("1")) {
@@ -1160,7 +1160,7 @@ public class ShuinuanFalaerMainActivity extends ShuinuanBaseNewActivity implemen
         public boolean handleMessage(@NonNull Message msg) {
             switch (msg.what) {
                 case 1:
-                    if (isOnActivity && isCanGetNs) {
+                    if (isOnActivity) {
                         getNsData();
                     }
                     initHandlerNS();

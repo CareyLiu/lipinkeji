@@ -198,10 +198,10 @@
                                 app:layout_constraintTop_toBottomOf="@+id/iv_back">
 
                                 <View
-                                    app:layout_constraintLeft_toLeftOf="parent"
                                     android:id="@+id/view_zhanwei"
                                     android:layout_width="10pt"
-                                    android:layout_height="1pt">
+                                    android:layout_height="1pt"
+                                    app:layout_constraintLeft_toLeftOf="parent">
 
                                 </View>
 
@@ -686,17 +686,17 @@
                             <LinearLayout
                                 android:id="@+id/iv_tuiguangma"
                                 android:layout_width="match_parent"
-                                android:layout_height="104pt"
+                                android:layout_height="75pt"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
                                 android:paddingHorizontal="30pt"
                                 android:visibility="gone">
 
                                 <ImageView
-                                    android:layout_width="60pt"
-                                    android:layout_height="60pt"
+                                    android:layout_width="38pt"
+                                    android:layout_height="38pt"
                                     android:layout_marginRight="30pt"
-                                    android:src="@mipmap/jdjh_mine_icon_huancun" />
+                                    android:src="@mipmap/jdjh_mine_icon_dpsc" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -704,20 +704,20 @@
                                     android:layout_weight="1"
                                     android:includeFontPadding="false"
                                     android:text="SIM卡续费"
-                                    android:textColor="@color/text_color_3"
+                                    android:textColor="@color/white"
                                     android:textSize="27pt" />
 
                                 <ImageView
                                     android:layout_width="31pt"
                                     android:layout_height="31pt"
-                                    android:src="@mipmap/arrow_gray" />
+                                    android:src="@mipmap/push_white" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1pt"
-                                android:background="@color/text_color_e"
-                                android:visibility="gone" />
+                                android:visibility="gone"
+                                android:background="@color/text_color_e" />
 
                             <LinearLayout
                                 android:id="@+id/ll_dianpushoucang"

@@ -6,6 +6,7 @@ public class SheBeiModel extends SectionEntity {
     public SheBeiModel(boolean isHeader, String header) {
         super(isHeader, header);
     }
+
     /**
      * ccid : aaaaaaaaaaaaaaaa10090018
      * validity_term : 使用中
@@ -25,6 +26,10 @@ public class SheBeiModel extends SectionEntity {
     public String sim_ccid_save_type;
     public String share_type;
     public String is_platform;
+
+    public String sim_ccid;
+    public String validdate;
+    public String validdate_state;
 
 
 }

@@ -192,6 +192,7 @@ public class MineFragment extends BaseFragment implements Observer {
         initData();
         unbinder = ButterKnife.bind(this, rootView);
 
+//        ivTuiguangma.setVisibility(View.VISIBLE);
     }
 
     public void initData() {
@@ -337,24 +338,6 @@ public class MineFragment extends BaseFragment implements Observer {
     private BaseAnimatorSet mBasOut = new SlideBottomExit();
 
     private void clickHuancun() {
-//        NormalDialog normalDialog = new NormalDialog(getContext());
-//        normalDialog.content("确定清除当前应用的缓存数据吗?").showAnim(mBasIn).dismissAnim(mBasOut).show();
-//        normalDialog.setOnBtnClickL(
-//                new OnBtnClickL() {
-//                    @Override
-//                    public void onBtnClick() {
-//                        normalDialog.dismiss();
-//                    }
-//                },
-//                new OnBtnClickL() {
-//                    @Override
-//                    public void onBtnClick() {
-//                        CleanMessageUtil.clearAllCache(getContext());
-//                        normalDialog.dismiss();
-//                        AlertUtil.t(getContext(), "清除完毕！");
-//                    }
-//                });
-
         VipListActivity.actionStart(getContext());
     }
 

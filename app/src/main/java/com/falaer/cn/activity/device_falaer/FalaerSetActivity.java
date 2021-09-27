@@ -13,6 +13,8 @@ import com.falaer.cn.activity.DiagnosisActivity;
 import com.falaer.cn.activity.device_falaer.gongxiang.GongxiangFalaerActivity;
 import com.falaer.cn.activity.shuinuan.Y;
 import com.falaer.cn.activity.shuinuan.gongxiang.GongxiangModel;
+import com.falaer.cn.activity.vip.dialog.XufeiDialog;
+import com.falaer.cn.activity.vip.model.XufeiModel;
 import com.falaer.cn.app.BaseActivity;
 import com.falaer.cn.app.ConstanceValue;
 import com.falaer.cn.app.Notice;
@@ -23,13 +25,21 @@ import com.falaer.cn.config.PreferenceHelper;
 import com.falaer.cn.config.UserManager;
 import com.falaer.cn.dialog.newdia.TishiDialog;
 import com.falaer.cn.get_net.Urls;
+import com.falaer.cn.model.YuZhiFuModel;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -58,6 +68,8 @@ public class FalaerSetActivity extends BaseActivity {
     LinearLayout rlGongxiang;
     @BindView(R.id.rl_gongxiang_jie)
     LinearLayout rlGongxiangJie;
+    @BindView(R.id.rl_shebeixufei)
+    LinearLayout rl_shebeixufei;
 
     private String shebeima;
     private String ccid;
@@ -109,6 +121,14 @@ public class FalaerSetActivity extends BaseActivity {
             ll_jiebang.setVisibility(View.VISIBLE);
             rlGongxiangJie.setVisibility(View.GONE);
         }
+
+        rl_shebeixufei.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickXufei();
+            }
+        });
+        initShuju();
     }
 
     @OnClick({R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.ll_guzhang, R.id.rl_back, R.id.ll_guzhangdaima, R.id.ll_dingshi, R.id.ll_jiareqizhuangtai, R.id.ll_jiebang})
@@ -194,4 +214,89 @@ public class FalaerSetActivity extends BaseActivity {
         dialog.setTextContent("是否退出该共享设备");
         dialog.show();
     }
+
+
+    private XufeiDialog xufeiDialog;
+    private String validdate;
+    private String validdate_state;
+    private String sim_ccid;
+    private List<XufeiModel.DataBean> xufeiModels;
+    private YuZhiFuModel.DataBean dataBean_pay;
+
+    private void initShuju() {
+        validdate = PreferenceHelper.getInstance(mContext).getString("validdate", "0");
+        validdate_state = PreferenceHelper.getInstance(mContext).getString("validdate_state", "0");
+        sim_ccid = PreferenceHelper.getInstance(mContext).getString("sim_ccid", "0");
+        getXufei();
+    }
+
+    private void getXufei() {
+        xufeiModels = new ArrayList<>();
+        XufeiModel.DataBean bean = new XufeiModel.DataBean();
+        bean.setMoney("5");
+        bean.setYear("1");
+        xufeiModels.add(bean);
+    }
+
+    private void clickXufei() {
+        xufeiDialog = new XufeiDialog(mContext);
+        xufeiDialog.setModels(xufeiModels);
+        xufeiDialog.setTv_shebei_youxiaoqi(validdate);
+        xufeiDialog.setXufeiClick(new XufeiDialog.XufeiClick() {
+            @Override
+            public void xufei() {
+                payWX();
+            }
+        });
+        xufeiDialog.show();
+    }
+
+    private void payWX() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key", Urls.key);
+        map.put("token", UserManager.getManager(mContext).getAppToken());
+        map.put("pay_id", "2");
+        map.put("pay_type", "4");
+        map.put("operate_type", "52");
+        map.put("operate_id", "11");
+        map.put("ccid", ccid);
+        map.put("project_type", "btfn");
+        String myHeaderLog = new Gson().toJson(map);
+        String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
+        OkGo.<AppResponse<YuZhiFuModel.DataBean>>post(Urls.DALIBAO_PAY)
+                .tag(mContext)//
+                .upJson(myHeaderInfo)
+                .execute(new JsonCallback<AppResponse<YuZhiFuModel.DataBean>>() {
+                    @Override
+                    public void onSuccess(Response<AppResponse<YuZhiFuModel.DataBean>> response) {
+                        Y.t(response.body().msg);
+                        dataBean_pay = response.body().data.get(0);
+                        goToWeChatPay(dataBean_pay);
+                    }
+
+                    @Override
+                    public void onError(Response<AppResponse<YuZhiFuModel.DataBean>> response) {
+                        super.onError(response);
+                        Y.tError(response);
+                    }
+                });
+    }
+
+    /**
+     * 微信支付
+     */
+    private void goToWeChatPay(YuZhiFuModel.DataBean out) {
+        IWXAPI api = WXAPIFactory.createWXAPI(mContext, dataBean_pay.getPay().getAppid());
+        api.registerApp(out.getPay().getAppid());
+        PayReq req = new PayReq();
+        req.appId = out.getPay().getAppid();
+        req.partnerId = out.getPay().getPartnerid();
+        req.prepayId = out.getPay().getPrepayid();
+        req.timeStamp = out.getPay().getTimestamp();
+        req.nonceStr = out.getPay().getNoncestr();
+        req.sign = out.getPay().getSign();
+        req.packageValue = out.getPay().getPackageX();
+        api.sendReq(req);
+    }
+
 }

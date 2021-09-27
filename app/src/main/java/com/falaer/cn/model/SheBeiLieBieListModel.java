@@ -132,6 +132,19 @@ public class SheBeiLieBieListModel {
             private String validity_time;
             public String sim_ccid_save_type;
             public String is_platform;
+            /**
+             * create_time : 2021-09-17 16:30:18
+             * validdate :
+             * work_day_num : 9天
+             * validdate_state : 3
+             * sim_ccid :
+             */
+
+            private String create_time;
+            private String validdate;
+            private String work_day_num;
+            private String validdate_state;
+            private String sim_ccid;
 
             public String getIs_platform() {
                 return is_platform;
@@ -267,6 +280,46 @@ public class SheBeiLieBieListModel {
 
             public void setValidity_time(String validity_time) {
                 this.validity_time = validity_time;
+            }
+
+            public String getCreate_time() {
+                return create_time;
+            }
+
+            public void setCreate_time(String create_time) {
+                this.create_time = create_time;
+            }
+
+            public String getValiddate() {
+                return validdate;
+            }
+
+            public void setValiddate(String validdate) {
+                this.validdate = validdate;
+            }
+
+            public String getWork_day_num() {
+                return work_day_num;
+            }
+
+            public void setWork_day_num(String work_day_num) {
+                this.work_day_num = work_day_num;
+            }
+
+            public String getValiddate_state() {
+                return validdate_state;
+            }
+
+            public void setValiddate_state(String validdate_state) {
+                this.validdate_state = validdate_state;
+            }
+
+            public String getSim_ccid() {
+                return sim_ccid;
+            }
+
+            public void setSim_ccid(String sim_ccid) {
+                this.sim_ccid = sim_ccid;
             }
         }
     }

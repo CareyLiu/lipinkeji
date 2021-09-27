@@ -114,6 +114,24 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
     @BindView(R.id.bt_mode_tongfeng)
     TextView bt_mode_tongfeng;
 
+    private boolean isFirst;//是否第一次进入
+    private boolean isKaiji;//是否开机
+    private boolean isOnActivity;//是否处于当前页面
+    private boolean isHenwenMode;//true恒温模式   false档位模式
+    private boolean isCanGetNs;//是否处于操作中   false 操作中、true 未操作
+    private int typeZaixian;//1 在线、2 离线、3 连接中
+    private int typeMingling;//0 发送实时数据、1 档位模式、2 恒温模式、3 关机、4 预泵油、5 预通风、6 水泵
+
+    private String jiareqizhuangtai;//1.档位开机2.空调开机3.关机 4.水泵开机9.关机中6.预泵油7.预通风
+    private String dangwei;
+    private String yushewendu;
+    private TishiDialog bengyouDialog;
+    private TishiDialog tongfengDialog;
+    private TishiDialog shuibengDialog;
+    private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
+
+    private String sim_ccid_save_type;
+
     @Override
     public int getContentViewResId() {
         return R.layout.a_falaer_act_main;
@@ -136,23 +154,6 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
     }
 
 
-    private boolean isFirst;//是否第一次进入
-    private boolean isKaiji;//是否开机
-    private boolean isOnActivity;//是否处于当前页面
-    private boolean isHenwenMode;//true恒温模式   false档位模式
-    private boolean isCanGetNs;//是否处于操作中   false 操作中、true 未操作
-    private int typeZaixian;//1 在线、2 离线、3 连接中
-    private int typeMingling;//0 发送实时数据、1 档位模式、2 恒温模式、3 关机、4 预泵油、5 预通风、6 水泵
-
-    private String jiareqizhuangtai;//1.档位开机2.空调开机3.关机 4.水泵开机9.关机中6.预泵油7.预通风
-    private String dangwei;
-    private String yushewendu;
-    private TishiDialog bengyouDialog;
-    private TishiDialog tongfengDialog;
-    private TishiDialog shuibengDialog;
-    private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,8 +167,8 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         initHandlerNS();
     }
 
-
     private void initData() {
+        sim_ccid_save_type = PreferenceHelper.getInstance(mContext).getString("sim_ccid_save_type", "0");
         PreferenceHelper.getInstance(mContext).putString(App.CHOOSE_KONGZHI_XIANGMU, DoMqttValue.FENGNUAN);
         isFirst = true;
         isKaiji = false;
@@ -400,7 +401,50 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
                 iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal1);
             }
         }
+
+        firstCaozuo();
     }
+
+
+    private void firstCaozuo() {
+        if (isFirst) {
+            //向水暖加热器发送获取实时数据
+            if (!sim_ccid_save_type.equals("1")) {
+                AndMqtt.getInstance().publish(new MqttPublish()
+                        .setMsg("X.")
+                        .setQos(2).setRetained(false)
+                        .setTopic(CAR_CTROL), new IMqttActionListener() {
+                    @Override
+                    public void onSuccess(IMqttToken asyncActionToken) {
+                        Y.i("查询一次卡号");
+                    }
+
+                    @Override
+                    public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                    }
+                });
+            }
+
+            AndMqtt.getInstance().publish(new MqttPublish()
+                    .setMsg("Y.")
+                    .setQos(2).setRetained(false)
+                    .setTopic(CAR_CTROL), new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    Y.i("查询一次经纬度");
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                }
+            });
+
+            isFirst = false;
+        }
+    }
+
 
     private void initDialog() {
         initShuibeng();

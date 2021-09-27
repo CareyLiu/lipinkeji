@@ -156,10 +156,10 @@ public class VipListActivity extends BaseActivity {
         map.put("token", UserManager.getManager(mContext).getAppToken());
         map.put("pay_id", "2");
         map.put("pay_type", "4");
-        map.put("operate_type", "33");
-        map.put("operate_id", "13");
+        map.put("operate_type", "52");
+        map.put("operate_id", "11");
         map.put("ccid", ccid);
-        map.put("project_type", "zdjh_card");
+        map.put("project_type", "btfn");
         String myHeaderLog = new Gson().toJson(map);
         String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
         OkGo.<AppResponse<YuZhiFuModel.DataBean>>post(Urls.DALIBAO_PAY)
@@ -301,7 +301,7 @@ public class VipListActivity extends BaseActivity {
     public void getSheBeiData() {
         mDatas.clear();
         Map<String, String> map = new HashMap<>();
-        map.put("code", "03510");
+        map.put("code", "03522");
         map.put("key", Urls.key);
         map.put("user_car_type", "1");
         map.put("token", UserManager.getManager(mContext).getAppToken());

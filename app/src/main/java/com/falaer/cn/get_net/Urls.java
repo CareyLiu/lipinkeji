@@ -22,9 +22,6 @@ public class Urls {
     public static String WIT_APP = SERVER_URL + "wit/app";
     public static String ZHINENGJIAJU = SERVER_URL + "znjj/app/user";//智能家居
     public static String ZHINENGJIJU_ZNJJ = SERVER_URL + "/znjj/app";
-
-    public static String BAZIAPP = SERVER_URL + "bz/app";//八紫APP接口
-    public static String BAZIAPPUSER = SERVER_URL + "bz/app/user";//八紫APP接口
     public static String ARGEMENTS = SERVER_URL + "shop_new/user_agreement";// ARGEMENTS
     public static String PAYSUCCESS = SERVER_URL + "msg/pay/create/ok";//支付成功
     public static String DINGSHI = SERVER_URL + "fn/common";//定时

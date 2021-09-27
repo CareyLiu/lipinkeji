@@ -263,6 +263,33 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/rl_shebeixufei"
+                android:layout_width="match_parent"
+                android:layout_height="96pt"
+                android:layout_marginHorizontal="36pt"
+                android:layout_marginTop="52pt"
+                android:background="@mipmap/falaer_set_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36pt"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="续费查询"
+                    android:textColor="@color/white"
+                    android:textSize="33pt" />
+
+                <ImageView
+                    android:layout_width="29pt"
+                    android:layout_height="29pt"
+                    android:layout_marginRight="20pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/ll_lixianjilu"
                 android:layout_width="match_parent"
                 android:layout_height="96pt"

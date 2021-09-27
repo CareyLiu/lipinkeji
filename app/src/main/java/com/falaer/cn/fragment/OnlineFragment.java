@@ -126,6 +126,10 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 MyApplication.CAR_NOTIFY = "wit/server/" + getServer_id() + MyApplication.getUser_id();
                                 MyApplication.CAR_CTROL = "wit/cbox/hardware/" + getServer_id() + MyApplication.getCcid();
 
+                                PreferenceHelper.getInstance(getContext()).putString("validdate", mDatas.get(position).validdate);
+                                PreferenceHelper.getInstance(getContext()).putString("validdate_state", mDatas.get(position).validdate_state);
+                                PreferenceHelper.getInstance(getContext()).putString("sim_ccid", mDatas.get(position).sim_ccid);
+
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
@@ -142,10 +146,13 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 PreferenceHelper.getInstance(getContext()).putString("car_server_id", count);
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
                                 PreferenceHelper.getInstance(getContext()).putString("sim_ccid_save_type", mDatas.get(position).sim_ccid_save_type);
+                                PreferenceHelper.getInstance(getContext()).putString("validdate", mDatas.get(position).validdate);
+                                PreferenceHelper.getInstance(getContext()).putString("validdate_state", mDatas.get(position).validdate_state);
+                                PreferenceHelper.getInstance(getContext()).putString("sim_ccid", mDatas.get(position).sim_ccid);
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        ShuinuanFalaerMainActivity.actionStart(getActivity(), ccid, count, mDatas.get(position).validity_time);
+                                        ShuinuanFalaerMainActivity.actionStart(getActivity(), ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");
@@ -277,6 +284,10 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 sheBeiModel1.sim_ccid_save_type = bean.sim_ccid_save_type;
                                 sheBeiModel1.share_type = bean.getShare_type();
                                 sheBeiModel1.is_platform = bean.getIs_platform();
+
+                                sheBeiModel1.sim_ccid = bean.getSim_ccid();
+                                sheBeiModel1.validdate = bean.getValiddate();
+                                sheBeiModel1.validdate_state = bean.getValiddate_state();
                                 mDatas.add(sheBeiModel1);
                             }
                         }
