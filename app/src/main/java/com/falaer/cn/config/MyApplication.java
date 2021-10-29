@@ -184,6 +184,7 @@ public class MyApplication extends MultiDexApplication {
                     break;
             }
         }
+
     };
 
     DoMqttValue doMqttValue;
