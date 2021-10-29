@@ -21,7 +21,7 @@
         app:contentInsetStart="0dp"
         app:title="">
 
-        <com.falaer.cn.view.ColorFilterImageView
+        <com.youjiate.cn.view.ColorFilterImageView
             android:id="@+id/iv_toolbar_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:textColor="@color/black"
             android:visibility="gone" />
 
-        <com.falaer.cn.view.ColorFilterImageView
+        <com.youjiate.cn.view.ColorFilterImageView
             android:id="@+id/iv_toolbar_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

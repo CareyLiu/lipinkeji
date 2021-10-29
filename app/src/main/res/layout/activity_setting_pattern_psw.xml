@@ -28,7 +28,7 @@
     </RelativeLayout>
 
 
-    <com.falaer.cn.view.ChaosGestureView
+    <com.youjiate.cn.view.ChaosGestureView
         android:id="@+id/gesture"
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:background="@null"
             android:fitsSystemWindows="true"
-            tools:context="com.falaer.cn.activity.WindHeaterActivity">
+            tools:context="com.youjiate.cn.activity.WindHeaterActivity">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                tools:context="com.falaer.cn.activity.WindHeaterActivity">
+                tools:context="com.youjiate.cn.activity.WindHeaterActivity">
 
                 <androidx.percentlayout.widget.PercentRelativeLayout
                     android:layout_width="match_parent"
@@ -225,7 +225,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="25dp">
 
-                        <com.falaer.cn.view.ArcProgressBar
+                        <com.youjiate.cn.view.ArcProgressBar
                             android:id="@+id/arcProgressBar"
                             android:layout_width="180dp"
                             android:layout_height="180dp"
@@ -239,7 +239,7 @@
                             >
 
 
-                        </com.falaer.cn.view.ArcProgressBar>
+                        </com.youjiate.cn.view.ArcProgressBar>
 
                         <ImageView
                             android:layout_width="180dp"

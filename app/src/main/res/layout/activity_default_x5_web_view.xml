@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
 
-        <com.falaer.cn.util.x5.utils.X5WebView
+        <com.youjiate.cn.util.x5.utils.X5WebView
             android:id="@+id/x5_webView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

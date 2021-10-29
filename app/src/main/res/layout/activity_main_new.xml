@@ -6,7 +6,7 @@
     android:background="#192231"
     android:orientation="vertical">
 
-    <com.falaer.cn.view.NoScrollViewPager
+    <com.youjiate.cn.view.NoScrollViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
