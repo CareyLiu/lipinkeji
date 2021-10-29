@@ -90,6 +90,7 @@ import rx.subscriptions.CompositeSubscription;
 import static com.falaer.cn.get_net.Urls.MESSAGE_URL;
 
 public class MyApplication extends MultiDexApplication {
+    //我的第一行代码
     protected static final String TAG = "MyApplication";
     @SuppressLint("StaticFieldLeak")
     public static Context context;
