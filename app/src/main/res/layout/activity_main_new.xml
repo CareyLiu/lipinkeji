@@ -1,9 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/ll_main"
-    android:fitsSystemWindows="true"
-    android:background="#192231"
+    android:background="@color/transparent"
     android:orientation="vertical">
 
     <com.youjiate.cn.view.NoScrollViewPager
@@ -13,17 +12,16 @@
         android:layout_weight="1" />
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="95pt">
 
         <LinearLayout
-            android:background="#192231"
             android:id="@+id/ll_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="#192231"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -46,11 +44,11 @@
 
 
         <LinearLayout
-            android:background="#192231"
             android:id="@+id/ll_device"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="#192231"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -73,11 +71,11 @@
 
 
         <LinearLayout
-            android:background="#192231"
             android:id="@+id/ll_mine"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="#192231"
             android:gravity="center"
             android:orientation="vertical">
 
