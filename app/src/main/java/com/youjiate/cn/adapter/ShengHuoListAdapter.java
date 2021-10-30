@@ -8,24 +8,25 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
-import com.youjiate.cn.R;
 
+import com.youjiate.cn.R;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseQuickAdapter;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder;
 import com.youjiate.cn.model.Home;
 
+
 import java.util.List;
 
-public class ZhiKongListAdapter extends BaseQuickAdapter<Home.DataBean.IntellectListBean, BaseViewHolder> {
-    public ZhiKongListAdapter(int layoutResId, @Nullable List<Home.DataBean.IntellectListBean> data) {
+public class ShengHuoListAdapter extends BaseQuickAdapter<Home.DataBean.LifeListBean, BaseViewHolder> {
+    public ShengHuoListAdapter(int layoutResId, @Nullable List<Home.DataBean.LifeListBean> data) {
         super(layoutResId, data);
     }
 
 
     @Override
-    protected void convert(BaseViewHolder helper, Home.DataBean.IntellectListBean item) {
-        helper.setText(R.id.tv_text, item.getName());
-        Glide.with(mContext).load(item.getImg_url()).into((ImageView) helper.getView(R.id.iv_image));
+    protected void convert(BaseViewHolder helper, Home.DataBean.LifeListBean item) {
+        helper.setText(R.id.tv_text, item.service_type_name);
+        Glide.with(mContext).load(item.service_type_img).into((ImageView) helper.getView(R.id.iv_image));
 
 //        if (helper.getAdapterPosition() == 0) {
 //            setMargins(helper.getView(R.id.constrain), DensityUtil.dp2px(13), DensityUtil.dp2px(10), 0, 0);
@@ -33,10 +34,10 @@ public class ZhiKongListAdapter extends BaseQuickAdapter<Home.DataBean.Intellect
 //        setMargins(helper.getView(R.id.constrain), DensityUtil.dp2px(13), DensityUtil.dp2px(10), 0, 0);
 
 
-        Log.i("getPosition   ：   ",helper.getPosition()+"");
-        Log.i("getAdapterPosition ：  ",helper.getAdapterPosition()+"");
-        Log.i("getLayoutPosition  ： ",helper.getLayoutPosition()+"");
-    //    Log.i("getOldPosition  ： ",helper.getOldPosition()+"");
+        Log.i("getPosition   ：   ", helper.getPosition() + "");
+        Log.i("getAdapterPosition ：  ", helper.getAdapterPosition() + "");
+        Log.i("getLayoutPosition  ： ", helper.getLayoutPosition() + "");
+        //    Log.i("getOldPosition  ： ",helper.getOldPosition()+"");
 
 
         helper.addOnClickListener(R.id.constrain);

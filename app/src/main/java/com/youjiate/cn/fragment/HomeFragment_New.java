@@ -18,19 +18,18 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.AMapLocationQualityReport;
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.youjiate.cn.activity.dingdan.MyOrderActivity;
-import com.youjiate.cn.activity.fenxiang_tuisong.TuanYouTuiGuangActivity;
-import com.youjiate.cn.activity.saoma.ScanActivity;
-import com.youjiate.cn.adapter.FunctionListAdapter;
-import com.youjiate.cn.config.Radius_GlideImageLoader;
-import com.youjiate.cn.model.FunctionListBean;
+import com.bumptech.glide.request.RequestOptions;
 import com.flyco.roundview.RoundRelativeLayout;
+import com.github.jdsjlzx.ItemDecoration.GridItemDecoration;
+import com.github.jdsjlzx.interfaces.OnItemClickListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
@@ -42,14 +41,25 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youjiate.cn.R;
+import com.youjiate.cn.activity.DefaultX5WebView_HaveNameActivity;
 import com.youjiate.cn.activity.SheBeiLieBiaoActivity;
+import com.youjiate.cn.activity.TuanYouWebView;
 import com.youjiate.cn.activity.gouwuche.GouWuCheActivity;
+import com.youjiate.cn.activity.homepage.DaLiBaoActivity;
+
+import com.youjiate.cn.activity.saoma.ScanActivity;
+
+import com.youjiate.cn.activity.xin_tuanyou.TuanYouList;
 import com.youjiate.cn.activity.zijian_shangcheng.FenLeiThirdActivity;
+import com.youjiate.cn.activity.zijian_shangcheng.ZiJianShopMallActivity;
 import com.youjiate.cn.activity.zijian_shangcheng.ZiJianShopMallDetailsActivity;
+import com.youjiate.cn.adapter.ChiHeWanLeListAdapter;
 import com.youjiate.cn.adapter.DirectAdapter;
 import com.youjiate.cn.adapter.HotGoodsAdapter;
+import com.youjiate.cn.adapter.ShengHuoListAdapter;
 import com.youjiate.cn.adapter.ZhiKongListAdapter;
 import com.youjiate.cn.adapter.gaiban.HomeReMenAdapter;
+import com.youjiate.cn.adapter.gaiban.HomeZiYingAdapter;
 import com.youjiate.cn.app.App;
 import com.youjiate.cn.app.AppConfig;
 import com.youjiate.cn.app.ConstanceValue;
@@ -59,14 +69,20 @@ import com.youjiate.cn.app.UIHelper;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseQuickAdapter;
 import com.youjiate.cn.basicmvp.BaseFragment;
 import com.youjiate.cn.callback.JsonCallback;
+import com.youjiate.cn.common.StringUtils;
 import com.youjiate.cn.config.AppResponse;
 import com.youjiate.cn.config.PreferenceHelper;
+import com.youjiate.cn.config.Radius_GlideImageLoader;
+
+import com.youjiate.cn.config.Radius_XiuPeiChangImageLoader;
 import com.youjiate.cn.config.UserManager;
 import com.youjiate.cn.dialog.LordingDialog;
 import com.youjiate.cn.get_net.Urls;
+import com.youjiate.cn.model.AccessListModel;
 import com.youjiate.cn.model.Home;
 import com.youjiate.cn.model.TuiGuangMaModel;
 import com.youjiate.cn.util.AlertUtil;
+import com.youjiate.cn.util.GlideShowImageUtils;
 import com.youjiate.cn.util.GridAverageUIDecoration;
 import com.youjiate.cn.util.Utils;
 import com.youjiate.cn.view.ObservableScrollView;
@@ -79,8 +95,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
 import static com.youjiate.cn.app.App.JINGDU;
@@ -92,48 +110,68 @@ import static com.youjiate.cn.get_net.Urls.HOME_PICTURE;
  */
 public class HomeFragment_New extends BaseFragment implements ObservableScrollView.ScrollViewListener, View.OnClickListener {
     private static final String TAG = "HomeFragment";
-    private ImageView ivGouwuche;
+
+
+    ImageView ivGouwuche;
+    @BindView(R.id.tv_city_name)
+    TextView tvCityName;
+
+
+    private View view;
     private Unbinder unbinder;
     private ImageView iv_taoke;
-    private HotGoodsAdapter hotGoodsAdapter = null;//热门商品适配器
-    private LRecyclerViewAdapter hotLRecyclerViewAdapter = null;
-    private List<Home.DataBean.IndexShowListBean> remenListBean = new ArrayList<>();
-    private List<Home.DataBean.ShopListBean> groupList = new ArrayList<>();
-    private DirectAdapter directAdapter = null;//直供商品适配器
-    private LRecyclerViewAdapter directLRecyclerViewAdapter = null;
-    private List<Home.DataBean.ProShowListBean> ziYingListBean = new ArrayList<>();
-    private LinearLayout llMain;
+    HotGoodsAdapter hotGoodsAdapter = null;//热门商品适配器
+    LRecyclerViewAdapter hotLRecyclerViewAdapter = null;
+    List<Home.DataBean.IndexShowListBean> remenListBean = new ArrayList<>();
+    List<Home.DataBean.ShopListBean> groupList = new ArrayList<>();
+    DirectAdapter directAdapter = null;//直供商品适配器
+    LRecyclerViewAdapter directLRecyclerViewAdapter = null;
+    List<Home.DataBean.ProShowListBean> ziYingListBean = new ArrayList<>();
+    public int choosePostion = 99999;
+
+    LinearLayout llMain;
+    // LRecyclerView groupRecyclerView;
+
+    Banner banner;
+
+
     private View topPanel, middlePanel;
+    private int topHeight;
     private ConstraintLayout clZiYing_Middle, clReMen_Middle;
     private ConstraintLayout clZiYing_Top, clReMen_Top;
+    private LinearLayout llBackground_Top, llBackground_Middle;
     private TextView tvZiYingTop, tvRemTop, tvZiYingZhiGongTop, tvReMenShangPinTop;
     private TextView tvZiYingMiddle, tvReMenMiddle, tvZiYingZhiGongMiddle, tvReMenShangPinMiddle;
+    private RelativeLayout rlXiuPeiChang;
+    private Banner bannerXiuPeiChang;
+    private ImageView ivEnterXiuPeiChang;
+
+
     private View viewLineTop, viewLineMiddle, remenViewLineTop;
-    private RecyclerView zhiKongList;//吃喝玩乐和智控
+    RecyclerView chiHeWanLeList, zhiKongList, shengHuoList;//吃喝玩乐和智控
+    private RelativeLayout llShengHuo;
     /**
      * 每一页展示多少条数据
      */
     private static final int REQUEST_COUNT = 10;
-    private ZhiKongListAdapter zhiKongListAdapter;
-    private FunctionListAdapter functionListAdapter;
-    private List<Home.DataBean.IntellectListBean> intellectListBeanList;
-    private List<FunctionListBean> functionListBeans;
+
+    ChiHeWanLeListAdapter chiHeWanLeListAdapter;
+    List<Home.DataBean.IconListBean> chiHeWanLeListBeans;
+
+    ZhiKongListAdapter zhiKongListAdapter;
+    ShengHuoListAdapter shengHuoListAdapter;
+    List<Home.DataBean.IntellectListBean> intellectListBeanList;
+    List<Home.DataBean.LifeListBean> lifeListBeans;
+    ImageView ivDaLiBao;//大礼包
+    ImageView ivZiJian;
+    ImageView tianMaoOrTaoBao;
+
+    ImageView ziYingZhiGon;
+    ImageView reMenShangPin;
+    ConstraintLayout ll_shagnchengzhuanqu;
+
     private String rimenOrZiYing = "0"; //0 自营直供 1 热门商品
-    private ConstraintLayout clQuanBu;
-    private SmartRefreshLayout smartRefreshLayout;
-    private ObservableScrollView nestedScrollView;
-    private RelativeLayout rl_bottom;
-
-
-    private RecyclerView rlvRemen;
-    private HomeReMenAdapter homeReMenAdapter;
-    private RoundRelativeLayout rrlYuYinMianBan;
-    private TextView tvResult;
-    private int topHeight;
-
-    private RecyclerView functionList;
-    Banner woshibfaanfe;
-    private Banner bannerXiuPeiChang;
+    ConstraintLayout clQuanBu;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -142,12 +180,55 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         //初始化定位
         initLocation();
         startLocation();
+        // getZhuJiNet();
     }
 
+    SmartRefreshLayout smartRefreshLayout;
+    ObservableScrollView nestedScrollView;
+    RelativeLayout rl_bottom;
+
+    private ImageView ivClose;
+
+    RecyclerView rlv_ziYing;
+    HomeZiYingAdapter homeZiYingAdapter;
+    RecyclerView rlvRemen;
+    HomeReMenAdapter homeReMenAdapter;
+    private ImageView iv_home_xiaoxi;
+
+    RoundRelativeLayout rrlYuYinMianBan;
+    TextView tvResult;
 
     @Override
     protected void initLogic() {
 
+    }
+
+    private void getZhuJiNet() {
+        Map<String, String> map = new HashMap<>();
+        map.put("code", "16076");
+        map.put("key", Urls.key);
+        map.put("token", UserManager.getManager(getActivity()).getAppToken());
+        map.put("family_id", PreferenceHelper.getInstance(getActivity()).getString(AppConfig.FAMILY_ID, ""));
+        Gson gson = new Gson();
+        OkGo.<AppResponse<AccessListModel.DataBean>>post(Urls.ZHINENGJIAJU)
+                .tag(this)
+                .upJson(gson.toJson(map))
+                .execute(new JsonCallback<AppResponse<AccessListModel.DataBean>>() {
+                    @Override
+                    public void onSuccess(final Response<AppResponse<AccessListModel.DataBean>> response) {
+
+                    }
+
+                    @Override
+                    public void onError(Response<AppResponse<AccessListModel.DataBean>> response) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        super.onFinish();
+                    }
+                });
     }
 
     @Override
@@ -155,11 +236,20 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         return R.layout.layout_homefragment_new;
     }
 
+    LottieAnimationView animationView;
+
     @Override
     protected void initView(View view) {
+//        rrlYuYinMianBan = view.findViewById(R.id.rrl_yuyin_mianban);
+//        tvResult = view.findViewById(R.id.tv_result);
+        ivEnterXiuPeiChang = view.findViewById(R.id.iv_enter_xiupeichang);
+        ivEnterXiuPeiChang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
         nestedScrollView = view.findViewById(R.id.scrollView);
-        functionList = view.findViewById(R.id.function_list);
         topPanel = view.findViewById(R.id.topPanel);
         middlePanel = view.findViewById(R.id.middlePanel);
         clZiYing_Top = topPanel.findViewById(R.id.cl_ziying);
@@ -169,11 +259,31 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         tvZiYingTop = topPanel.findViewById(R.id.tv_ziying);
         tvRemTop = topPanel.findViewById(R.id.tv_remen);
         llMain = view.findViewById(R.id.ll_main);
-        clQuanBu = view.findViewById(R.id.cl_quanbu);
-        ivGouwuche = view.findViewById(R.id.iv_gouwuche);
-        rl_bottom = view.findViewById(R.id.rl_bottom);
-        woshibfaanfe = view.findViewById(R.id.banner);
 
+        banner = view.findViewById(R.id.banner);
+        ivDaLiBao = view.findViewById(R.id.iv_dalibao);
+        clQuanBu = view.findViewById(R.id.cl_quanbu);
+        ll_shagnchengzhuanqu = view.findViewById(R.id.ll_shagnchengzhuanqu);
+
+        ziYingZhiGon = view.findViewById(R.id.iv_ziying);
+        reMenShangPin = view.findViewById(R.id.iv_remen);
+        ivGouwuche = view.findViewById(R.id.iv_gouwuche);
+        animationView = view.findViewById(R.id.animation_view);
+        bannerXiuPeiChang = view.findViewById(R.id.banner_xiupeichang);
+        animationView.setAnimation("freec3_data.json");
+        animationView.setImageAssetsFolder("gifs/");
+        animationView.loop(true);
+        animationView.playAnimation();
+
+        animationView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DaLiBaoActivity.actionStart(getActivity());
+            }
+        });
+        rl_bottom = view.findViewById(R.id.rl_bottom);
+
+        ivClose = view.findViewById(R.id.iv_close);
         clQuanBu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,57 +295,112 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
             }
         });
 
+        /**
+         *     private TextView tvZiYingTop, tvRemTop, tvZiYingZhiGongTop, tvReMenShangPinTop;
+         *     private TextView tvZiYingMiddle, tvReMenMiddle, tvZiYingZhiGongMiddle, tvReMenShangPinMiddle;
+         */
 
-        //设置图片加载器
-        woshibfaanfe.setImageLoader(new Radius_GlideImageLoader());
+
         tvZiYingZhiGongTop = topPanel.findViewById(R.id.ziyingzhigong);
         tvReMenShangPinTop = topPanel.findViewById(R.id.remenshangpin);
+
+
         tvZiYingMiddle = middlePanel.findViewById(R.id.tv_ziying);
         tvReMenMiddle = middlePanel.findViewById(R.id.tv_remen);
         tvZiYingZhiGongMiddle = middlePanel.findViewById(R.id.ziyingzhigong);
         tvReMenShangPinMiddle = middlePanel.findViewById(R.id.remenshangpin);
         //吃喝玩乐相关列表
+        chiHeWanLeList = view.findViewById(R.id.rv_chihe_wanle_list);
+        chiHeWanLeList.setFocusable(false);
         zhiKongList = view.findViewById(R.id.zhikong_list);
+        zhiKongList.setFocusable(false);
+
+        shengHuoList = view.findViewById(R.id.rlv_shenghuo);
+        shengHuoList.setFocusable(false);
+
+        llShengHuo = view.findViewById(R.id.ll_shenghuo1);
+
+        ivZiJian = view.findViewById(R.id.iv_zijian);
+        tianMaoOrTaoBao = view.findViewById(R.id.iv_tianmao_or_taobao);
         nestedScrollView.setScrollViewListener(this);
+        rlv_ziYing = view.findViewById(R.id.rlv_ziying_or_remen);
+        rlv_ziYing.setFocusable(false);
         viewLineTop = topPanel.findViewById(R.id.view_line);
+        // viewLineMiddle = middlePanel.findViewById(R.id.view_line);
         rlvRemen = view.findViewById(R.id.rlv_remen);
+        rlvRemen.setFocusable(false);
         remenViewLineTop = topPanel.findViewById(R.id.view_line_remen);
+        rlXiuPeiChang = view.findViewById(R.id.rl_xiupeichang);
+        rlXiuPeiChang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //UIHelper.ToastMessage(getActivity(), "点击了修配厂");
+                //XiuPeiChangHomeActivity.actionStart(getActivity());
+                //      TuanGouShangJiaListActivity.actionStart(getActivity(), "7");
+            }
+        });
+        clZiYing_Top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //UIHelper.ToastMessage(getActivity(), "点击了自营");
+                rlv_ziYing.setVisibility(View.VISIBLE);
+                rlvRemen.setVisibility(View.GONE);
+                setZiYingOrReMenLine("0");
+                rimenOrZiYing = "0";
+            }
+        });
+        clReMen_Top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                //UIHelper.ToastMessage(getActivity(), "点击了热门");
+                rlv_ziYing.setVisibility(View.GONE);
+                rlvRemen.setVisibility(View.VISIBLE);
+                setZiYingOrReMenLine("1");
+                rimenOrZiYing = "1";
+            }
+        });
 
+        clReMen_Middle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //UIHelper.ToastMessage(getActivity(), "点击了热门");
+                rlv_ziYing.setVisibility(View.GONE);
+                rlvRemen.setVisibility(View.VISIBLE);
+                setZiYingOrReMenLine("1");
+                rimenOrZiYing = "1";
+            }
+        });
 
-        rlvRemen.setVisibility(View.VISIBLE);
-        setZiYingOrReMenLine("1");
-        rimenOrZiYing = "1";
+        clZiYing_Middle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //UIHelper.ToastMessage(getActivity(), "点击了自营");
+                rlv_ziYing.setVisibility(View.VISIBLE);
+                rlvRemen.setVisibility(View.GONE);
+                setZiYingOrReMenLine("0");
+                rimenOrZiYing = "0";
+            }
+        });
 
-//        clReMen_Middle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                rlv_ziYing.setVisibility(View.GONE);
-//                rlvRemen.setVisibility(View.VISIBLE);
-//                setZiYingOrReMenLine("1");
-//                rimenOrZiYing = "1";
-//            }
-//        });
-
-//        clZiYing_Middle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                rlv_ziYing.setVisibility(View.VISIBLE);
-//                rlvRemen.setVisibility(View.GONE);
-//                setZiYingOrReMenLine("0");
-//                rimenOrZiYing = "0";
-//            }
-//        });
 
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+        rlv_ziYing.addItemDecoration(new GridAverageUIDecoration(14, 10));
+        rlv_ziYing.setLayoutManager(layoutManager);
+        homeZiYingAdapter = new HomeZiYingAdapter(R.layout.item_home_ziying, ziYingListBean);
+        rlv_ziYing.setAdapter(homeZiYingAdapter);
+
+
         GridLayoutManager layoutManager1 = new GridLayoutManager(getActivity(), 2);
         rlvRemen.addItemDecoration(new GridAverageUIDecoration(9, 10));
         rlvRemen.setLayoutManager(layoutManager1);
         homeReMenAdapter = new HomeReMenAdapter(R.layout.item_home_remen, remenListBean);
         rlvRemen.setAdapter(homeReMenAdapter);
+
         ivGouwuche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //UIHelper.ToastMessage(getActivity(),"功能开发中");
                 GouWuCheActivity.actionStart(getActivity());
             }
         });
@@ -250,10 +415,124 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         });
         smartRefreshLayout.setEnableLoadMore(false);
         unbinder = ButterKnife.bind(this, view);
+        iv_home_xiaoxi = view.findViewById(R.id.iv_home_xiaoxi);
+
+        iv_home_xiaoxi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIHelper.ToastMessage(getActivity(), "暂未开放此功能，敬请期待");
+
+
+//                String serverid = PreferenceHelper.getInstance(getActivity()).getString(AppConfig.SERVERID, "");
+//
+//                if (StringUtils.isEmpty(serverid)) {
+//                    UIHelper.ToastMessage(getActivity(), "请添加主机后重新尝试");
+//                    return;
+//                }
+//                RxPermissions rxPermissions = new RxPermissions(getActivity());
+//                rxPermissions.request(Manifest.permission.RECORD_AUDIO).subscribe(new Action1<Boolean>() {
+//                    @Override
+//                    public void call(Boolean granted) {
+//                        if (granted) { // 在android 6.0之前会默认返回true
+////                            Notice n = new Notice();
+////                            n.type = ConstanceValue.MSG_YUYINHUANXING;
+////                            //  n.content = message.toString();
+////                            RxBus.getDefault().sendRx(n);
+//
+//                            YuYinZhiFuDialog yuYinZhiFuDialog = new YuYinZhiFuDialog(getActivity(), new YuYinZhiFuDialog.YuYinZhiFuDialogListener() {
+//                                @Override
+//                                public void kaiTong(View v, YuYinZhiFuDialog dialog) {
+//
+//                                }
+//                            });
+//                            yuYinZhiFuDialog.show();
+//                            //YanShiActivity.actionStart(getActivity());
+//                        } else {
+//                            Toast.makeText(getActivity(), "该应用需要赋予访问相机的权限，不开启将无法正常工作！", Toast.LENGTH_LONG).show();
+//                       }
+//                    }
+//                });
+
+                //   WenShiDuChuanGanQiActivity.actionStart(getActivity());
+
+//                yuYinChuLiTool.beginWakeUp(new YuYinInter() {
+//                    @Override
+//                    public void showMianBan() {
+//                        Log.i("展示面板", "showMianBan");
+//                        rrlYuYinMianBan.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void dismissMianBan() {
+//                        rrlYuYinMianBan.setVisibility(View.GONE);
+//                    }
+//
+//                    @Override
+//                    public void yuYinResult(String result) {
+//                        tvResult.setText(result);
+//                    }
+//                });
+//                Intent intent = new Intent(getActivity(), YanShiActivity.class);
+//                getActivity().startActivity(intent);
+            }
+        });
+
+        ImageView ivSaoMa = view.findViewById(R.id.iv_saoma);
+        ivSaoMa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // CrashReport.testJavaCrash();
+                RxPermissions rxPermissions = new RxPermissions(getActivity());
+                rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean granted) {
+                        if (granted) { // 在android 6.0之前会默认返回true
+                            ScanActivity.actionStart(getActivity());
+                            //YanShiActivity.actionStart(getActivity());
+                            //GongJiangLieBiaoNewActivity.actionStart(getActivity());
+                            //BianMinFaBuActivity.actionStart(getActivity());
+                            //GongJiangRuZhuActivity.actionStart(getActivity());
+//                            Intent intent = new Intent(getActivity(), PoiKeywordSearchActivity.class);
+//                            startActivity(intent);
+                            // KongQiJianCe_NewActvity.actionStart(getActivity(),"0x1100033");
+//                            Intent intent = new Intent(getActivity(), TuBiaoActivity.class);
+//                            startActivity(intent);
+//                            Intent intent = new Intent(getActivity(), ShiJianFenFaDemoActivity.class);
+//                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getActivity(), "该应用需要赋予访问相机的权限，不开启将无法正常工作！", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                //FenXiangTuiSongActivity.actionStart(getActivity());
+
+            }
+        });
+
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        GridLayoutManager gridLayoutManagerChi_He = new GridLayoutManager(getActivity(), 5, GridLayoutManager.VERTICAL, false);
+        // gridLayoutManagerChi_He.setOrientation(LinearLayoutManager.VERTICAL);
+        //   revisionRecycler.setLayoutManager(gridLayoutManager);
+
+        chiHeWanLeList.setLayoutManager(gridLayoutManagerChi_He);
+
+
+        chiHeWanLeListAdapter = new ChiHeWanLeListAdapter(R.layout.item_chihewanle, chiHeWanLeListBeans);
+        chiHeWanLeListAdapter.openLoadAnimation();//默认为渐显效果
+        chiHeWanLeList.setAdapter(chiHeWanLeListAdapter);
+
+        shengHuoListFuc();
+        // ivJd = header.findViewById(R.id.iv_jd);
+        //  LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getActivity());
+        // linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+
         GridLayoutManager gridLayoutManagerZHiKong = new GridLayoutManager(getActivity(), 5, GridLayoutManager.VERTICAL, false);
+        //    gridLayoutManagerZHiKong.setOrientation(LinearLayoutManager.VERTICAL);
         zhiKongList.setLayoutManager(gridLayoutManagerZHiKong);
+
         zhiKongListAdapter = new ZhiKongListAdapter(R.layout.item_zhikong, intellectListBeanList);
         zhiKongListAdapter.openLoadAnimation();//默认为渐显效果
         zhiKongList.setAdapter(zhiKongListAdapter);
@@ -270,6 +549,7 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                             Notice n = new Notice();
                             n.type = ConstanceValue.MSG_ZHINENGJIAJU;
                             RxBus.getDefault().sendRx(n);
+                            UIHelper.ToastMessage(getActivity(), "");
                         } else if (intellectListBean.getId().equals("2")) {
                             SheBeiLieBiaoActivity.actionStart(getActivity(), "1");
                         } else if (intellectListBean.getId().equals("3")) {
@@ -277,16 +557,93 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                         } else if (intellectListBean.getId().equals("4")) {//空调
                             SheBeiLieBiaoActivity.actionStart(getActivity(), "5");
                         } else if (intellectListBean.getId().equals("5")) {//神灯控车
-                            UIHelper.ToastMessage(getActivity(), "开发中,敬请期待");
+                            //   ShengxianMainActivity.actionStart(getActivity());
                         }
                         break;
                 }
             }
         });
+        chiHeWanLeListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, final int position) {
+
+                switch (view.getId()) {
+                    case R.id.constrain:
+                        /**
+                         * iconList
+                         * 美团小图标	id	图标id   1.美食 2.电影 3.酒店 4.休闲娱乐 5.旅游 6.加油
+                         * 7.修配厂 8.体检 9.丽人/美发 10更多 14 房产
+                         */
+
+                        //首先获得权限
+
+                        if (chiHeWanLeListAdapter.getData().get(position).getId().equals("6")) {
+                            String jingdu = PreferenceHelper.getInstance(getActivity()).getString(JINGDU, "0X11");
+                            String weidu = PreferenceHelper.getInstance(getActivity()).getString(WEIDU, "0X11");
+                            if (!jingdu.equals("0X11")) {
+                                String str = chiHeWanLeListAdapter.getData().get(position).getHref_url() + "?i=" + JiaMiToken + "&" + "gps_x=" + weidu + "&" + "gps_y=" + jingdu;
+                                TuanYouWebView.actionStart(getActivity(), str);
+                            } else {
+                                choosePostion = position;
+                                if (chiHeWanLeListAdapter.getData().get(position).getId().equals("6")) {
+                                    String str = chiHeWanLeListAdapter.getData().get(position).getHref_url() + "?i=" + JiaMiToken + "&" + "gps_x=45.666043" + "&" + "gps_y=126.605713";
+                                    TuanYouWebView.actionStart(getActivity(), str);
+                                    Toast.makeText(getActivity(), "该应用需要赋予定位的权限！", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        } else if (chiHeWanLeListAdapter.getData().get(position).getId().equals("11")) {
+                            TuanYouList.actionStart(getActivity());
+                        } else if (chiHeWanLeListAdapter.getData().get(position).getId().equals("14")) {
+                            DefaultX5WebView_HaveNameActivity.actionStart(getActivity(), chiHeWanLeListAdapter.getData().get(position).getHref_url(), chiHeWanLeListAdapter.getData().get(position).getName());
+                        } else if (chiHeWanLeListAdapter.getData().get(position).getId().equals("9")) {
+                            //  TuanGouShangJiaListActivity.actionStart(getActivity(), chiHeWanLeListAdapter.getData().get(position).getId());
+                        } else {
+                            //  TuanGouShangJiaListActivity.actionStart(getActivity(), chiHeWanLeListAdapter.getData().get(position).getId());
+
+                        }
+                }
+            }
+        });
+
+
+        GridItemDecoration divider = new GridItemDecoration.Builder(getActivity())
+                .setHorizontal(R.dimen.default_divider_padding_5dp)
+                .setVertical(R.dimen.default_divider_padding_5dp)
+                .setColorResource(R.color.white)
+                .build();
+
 
         hotLRecyclerViewAdapter = new LRecyclerViewAdapter(hotGoodsAdapter);
         directLRecyclerViewAdapter = new LRecyclerViewAdapter(directAdapter);
+
+
+        //设置图片加载器
+        banner.setImageLoader(new Radius_GlideImageLoader());
+        bannerXiuPeiChang.setImageLoader(new Radius_XiuPeiChangImageLoader());
         getData();
+        ///getYaoQingNet(getActivity());
+        //   getNet();
+        hotLRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                // ZiJianShopMallDetailsActivity.actionStart(getActivity(), remenListBean.get(position).getShop_product_id(), remenListBean.get(position).getWares_id());
+                //  TuanGouShangJiaListActivity.actionStart(getActivity(), "7");
+                // startActivity(new Intent(getActivity(), GoosDetailsActivity.class)
+                //       .putExtra("shop_product_id", hotList.get(position).getShop_product_id())
+                //     .putExtra("wares_id", hotList.get(position).getWares_id()));
+            }
+        });
+
+
+        homeZiYingAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ZiJianShopMallDetailsActivity.actionStart(getActivity(), ziYingListBean.get(position).getShop_product_id(), ziYingListBean.get(position).getWares_id());
+
+            }
+        });
+
         homeReMenAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -294,77 +651,60 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
 
             }
         });
-        setZiYingOrReMenLine("1");
+
+        tianMaoOrTaoBao.setOnClickListener(this);
+        ivDaLiBao.setOnClickListener(this);
+        // ivJd.setOnClickListener(this);
+
+        _subscriptions.add(toObservable().observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Notice>() {
+            @Override
+            public void call(Notice message) {
+                if (message.type == ConstanceValue.MSG_DALIBAO_SUCCESS) {
+                    ivDaLiBao.setVisibility(View.GONE);
+                }
+            }
+        }));
+
+        // mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.white).init();
+        setZiYingOrReMenLine("0");
 
 
-        initFuncTionList();
     }
 
-    private void initFuncTionList() {
-
-        FunctionListBean functionListBean = new FunctionListBean();
-        functionListBean.id = "1";
-        functionListBean.image = R.mipmap.home_nav_icon_saoyisao;
-        functionListBean.textName = "扫一扫";
-
-
-        FunctionListBean functionListBean1 = new FunctionListBean();
-        functionListBean1.id = "2";
-        functionListBean1.image = R.mipmap.home_icon_saomayanzheng;
-        functionListBean1.textName = "续费";
-
-        FunctionListBean functionListBean2 = new FunctionListBean();
-        functionListBean2.id = "3";
-        functionListBean2.textName = "订单";
-        functionListBean2.image = R.mipmap.home_icon_dingdanguanli;
-
-        FunctionListBean functionListBean3 = new FunctionListBean();
-        functionListBean3.id = "4";
-        functionListBean3.textName = "推广统计";
-        functionListBean3.image = R.mipmap.home_icon_dingdanguanli1;
-
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+    private void shengHuoListFuc() {
         GridLayoutManager gridLayoutManagerZHiKong = new GridLayoutManager(getActivity(), 5, GridLayoutManager.VERTICAL, false);
-        functionList.setLayoutManager(gridLayoutManagerZHiKong);
-        functionListAdapter = new FunctionListAdapter(R.layout.item_function, functionListBeans);
-        functionListAdapter.openLoadAnimation();//默认为渐显效果
-        functionList.setAdapter(zhiKongListAdapter);
-        functionListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+        //    gridLayoutManagerZHiKong.setOrientation(LinearLayoutManager.VERTICAL);
+        shengHuoList.setLayoutManager(gridLayoutManagerZHiKong);
+
+        shengHuoListAdapter = new ShengHuoListAdapter(R.layout.item_zhikong, lifeListBeans);
+        shengHuoListAdapter.openLoadAnimation();//默认为渐显效果
+        shengHuoList.setAdapter(shengHuoListAdapter);
+        shengHuoListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (view.getId()) {
                     case R.id.constrain:
+                        //UIHelper.ToastMessage(getActivity(), "生活");
+                        String service_type = lifeListBeans.get(position).service_type;
+                        switch (service_type) {
 
-                        if (functionListBeans.get(0).id.equals("1")) {
-                            //进入扫一扫
-                            RxPermissions rxPermissions = new RxPermissions(getActivity());
-                            rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
-                                @Override
-                                public void call(Boolean granted) {
-                                    if (granted) { // 在android 6.0之前会默认返回true
-                                        ScanActivity.actionStart(getActivity());
-                                    } else {
-                                        Toast.makeText(getActivity(), "该应用需要赋予访问相机的权限，不开启将无法正常工作！", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-                        } else if (functionListBeans.get(1).id.equals("2")) {
-                            //续费
-                        } else if (functionListBeans.get(2).id.equals("3")) {
-                            //订单
-                            MyOrderActivity.actionStart(getActivity(), "");
-                        } else if (functionListBeans.get(3).id.equals("4")) {
-                            //推广统计
-                            TuanYouTuiGuangActivity.actionStart(getActivity());
+                            case "6":
+                            case "11":
+                            case "8":
+                            case "3":
+                                //  GongJiangLieBiaoNewActivity.actionStart(getActivity(), service_type);
+                                break;
+                            case "31"://
+                                //  TongChengMainActivity.actionStart(getActivity());
+                                break;
+
                         }
-
                         break;
                 }
             }
         });
     }
+
 
     @Override
     protected boolean immersionEnabled() {
@@ -382,7 +722,21 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         unbinder.unbind();
     }
 
+
     String taobaoPicture, jingdongPicture, pinduoduoPicture;
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_tianmao_or_taobao:
+                //  TaoBao_Jd_PinDuoDuoActivity.actionStart(getActivity(), taobaoPicture, jingdongPicture, pinduoduoPicture);
+                break;
+            case R.id.iv_dalibao:
+                DaLiBaoActivity.actionStart(getActivity());
+                break;
+        }
+    }
+
     public static String JiaMiToken;
     public static List<String> items = new ArrayList<>();
     public static List<Object> items_xiupeichang = new ArrayList<>();
@@ -402,39 +756,33 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                 .execute(new JsonCallback<AppResponse<Home.DataBean>>() {
                     @Override
                     public void onSuccess(Response<AppResponse<Home.DataBean>> response) {
+
+
                         Logger.d(gson.toJson(response.body()));
                         if (smartRefreshLayout != null) {
                             smartRefreshLayout.setEnableRefresh(true);
                             smartRefreshLayout.finishRefresh();
                             smartRefreshLayout.setEnableLoadMore(false);
                         }
+
                         remenListBean = response.body().data.get(0).getIndexShowList();
                         groupList = response.body().data.get(0).getShopList();
                         ziYingListBean = response.body().data.get(0).getProShowList();
                         JiaMiToken = response.body().data.get(0).getI();
+                        // intellectListBeanList = response.body().data.get(0).getIntellectList();
+                        //  chiHeWanLeListBeans = response.body().data.get(0).getIconList();
+
+                        homeZiYingAdapter.setNewData(ziYingListBean);
+                        homeZiYingAdapter.notifyDataSetChanged();
+
+
                         homeReMenAdapter.setNewData(remenListBean);
                         homeReMenAdapter.notifyDataSetChanged();
-                        hotLRecyclerViewAdapter.notifyDataSetChanged();
 
-                        if (woshibfaanfe != null) {
-                            //设置图片集合
-                            woshibfaanfe.setImages(items);
-                            //banner设置方法全部调用完毕时最后调用
-                            woshibfaanfe.start();
-                            woshibfaanfe.setOnBannerListener(new OnBannerListener() {
-                                @Override
-                                public void OnBannerClick(int position) {
-                                    if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("1")) {
-                                        ZiJianShopMallDetailsActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getShop_product_id(), response.body().data.get(0).getBannerList().get(position).getWares_id());
-                                    } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("2")) {
-                                        // startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("url", response.body().data.get(0).getBannerList().get(position).getHtml_url()));
-                                        // DefaultX5WebView_HaveNameActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getHtml_url(), "产品简介");
-                                    } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("3")) {
-                                        //DaLiBaoActivity.actionStart(getActivity());
-                                    }
-                                }
-                            });
-                        }
+
+                        //  groupRecyclerView.refreshComplete(REQUEST_COUNT);
+
+                        hotLRecyclerViewAdapter.notifyDataSetChanged();
 
 
                         items = new ArrayList<>();
@@ -443,18 +791,127 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                                 items.add(response.body().data.get(0).getBannerList().get(i).getImg_url());
                             }
                         }
+
+                        if (banner != null) {
+                            //设置图片集合
+                            banner.setImages(items);
+                            //banner设置方法全部调用完毕时最后调用
+                            banner.start();
+                            banner.setOnBannerListener(new OnBannerListener() {
+                                @Override
+                                public void OnBannerClick(int position) {
+                                    if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("1")) {
+                                        ZiJianShopMallDetailsActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getShop_product_id(), response.body().data.get(0).getBannerList().get(position).getWares_id());
+                                    } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("2")) {
+                                        // startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("url", response.body().data.get(0).getBannerList().get(position).getHtml_url()));
+                                        DefaultX5WebView_HaveNameActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getHtml_url(), "产品简介");
+                                    } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("3")) {
+                                        DaLiBaoActivity.actionStart(getActivity());
+                                    }
+                                }
+                            });
+                        }
+
+
                         items_xiupeichang = new ArrayList<>();
+
                         items_xiupeichang.add(R.mipmap.banner_xiupeichang_1);
                         items_xiupeichang.add(R.mipmap.banner_xiupeichang_2);
+
+                        if (bannerXiuPeiChang != null) {
+                            //设置图片集合
+                            bannerXiuPeiChang.setImages(items_xiupeichang);
+                            //banner设置方法全部调用完毕时最后调用
+                            bannerXiuPeiChang.start();
+                            bannerXiuPeiChang.setOnBannerListener(new OnBannerListener() {
+                                @Override
+                                public void OnBannerClick(int position) {
+                                    //   TuanGouShangJiaListActivity.actionStart(getActivity(), "7");
+                                }
+                            });
+                        }
+
+
                         intellectListBeanList = new ArrayList<>();
+                        lifeListBeans = new ArrayList<>();
+                        chiHeWanLeListBeans = new ArrayList<>();
                         //下面展示首页顶部图片
                         intellectListBeanList.addAll(response.body().data.get(0).getIntellectList());
+                        if (response.body().data.get(0).lifeList != null) {
+                            lifeListBeans.addAll(response.body().data.get(0).lifeList);
+                        } else {
+                            llShengHuo.setVisibility(View.GONE);
+                        }
+                        if (response.body().data.get(0).getIconList() != null) {
+                            chiHeWanLeListBeans.addAll(response.body().data.get(0).getIconList());
+                        }
+                        chiHeWanLeListAdapter.setNewData(chiHeWanLeListBeans);
+
+
                         zhiKongListAdapter.setNewData(intellectListBeanList);
+                        shengHuoListAdapter.setNewData(lifeListBeans);
+
+                        chiHeWanLeListAdapter.notifyDataSetChanged();
                         zhiKongListAdapter.notifyDataSetChanged();
+
+                        if (!response.body().data.get(0).getBuy_state().equals("1")) {
+                            ivDaLiBao.setVisibility(View.GONE);
+//                            ll_shagnchengzhuanqu.setVisibility(View.VISIBLE);
+                            animationView.setVisibility(View.GONE);
+                        } else {
+                            //   ll_shagnchengzhuanqu.setVisibility(View.GONE);
+                            ivDaLiBao.setVisibility(View.VISIBLE);
+                            animationView.setVisibility(View.VISIBLE);
+                        }
+
                         RoundedCorners roundedCorners = new RoundedCorners(1);
+                        RequestOptions options = RequestOptions.bitmapTransform(roundedCorners);
+                        //大礼包
+                        Glide.with(getActivity()).applyDefaultRequestOptions(GlideShowImageUtils.showBannerCelve()).load(response.body().data.get(0).getGift_img()).into(ivDaLiBao);
+
+
+                        //  Glide.with(getActivity()).applyDefaultRequestOptions(options).load(response.body().data.get(0).getWaresTypeList().get(0).getImg_url()).into(ivZiJian);
+
+
+                        Glide.with(getActivity()).applyDefaultRequestOptions(options).load(response.body().data.get(0).getWaresTypeList().get(1).getImg_url()).into(ziYingZhiGon);
+                        Glide.with(getActivity()).applyDefaultRequestOptions(options).load(response.body().data.get(0).getWaresTypeList().get(3).getImg_url()).into(reMenShangPin);
+
+                        //   Glide.with(getActivity()).load(response.body().data.get(0).getTao_shop_img()).into(tianMaoOrTaoBao);
+                        //     Glide.with(getActivity()).load(response.body().data.get(0).getJindong_shop_img()).into(ivJd);
+
+                        //  Glide.with(getActivity()).applyDefaultRequestOptions(GlideShowImageUtils.showZhengFangXing()).load(response.body().data.get(0).getWaresTypeList().get(2).getImg_url()).into(tianMaoOrTaoBao);
+//                        tianMaoOrTaoBao.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//
+//                            }
+//                        });
+
                         taobaoPicture = response.body().data.get(0).getTao_shop_img();
                         jingdongPicture = response.body().data.get(0).getJindong_shop_img();
                         pinduoduoPicture = response.body().data.get(0).getPin_shop_img();
+                        ivZiJian.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ZiJianShopMallActivity.actionStart(getActivity());
+                            }
+                        });
+
+                        ziYingZhiGon.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                FenLeiThirdActivity.actionStart(getActivity(), "品牌直供", "2");
+                            }
+                        });
+                        reMenShangPin.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                FenLeiThirdActivity.actionStart(getActivity(), "热门商品", "1");
+
+                            }
+                        });
+
                         if (response.body().data.get(0).is_activity == null) {
                             return;
                         }
@@ -462,6 +919,8 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                             return;
                         }
                         setHuoDong(response.body().data.get(0).getActivity());
+
+
                     }
 
                     @Override
@@ -484,14 +943,21 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                         lordingDialog.dismiss();
                     }
                 });
+
+
     }
 
+    // public String shiFouYanzheng;
 
     public void getYaoQingNet(Context cnt) {
         Map<String, String> map = new HashMap<>();
         map.put("code", "04341");
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(cnt).getAppToken());
+        // map.put("shop_product_id", productId);
+        //map.put("wares_id", warseId);
+
+        Log.i("taoken_gg", UserManager.getManager(cnt).getAppToken());
         Gson gson = new Gson();
         OkGo.<AppResponse<TuiGuangMaModel.DataBean>>post(Urls.SERVER_URL + "shop_new/app/user")
                 .tag(cnt)//
@@ -499,6 +965,7 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                 .execute(new JsonCallback<AppResponse<TuiGuangMaModel.DataBean>>() {
                     @Override
                     public void onSuccess(final Response<AppResponse<TuiGuangMaModel.DataBean>> response) {
+
                         if (response.body().data.get(0).getDisplay().equals("0")) {
                             //没有上级
                             //shiFouYanzheng = "0";
@@ -508,6 +975,7 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                             //shiFouYanzheng = "1";
                             PreferenceHelper.getInstance(getActivity()).putString(App.SHIFOUYOUSHANGJI, "1");
                         }
+
                     }
 
                     @Override
@@ -525,6 +993,7 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         @Override
         public void onLocationChanged(AMapLocation location) {
             if (null != location) {
+
                 StringBuffer sb = new StringBuffer();
                 //errCode等于0代表定位成功，其他的为定位失败，具体的可以参照官网定位错误码说明
                 if (location.getErrorCode() == 0) {
@@ -534,6 +1003,7 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                     sb.append("纬    度    : " + location.getLatitude() + "\n");
                     sb.append("精    度    : " + location.getAccuracy() + "米" + "\n");
                     sb.append("提供者    : " + location.getProvider() + "\n");
+
                     sb.append("速    度    : " + location.getSpeed() + "米/秒" + "\n");
                     sb.append("角    度    : " + location.getBearing() + "\n");
                     // 获取当前提供定位服务的卫星个数
@@ -548,11 +1018,17 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                     sb.append("兴趣点    : " + location.getPoiName() + "\n");
                     //定位完成的时间
                     sb.append("定位时间: " + Utils.formatUTC(location.getTime(), "yyyy-MM-dd HH:mm:ss") + "\n");
+
                     PreferenceHelper.getInstance(getActivity()).putString(JINGDU, String.valueOf(location.getLongitude()));
                     PreferenceHelper.getInstance(getActivity()).putString(WEIDU, String.valueOf(location.getLatitude()));
                     PreferenceHelper.getInstance(getActivity()).putString(AppConfig.LOCATION_CITY_NAME, location.getCity());
+                    PreferenceHelper.getInstance(getActivity()).putString(AppConfig.ADDRESS, location.getAddress());
+
                     stopLocation();
                 } else {
+
+                    //"gps_x=45.666043" + "&" + "gps_y=126.605713";
+                    // x 纬度 y 经度
                     PreferenceHelper.getInstance(getActivity()).putString(WEIDU, "45.666043");
                     PreferenceHelper.getInstance(getActivity()).putString(JINGDU, "126.605713");
                     PreferenceHelper.getInstance(getActivity()).putString(AppConfig.LOCATION_CITY_NAME, "哈尔滨");
@@ -581,6 +1057,13 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
                 PreferenceHelper.getInstance(getActivity()).putString(AppConfig.LOCATION_CITY_NAME, "哈尔滨");
                 Log.i("Location_result", "定位失败");
             }
+
+            String cityName = PreferenceHelper.getInstance(getActivity()).getString(AppConfig.LOCATION_CITY_NAME, "");
+            Log.i("location_city", cityName);
+            if (!StringUtils.isEmpty(cityName)) {
+                tvCityName.setText(cityName);
+            }
+
         }
     };
 
@@ -704,6 +1187,7 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
     private String strFirst = "0";//0第一次 1第二次
 
     private void setHuoDong(List<Home.DataBean.activity> activity) {
+
         if (activity.size() == 0) {
             return;
         }
@@ -711,6 +1195,11 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
             return;
         }
         strFirst = "1";
+
+
+//      HuoDongTanCengActivity.actionStart(getActivity(), activity);
+
+
     }
 
     //是否展示viewline
@@ -721,13 +1210,17 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         int[] location = new int[2];
         clZiYing_Middle.getLocationOnScreen(location);
         int locationY = location[1];
+        // Log.e("locationY", locationY + " " + "topHeight的值是：" + topHeight);
+
         if (locationY <= topHeight && (topPanel.getVisibility() == View.GONE || topPanel.getVisibility() == View.INVISIBLE)) {
             topPanel.setVisibility(View.VISIBLE);
             tvRemTop.setVisibility(View.GONE);
             tvZiYingTop.setVisibility(View.GONE);
+            //  llBackground_Top.setBackgroundColor(getActivity().getResources().getColor(R.color.white));
             clReMen_Top.setBackgroundResource(R.color.white);
             clZiYing_Top.setBackgroundResource(R.color.white);
             strViewLine = "1";
+            //  viewLineTop.setVisibility(View.VISIBLE);
             rl_bottom.setVisibility(View.VISIBLE);
 
         }
@@ -736,6 +1229,7 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
             topPanel.setVisibility(View.GONE);
             tvRemTop.setVisibility(View.VISIBLE);
             tvZiYingTop.setVisibility(View.VISIBLE);
+            //llBackground_Top.setBackgroundColor(getActivity().getResources().getColor(R.color.grayfff5f5f5));
             clReMen_Top.setBackgroundResource(R.color.grayfff5f5f5);
             clZiYing_Top.setBackgroundResource(R.color.grayfff5f5f5);
             strViewLine = "0";
@@ -745,6 +1239,20 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
         }
     }
 
+
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//
+//        Rect frame = new Rect();
+//        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+//        int statusBarHeight = frame.top;//状态栏高度
+//
+//        int titleBarHeight = getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();//标题栏高度
+//        topHeight = titleBarHeight + statusBarHeight;
+//    }
+
+
     /**
      * private TextView tvZiYingTop, tvRemTop, tvZiYingZhiGongTop, tvReMenShangPinTop;
      * private TextView tvZiYingMiddle, tvReMenMiddle, tvZiYingZhiGongMiddle, tvReMenShangPinMiddle;
@@ -752,23 +1260,65 @@ public class HomeFragment_New extends BaseFragment implements ObservableScrollVi
     //0 自营 1 热门
     private void setZiYingOrReMenLine(String remenOrZiYing) {
 
+        if (remenOrZiYing.equals("0")) {
+
+            tvZiYingTop.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
+            tvZiYingZhiGongTop.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
+
+            tvZiYingMiddle.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
+            tvZiYingZhiGongMiddle.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
+
+
+            tvRemTop.setTextColor(getActivity().getResources().getColor(R.color.black_666666));
+            tvReMenShangPinTop.setTextColor(getActivity().getResources().getColor(R.color.black_333333));
+
+            tvReMenMiddle.setTextColor(getActivity().getResources().getColor(R.color.black_666666));
+            tvReMenShangPinMiddle.setTextColor(getActivity().getResources().getColor(R.color.black_333333));
+//
+//            if (strViewLine.equals("0")) {
+//                viewLineTop.setVisibility(View.GONE);
+//                remenViewLineTop.setVisibility(View.GONE);
+//            } else {
+//               viewLineTop.setVisibility(View.VISIBLE);
+//                remenViewLineTop.setVisibility(View.GONE);
+//            }
+
+            viewLineTop.setVisibility(View.VISIBLE);
+            remenViewLineTop.setVisibility(View.GONE);
+
+            tvZiYingMiddle.setBackgroundResource(R.drawable.bg_color_fc0100_1a);
+            tvReMenMiddle.setBackgroundResource(0);
+        } else {
+
+
             tvZiYingTop.setTextColor(getActivity().getResources().getColor(R.color.black_666666));
-            tvZiYingZhiGongTop.setTextColor(getActivity().getResources().getColor(R.color.text_color_3));
+            tvZiYingZhiGongTop.setTextColor(getActivity().getResources().getColor(R.color.black_333333));
             tvZiYingMiddle.setTextColor(getActivity().getResources().getColor(R.color.black_666666));
-            tvZiYingZhiGongMiddle.setTextColor(getActivity().getResources().getColor(R.color.text_color_3));
+            tvZiYingZhiGongMiddle.setTextColor(getActivity().getResources().getColor(R.color.black_333333));
+
+
             tvRemTop.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
             tvReMenShangPinTop.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
+
             tvReMenMiddle.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
             tvReMenShangPinMiddle.setTextColor(getActivity().getResources().getColor(R.color.color_FFFC0100));
+
             tvReMenMiddle.setBackgroundResource(R.drawable.bg_color_fc0100_1a);
             tvZiYingMiddle.setBackgroundResource(0);
+//            if (strViewLine.equals("0")) {
+//                viewLineTop.setVisibility(View.GONE);
+//                remenViewLineTop.setVisibility(View.GONE);
+//            } else {
+//                viewLineTop.setVisibility(View.GONE);
+//                remenViewLineTop.setVisibility(View.VISIBLE);
+//            }
+
+
             viewLineTop.setVisibility(View.GONE);
             remenViewLineTop.setVisibility(View.VISIBLE);
 
-    }
 
-    @Override
-    public void onClick(View v) {
+        }
 
     }
 }

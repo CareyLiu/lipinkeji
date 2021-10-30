@@ -108,6 +108,14 @@
     <color name="text_blue_80">#CC0EA9F4</color>
 
     <color name="blue_00FFFF">#00FFFF</color>
+    <color name="black_333333">#333333</color>
+
+
+
+    <color name="black_1D1D1D">#1D1D1D</color>
+
+
+    <color name="EC232B">#EC232B</color>
 
     <color name="shebei_share_sel">#F5D449</color>
 </resources>

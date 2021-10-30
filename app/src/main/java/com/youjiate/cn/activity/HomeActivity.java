@@ -20,11 +20,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.youjiate.cn.activity.device_falaer.FalaerMainActivity;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jaeger.library.StatusBarUtil;
+import com.rairmmd.andmqtt.AndMqtt;
+import com.rairmmd.andmqtt.MqttPublish;
 import com.youjiate.cn.R;
+import com.youjiate.cn.activity.device_falaer.FalaerMainActivity;
 import com.youjiate.cn.activity.shuinuan.Y;
 import com.youjiate.cn.app.AppManager;
 import com.youjiate.cn.app.BaseActivity;
@@ -32,6 +34,7 @@ import com.youjiate.cn.app.ConstanceValue;
 import com.youjiate.cn.app.Notice;
 import com.youjiate.cn.config.MyApplication;
 import com.youjiate.cn.dialog.newdia.TishiDialog;
+import com.youjiate.cn.fragment.HomeFragment_New;
 import com.youjiate.cn.fragment.MineFragment;
 import com.youjiate.cn.fragment.OnlineFragment;
 import com.youjiate.cn.fragment.ShuoMingFragment;
@@ -39,8 +42,6 @@ import com.youjiate.cn.model.AlarmClass;
 import com.youjiate.cn.util.AppToast;
 import com.youjiate.cn.util.SoundPoolUtils;
 import com.youjiate.cn.view.NoScrollViewPager;
-import com.rairmmd.andmqtt.AndMqtt;
-import com.rairmmd.andmqtt.MqttPublish;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
@@ -80,6 +81,12 @@ public class HomeActivity extends BaseActivity {
     LinearLayout llMine;
     @BindView(R.id.ll_main)
     LinearLayout llMain;
+    @BindView(R.id.iv_shebei)
+    ImageView ivShebei;
+    @BindView(R.id.tv_shebei)
+    TextView tvShebei;
+    @BindView(R.id.ll_shebei)
+    LinearLayout llShebei;
 
 
     private AlarmClass alarmClass;
@@ -169,10 +176,12 @@ public class HomeActivity extends BaseActivity {
 
         // llHome.setVisibility(View.GONE);
 
+        HomeFragment_New youJiaTeShouYeFragment = new HomeFragment_New();
         OnlineFragment onlineFragment = new OnlineFragment();
         MineFragment mineFragment = new MineFragment();
         ShuoMingFragment shuoMingFragment = new ShuoMingFragment();
 
+        fragments.add(youJiaTeShouYeFragment);
         fragments.add(onlineFragment);
         fragments.add(shuoMingFragment);
         fragments.add(mineFragment);
@@ -315,38 +324,47 @@ public class HomeActivity extends BaseActivity {
         SoundPoolUtils.soundPool(mContext, res);
     }
 
-    @OnClick({R.id.ll_home, R.id.ll_device, R.id.ll_mine})
+    @OnClick({R.id.ll_home, R.id.ll_shebei, R.id.ll_device, R.id.ll_mine})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_home:
                 select(0);
                 break;
-            case R.id.ll_device:
+            case R.id.ll_shebei:
                 select(1);
                 break;
-            case R.id.ll_mine:
+            case R.id.ll_device:
                 select(2);
+                break;
+            case R.id.ll_mine:
+                select(3);
                 break;
         }
     }
 
     private void select(int pos) {
         mVp.setCurrentItem(pos);
-        ivHome.setImageResource(R.mipmap.shebei_n);
-        ivDevice.setImageResource(R.mipmap.shuoming_noneselect);
-        ivMine.setImageResource(R.mipmap.wd);
-        tvHome.setTextColor(Y.getColor(R.color.text_color_9));
-        tvDevice.setTextColor(Y.getColor(R.color.text_color_9));
-        tvMine.setTextColor(Y.getColor(R.color.text_color_9));
+        ivHome.setImageResource(R.mipmap.youjiate_icon_home_nor);
+        ivShebei.setImageResource(R.mipmap.youjiate_icon_shebei_nor);
+        ivDevice.setImageResource(R.mipmap.youjiate_icon_sms_nor);
+        ivMine.setImageResource(R.mipmap.youjiate_icon_wd_nor);
+
+        tvHome.setTextColor(Y.getColor(R.color.black_1D1D1D));
+        tvShebei.setTextColor(Y.getColor(R.color.black_1D1D1D));
+        tvDevice.setTextColor(Y.getColor(R.color.black_1D1D1D));
+        tvMine.setTextColor(Y.getColor(R.color.black_1D1D1D));
         if (pos == 0) {
-            ivHome.setImageResource(R.mipmap.shebei);
-            tvHome.setTextColor(Y.getColor(R.color.text_blue));
+            ivHome.setImageResource(R.mipmap.youjiate_icon_home_sel);
+            tvHome.setTextColor(Y.getColor(R.color.EC232B));
         } else if (pos == 1) {
-            ivDevice.setImageResource(R.mipmap.shuoming_s);
-            tvDevice.setTextColor(Y.getColor(R.color.text_blue));
+            ivShebei.setImageResource(R.mipmap.youjiate_icon_shebi_sel);
+            tvShebei.setTextColor(Y.getColor(R.color.EC232B));
         } else if (pos == 2) {
-            ivMine.setImageResource(R.mipmap.wd_s);
-            tvMine.setTextColor(Y.getColor(R.color.text_blue));
+            ivDevice.setImageResource(R.mipmap.youjiate_icon_smis_sel);
+            tvDevice.setTextColor(Y.getColor(R.color.EC232B));
+        } else if (pos == 3) {
+            ivMine.setImageResource(R.mipmap.youjiate_icon_wd_sel);
+            tvMine.setTextColor(Y.getColor(R.color.EC232B));
         }
     }
 
