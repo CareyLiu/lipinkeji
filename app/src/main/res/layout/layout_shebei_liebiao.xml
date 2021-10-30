@@ -14,15 +14,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srlTextSizeTime="10sp"
-                app:srlTextSizeTitle="12sp" />
+            app:srlTextSizeTitle="12sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rlv_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
+            android:paddingLeft="29pt"
+            android:paddingRight="9pt"
+            app:layout_constraintTop_toTopOf="parent" />
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

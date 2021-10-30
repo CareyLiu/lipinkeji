@@ -4,14 +4,14 @@
     android:id="@+id/rl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
+    android:background="@color/bg_app"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="88pt"
-        android:background="#192231"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,23 +21,23 @@
             android:layout_centerInParent="true"
             android:includeFontPadding="false"
             android:text="设备列表"
-            android:textColor="@color/white"
-            android:textSize="33pt"
+            android:textColor="@color/text_color_1"
+            android:textSize="35pt"
             android:textStyle="bold" />
-
 
         <RelativeLayout
             android:id="@+id/iv_add"
-            android:layout_width="88pt"
-            android:layout_height="88pt"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentRight="true">
 
             <ImageView
-                android:layout_width="46pt"
-                android:layout_height="46pt"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
                 android:layout_centerInParent="true"
-                android:src="@mipmap/tinjia" />
+                android:src="@mipmap/youjiate_tinjia" />
         </RelativeLayout>
+
         <ImageView
             android:id="@+id/iv_falaer_shangcheng"
             android:layout_width="50pt"
@@ -45,12 +45,9 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="20pt"
             android:layout_toLeftOf="@+id/iv_add"
-            android:src="@mipmap/sheibeiliebiao_shangcheng">
-
-        </ImageView>
+            android:src="@mipmap/sheibeiliebiao_shangcheng"
+            android:visibility="gone" />
     </RelativeLayout>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,15 +74,16 @@
                 android:id="@+id/list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="10pt" />
+                android:paddingRight="9pt"
+                android:paddingLeft="29pt" />
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
         <RelativeLayout
-            android:visibility="gone"
             android:id="@+id/iv_shangcheng"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -100,7 +98,6 @@
                 android:layout_alignParentRight="true"
                 android:background="#DDDDDD"
                 android:src="@mipmap/white_close" />
-            <!--            android:background="@drawable/guanbidequan"-->
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">法拉尔科技</string>
+    <string name="app_name" translatable="false">油价特</string>
     <string name="message" translatable="false">消息</string>
     <string name="mine" translatable="false">我的</string>
     <string name="sms_login" translatable="false">用短信验证码登录</string>

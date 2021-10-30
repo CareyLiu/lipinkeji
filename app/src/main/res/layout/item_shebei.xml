@@ -1,123 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/constrain"
     android:layout_width="match_parent"
-    android:layout_height="204pt"
-    android:layout_marginHorizontal="30pt"
-    android:layout_marginTop="21pt"
-    android:background="@mipmap/liebiaokuang">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="38pt"
+    android:layout_marginRight="20pt"
+    android:background="@drawable/bg_white_radius_8"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/ll_left"
-        android:layout_width="150pt"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_image"
-            android:layout_width="75pt"
-            android:layout_height="75pt"
-            android:visibility="gone" />
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="36pt"
-        android:layout_marginTop="45pt"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <LinearLayout
-            android:id="@+id/ll_mingcheng"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginLeft="19pt"
+            android:layout_marginTop="19pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_share_icon"
+                android:layout_width="33pt"
+                android:layout_height="33pt"
+                android:layout_marginRight="1pt"
+                android:src="@mipmap/youjaite_gongxiangshebei" />
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_share_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:includeFontPadding="false"
-                android:maxLines="1"
-                android:text="风暖加热器"
-                android:textColor="#0EA9F4"
-                android:textSize="27pt"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_shiyong_zhuangtai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3pt"
-                android:gravity="center_vertical"
-
-                android:text="使用中"
-                android:textColor="#FF5A00"
-                android:textSize="17pt" />
+                android:text="共享设备"
+                android:textColor="@color/shebei_share_sel"
+                android:textSize="27pt" />
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="92pt"
+            android:layout_height="92pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10pt"
+            android:layout_marginBottom="19pt"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:layout_below="@+id/ll_mingcheng"
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10pt"
+            android:includeFontPadding="false"
+            android:text="风暖加热器"
+            android:textColor="@color/text_color_3"
+            android:textSize="27pt" />
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="81pt"
+            android:layout_height="29pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18pt"
+            android:background="@drawable/bg_shebei_shiyong_sel"
+            android:gravity="center"
+            android:text="使用中"
+            android:textColor="@color/white"
+            android:textSize="15pt" />
+
+        <TextView
             android:id="@+id/tv_youxiaoqi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23.5pt"
+            android:layout_marginLeft="18pt"
             android:includeFontPadding="false"
             android:text="设备有效期至：2020-12-12 10:10:10"
-            android:textColor="#0EA9F4"
-            android:textSize="23pt" />
+            android:textSize="17pt" />
 
         <TextView
             android:id="@+id/tv_ccid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_youxiaoqi"
-            android:layout_marginTop="23.5pt"
+            android:layout_marginLeft="18pt"
+            android:layout_marginTop="9pt"
+            android:layout_marginBottom="13pt"
             android:includeFontPadding="false"
             android:text="ccid：123456789012345678901234"
-            android:textColor="#FFFFFF"
-            android:textSize="23pt" />
-
-
-        <ImageView
-
-            android:id="@+id/iv_biaozhi"
-            android:layout_width="122pt"
-            android:layout_height="19pt"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="16pt"
-            android:layout_marginRight="79pt"
-            android:src="@mipmap/zhuangshi" />
-
-        <TextView
-            android:id="@+id/tv_gongxiang"
-            android:layout_marginRight="15pt"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="共享设备"
-            android:textColor="#ffff5a00"
-            android:textSize="23pt" />
-
-
-    </RelativeLayout>
-
-    <ImageView
-        android:layout_width="31pt"
-        android:layout_height="31pt"
-        android:layout_marginLeft="12pt"
-        android:layout_marginRight="19pt"
-        android:src="@mipmap/push_gray_999"
-        android:visibility="gone" />
+            android:textSize="17pt" />
+    </LinearLayout>
 </LinearLayout>

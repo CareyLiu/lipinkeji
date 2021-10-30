@@ -42,11 +42,8 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void initImmersion() {
-      //  super.initImmersion();
-
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.shenlanhei).init();
-
+        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.white).init();
     }
 
 
@@ -76,8 +73,6 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            default:////////////////////
-                break;
             case R.id.rl_back:
                 finish();
                 break;
@@ -130,9 +125,9 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
         super.initToolbar();
         tv_title.setText("绑定设备");
         tv_title.setTextSize(17);
-        tv_title.setTextColor(getResources().getColor(R.color.white));
-        mToolbar.setNavigationIcon(R.mipmap.back_white);
-        mToolbar.setBackgroundColor(getResources().getColor(R.color.shenlanhei));
+        tv_title.setTextColor(getResources().getColor(R.color.text_color_1));
+        mToolbar.setNavigationIcon(R.mipmap.back_black);
+        mToolbar.setBackgroundColor(getResources().getColor(R.color.white));
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

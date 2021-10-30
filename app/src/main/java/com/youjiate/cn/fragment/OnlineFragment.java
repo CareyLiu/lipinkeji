@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -97,11 +98,9 @@ public class OnlineFragment extends BaseFragment implements Observer {
     protected void initView(View view) {
         view.setClickable(true);// 防止点击穿透，底层的fragment响应上层点击触摸事件
         unbinder = ButterKnife.bind(this, view);
-        //  sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
-        //  mList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         clsHeader.setAccentColor(getResources().getColor(R.color.white));
         sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
-        mList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         mList.setAdapter(sheBeiListAdapter);
         sheBeiListAdapter.notifyDataSetChanged();
         sheBeiListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
@@ -222,7 +221,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
 
     @Override
     protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.shenlanhei).init();
+        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.white).init();
     }
 
 

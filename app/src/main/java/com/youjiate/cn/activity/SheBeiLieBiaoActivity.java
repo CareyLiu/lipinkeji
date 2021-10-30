@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,7 +59,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         device_type = getIntent().getStringExtra("device_type");
         sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
-        rlvList.setLayoutManager(new LinearLayoutManager(mContext));
+        rlvList.setLayoutManager(new GridLayoutManager(mContext, 2));
         rlvList.setAdapter(sheBeiListAdapter);
         srLSmart.setEnableLoadMore(false);
         sheBeiListAdapter.notifyDataSetChanged();
