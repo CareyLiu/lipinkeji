@@ -100,13 +100,6 @@ public class HomeActivity extends BaseActivity {
     }
 
     @Override
-    public void initImmersion() {
-        mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.statusBarColor("#192231");
-        mImmersionBar.init();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation

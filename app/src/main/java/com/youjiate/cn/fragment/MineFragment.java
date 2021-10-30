@@ -1,26 +1,24 @@
 package com.youjiate.cn.fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.youjiate.cn.R;
 import com.youjiate.cn.activity.MessageActivity;
 import com.youjiate.cn.activity.SettingActivity;
 import com.youjiate.cn.activity.dingdan.MyOrderActivity;
-import com.youjiate.cn.activity.vip.VipListActivity;
 import com.youjiate.cn.activity.wode_page.AboutUsActivity;
 import com.youjiate.cn.activity.wode_page.DianPuListActivity;
+import com.youjiate.cn.activity.wode_page.MyQianBaoActivity;
 import com.youjiate.cn.activity.wode_page.ShangPinShouCangActivity;
 import com.youjiate.cn.app.App;
 import com.youjiate.cn.app.ConstanceValue;
@@ -34,18 +32,6 @@ import com.youjiate.cn.config.UserManager;
 import com.youjiate.cn.get_net.Urls;
 import com.youjiate.cn.model.MineModel;
 import com.youjiate.cn.util.phoneview.sample.ImageShowActivity;
-import com.flyco.animation.BaseAnimatorSet;
-import com.flyco.animation.BounceEnter.BounceBottomEnter;
-import com.flyco.animation.SlideExit.SlideBottomExit;
-import com.flyco.roundview.RoundRelativeLayout;
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.model.Response;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,110 +50,58 @@ import rx.functions.Action1;
 
 public class MineFragment extends BaseFragment implements Observer {
 
-
+    @BindView(R.id.rl_xiaoxi)
+    RelativeLayout rlXiaoxi;
+    @BindView(R.id.rl_set)
+    RelativeLayout rlSet;
     @BindView(R.id.riv_image)
     CircleImageView rivImage;
     @BindView(R.id.tv_name)
     TextView tvName;
     @BindView(R.id.tv_phone)
     TextView tvPhone;
-    @BindView(R.id.iv_back)
-    ImageView ivBack;
-    @BindView(R.id.tv_all)
-    TextView tvAll;
-    @BindView(R.id.tv_dingdan)
-    TextView tvDingdan;
-    @BindView(R.id.iv_daifukuan)
-    ImageView ivDaifukuan;
-    @BindView(R.id.iv_daifahuo)
-    ImageView ivDaifahuo;
-    @BindView(R.id.iv_daishouhuo)
-    ImageView ivDaishouhuo;
-    @BindView(R.id.iv_pingjia)
-    ImageView ivPingjia;
-    @BindView(R.id.iv_daodian)
-    ImageView ivDaodian;
-    @BindView(R.id.tv_daifukuan)
-    TextView tvDaifukuan;
-    @BindView(R.id.tv_daifahuo)
-    TextView tvDaifahuo;
-    @BindView(R.id.tv_daishouhuo)
-    TextView tvDaishouhuo;
-    @BindView(R.id.tv_pingjia)
-    TextView tvPingjia;
-    @BindView(R.id.tv_daodian)
-    TextView tvDaodian;
-    @BindView(R.id.constrain1)
-    ConstraintLayout constrain1;
-    @BindView(R.id.rlv_dingdan)
-    RoundRelativeLayout rlvDingdan;
-    @BindView(R.id.tv_ershou_che)
-    TextView tvErshouChe;
-    @BindView(R.id.iv_che_yuyue)
-    ImageView ivCheYuyue;
-    @BindView(R.id.iv_chejindu)
-    ImageView ivChejindu;
-    @BindView(R.id.iv_maiche_jindu)
-    ImageView ivMaicheJindu;
-    @BindView(R.id.iv_xiaofeijilu)
-    ImageView ivXiaofeijilu;
-    @BindView(R.id.iv_quanbu_dingdan)
-    ImageView ivQuanbuDingdan;
-    @BindView(R.id.tv_chejindu)
-    TextView tvChejindu;
-    @BindView(R.id.tv_maiche_jindu)
-    TextView tvMaicheJindu;
-    @BindView(R.id.tv_shouhou)
-    TextView tvShouhou;
-    @BindView(R.id.constrain2)
-    ConstraintLayout constrain2;
-    @BindView(R.id.rlv_ershouche)
-    RoundRelativeLayout rlvErshouche;
-    @BindView(R.id.tv_zhanghu_chongzhi)
-    TextView tvZhanghuChongzhi;
-    @BindView(R.id.iv_zhanghu_chongzhi)
-    ImageView ivZhanghuChongzhi;
-    @BindView(R.id.iv_kapianchongzhi)
-    ImageView ivKapianchongzhi;
-    @BindView(R.id.iv_chongzhi_jilu)
-    ImageView ivChongzhiJilu;
-    @BindView(R.id.iv_shouhou_fuwu)
-    ImageView ivShouhouFuwu;
-    @BindView(R.id.iv_xiche_erwei)
-    ImageView ivXicheErwei;
-    @BindView(R.id.tv_kapianchongzhi)
-    TextView tvKapianchongzhi;
-    @BindView(R.id.tv_chongzhi_jilu)
-    TextView tvChongzhiJilu;
-    @BindView(R.id.tv_xiaofeijilu)
-    TextView tvXiaofeijilu;
-    @BindView(R.id.constrain3)
-    ConstraintLayout constrain3;
-    @BindView(R.id.rlv_xiche)
-    RoundRelativeLayout rlvXiche;
-    @BindView(R.id.iv_tongji)
-    LinearLayout ivTongji;
-    @BindView(R.id.iv_tuiguangma)
-    LinearLayout ivTuiguangma;
-    @BindView(R.id.iv_about_us)
-    LinearLayout ivAboutUs;
-    @BindView(R.id.rlv_about_us)
-    RoundRelativeLayout rlvAboutUs;
-    @BindView(R.id.srL_smart)
-    SmartRefreshLayout srLSmart;
-    @BindView(R.id.rl_xiaoxi)
-    RelativeLayout rlXiaoxi;
-    @BindView(R.id.rl_set)
-    RelativeLayout rlSet;
+    @BindView(R.id.tv_tab_shoucang)
+    TextView tvTabShoucang;
+    @BindView(R.id.ll_tab_shoucang)
+    LinearLayout llTabShoucang;
+    @BindView(R.id.tv_tab_guanzhu)
+    TextView tvTabGuanzhu;
+    @BindView(R.id.ll_tab_guanzhu)
+    LinearLayout llTabGuanzhu;
+    @BindView(R.id.tv_tab_jifen)
+    TextView tvTabJifen;
+    @BindView(R.id.ll_tab_jifen)
+    LinearLayout llTabJifen;
+    @BindView(R.id.tv_tab_kaquan)
+    TextView tvTabKaquan;
+    @BindView(R.id.ll_tab_kaquan)
+    LinearLayout llTabKaquan;
+    @BindView(R.id.ll_qianbao)
+    LinearLayout llQianbao;
+    @BindView(R.id.ll_dingdan_quan)
+    LinearLayout llDingdanQuan;
+    @BindView(R.id.ll_dingdan_daifukuan)
+    LinearLayout llDingdanDaifukuan;
+    @BindView(R.id.ll_dingdan_daifahuo)
+    LinearLayout llDingdanDaifahuo;
+    @BindView(R.id.ll_dingdan_daishouhuo)
+    LinearLayout llDingdanDaishouhuo;
+    @BindView(R.id.ll_dingdan_pingjia)
+    LinearLayout llDingdanPingjia;
+    @BindView(R.id.ll_dingdan_tuikuang)
+    LinearLayout llDingdanTuikuang;
     @BindView(R.id.ll_dianpushoucang)
     LinearLayout llDianpushoucang;
     @BindView(R.id.ll_shangpinshoucang)
     LinearLayout llShangpinshoucang;
-    @BindView(R.id.cls_header)
-    ClassicsHeader clsHeader;
-    @BindView(R.id.view_zhanwei)
-    View viewZhanwei;
+    @BindView(R.id.ll_guanyuwomen)
+    LinearLayout llGuanyuwomen;
+    @BindView(R.id.srL_smart)
+    SmartRefreshLayout srLSmart;
+
     private Unbinder unbinder;
+    private MineModel.DataBean dataBean;
+    private String agentUrl = "";
 
     @Override
     protected void initLogic() {
@@ -188,11 +122,9 @@ public class MineFragment extends BaseFragment implements Observer {
     @Override
     protected void initView(View rootView) {
         rootView.setClickable(true);// 防止点击穿透，底层的fragment响应上层点击触摸事件
+        unbinder = ButterKnife.bind(this, rootView);
         AppEvent.getClassEvent().addObserver(this);
         initData();
-        unbinder = ButterKnife.bind(this, rootView);
-
-//        ivTuiguangma.setVisibility(View.VISIBLE);
     }
 
     public void initData() {
@@ -208,24 +140,6 @@ public class MineFragment extends BaseFragment implements Observer {
         }));
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        clsHeader.setAccentColor(getResources().getColor(R.color.white));
-        srLSmart.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                getNet();
-            }
-        });
-
-        srLSmart.setEnableLoadMore(false);
-    }
-
-
-    private MineModel.DataBean dataBean;
-    private String agentUrl = "";
-
     private void getNet() {
         Map<String, String> map = new HashMap<>();
         map.put("key", Urls.key);
@@ -239,7 +153,6 @@ public class MineFragment extends BaseFragment implements Observer {
                 .execute(new JsonCallback<AppResponse<MineModel.DataBean>>() {
                     @Override
                     public void onSuccess(Response<AppResponse<MineModel.DataBean>> response) {
-                        Log.i("MineFragment", "success");
                         srLSmart.finishRefresh();
                         dataBean = response.body().data.get(0);
                         Glide.with(getActivity()).load(response.body().data.get(0).getUser_img_url()).into(rivImage);
@@ -253,7 +166,10 @@ public class MineFragment extends BaseFragment implements Observer {
 
                         agentUrl = response.body().data.get(0).getAgent_url();
 
-
+                        tvTabShoucang.setText(dataBean.getCollect_ware_count());
+                        tvTabGuanzhu.setText(dataBean.getCollect_shop_count());
+                        tvTabJifen.setText("0");
+                        tvTabKaquan.setText(dataBean.getVoucher_count());
                     }
 
                     @Override
@@ -276,53 +192,59 @@ public class MineFragment extends BaseFragment implements Observer {
         }
     }
 
-    @OnClick({R.id.ll_dianpushoucang, R.id.ll_shangpinshoucang, R.id.iv_tongji, R.id.iv_tuiguangma, R.id.iv_about_us, R.id.riv_image, R.id.rl_xiaoxi, R.id.rl_set,
-            R.id.tv_all, R.id.iv_daifukuan, R.id.tv_daifukuan, R.id.iv_daishouhuo, R.id.tv_daishouhuo, R.id.iv_daifahuo, R.id.tv_daifahuo,
-            R.id.iv_pingjia, R.id.tv_pingjia, R.id.iv_daodian, R.id.tv_daodian
-    })
+    @Override
+    protected void immersionInit(ImmersionBar mImmersionBar) {
+        mImmersionBar
+                .titleBar(toolbar)
+                .init();
+    }
+
+    @Override
+    protected boolean immersionEnabled() {
+        return true;
+    }
+
+    @OnClick({R.id.rl_xiaoxi, R.id.rl_set, R.id.riv_image, R.id.ll_tab_shoucang, R.id.ll_tab_guanzhu, R.id.ll_tab_jifen, R.id.ll_tab_kaquan, R.id.ll_qianbao, R.id.ll_dingdan_quan, R.id.ll_dingdan_daifukuan, R.id.ll_dingdan_daifahuo, R.id.ll_dingdan_daishouhuo, R.id.ll_dingdan_pingjia, R.id.ll_dingdan_tuikuang, R.id.ll_dianpushoucang, R.id.ll_shangpinshoucang, R.id.ll_guanyuwomen})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.iv_tongji://续费
-                VipListActivity.actionStart(getActivity());
+            case R.id.rl_xiaoxi:
+                MessageActivity.actionStart(getContext());
                 break;
-            case R.id.iv_tuiguangma://清理缓存
-                clickHuancun();
-                break;
-            case R.id.iv_about_us:
-                AboutUsActivity.actionStart(getActivity());
+            case R.id.rl_set:
+                startActivity(new Intent(getActivity(), SettingActivity.class));
                 break;
             case R.id.riv_image:
                 ArrayList<String> strings = new ArrayList<>();
                 strings.add(dataBean.getUser_img_url());
                 ImageShowActivity.actionStart(getActivity(), strings);
                 break;
-            case R.id.rl_set://设置
-                startActivity(new Intent(getActivity(), SettingActivity.class));
+            case R.id.ll_tab_shoucang:
                 break;
-            case R.id.rl_xiaoxi://消息
-                MessageActivity.actionStart(getContext());
+            case R.id.ll_tab_guanzhu:
                 break;
-            case R.id.tv_all:
+            case R.id.ll_tab_jifen:
+                break;
+            case R.id.ll_tab_kaquan:
+                break;
+            case R.id.ll_qianbao:
+                MyQianBaoActivity.actionStart(getActivity());
+                break;
+            case R.id.ll_dingdan_quan:
                 MyOrderActivity.actionStart(getActivity(), "");
                 break;
-            case R.id.iv_daifukuan:
-            case R.id.tv_daifukuan:
+            case R.id.ll_dingdan_daifukuan:
                 MyOrderActivity.actionStart(getActivity(), "待付款");
                 break;
-            case R.id.iv_daifahuo:
-            case R.id.tv_daifahuo:
+            case R.id.ll_dingdan_daifahuo:
                 MyOrderActivity.actionStart(getActivity(), "待发货");
                 break;
-            case R.id.iv_daishouhuo:
-            case R.id.tv_daishouhuo:
+            case R.id.ll_dingdan_daishouhuo:
                 MyOrderActivity.actionStart(getActivity(), "待收货");
                 break;
-            case R.id.iv_pingjia:
-            case R.id.tv_pingjia:
+            case R.id.ll_dingdan_pingjia:
                 MyOrderActivity.actionStart(getActivity(), "待评价");
                 break;
-            case R.id.iv_daodian:
-            case R.id.tv_daodian:
+            case R.id.ll_dingdan_tuikuang:
                 MyOrderActivity.actionStart(getActivity(), "到店");
                 break;
             case R.id.ll_dianpushoucang:
@@ -331,25 +253,10 @@ public class MineFragment extends BaseFragment implements Observer {
             case R.id.ll_shangpinshoucang:
                 ShangPinShouCangActivity.actionStart(getActivity());
                 break;
+            case R.id.ll_guanyuwomen:
+                AboutUsActivity.actionStart(getActivity());
+                break;
+//            VipListActivity.actionStart(getActivity());//续费
         }
     }
-
-    private BaseAnimatorSet mBasIn = new BounceBottomEnter();
-    private BaseAnimatorSet mBasOut = new SlideBottomExit();
-
-    private void clickHuancun() {
-        VipListActivity.actionStart(getContext());
-    }
-
-    @Override
-    protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.shenlanhei).init();
-    }
-
-
-    @Override
-    protected boolean immersionEnabled() {
-        return true;
-    }
-
 }
