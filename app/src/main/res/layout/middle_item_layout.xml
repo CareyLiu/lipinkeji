@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_background_show"
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:background="@color/grayfff5f5f5">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_ziying"
-        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
@@ -64,12 +64,11 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:visibility="visible"
         android:id="@+id/cl_remen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
->
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"

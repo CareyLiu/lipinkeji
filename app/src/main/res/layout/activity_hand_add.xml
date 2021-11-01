@@ -54,7 +54,7 @@
             android:layout_marginTop="188pt"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/bg_shape_blue"
+            android:background="@drawable/bg_shape_red_1d"
             android:text="提交"
             android:textColor="@color/white" />
     </RelativeLayout>
