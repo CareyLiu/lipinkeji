@@ -1035,5 +1035,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
+
+        <!-- 优佳特风暖主页 -->
+        <activity
+            android:name="com.youjiate.cn.activity.device_youjiate.YoujiateMainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 </manifest>

@@ -54,8 +54,6 @@ public class FalaerSetActivity extends BaseActivity {
     RelativeLayout rl_back;
     @BindView(R.id.tv_shebeima)
     TextView tv_shebeima;
-    @BindView(R.id.ll_guzhangdaima)
-    LinearLayout ll_guzhangdaima;
     @BindView(R.id.ll_dingshi)
     LinearLayout ll_dingshi;
     @BindView(R.id.ll_jiareqizhuangtai)
@@ -83,7 +81,6 @@ public class FalaerSetActivity extends BaseActivity {
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar.init();
-        mImmersionBar.statusBarDarkFont(true);
     }
 
     /**
@@ -131,13 +128,11 @@ public class FalaerSetActivity extends BaseActivity {
         initShuju();
     }
 
-    @OnClick({R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.ll_guzhang, R.id.rl_back, R.id.ll_guzhangdaima, R.id.ll_dingshi, R.id.ll_jiareqizhuangtai, R.id.ll_jiebang})
+    @OnClick({R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.ll_guzhang, R.id.rl_back, R.id.ll_dingshi, R.id.ll_jiareqizhuangtai, R.id.ll_jiebang})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
                 finish();
-                break;
-            case R.id.ll_guzhangdaima:
                 break;
             case R.id.ll_dingshi:
                 FalaerDingshiActivity.actionStart(mContext);

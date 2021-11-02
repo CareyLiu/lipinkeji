@@ -6,18 +6,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="146pt"
-        android:layout_marginHorizontal="36pt"
-        android:layout_marginTop="18pt"
-        android:layout_marginBottom="18pt"
-        android:background="@mipmap/falaer_set_bg"
+        android:layout_marginHorizontal="19pt"
+        android:layout_marginTop="14pt"
+        android:background="@mipmap/yjt_shezhi_kuang"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="61pt"
             android:layout_height="61pt"
-            android:layout_marginLeft="48pt"
-            android:layout_marginRight="38pt"
+            android:layout_marginLeft="43pt"
+            android:layout_marginRight="43pt"
             android:src="@mipmap/gongxiangchengyuan_none" />
 
         <LinearLayout
@@ -32,7 +31,7 @@
                 android:layout_height="30pt"
                 android:includeFontPadding="false"
                 android:text="姓名"
-                android:textColor="@color/white"
+                android:textColor="@color/yjt_text_nor"
                 android:textSize="30pt" />
 
             <TextView
@@ -42,15 +41,15 @@
                 android:layout_marginTop="19pt"
                 android:includeFontPadding="false"
                 android:text="15112345678"
-                android:textColor="@color/white"
+                android:textColor="@color/yjt_text_nor"
                 android:textSize="21pt" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="29pt"
-            android:layout_height="29pt"
-            android:layout_marginRight="20pt"
+            android:layout_width="19pt"
+            android:layout_height="31pt"
+            android:layout_marginRight="43pt"
             android:scaleType="centerCrop"
-            android:src="@mipmap/push_white" />
+            android:src="@mipmap/yjt_shezhi_fanhui" />
     </LinearLayout>
 </LinearLayout>

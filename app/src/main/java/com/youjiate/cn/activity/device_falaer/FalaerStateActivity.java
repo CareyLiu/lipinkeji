@@ -74,7 +74,6 @@ public class FalaerStateActivity extends BaseActivity {
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar.init();
-        mImmersionBar.statusBarDarkFont(true);
     }
 
     /**

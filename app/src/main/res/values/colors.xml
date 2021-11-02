@@ -111,11 +111,15 @@
     <color name="black_333333">#333333</color>
 
 
-
     <color name="black_1D1D1D">#1D1D1D</color>
 
 
     <color name="EC232B">#EC232B</color>
 
     <color name="shebei_share_sel">#F5D449</color>
+
+    <color name="yjt_danwei_wendu_sel">#42FFEB</color>
+    <color name="yjt_danwei_wendu_nor">#024884</color>
+    <color name="yjt_text_nor">#0080DE</color>
+    <color name="yjt_text_sel">#024884</color>
 </resources>

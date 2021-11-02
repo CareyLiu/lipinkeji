@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.youjiate.cn.activity.device_falaer.FalaerDingshiActivity;
+import com.youjiate.cn.activity.device_falaer.FalaerJiebangActivity;
+import com.youjiate.cn.activity.device_falaer.gongxiang.GongxiangFalaerActivity;
 import com.youjiate.cn.activity.vip.dialog.XufeiDialog;
 import com.youjiate.cn.activity.vip.model.XufeiModel;
 import com.youjiate.cn.model.YuZhiFuModel;
@@ -71,8 +74,6 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
     RelativeLayout rlGongxiangJie;
     @BindView(R.id.rl_kongtiao_state)
     RelativeLayout rlKongtiaoState;
-    @BindView(R.id.rl_shebeijilu)
-    RelativeLayout rlShebeijilu;
     @BindView(R.id.rl_shebeixufei)
     RelativeLayout rl_shebeixufei;
     private String ccid;
@@ -130,7 +131,7 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
         rlDingshi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FengnuandishiActivity.actionStart(mContext);
+                FalaerDingshiActivity.actionStart(mContext);
             }
         });
         rlJiareqicanshu.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +147,7 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
         rlJiebangshebei.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FengnuanJieActivity.actionStart(mContext);
+                FalaerJiebangActivity.actionStart(mContext);
             }
         });
         rlBack.setOnClickListener(new View.OnClickListener() {
@@ -180,7 +181,7 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
         rlGongxiang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GongxiangWzwActivity.actionStart(mContext, ccid);
+                GongxiangFalaerActivity.actionStart(mContext, ccid);
             }
         });
 
@@ -239,15 +240,6 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
                 });
                 dialog.setTextContent("是否退出该共享设备");
                 dialog.show();
-            }
-        });
-
-
-        rlShebeijilu.setVisibility(View.GONE);
-        rlShebeijilu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LixianjiluActivity.actionStart(mContext);
             }
         });
 

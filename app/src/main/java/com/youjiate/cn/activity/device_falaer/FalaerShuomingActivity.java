@@ -27,7 +27,6 @@ public class FalaerShuomingActivity extends BaseActivity {
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar.init();
-        mImmersionBar.statusBarDarkFont(true);
     }
 
     /**
