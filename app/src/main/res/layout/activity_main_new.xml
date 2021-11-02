@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/ll_main"
-    android:fitsSystemWindows="true"
     android:background="#ffffff"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <com.youjiate.cn.view.NoScrollViewPager
@@ -12,12 +12,15 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1pt"
+        android:background="@color/line" />
 
     <LinearLayout
-        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="95pt">
+        android:layout_height="95pt"
+        android:background="#ffffff">
 
         <LinearLayout
 
@@ -44,6 +47,7 @@
                 android:textColor="#EC232B"
                 android:textSize="23pt" />
         </LinearLayout>
+
         <LinearLayout
 
             android:id="@+id/ll_shebei"
