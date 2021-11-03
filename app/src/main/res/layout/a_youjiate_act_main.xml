@@ -238,7 +238,7 @@
                                 android:layout_width="96pt"
                                 android:layout_height="92pt"
                                 android:layout_marginBottom="12pt"
-                                android:src="@mipmap/yjt_fn_jidang" />
+                                android:src="@mipmap/yjt_fn_jiandang" />
 
                             <TextView
                                 android:id="@+id/tv_reduce"
