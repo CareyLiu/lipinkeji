@@ -131,7 +131,7 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
         rlDingshi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FalaerDingshiActivity.actionStart(mContext);
+                FengnuandishiActivity.actionStart(mContext);
             }
         });
         rlJiareqicanshu.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +147,7 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
         rlJiebangshebei.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FalaerJiebangActivity.actionStart(mContext);
+                FengnuanJieActivity.actionStart(mContext);
             }
         });
         rlBack.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +181,7 @@ public class SheBeiSetActivity extends ShuinuanBaseNewActivity {
         rlGongxiang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GongxiangFalaerActivity.actionStart(mContext, ccid);
+                GongxiangWzwActivity.actionStart(mContext, ccid);
             }
         });
 

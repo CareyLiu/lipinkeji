@@ -3,30 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_title_new"
-    android:fitsSystemWindows="true"
+    android:background="@mipmap/yjt_sn_bg"
     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50pt"
+        android:background="@color/black" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="89pt"
-        android:background="@color/bg_title_new">
+        android:layout_height="88pt"
+        android:background="@color/black">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="89pt"
+            android:layout_height="88pt"
             android:layout_alignParentBottom="true">
 
             <RelativeLayout
                 android:id="@+id/rl_back"
-                android:layout_width="80pt"
+                android:layout_width="88pt"
                 android:layout_height="match_parent">
 
+
                 <ImageView
-                    android:layout_width="40pt"
-                    android:layout_height="40pt"
+                    android:layout_width="33pt"
+                    android:layout_height="33pt"
                     android:layout_centerInParent="true"
-                    android:scaleType="centerCrop"
                     android:src="@mipmap/back_white" />
             </RelativeLayout>
 
@@ -57,8 +61,7 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#091E33">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +90,7 @@
                         android:layout_marginTop="50pt"
                         android:includeFontPadding="false"
                         android:text="暂无共享成员"
-                        android:textColor="@color/white"
+                        android:textColor="@color/yjt_text_nor"
                         android:textSize="30pt" />
                 </LinearLayout>
 
@@ -101,14 +104,15 @@
                 <TextView
                     android:id="@+id/tv_add"
                     android:layout_width="match_parent"
-                    android:layout_height="96pt"
-                    android:layout_marginHorizontal="36pt"
-                    android:layout_marginTop="18pt"
-                    android:background="@mipmap/jinnuo_kuang_bg"
+                    android:layout_height="129pt"
+                    android:layout_marginHorizontal="19pt"
+                    android:layout_marginTop="14pt"
+                    android:background="@mipmap/yjt_shezhi_kuang"
                     android:gravity="center"
                     android:text="立即添加"
-                    android:textColor="@color/white"
-                    android:textSize="31pt" />
+                    android:textColor="@color/yjt_text_nor"
+                    android:textSize="33pt"
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"

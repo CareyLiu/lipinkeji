@@ -2,22 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#091E33"
+    android:background="@mipmap/yjt_sn_bg"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="169pt"
-        android:background="@color/bg_title_new">
+        android:layout_height="138pt"
+        android:background="@color/black">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="89pt"
+            android:layout_height="88pt"
             android:layout_alignParentBottom="true">
 
             <RelativeLayout
                 android:id="@+id/rl_back"
-                android:layout_width="80pt"
+                android:layout_width="88pt"
                 android:layout_height="match_parent">
 
                 <ImageView
@@ -28,62 +28,62 @@
                     android:src="@mipmap/back_white" />
             </RelativeLayout>
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:includeFontPadding="false"
-                android:text="解绑设备"
+                android:text="设备解绑"
                 android:textColor="@color/white"
                 android:textSize="33pt"
                 android:textStyle="bold" />
         </RelativeLayout>
     </RelativeLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="96pt"
-        android:layout_marginHorizontal="36pt"
-        android:layout_marginTop="31pt"
-        android:background="@mipmap/jinnuo_kuang_bg"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="36pt">
+        android:layout_height="129pt"
+        android:layout_marginHorizontal="19pt"
+        android:layout_marginTop="14pt"
+        android:background="@mipmap/yjt_shezhi_kuang"
+        android:gravity="center_vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="43pt"
+            android:layout_weight="1"
+            android:includeFontPadding="false"
             android:text="设备码"
-            android:textColor="@color/white"
-            android:textSize="30pt" />
+            android:textColor="@color/yjt_text_nor"
+            android:textSize="33pt" />
 
         <TextView
             android:id="@+id/tv_shebeima"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:textColor="@color/white"
-            android:textSize="30pt" />
+            android:layout_marginRight="43pt"
+            android:includeFontPadding="false"
+            android:textColor="@color/yjt_text_nor"
+            android:textSize="33pt" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="29pt"
-        android:layout_marginLeft="40pt"
-        android:layout_marginTop="42pt"
-        android:layout_marginBottom="48pt"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="36pt"
+        android:layout_marginLeft="20pt"
         android:includeFontPadding="false"
         android:text="手机验证"
-        android:textColor="@color/white"
-        android:textSize="29pt" />
+        android:textColor="@color/yjt_text_nor"
+        android:textSize="33pt" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="96pt"
-        android:layout_marginHorizontal="36pt"
-        android:background="@mipmap/jinnuo_kuang_bg"
+        android:layout_height="129pt"
+        android:layout_marginHorizontal="19pt"
+        android:background="@mipmap/yjt_shezhi_kuang"
         android:gravity="center_vertical">
 
         <EditText
@@ -94,37 +94,39 @@
             android:background="@null"
             android:gravity="center_vertical"
             android:hint="请输入验证码"
-            android:paddingLeft="36pt"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="30pt" />
+            android:paddingLeft="43pt"
+            android:textColor="@color/yjt_text_nor"
+            android:textColorHint="@color/yjt_text_nor"
+            android:textSize="33pt" />
 
         <TextView
             android:id="@+id/tv_send_code"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingLeft="36pt"
-            android:paddingRight="36pt"
+            android:paddingLeft="43pt"
+            android:paddingRight="43pt"
             android:text="获取验证码"
-            android:textColor="@color/white"
+            android:textColor="@color/yjt_text_nor"
             android:textSize="30pt" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_jiebang"
         android:layout_width="match_parent"
-        android:layout_height="96pt"
-        android:layout_marginHorizontal="36pt"
-        android:layout_marginTop="31pt"
-        android:background="@mipmap/jinnuo_kuang_bg"
+        android:layout_height="129pt"
+        android:layout_marginHorizontal="19pt"
+        android:layout_marginTop="14pt"
+        android:background="@mipmap/yjt_shezhi_kuang"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:includeFontPadding="false"
             android:text="解绑"
-            android:textColor="@color/white"
-            android:textSize="30pt" />
+            android:textColor="@color/yjt_text_nor"
+            android:textSize="33pt"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>
