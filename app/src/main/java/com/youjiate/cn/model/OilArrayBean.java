@@ -1,6 +1,7 @@
 package com.youjiate.cn.model;
 
 import com.chad.library.adapter.base.entity.SectionEntity;
+import com.google.gson.annotations.SerializedName;
 
 public class OilArrayBean extends SectionEntity {
     /**

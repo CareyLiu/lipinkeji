@@ -12,6 +12,20 @@ public class FenLeiContentModel extends SectionEntity {
     public String two_item;
     public String three_item;
 
+    public String ccid;
+    public String serverId;
+
+    public String is_product;
+    public String item_id_up;
+    public String order_flag;
+    public String item_detail;
+    public String img_detail_url;
+    public String item_id;
+    public String img_url;
+    public String item_name;
+    public String category;
+    public String type;
+
     public FenLeiContentModel(boolean isHeader, String header) {
         super(isHeader, header);
         this.header = header;
@@ -25,9 +39,6 @@ public class FenLeiContentModel extends SectionEntity {
      * img_url : https://jy.hljsdkj.com/Frame/uploadFile/showImg?file_id=4732
      */
 
-    private String item_id;
-    private String item_name;
-    private String img_url;
 
 
     public String getItem_id() {

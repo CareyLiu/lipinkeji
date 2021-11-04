@@ -32,6 +32,6 @@ public class ZhiFuTypeModel {
         public String pay_id;
         public String pay_img_url;
         public String payment_method;
-        public String choose;// 0 否 1 是
+        public String choose="1";// 0 否 1 是
     }
 }

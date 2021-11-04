@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:id="@+id/ll_main"
     android:fitsSystemWindows="true"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <com.youjiate.cn.view.NoScrollViewPager
@@ -12,15 +12,12 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1pt"
-        android:background="@color/line" />
+
 
     <LinearLayout
+        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="95pt"
-        android:background="#ffffff">
+        android:layout_height="46dp">
 
         <LinearLayout
 
@@ -33,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/iv_home"
-                android:layout_width="52pt"
-                android:layout_height="52pt"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
                 android:src="@mipmap/youjiate_icon_home_sel" />
 
             <TextView
@@ -45,9 +42,8 @@
                 android:includeFontPadding="false"
                 android:text="首页"
                 android:textColor="#EC232B"
-                android:textSize="23pt" />
+                android:textSize="12sp" />
         </LinearLayout>
-
         <LinearLayout
 
             android:id="@+id/ll_shebei"
@@ -59,8 +55,8 @@
 
             <ImageView
                 android:id="@+id/iv_shebei"
-                android:layout_width="52pt"
-                android:layout_height="52pt"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
                 android:src="@mipmap/youjiate_icon_shebei_nor" />
 
             <TextView
@@ -72,7 +68,7 @@
                 android:includeFontPadding="false"
                 android:text="设备"
                 android:textColor="#1D1D1D"
-                android:textSize="23pt" />
+                android:textSize="12sp" />
         </LinearLayout>
 
 
@@ -87,8 +83,8 @@
 
             <ImageView
                 android:id="@+id/iv_device"
-                android:layout_width="52pt"
-                android:layout_height="52pt"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
                 android:src="@mipmap/youjiate_icon_sms_nor" />
 
             <TextView
@@ -100,7 +96,7 @@
                 android:includeFontPadding="false"
                 android:text="说明书"
                 android:textColor="#1D1D1D"
-                android:textSize="23pt" />
+                android:textSize="12sp" />
         </LinearLayout>
 
 
@@ -115,8 +111,8 @@
 
             <ImageView
                 android:id="@+id/iv_mine"
-                android:layout_width="52pt"
-                android:layout_height="52pt"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
                 android:src="@mipmap/youjiate_icon_wd_nor" />
 
             <TextView
@@ -127,7 +123,7 @@
                 android:includeFontPadding="false"
                 android:text="我的"
                 android:textColor="#1d1d1d"
-                android:textSize="23pt" />
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

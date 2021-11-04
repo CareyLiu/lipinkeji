@@ -23,4 +23,6 @@ public class Notice {
     }
 
     public String  devId;
+
+    public String input_type;
 }

@@ -125,6 +125,14 @@ public abstract class BasicActivity<T extends BasicPresenter, E extends BasicMod
         return false;
     }
 
+    /**
+     * 是否显示toolbar 下面边线
+     */
+    public boolean showToolBarLine() {
+        return false;
+    }
+
+
     //获取自定义toolbarview 资源id 默认为-1，showToolBar()方法必须返回true才有效
     public int getToolBarResId() {
         return R.layout.basic_common_toolbar;

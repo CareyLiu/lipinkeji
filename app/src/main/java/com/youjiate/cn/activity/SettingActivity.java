@@ -229,7 +229,7 @@ public class SettingActivity extends BaseActivity implements Observer, TakePhoto
                 .execute(new JsonCallback<AppResponse<UserInfo.DataBean>>() {
                     @Override
                     public void onSuccess(final Response<AppResponse<UserInfo.DataBean>> response) {
-                        Glide.with(MyApplication.getAppContext()).load(response.body().data.get(0).getUser_img_url()).into(ivHeader);
+                        Glide.with(MyApplication.getAppContext()).load(response.body().data.get(0).user_h_img_url).into(ivHeader);
                         tvNickname.setText(response.body().data.get(0).getUser_name());
                         tvBirthday.setText(response.body().data.get(0).getUser_birthday());
 
@@ -494,7 +494,7 @@ public class SettingActivity extends BaseActivity implements Observer, TakePhoto
                 .isSpliceUrl(true)
                 .params("key", Urls.key)
                 .params("token", UserManager.getManager(SettingActivity.this).getAppToken())
-                .params("type", "1")
+                .params("type", "3")
                 .params("file", file)
                 .execute(new JsonCallback<AppResponse<Upload.DataBean>>() {
                     @Override

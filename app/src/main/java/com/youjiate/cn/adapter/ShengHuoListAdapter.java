@@ -13,20 +13,21 @@ import com.youjiate.cn.R;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseQuickAdapter;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder;
 import com.youjiate.cn.model.Home;
+import com.youjiate.cn.model.Home_NewBean;
 
 
 import java.util.List;
 
-public class ShengHuoListAdapter extends BaseQuickAdapter<Home.DataBean.LifeListBean, BaseViewHolder> {
-    public ShengHuoListAdapter(int layoutResId, @Nullable List<Home.DataBean.LifeListBean> data) {
+public class ShengHuoListAdapter extends BaseQuickAdapter<Home_NewBean.DataBean.CarServiceListBean, BaseViewHolder> {
+    public ShengHuoListAdapter(int layoutResId, @Nullable List<Home_NewBean.DataBean.CarServiceListBean> data) {
         super(layoutResId, data);
     }
 
 
     @Override
-    protected void convert(BaseViewHolder helper, Home.DataBean.LifeListBean item) {
-        helper.setText(R.id.tv_text, item.service_type_name);
-        Glide.with(mContext).load(item.service_type_img).into((ImageView) helper.getView(R.id.iv_image));
+    protected void convert(BaseViewHolder helper, Home_NewBean.DataBean.CarServiceListBean item) {
+        helper.setText(R.id.tv_text, item.getName());
+        Glide.with(mContext).load(item.getImg_url()).into((ImageView) helper.getView(R.id.iv_image));
 
 //        if (helper.getAdapterPosition() == 0) {
 //            setMargins(helper.getView(R.id.constrain), DensityUtil.dp2px(13), DensityUtil.dp2px(10), 0, 0);

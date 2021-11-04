@@ -156,4 +156,15 @@ public interface ConstanceValue {
     int MSG_NONE_HOMEFRAGMENT = 0x10115;//删除首页
     int MSG_HAVE_HOMEFRAGMETN = 0x10116;//有首页
     int MSG_NETWORK_CHANGE = 0x10117;//网络监听发生变化
+    int TONGYI = 0x10118;//同意协议
+    int MSG_BIANMINFABU_HUICHUANDIZHI = 0x10134;//回传地址
+    int MSG_TONGYONG_INPUT = 0x10135;//通用输入
+    int MSG_FUWUGONGZHONG = 0x10136;//服务工种
+
+    int MSG_ADD_BANNER = 0x10137;//添加轮播图
+    int MSG_NONEZHINENGJIAJU = 0x10138;//刷新不重新创建时，重新走程序
+    int MSG_ZHUJIXIUGAIXINXI = 0x10139;//主机修改信息成功或失败
+
+
+    int MSG_SHOUYELIEBIAO = 0x10141;//智能家居设备列表
 }

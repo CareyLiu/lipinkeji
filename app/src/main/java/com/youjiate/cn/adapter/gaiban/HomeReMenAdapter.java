@@ -8,17 +8,18 @@ import com.bumptech.glide.Glide;
 import com.youjiate.cn.R;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseQuickAdapter;
 import com.youjiate.cn.model.Home;
+import com.youjiate.cn.model.Home_NewBean;
 import com.youjiate.cn.view.CornerTransform;
 
 import java.util.List;
 
-public class HomeReMenAdapter extends BaseQuickAdapter<Home.DataBean.IndexShowListBean, com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder> {
-    public HomeReMenAdapter(int layoutResId, @Nullable List<Home.DataBean.IndexShowListBean> data) {
+public class HomeReMenAdapter extends BaseQuickAdapter<Home_NewBean.DataBean.IndexShowListBean, com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder> {
+    public HomeReMenAdapter(int layoutResId, @Nullable List<Home_NewBean.DataBean.IndexShowListBean> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder helper, Home.DataBean.IndexShowListBean item) {
+    protected void convert(com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder helper, Home_NewBean.DataBean.IndexShowListBean item) {
 
         CornerTransform transformation = new CornerTransform(mContext, 15);
 //只是绘制左上角和右上角圆角

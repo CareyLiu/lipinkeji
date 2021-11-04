@@ -1,5 +1,7 @@
 package com.youjiate.cn.model;
 
+import com.chad.library.adapter.base.entity.SectionEntity;
+
 import java.util.List;
 
 public class GouWuCheDataModel  {

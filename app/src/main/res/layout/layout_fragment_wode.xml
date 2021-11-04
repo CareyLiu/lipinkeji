@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@color/bg_app"
     android:orientation="vertical">
 
@@ -19,8 +20,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="88pt"
-            android:layout_marginTop="50pt">
+            android:layout_height="88pt">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -131,6 +131,7 @@
                     </RelativeLayout>
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingHorizontal="19pt">
@@ -249,6 +250,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:id="@+id/ll_qianbao"
                         android:layout_width="match_parent"
                         android:layout_height="90pt"

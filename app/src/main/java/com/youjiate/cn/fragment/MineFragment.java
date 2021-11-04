@@ -6,12 +6,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youjiate.cn.R;
 import com.youjiate.cn.activity.MessageActivity;
 import com.youjiate.cn.activity.SettingActivity;
@@ -105,7 +109,12 @@ public class MineFragment extends BaseFragment implements Observer {
 
     @Override
     protected void initLogic() {
-
+        srLSmart.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                getNet();
+            }
+        });
     }
 
     @Override
@@ -118,6 +127,7 @@ public class MineFragment extends BaseFragment implements Observer {
         super.onSupportVisible();
 
     }
+
 
     @Override
     protected void initView(View rootView) {
@@ -155,7 +165,7 @@ public class MineFragment extends BaseFragment implements Observer {
                     public void onSuccess(Response<AppResponse<MineModel.DataBean>> response) {
                         srLSmart.finishRefresh();
                         dataBean = response.body().data.get(0);
-                        Glide.with(getActivity()).load(response.body().data.get(0).getUser_img_url()).into(rivImage);
+                        Glide.with(getActivity()).load(response.body().data.get(0).user_h_img_url).into(rivImage);
                         tvName.setText(dataBean.getUser_name());
                         tvPhone.setText(dataBean.getUser_phone());
 
@@ -194,9 +204,7 @@ public class MineFragment extends BaseFragment implements Observer {
 
     @Override
     protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar
-                .titleBar(toolbar)
-                .init();
+        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.EC232B).init();
     }
 
     @Override

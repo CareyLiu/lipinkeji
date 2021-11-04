@@ -80,6 +80,7 @@ public class UserInfo {
         private String collect_shop_count;
         private String score_tx;
         private List<?> makeList;
+        public String user_h_img_url;
 
         public String getWx_user_name() {
             return wx_user_name;

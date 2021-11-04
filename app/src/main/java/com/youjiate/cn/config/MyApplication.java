@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -185,37 +186,37 @@ public class MyApplication extends MultiDexApplication {
     DoMqttValue doMqttValue;
 
     public void onCreate() {
-        StringBuffer param = new StringBuffer();
-        param.append("appid=" + getString(R.string.app_id));
-        param.append(",");
-        // 设置使用v5+
-        param.append(SpeechConstant.ENGINE_MODE + "=" + SpeechConstant.MODE_MSC);
-        SpeechUtility.createUtility(MyApplication.this, param.toString());
+//        StringBuffer param = new StringBuffer();
+//        param.append("appid=" + getString(R.string.app_id));
+//        param.append(",");
+//        // 设置使用v5+
+//        param.append(SpeechConstant.ENGINE_MODE + "=" + SpeechConstant.MODE_MSC);
+//        SpeechUtility.createUtility(MyApplication.this, param.toString());
         super.onCreate();
         //设计图标注的宽度
+        application = this;
         int designWidth = 720;
-        new RudenessScreenHelper(this, designWidth).activate();
-
-        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
-        JPushInterface.init(this);
-        doMqttValue = new DoMqttValue();
+        new RudenessScreenHelper(application, designWidth).activate();
+//        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
+//        JPushInterface.init(this);
+//        doMqttValue = new DoMqttValue();
         context = getApplicationContext();
 //        initRongYun();
-        initLifecycle();
-        initWindow();
-        initDefaultPicker();
-        initOkgo();
-
-        // 获取当前包名
-        String packageName = context.getPackageName();
-        // 获取当前进程名
-        String processName = JinChengUtils.getProcessName();
-        // 设置是否为上报进程
-        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
-        strategy.setUploadProcess(processName == null || processName.equals(packageName));
-        // 初始化Bugly
-        Bugly.init(getApplicationContext(), "9067f261f0", false);
-
+//        initLifecycle();
+//        initWindow();
+//        initDefaultPicker();
+//        initOkgo();
+//
+//        // 获取当前包名
+//        String packageName = context.getPackageName();
+//        // 获取当前进程名
+//        String processName = JinChengUtils.getProcessName();
+//        // 设置是否为上报进程
+//        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
+//        strategy.setUploadProcess(processName == null || processName.equals(packageName));
+//        // 初始化Bugly
+//        Bugly.init(getApplicationContext(), "9067f261f0", false);
+//
         CompositeSubscription _subscriptions = new CompositeSubscription();
         _subscriptions = RxUtils.getNewCompositeSubIfUnsubscribed(_subscriptions);
 
@@ -251,6 +252,36 @@ public class MyApplication extends MultiDexApplication {
                         });
                     }
                 } else if (message.type == ConstanceValue.MSG_CONNET_MQTT) {
+                    setMqttConnect();
+                } else if (message.type == ConstanceValue.TONGYI) {
+
+                    JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
+                    JPushInterface.init(application);
+
+                    initWindow();
+                    initDefaultPicker();
+
+                    // 获取当前包名
+                    String packageName = context.getPackageName();
+                    // 获取当前进程名
+                    String processName = JinChengUtils.getProcessName();
+                    // 设置是否为上报进程
+                    CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
+                    strategy.setUploadProcess(processName == null || processName.equals(packageName));
+                    // 初始化Bugly
+                    Bugly.init(getApplicationContext(), "062ad00ef8", false);
+
+
+                    mCacheMap = new HashMap<>();
+                    mBroadcastData = new MutableLiveData<>();
+                    IntentFilter filter = new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+                    registerReceiver(mReceiver, filter);
+
+                    //view
+                    Gloading.initDefault(new GlobalAdapter());
+                    Logger.addLogAdapter(new AndroidLogAdapter());
+
+                    doMqttValue = new DoMqttValue();
                     setMqttConnect();
                 }
 
@@ -547,7 +578,7 @@ public class MyApplication extends MultiDexApplication {
                     @Override
                     public void deliveryComplete(IMqttDeliveryToken token) {
                         try {
-                            Log.i("Rair", "消息送达完成： "+token.getMessage().toString());
+                            Log.i("Rair", "消息送达完成： " + token.getMessage().toString());
                         } catch (MqttException e) {
                             e.printStackTrace();
                         }

@@ -140,7 +140,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
 
     public void getSheBeiData(String str) {
         Map<String, String> map = new HashMap<>();
-        map.put("code", "03510");
+        map.put("code", "03530");
         map.put("key", Urls.key);
         map.put("user_car_type", "1");
         map.put("device_type", str);

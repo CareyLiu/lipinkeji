@@ -103,12 +103,17 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
+        Notice notice = new Notice();
+        notice.type = ConstanceValue.TONGYI;
+        sendRx(notice);
+
         StatusBarUtil.setLightMode(this);
         ButterKnife.bind(this);
         init();
         initData();
         initHuidiao();
         initHandler();
+
 
 //        Service service = new Service() {
 //            @Nullable
@@ -203,6 +208,9 @@ public class HomeActivity extends BaseActivity {
                         handler = null;
                     }
 
+                } else if (notice.type == ConstanceValue.MSG_ZHINENGJIAJU) {
+                    //mVp.setCurrentItem(1, false);
+                    select(1);
                 }
             }
         }));

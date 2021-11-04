@@ -2,6 +2,8 @@ package com.youjiate.cn.model;
 
 import com.chad.library.adapter.base.entity.SectionEntity;
 
+import java.util.List;
+
 public  class AlarmListBean extends SectionEntity {
     /**
      * alarm_date : 今天
@@ -14,6 +16,9 @@ public  class AlarmListBean extends SectionEntity {
     public String alerm_time;
     public String device_state_name;
     public String device_state;
+
+    public String is_more;
+    public String sel_alarm_date;
 
 
 }

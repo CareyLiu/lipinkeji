@@ -107,6 +107,8 @@ public class MineModel {
         private String score_tx;
         private List<?> makeList;
 
+        public String user_h_img_url;
+
         public String getWx_pay_number_check() {
             return wx_pay_number_check;
         }

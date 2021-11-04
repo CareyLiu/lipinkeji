@@ -122,4 +122,32 @@
     <color name="yjt_danwei_wendu_nor">#024884</color>
     <color name="yjt_text_nor">#0080DE</color>
     <color name="yjt_text_sel">#024884</color>
+    <color name="text_color3">#494947</color>
+
+    <color name="tongcheng_yfb">#FA7E00</color>
+    <color name="tongcheng_yjj">#FC0100</color>
+    <color name="tongchneg_shz">#15D78E</color>
+
+    <color name="tongcheng_yjj_beijing">#1AFC0100</color>
+    <color name="tongcheng_yfb_beijing">#1AFA7E00</color>
+    <color name="tongchneg_shz_beijing">#1A15D78E</color>
+    <color name="pink_10">#1AFC0100</color>
+
+    <color name="shengxian">#F77C28</color>
+
+    <color name="color_1">#111111</color>
+    <color name="color_2">#222222</color>
+    <color name="color_3">#333333</color>
+    <color name="color_4">#444444</color>
+    <color name="color_5">#555555</color>
+    <color name="color_6">#666666</color>
+    <color name="color_7">#777777</color>
+    <color name="color_8">#888888</color>
+    <color name="color_9">#999999</color>
+    <color name="color_main">#3A85F8</color>
+    <color name="color_main_80">#803A85F8</color>
+    <color name="black_55">#55000000</color>
+    <color name="black353e4f">#353e4f</color>
+    <color name="grayeeeeeee">#eeeeee</color>
+    <color name="green_ff57c3b3">#ff57c3b3</color>
 </resources>

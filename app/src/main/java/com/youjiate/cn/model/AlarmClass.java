@@ -1,6 +1,7 @@
 package com.youjiate.cn.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class AlarmClass implements Serializable {
     public String type; //1.风暖加热器 2.水暖加热器 3.汽车 4.货车防盗 5.智能家居
@@ -23,4 +24,7 @@ public class AlarmClass implements Serializable {
     public String message_id;
     public String server_id;
     public String device_ccid_up;
+
+
+
 }

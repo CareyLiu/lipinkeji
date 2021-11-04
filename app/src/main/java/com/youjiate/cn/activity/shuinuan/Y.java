@@ -304,24 +304,19 @@ public class Y {
     }
 
     /**
-     * 获取日期
-     */
-    public static Date getData(String date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        try {
-            Date parse = format.parse(date);
-            return parse;
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return new Date();
-        }
-    }
-
-    /**
      * 获取日期精确到秒
      */
     public static String getDataS(Date date) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+        return format.format(date);
+    }
+
+    /**
+     * 获取日期精确
+     */
+    public static String getData(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
         return format.format(date);
     }

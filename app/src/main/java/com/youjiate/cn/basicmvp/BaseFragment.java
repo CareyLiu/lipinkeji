@@ -10,6 +10,7 @@ import com.youjiate.cn.app.Notice;
 import com.youjiate.cn.app.RxBus;
 import com.youjiate.cn.app.RxUtils;
 import com.lzy.okgo.OkGo;
+import com.youjiate.cn.dialog.LordingDialog;
 
 import butterknife.ButterKnife;
 import rx.Observable;
@@ -64,7 +65,32 @@ public abstract class BaseFragment<T extends BasicPresenter, E extends BasicMode
         mHolder.showLoadFailed();
     }
 
+    private LordingDialog lordingDialog;
 
+    public void showProgressDialog() {
+        showProgressDialog("");
+    }
+
+    public void showProgressDialog(String msg) {
+        if (lordingDialog == null) {
+            lordingDialog = new LordingDialog(getActivity());
+        }
+        lordingDialog.setTextMsg(msg);
+
+        if (!lordingDialog.isShowing()) {
+            lordingDialog.show();
+        }
+    }
+
+    public void dismissProgressDialog() {
+        if (lordingDialog != null) {
+            try {
+                lordingDialog.dismiss();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public void onDestroyView() {

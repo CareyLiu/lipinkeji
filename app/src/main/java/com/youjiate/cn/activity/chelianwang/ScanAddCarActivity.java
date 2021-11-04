@@ -151,7 +151,7 @@ public class ScanAddCarActivity extends BaseActivity implements QRCodeView.Deleg
 
     public void addSheBei(String ccid) {
         Map<String, String> map = new HashMap<>();
-        map.put("code", "03521");//法拉尔
+        map.put("code", "03529");//法拉尔
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(mContext).getAppToken());
         map.put("ccid", ccid);

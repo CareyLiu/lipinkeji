@@ -1,5 +1,7 @@
 package com.youjiate.cn.model;
 
+import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.entity.MultiItemEntity;
+
 import java.io.Serializable;
 import java.util.List;
 

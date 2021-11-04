@@ -13,17 +13,18 @@ import com.youjiate.cn.R;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseQuickAdapter;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder;
 import com.youjiate.cn.model.Home;
+import com.youjiate.cn.model.Home_NewBean;
 
 import java.util.List;
 
-public class ZhiKongListAdapter extends BaseQuickAdapter<Home.DataBean.IntellectListBean, BaseViewHolder> {
-    public ZhiKongListAdapter(int layoutResId, @Nullable List<Home.DataBean.IntellectListBean> data) {
+public class ZhiKongListAdapter extends BaseQuickAdapter<Home_NewBean.DataBean.YrListBean, BaseViewHolder> {
+    public ZhiKongListAdapter(int layoutResId, @Nullable List<Home_NewBean.DataBean.YrListBean> data) {
         super(layoutResId, data);
     }
 
 
     @Override
-    protected void convert(BaseViewHolder helper, Home.DataBean.IntellectListBean item) {
+    protected void convert(BaseViewHolder helper, Home_NewBean.DataBean.YrListBean item) {
         helper.setText(R.id.tv_text, item.getName());
         Glide.with(mContext).load(item.getImg_url()).into((ImageView) helper.getView(R.id.iv_image));
 

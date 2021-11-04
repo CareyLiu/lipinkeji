@@ -1,8 +1,10 @@
 package com.youjiate.cn.model;
 
+import com.chad.library.adapter.base.entity.SectionEntity;
+
 import java.util.List;
 
-public class MenCiListModel  {
+public class MenCiListModel {
     /**
      * next : 0
      * msg_code : 0000
@@ -351,6 +353,8 @@ public class MenCiListModel  {
 
             private String alarm_date;
             private List<AlermTimeListBean> alerm_time_list;
+            public String sel_alarm_date;//2021-04-24
+            public String is_more;//是否更多 0没有 1有
 
             public String getAlarm_date() {
                 return alarm_date;
@@ -378,6 +382,8 @@ public class MenCiListModel  {
                 private String alerm_time;
                 private String device_state_name;
                 private String device_state;
+
+
 
                 public String getAlerm_time() {
                     return alerm_time;
