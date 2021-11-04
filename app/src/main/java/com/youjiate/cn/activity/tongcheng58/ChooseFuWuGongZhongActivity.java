@@ -154,7 +154,7 @@ public class ChooseFuWuGongZhongActivity extends BaseActivity {
 
     public void saveData() {
         Map<String, String> map = new HashMap<>();
-        map.put("code", "17013");
+        map.put("code", "17020");
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(this).getAppToken());
         map.put("screening_condition", "service_type");
