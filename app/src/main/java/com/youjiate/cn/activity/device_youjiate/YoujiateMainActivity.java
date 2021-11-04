@@ -835,7 +835,7 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
         tv_add.setTextColor(Y.getColor(R.color.yjt_text_nor));
         tv_reduce.setTextColor(Y.getColor(R.color.yjt_text_nor));
 
-        Glide.with(mContext).load(R.mipmap.jg_home_pic_kongtiao_nor).into(iv_jiareqi);
+        Glide.with(mContext).load(R.mipmap.fegnnuan_guanji).into(iv_jiareqi);
 
         iv_mode_shoudong.setImageResource(R.mipmap.yjt_fn_hshoudongmoshi_nor);
         iv_mode_hengwen.setImageResource(R.mipmap.yjt_fn_hengwenmoshi_nor);
