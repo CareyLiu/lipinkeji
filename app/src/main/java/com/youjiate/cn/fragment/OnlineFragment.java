@@ -118,7 +118,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                             PreferenceHelper.getInstance(getContext()).putString("is_platform_bendi", mDatas.get(position).is_platform);
                             if (mDatas.get(position).device_type.equals("1")) {
                                 int i = mDatas.get(position).ccid.length() - 1;
-                                mDatas.get(position).ccid="aaaaaaaaaaaaa11100010028";
+//                                mDatas.get(position).ccid="aaaaaaaaaaaaa11100010028";
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
                                 PreferenceHelper.getInstance(getActivity()).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
@@ -256,7 +256,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
 
     public void getSheBeiData() {
         Map<String, String> map = new HashMap<>();
-        map.put("code", "03522");//法拉尔
+        map.put("code", "03530");//黄东旭
         map.put("key", Urls.key);
         map.put("user_car_type", "1");
         map.put("token", UserManager.getManager(getActivity()).getAppToken());

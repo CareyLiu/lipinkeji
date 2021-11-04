@@ -13,11 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.youjiate.cn.activity.device_youjiate.YoujiateMainActivity;
 import com.youjiate.cn.activity.shuinuan_wzw.ShuinuanWzwMainActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.youjiate.cn.R;
+import com.youjiate.cn.activity.shuinuan_youjiate.ShuinuanYoujiateMainActivity;
 import com.youjiate.cn.activity.zckt.AirConditionerActivity;
 import com.youjiate.cn.adapter.SheBeiListAdapter;
 import com.youjiate.cn.app.AppManager;
@@ -42,6 +44,8 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
+
+import static com.youjiate.cn.config.MyApplication.getServer_id;
 
 public class SheBeiLieBiaoActivity extends BaseActivity {
     @BindView(R.id.rlv_list)
@@ -71,22 +75,29 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                         UIHelper.ToastMessage(mContext, "当前设备已过期");
                         return;
                     }
-
                     switch (view.getId()) {
                         case R.id.constrain:
+                            PreferenceHelper.getInstance(mContext).putString("is_platform_bendi", mDatas.get(position).is_platform);
                             if (mDatas.get(position).device_type.equals("1")) {
                                 int i = mDatas.get(position).ccid.length() - 1;
+//                                mDatas.get(position).ccid="aaaaaaaaaaaaa11100010028";
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
-                                Log.i("serverId", str);
                                 PreferenceHelper.getInstance(mContext).putString("car_server_id", str + "/");
-                                PreferenceHelper.getInstance(mContext).putString("ccid", mDatas.get(position).ccid);
                                 PreferenceHelper.getInstance(mContext).putString("share_type", mDatas.get(position).share_type);
+                                PreferenceHelper.getInstance(mContext).putString("ccid", mDatas.get(position).ccid);
                                 PreferenceHelper.getInstance(mContext).putString("sim_ccid_save_type", mDatas.get(position).sim_ccid_save_type);
-                                Log.i("getnow", MyApplication.CARBOX_GETNOW);
+                                MyApplication.CARBOX_GETNOW = "wit/cbox/app/" + getServer_id() + MyApplication.getCcid();
+                                MyApplication.CAR_NOTIFY = "wit/server/" + getServer_id() + MyApplication.getUser_id();
+                                MyApplication.CAR_CTROL = "wit/cbox/hardware/" + getServer_id() + MyApplication.getCcid();
+
+                                PreferenceHelper.getInstance(mContext).putString("validdate", mDatas.get(position).validdate);
+                                PreferenceHelper.getInstance(mContext).putString("validdate_state", mDatas.get(position).validdate_state);
+                                PreferenceHelper.getInstance(mContext).putString("sim_ccid", mDatas.get(position).sim_ccid);
+
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        FengNuanActivity.actionStart(mContext, mDatas.get(position).sim_ccid_save_type);
+                                        YoujiateMainActivity.actionStart(mContext);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");
@@ -94,15 +105,18 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                             } else if (mDatas.get(position).device_type.equals("6")) {
                                 String ccid = mDatas.get(position).ccid;
                                 int pos = ccid.length() - 1;
-                                String count = String.valueOf(ccid.charAt(pos)) + "/";
+                                String count = ccid.charAt(pos) + "/";
                                 PreferenceHelper.getInstance(mContext).putString("ccid", mDatas.get(position).ccid);
                                 PreferenceHelper.getInstance(mContext).putString("car_server_id", count);
                                 PreferenceHelper.getInstance(mContext).putString("share_type", mDatas.get(position).share_type);
                                 PreferenceHelper.getInstance(mContext).putString("sim_ccid_save_type", mDatas.get(position).sim_ccid_save_type);
+                                PreferenceHelper.getInstance(mContext).putString("validdate", mDatas.get(position).validdate);
+                                PreferenceHelper.getInstance(mContext).putString("validdate_state", mDatas.get(position).validdate_state);
+                                PreferenceHelper.getInstance(mContext).putString("sim_ccid", mDatas.get(position).sim_ccid);
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        ShuinuanWzwMainActivity.actionStart(mContext, ccid, count, mDatas.get(position).validity_time);
+                                        ShuinuanYoujiateMainActivity.actionStart(mContext, ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");
@@ -140,7 +154,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
 
     public void getSheBeiData(String str) {
         Map<String, String> map = new HashMap<>();
-        map.put("code", "03530");
+        map.put("code", "03530");//黄东旭
         map.put("key", Urls.key);
         map.put("user_car_type", "1");
         map.put("device_type", str);

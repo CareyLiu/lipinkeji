@@ -465,11 +465,11 @@ public class SettingActivity extends BaseActivity implements Observer, TakePhoto
      */
     private void loginOut() {
         Map<String, String> map = new HashMap<>();
-        map.put("code", "03528");
+        map.put("code", "03531");//黄东旭退出登录
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(this).getAppToken());
         Gson gson = new Gson();
-        OkGo.<AppResponse<LoginUser.DataBean>>post(SERVER_URL + "index/login")
+        OkGo.<AppResponse<LoginUser.DataBean>>post(SERVER_URL + "wit/app/user")
                 .tag(this)//
                 .upJson(gson.toJson(map))
                 .execute(new DialogCallback<AppResponse<LoginUser.DataBean>>(this) {
