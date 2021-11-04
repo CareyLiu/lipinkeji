@@ -101,6 +101,10 @@ public class TuanGouMaiDanZhiFuActivity extends BaseActivity {
         frtvPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (true){
+                    Y.t("暂未开通支付功能");
+                    return;
+                }
                 getNet();
             }
         });
