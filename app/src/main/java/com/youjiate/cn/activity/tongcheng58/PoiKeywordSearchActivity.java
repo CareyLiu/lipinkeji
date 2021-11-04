@@ -30,6 +30,7 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.NaviPara;
 import com.amap.api.services.core.AMapException;
 import com.amap.api.services.core.PoiItem;
+import com.amap.api.services.core.ServiceSettings;
 import com.amap.api.services.core.SuggestionCity;
 import com.amap.api.services.help.Inputtips;
 import com.amap.api.services.help.Inputtips.InputtipsListener;
@@ -171,8 +172,11 @@ public class PoiKeywordSearchActivity extends BaseActivity implements
         query.setPageSize(10);// 设置每页最多返回多少条poiitem
         query.setPageNum(currentPage);// 设置查第一页
 
+        ServiceSettings.updatePrivacyShow(mContext,true,true);
+        ServiceSettings.updatePrivacyAgree(mContext,true);
         try {
             poiSearch = new PoiSearch(this, query);
+
         } catch (AMapException e) {
             e.printStackTrace();
         }
