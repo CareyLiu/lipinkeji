@@ -20,6 +20,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.amap.api.location.AMapLocationClient;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMap.InfoWindowAdapter;
 import com.amap.api.maps.AMap.OnMarkerClickListener;
@@ -75,10 +76,19 @@ public class PoiKeywordSearchActivity extends BaseActivity implements
     private PoiSearch.Query query;// Poi查询条件类
     private PoiSearch poiSearch;// POI搜索
     private FragmentManager manager;
+    AMapLocationClient mClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            mClient = new AMapLocationClient(mContext);
+
+//            AMapLocationClient.updatePrivacyShow(mContext,true,true);
+//            AMapLocationClient.updatePrivacyAgree(mContext,true);
+
+        } catch (Exception e) {
+        }
         init();
     }
 

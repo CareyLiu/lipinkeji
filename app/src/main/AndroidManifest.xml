@@ -112,7 +112,7 @@
             android:value="true" />
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="c4fa107f21600a897caa2d5417c2f8a5" /> <!-- <provider -->
+            android:value="dfe8cf41a198e40f0193e2f75cfe69ae" /> <!-- <provider -->
 
         <service android:name="com.amap.api.location.APSService" />
         <service android:name="com.youjiate.cn.service.DownLoadApkService" />
@@ -1046,14 +1046,6 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
-        <!-- 优佳特水暖主页 -->
-        <activity
-            android:name="com.youjiate.cn.activity.shuinuan_youjiate.ShuinuanYoujiateMainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            tools:ignore="LockedOrientationActivity" />
-
 
         <!-- 优佳特风暖主页 -->
         <activity
@@ -1098,6 +1090,33 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
-        PoiKeywordSearchActivity
+        <activity
+            android:name=".activity.tongcheng58.GongJiangLieBiaoNewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+
+
+        <activity
+            android:name=".activity.tongcheng58.ChooseFuWuGongZhongActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".activity.tongcheng58.TcInputActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activity.tuangou.TuanGouShangJiaListActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 </manifest>
