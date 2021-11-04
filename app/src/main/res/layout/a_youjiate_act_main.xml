@@ -179,7 +179,7 @@
                         android:id="@+id/iv_jiareqi"
                         android:layout_width="365pt"
                         android:layout_height="253pt"
-                        android:src="@mipmap/youjiete_fengnuan" />
+                        android:src="@mipmap/fegnnuan_guanji" />
 
                     <View
                         android:layout_width="0dp"
