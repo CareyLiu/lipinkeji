@@ -17,6 +17,7 @@ import com.youjiate.cn.activity.ShangchengActivity;
 import com.youjiate.cn.activity.device_falaer.FalaerMainActivity;
 import com.youjiate.cn.activity.device_youjiate.YoujiateMainActivity;
 import com.youjiate.cn.activity.shuinuan_falaer.ShuinuanFalaerMainActivity;
+import com.youjiate.cn.activity.shuinuan_youjiate.ShuinuanYoujiateMainActivity;
 import com.youjiate.cn.activity.zckt.AirConditionerActivity;
 import com.youjiate.cn.adapter.SheBeiListAdapter;
 import com.youjiate.cn.app.AppManager;
@@ -153,7 +154,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        ShuinuanFalaerMainActivity.actionStart(getActivity(), ccid, count);
+                                        ShuinuanYoujiateMainActivity.actionStart(getActivity(), ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");

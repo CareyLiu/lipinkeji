@@ -3,7 +3,6 @@ package com.youjiate.cn.activity.device_youjiate;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,7 +22,9 @@ import com.rairmmd.andmqtt.MqttSubscribe;
 import com.rairmmd.andmqtt.MqttUnSubscribe;
 import com.youjiate.cn.R;
 import com.youjiate.cn.activity.DiagnosisActivity;
+import com.youjiate.cn.activity.device_falaer.FalaerDingshiActivity;
 import com.youjiate.cn.activity.device_falaer.FalaerSetActivity;
+import com.youjiate.cn.activity.device_falaer.FalaerShuomingActivity;
 import com.youjiate.cn.activity.shuinuan.Y;
 import com.youjiate.cn.app.App;
 import com.youjiate.cn.app.AppManager;
@@ -57,8 +58,8 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
 
     @BindView(R.id.rl_back)
     RelativeLayout rl_back;
-    @BindView(R.id.iv_set)
-    ImageView iv_set;
+    @BindView(R.id.rl_set)
+    RelativeLayout rl_set;
     @BindView(R.id.iv_jiareqi)
     ImageView iv_jiareqi;
     @BindView(R.id.tv_dangwei)
@@ -111,6 +112,14 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
     TextView tv_huanjingwendu;
     @BindView(R.id.tv_rufengkouwendu)
     TextView tv_rufengkouwendu;
+    @BindView(R.id.ll_shuoming)
+    LinearLayout ll_shuoming;
+    @BindView(R.id.iv_xinhao)
+    ImageView iv_xinhao;
+    @BindView(R.id.tv_xinhao)
+    TextView tv_xinhao;
+    @BindView(R.id.ll_dingshi)
+    LinearLayout ll_dingshi;
 
 
     private boolean isFirst;//是否第一次进入
@@ -179,7 +188,6 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
         bt_kaiguan.setOnLongClickListener(this);
         iv_mode_shoudong.setOnLongClickListener(this);
         iv_mode_hengwen.setOnLongClickListener(this);
-        iv_mode_shoudong.setImageResource(R.mipmap.yjt_fn_hshoudongmoshi_sel);
     }
 
     private void initMqtt() {
@@ -251,6 +259,7 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
     }
 
     private void getData(String msg) {//接收到信息
+        tv_xinhao.setText("在线");
         typeZaixian = 1;
         handlerStart.removeMessages(1);
 
@@ -359,20 +368,20 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
             myCarCaoZuoDialog_notify.dismiss();
         }
 
-//        if (xinhaoqiangdu.equals("aa")) {
-//            iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal2);
-//        } else {
-//            int xinhao = Y.getInt(xinhaoqiangdu);//信号强度
-//            if (xinhao >= 15 && xinhao <= 19) {
-//                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal2);
-//            } else if (xinhao >= 20 && xinhao <= 25) {
-//                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal3);
-//            } else if (xinhao >= 26 && xinhao <= 35) {
-//                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal4);
-//            } else {
-//                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal1);
-//            }
-//        }
+        if (xinhaoqiangdu.equals("aa")) {
+            iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal2);
+        } else {
+            int xinhao = Y.getInt(xinhaoqiangdu);//信号强度
+            if (xinhao >= 15 && xinhao <= 19) {
+                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal2);
+            } else if (xinhao >= 20 && xinhao <= 25) {
+                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal3);
+            } else if (xinhao >= 26 && xinhao <= 35) {
+                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal4);
+            } else {
+                iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal1);
+            }
+        }
 
         firstCaozuo();
     }
@@ -505,13 +514,13 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
         myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
     }
 
-    @OnClick({R.id.rl_back, R.id.iv_set, R.id.ll_add, R.id.ll_reduce})
+    @OnClick({R.id.rl_back, R.id.rl_set, R.id.ll_add, R.id.ll_reduce, R.id.ll_shuoming, R.id.ll_dingshi})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
                 finish();
                 break;
-            case R.id.iv_set:
+            case R.id.rl_set:
                 FalaerSetActivity.actionStart(mContext);
                 break;
             case R.id.ll_add:
@@ -519,6 +528,12 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
                 break;
             case R.id.ll_reduce:
                 clickDown();
+                break;
+            case R.id.ll_shuoming:
+                FalaerShuomingActivity.actionStart(mContext);
+                break;
+            case R.id.ll_dingshi:
+                FalaerDingshiActivity.actionStart(mContext);
                 break;
         }
     }
@@ -530,13 +545,13 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
             handlerStart.removeMessages(1);
             switch (v.getId()) {
                 case R.id.bt_kaiguan:
-                    clickKaiguan();
+                    kaiguan();
                     break;
                 case R.id.iv_mode_shoudong:
-                    clickModeChange();
+                    clickShoudong();
                     break;
                 case R.id.iv_mode_hengwen:
-                    clickModeChange();
+                    clickHengwen();
                     break;
             }
         } else if (typeZaixian == 3) {
@@ -705,27 +720,37 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
         }
     }
 
-    private void clickModeChange() {
+    private void clickHengwen() {
         if (!isKaiji) {
-            isHenwenMode = !isHenwenMode;
-            if (isHenwenMode) {
-                iv_mode_hengwen.setImageResource(R.mipmap.yjt_fn_hengwenmoshi_sel);
-                iv_mode_shoudong.setImageResource(R.mipmap.yjt_fn_hshoudongmoshi_nor);
-                tv_add.setText("升温");
-                tv_reduce.setText("降温");
-            } else {
-                iv_mode_hengwen.setImageResource(R.mipmap.yjt_fn_hengwenmoshi_nor);
-                iv_mode_shoudong.setImageResource(R.mipmap.yjt_fn_hshoudongmoshi_sel);
-                tv_add.setText("加档");
-                tv_reduce.setText("减档");
-            }
+            SoundPoolUtils.soundPool(mContext, R.raw.mode_temp);
+            typeMingling = 2;//恒温模式
+            setUiHengwen();
+
+            sendMingling();
+            initHandlerMingling();
         } else {
-            Y.t("请关机之后再切换模式！");
+            if (isHenwenMode) {
+                guanji();
+            }
         }
     }
 
+    private void clickShoudong() {
+        if (!isKaiji) {
+            SoundPoolUtils.soundPool(mContext, R.raw.mode_gear);
+            setUiShoudong();
+            typeMingling = 1;//档位模式
 
-    private void clickKaiguan() {
+            sendMingling();
+            initHandlerMingling();
+        } else {
+            if (!isHenwenMode) {
+                guanji();
+            }
+        }
+    }
+
+    private void kaiguan() {
         if (isKaiji) {
             guanji();
         } else {
@@ -739,17 +764,12 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
         }
 
         if (isHenwenMode) {
-            SoundPoolUtils.soundPool(mContext, R.raw.mode_temp);
-            typeMingling = 2;//恒温模式
-            setUiHengwen();
+            clickHengwen();
         } else {
-            SoundPoolUtils.soundPool(mContext, R.raw.mode_gear);
-            setUiShoudong();
-            typeMingling = 1;//档位模式
+            clickShoudong();
         }
-        sendMingling();
-        initHandlerMingling();
     }
+
 
     private void guanji() {
         if (!isKaiji) {
@@ -816,6 +836,9 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
         tv_reduce.setTextColor(Y.getColor(R.color.yjt_text_nor));
 
         Glide.with(mContext).load(R.mipmap.jg_home_pic_kongtiao_nor).into(iv_jiareqi);
+
+        iv_mode_shoudong.setImageResource(R.mipmap.yjt_fn_hshoudongmoshi_nor);
+        iv_mode_hengwen.setImageResource(R.mipmap.yjt_fn_hengwenmoshi_nor);
     }
 
     private void sendMingling() {
@@ -956,6 +979,8 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
     }
 
     private void showTishiDialog() {
+        tv_xinhao.setText("离线");
+        iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal1);
         handlerStart.removeMessages(1);
         typeZaixian = 2;
         time = 0;

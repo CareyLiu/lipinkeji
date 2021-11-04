@@ -41,6 +41,20 @@
                 android:textColor="@color/white"
                 android:textSize="33pt"
                 android:textStyle="bold" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_set"
+                android:layout_width="88pt"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="46pt"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/jg_shezhi_icon_white" />
+            </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
 
@@ -67,14 +81,87 @@
                 android:layout_weight="401"
                 android:background="@mipmap/yjt_fn_bgzhuangshi">
 
-                <ImageView
-                    android:id="@+id/iv_set"
-                    android:layout_width="134pt"
-                    android:layout_height="68pt"
+                <LinearLayout
+                    android:id="@+id/ll_shuoming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15pt"
+                    android:layout_marginTop="25pt"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="33pt"
+                        android:layout_height="33pt"
+                        android:src="@mipmap/yjt_fn_snjrqsm" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10pt"
+                        android:includeFontPadding="false"
+                        android:text="说明书"
+                        android:textColor="#007FD8"
+                        android:textSize="27pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="151pt"
+                    android:layout_height="109pt"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="14pt"
-                    android:layout_marginRight="36pt"
-                    android:src="@mipmap/yjt_fn_shezhi" />
+                    android:layout_marginTop="20pt"
+                    android:background="@mipmap/yjt_fn_kuan"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9pt"
+                        android:layout_toLeftOf="@id/tv_shebeima"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/iv_xinhao"
+                            android:layout_width="29pt"
+                            android:layout_height="29pt"
+                            android:layout_marginRight="14pt"
+                            android:src="@mipmap/falaer_shuinuan_xinhao" />
+
+                        <TextView
+                            android:id="@+id/tv_xinhao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="在线"
+                            android:textColor="@color/falaer_text_shuinuan"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_dingshi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9pt"
+                        android:layout_marginTop="10pt"
+                        android:layout_toLeftOf="@id/tv_shebeima"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="29pt"
+                            android:layout_height="29pt"
+                            android:layout_marginRight="14pt"
+                            android:src="@mipmap/falaer_shuinuan_dingshi" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="定时"
+                            android:textColor="@color/falaer_text_shuinuan"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
 
                 <LinearLayout

@@ -245,12 +245,9 @@ public class DiagnosisActivity extends BaseActivity {
                     String messageData = message.content.toString().substring(1, message.content.toString().length() - 1);
                     Log.i("msg_car_j_m_data", messageData);
 
-
                     // 驻车加热器故障码->01至18	2	 标准故障码
                     String zhu_car_stoppage_no = messageData.substring(35, 37);
                     zhu_car_stoppage_no = 0 <= zhu_car_stoppage_no.indexOf("a") ? "" : String.valueOf(Integer.parseInt(zhu_car_stoppage_no));
-
-
 
 
                     if (!StringUtils.isEmpty(zhu_car_stoppage_no)) {
@@ -258,43 +255,21 @@ public class DiagnosisActivity extends BaseActivity {
                         btnClean.setVisibility(View.VISIBLE);
                         layoutInfo.setVisibility(View.VISIBLE);
 
-//                            MyCarCaoZuoDialog_Success dialog_success = new MyCarCaoZuoDialog_Success(DiagnosisActivity.this);
-//                            dialog_success.show();
-
-
-                        
-
-//                            MyCarCaoZuoDialog_Success dialog_success = new MyCarCaoZuoDialog_Success(DiagnosisActivity.this);
-//                             dialog_success.show();
-
                         String ccid = PreferenceHelper.getInstance(mContext).getString("ccid", "");
                         guZhangMa = zhu_car_stoppage_no;
                         guZhangMa = ChuLiGuZhangMa.getGuZhangMa(ccid, zhu_car_stoppage_no);
                         mTvMessage.setText(ChuLiGuZhangMa.codeXinXiShow(ccid, guZhangMa));
-
-
                     } else {
-
                         Activity activity =new Activity();
-
-
-
                         if (StringUtils.isEmpty(zhu_car_stoppage_no)) {
-
                             whatUWant = "";
-//                            MyCarCaoZuoDialog_Success dialog_success = new MyCarCaoZuoDialog_Success(DiagnosisActivity.this);
-//                            dialog_success.show();
                             layoutInfo.setVisibility(View.GONE);
                             layoutMessage.setVisibility(View.GONE);
                             btnClean.setVisibility(View.GONE);
                             mTvTitle.setText("整机运转正常");
-                            // UIHelper.ToastMessage(DiagnosisActivity.this, "故障已清除", Toast.LENGTH_LONG);
-
                         }
                     }
-
                 }
-
             }
         }));
     }
@@ -397,35 +372,6 @@ public class DiagnosisActivity extends BaseActivity {
                         UIHelper.ToastMessage(DiagnosisActivity.this, response.getException().getMessage());
                     }
                 });
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-//        AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(CAR_CTROL), new IMqttActionListener() {
-//            @Override
-//            public void onSuccess(IMqttToken asyncActionToken) {
-//                Log.i("Rair", "(MainActivity.java:93)-onSuccess:-&gt;取消订阅成功");
-//            }
-//
-//            @Override
-//            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-//                Log.i("Rair", "(MainActivity.java:98)-onFailure:-&gt;取消订阅失败");
-//            }
-//        });
-
-//        AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(CARBOX_GETNOW), new IMqttActionListener() {
-//            @Override
-//            public void onSuccess(IMqttToken asyncActionToken) {
-//                Log.i("Rair", "(MainActivity.java:93)-onSuccess:-&gt;取消订阅成功");
-//            }
-//
-//            @Override
-//            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-//                Log.i("Rair", "(MainActivity.java:98)-onFailure:-&gt;取消订阅失败");
-//            }
-//        });
     }
 
     @OnClick({R.id.rl_back, R.id.btn_clean, R.id.rl_consult})
