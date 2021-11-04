@@ -1019,7 +1019,6 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
-
         <!-- 法拉尔定时 -->
         <activity
             android:name="com.youjiate.cn.activity.device_falaer.FalaerDingshiActivity"
@@ -1027,7 +1026,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
-
 
         <!-- 法拉尔水暖主页面 -->
         <activity
@@ -1037,7 +1035,6 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
-
         <!-- 优佳特风暖主页 -->
         <activity
             android:name="com.youjiate.cn.activity.device_youjiate.YoujiateMainActivity"
@@ -1046,58 +1043,62 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
+        <!-- 优佳特水暖主页 -->
+        <activity
+            android:name="com.youjiate.cn.activity.shuinuan_youjiate.ShuinuanYoujiateMainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
 
-        <!-- 优佳特风暖主页 -->
         <activity
             android:name=".activity.xiupeichang.XiuPeiChangHomeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activity.tongcheng58.TongChengMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activity.tongcheng58.ShangjiaruzhuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activity.tongcheng58.GongJiangRuZhuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activity.tongcheng58.GongJiangRuZhuActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activity.tongcheng58.BianMinFaBuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activity.tongcheng58.PoiKeywordSearchActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activity.tongcheng58.GongJiangLieBiaoNewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
-
-
 
         <activity
             android:name=".activity.tongcheng58.ChooseFuWuGongZhongActivity"
@@ -1112,8 +1113,16 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activity.tuangou.TuanGouShangJiaListActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".activity.xiupeichang.XiupeichangShangActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
