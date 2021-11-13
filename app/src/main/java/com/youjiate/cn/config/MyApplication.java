@@ -269,7 +269,7 @@ public class MyApplication extends MultiDexApplication {
                     CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
                     strategy.setUploadProcess(processName == null || processName.equals(packageName));
                     // 初始化Bugly
-                    Bugly.init(getApplicationContext(), "062ad00ef8", false);
+                    Bugly.init(getApplicationContext(), "672d1aa43d", false);
 
 
                     mCacheMap = new HashMap<>();

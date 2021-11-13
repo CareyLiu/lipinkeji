@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
@@ -40,19 +39,8 @@ public class ScanAddCarActivity extends BaseActivity implements QRCodeView.Deleg
     @BindView(R.id.capture_flash)
     ImageView captureFlash;
 
-
-    private String companyid;
-    Long personId;
-    private String roleId;
-    boolean flag = true;
-    boolean input_flag = false;
-
-    private String myCode = null;
-    private String Sn = null;
-
-    private Camera camera;
-    private Camera.Parameters parameter;
-    ProgressDialog waitdialog;
+    private boolean flag = true;
+    private ProgressDialog waitdialog;
 
     /**
      * 用于其他Activty跳转到该Activity
@@ -87,7 +75,6 @@ public class ScanAddCarActivity extends BaseActivity implements QRCodeView.Deleg
         return R.layout.activity_scan1;
     }
 
-
     private void light() {
         if (flag) {
             flag = false;
@@ -113,39 +100,30 @@ public class ScanAddCarActivity extends BaseActivity implements QRCodeView.Deleg
     @Override
     public void onScanQRCodeSuccess(String result) {
         Log.e(tag, result);
-        myCode = result;
         waitdialog = ProgressDialog.show(ScanAddCarActivity.this, null, "已扫描，正在处理···", true, true);
         waitdialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             public void onDismiss(DialogInterface dialog) {
                 mQRCodeView.stopSpot();
             }
         });
-
-        //  UIHelper.ToastMessage(ScanActivity.this, "您已经收到了二维码 code:" + result);
-        vibrate();
-        // mQRCodeView.startSpot();
         waitdialog.dismiss();
         if (result.length() == 24) {
+            vibrate();
             addSheBei(result);
         } else {
-            BangdingFailDialog dialog = new BangdingFailDialog(mContext);
-            dialog.setClick(new BangdingFailDialog.BangdingClick() {
+            new Thread(new Runnable() {
                 @Override
-                public void close() {
-                    Notice notice = new Notice();
-                    notice.type = ConstanceValue.MSG_ADD_CHELIANG_SUCCESS;
-                    sendRx(notice);
-                    finish();
-                }
+                public void run() {
+                    try {
+                        Thread.sleep(1000);
+                        mQRCodeView.startSpot();
+                        mQRCodeView.setDelegate(ScanAddCarActivity.this);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
-                @Override
-                public void jixu() {
-                    mQRCodeView.startSpot();
-                    mQRCodeView.setDelegate(ScanAddCarActivity.this);
                 }
-            });
-            dialog.setTextContent("您的设备码不正确");
-            dialog.show();
+            }).start();
         }
     }
 
@@ -260,5 +238,4 @@ public class ScanAddCarActivity extends BaseActivity implements QRCodeView.Deleg
     public boolean showToolBar() {
         return true;
     }
-
 }
