@@ -20,8 +20,8 @@ android {
         applicationId "com.youjiate.cn"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.3"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         ndk {
@@ -226,4 +226,6 @@ dependencies {
 
     //屏幕适配方案
     implementation 'com.bulong.rudeness:rudeness:latest.release@aar'
+    //华为二维码扫描
+    implementation 'com.huawei.hms:scanplus:1.1.1.301'
 }
