@@ -84,28 +84,21 @@
             </intent-filter>
         </service>
 
-        <!-- Required. For publish channel feature -->
-        <!-- JPUSH_CHANNEL 是为了方便开发者统计 APK 分发渠道。-->
-        <!-- 例如: -->
-        <!-- 发到 Google Play 的 APK 可以设置为 google-play; -->
-        <!-- 发到其他市场的 APK 可以设置为 xxx-market。 -->
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="developer-default" />
-        <!-- Required. AppKey copied from Portal -->
+
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="02c5d1167fe464e61186e333" />
 
         <meta-data
             android:name="BUGLY_APPID"
-            android:value="672d1aa43d" /> <!-- 配置APP版本号 -->
+            android:value="672d1aa43d" />
         <meta-data
             android:name="BUGLY_APP_VERSION"
-            android:value="1.7.7" /> <!-- &lt;!&ndash; 配置APP渠道号 &ndash;&gt; -->
-        <!-- <meta-data -->
-        <!-- android:name="BUGLY_APP_CHANNEL" -->
-        <!-- android:value="<APP_Channel>" /> -->
+            android:value="1.7.7" />
+
         <!-- 配置Bugly调试模式（true或者false） -->
         <meta-data
             android:name="BUGLY_ENABLE_DEBUG"
@@ -141,7 +134,8 @@
             android:name="com.youjiate.cn.activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|screenSize"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

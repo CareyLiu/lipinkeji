@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
+    android:background="@mipmap/app_bg_main"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.youjiate.cn.activity.CarBrandActivity">
@@ -42,68 +42,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100pt"
         android:background="@color/transparent"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingHorizontal="30pt">
 
-        <RelativeLayout
+        <ImageView
             android:id="@+id/rl_scan_add"
-            android:layout_width="152dp"
-            android:layout_height="152dp"
-            android:background="@drawable/bg_white_radius_8">
+            android:layout_width="308pt"
+            android:layout_height="308pt"
+            android:src="@mipmap/sb_sao" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:orientation="vertical">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/youjaite_sbbd_saomiao" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="23dp"
-                    android:text="扫一扫添加"
-                    android:textColor="@color/text_color_3"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageView
             android:id="@+id/rl_hand_add"
-            android:layout_width="152dp"
-            android:layout_height="152dp"
-            android:layout_marginLeft="16dp"
-            android:background="@drawable/bg_white_radius_8">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/youjaite_sbbd_tianjai" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="23dp"
-                    android:text="手动添加"
-                    android:textColor="@color/text_color_3"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </RelativeLayout>
+            android:layout_width="308pt"
+            android:layout_height="308pt"
+            android:src="@mipmap/sb_tian" />
     </LinearLayout>
-
-
 </LinearLayout>

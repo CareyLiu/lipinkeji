@@ -62,17 +62,14 @@ public class SplashActivity extends AppCompatActivity  {
             boolean isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             if (isFirstRun) {
-                Log.d("debug", "第一次运行");
                 editor.putBoolean("isFirstRun", false);
                 editor.apply();
                 mWeakReference.get().startActivity(new Intent(mWeakReference.get(), LoginActivity.class));
                 mWeakReference.get().finish();
             } else {
-                Log.d("debug", "不是第一次运行");
-                Log.d("isLogin", PreferenceHelper.getInstance(mWeakReference.get()).getBoolean("ISLOGIN", false) + "");
                 if (PreferenceHelper.getInstance(mWeakReference.get()).getBoolean("ISLOGIN", false)) {
-                    //验证手势/指纹密码
-                    //initJump();
+                    //验证手势
+
                 } else {
                     if (PreferenceHelper.getInstance(mWeakReference.get()).getString("app_token", "").equals("")) {
                         mWeakReference.get().startActivity(new Intent(mWeakReference.get(), LoginActivity.class));
@@ -89,13 +86,9 @@ public class SplashActivity extends AppCompatActivity  {
                             case "4"://未知
                                 break;
                         }
-
-
                     }
                     mWeakReference.get().finish();
-
                 }
-
             }
         }
     }
@@ -133,20 +126,11 @@ public class SplashActivity extends AppCompatActivity  {
         ImmersionBar immersionBar = ImmersionBar.with(SplashActivity.this);
         immersionBar.with(this)
                 .init();
-
     }
-
-
-
-
-
-
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         OkGo.getInstance().cancelTag(this);
     }
-
-
 }

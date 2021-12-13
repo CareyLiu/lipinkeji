@@ -204,7 +204,7 @@ public class MineFragment extends BaseFragment implements Observer {
 
     @Override
     protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.EC232B).init();
+        mImmersionBar.with(this).init();
     }
 
     @Override
@@ -264,7 +264,6 @@ public class MineFragment extends BaseFragment implements Observer {
             case R.id.ll_guanyuwomen:
                 AboutUsActivity.actionStart(getActivity());
                 break;
-//            VipListActivity.actionStart(getActivity());//续费
         }
     }
 }

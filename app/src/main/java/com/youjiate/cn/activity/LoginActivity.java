@@ -125,24 +125,27 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         init();
-        ivTongyi.setBackgroundResource(R.mipmap.gouxuankuang_1);
+        ivTongyi.setBackgroundResource(R.mipmap.login_select_nor);
         llTongyi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (shifoutongyi.equals("0")) {
-                    ivTongyi.setBackgroundResource(R.mipmap.tuya_faxian_icon_selector_sel_1);
+                    ivTongyi.setBackgroundResource(R.mipmap.login_select_sel);
                     shifoutongyi = "1";
                 } else {
-                    ivTongyi.setBackgroundResource(R.mipmap.gouxuankuang_1);
+                    ivTongyi.setBackgroundResource(R.mipmap.login_select_nor);
                     shifoutongyi = "0";
                 }
-
             }
         });
+
+        mTvGetCode.setVisibility(View.GONE);
+        mEtPwdCode.setHint("请输入登录密码");
+        mEtPwdCode.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        req_type = "1";
     }
 
     private void init() {
@@ -416,18 +419,10 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
                 finish();
             }
         }
-
-//        String rongYunTouken = UserManager.getManager(mContext).getRongYun();
-//        if (!StringUtils.isEmpty(rongYunTouken)) {
-//            Notice notice = new Notice();
-//            notice.type = ConstanceValue.MSG_RONGYUN_CHONGZHI;
-//            RxBus.getDefault().sendRx(notice);
-//        }
     }
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
-        Log.i("LoginActivity_xx", "通过了......");
         if (fuWuDialog.isShowing()) {
             fuWuDialog.dismiss();
         }
@@ -436,39 +431,13 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-        //UIHelper.ToastMessage(mContext, "拒绝了");
-        Log.i("LoginActivity_xx", "拒绝了......");
-        // fuWuDialog.show();
+
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//            Log.i("LoginActivity_xx", "onRequestPermissionsResult granted");
-//        } else {
-//            Log.i("LoginActivity_xx", "onRequestPermissionsResult denied");
-//            //弹出框 让用户去应用详情页手动设置权限
-//
-//            showWaringDialog();
-//            return;
-//        }
-
-        // 将结果转发到EasyPermissions
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
-    }
-
-    private void showWaringDialog() {
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("警告！")
-                .setMessage("请前往设置->应用->PermissionDemo->权限中打开相关权限，否则功能无法正常运行！")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        goHuaWeiMainager();
-                    }
-
-                }).show();
     }
 
     private void goHuaWeiMainager() {

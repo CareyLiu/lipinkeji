@@ -2,21 +2,14 @@ package com.youjiate.cn.fragment;
 
 import android.app.Activity;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.youjiate.cn.R;
 import com.youjiate.cn.activity.BindBoxActivity;
-import com.youjiate.cn.activity.ShangchengActivity;
-import com.youjiate.cn.activity.device_falaer.FalaerMainActivity;
 import com.youjiate.cn.activity.device_youjiate.YoujiateMainActivity;
-import com.youjiate.cn.activity.shuinuan_falaer.ShuinuanFalaerMainActivity;
 import com.youjiate.cn.activity.shuinuan_youjiate.ShuinuanYoujiateMainActivity;
 import com.youjiate.cn.activity.zckt.AirConditionerActivity;
 import com.youjiate.cn.adapter.SheBeiListAdapter;
@@ -41,7 +34,6 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
@@ -67,18 +59,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
     RecyclerView mList;
     @BindView(R.id.iv_add)
     View ivAdd;
-    @BindView(R.id.rl_main)
-    LinearLayout rlMain;
     @BindView(R.id.srL_smart)
     SmartRefreshLayout srLSmart;
-    @BindView(R.id.iv_shangcheng)
-    RelativeLayout ivShangcheng;
-    @BindView(R.id.iv_close)
-    ImageView ivClose;
-    @BindView(R.id.cls_header)
-    ClassicsHeader clsHeader;
-    @BindView(R.id.iv_falaer_shangcheng)
-    ImageView ivFalaerShangcheng;
     private Unbinder unbinder;
 
     private SheBeiListAdapter sheBeiListAdapter;
@@ -100,9 +82,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
     protected void initView(View view) {
         view.setClickable(true);// 防止点击穿透，底层的fragment响应上层点击触摸事件
         unbinder = ButterKnife.bind(this, view);
-        clsHeader.setAccentColor(getResources().getColor(R.color.white));
         sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
-        mList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        mList.setLayoutManager(new LinearLayoutManager(getContext()));
         mList.setAdapter(sheBeiListAdapter);
         sheBeiListAdapter.notifyDataSetChanged();
         sheBeiListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
@@ -200,31 +181,11 @@ public class OnlineFragment extends BaseFragment implements Observer {
                 getSheBeiData();
             }
         });
-
-        ivShangcheng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ShangchengActivity.actionStart(getContext());
-            }
-        });
-
-        ivClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ivShangcheng.setVisibility(View.GONE);
-            }
-        });
-        ivFalaerShangcheng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ShangchengActivity.actionStart(getActivity());
-            }
-        });
     }
 
     @Override
     protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.white).init();
+        mImmersionBar.with(this).init();
     }
 
 

@@ -110,11 +110,8 @@
     <color name="blue_00FFFF">#00FFFF</color>
     <color name="black_333333">#333333</color>
 
-
-    <color name="black_1D1D1D">#1D1D1D</color>
-
-
-    <color name="EC232B">#EC232B</color>
+    <color name="color_A6A6A6">#A6A6A6</color>
+    <color name="color_42FFEB">#42FFEB</color>
 
     <color name="shebei_share_sel">#F5D449</color>
 
@@ -144,10 +141,14 @@
     <color name="color_7">#777777</color>
     <color name="color_8">#888888</color>
     <color name="color_9">#999999</color>
-    <color name="color_main">#3A85F8</color>
-    <color name="color_main_80">#803A85F8</color>
+    <color name="color_main">#16A4DB</color>
+    <color name="color_main_50">#8016A4DB</color>
+    <color name="color_main_80">#CC16A4DB</color>
     <color name="black_55">#55000000</color>
     <color name="black353e4f">#353e4f</color>
     <color name="grayeeeeeee">#eeeeee</color>
     <color name="green_ff57c3b3">#ff57c3b3</color>
+
+
+
 </resources>

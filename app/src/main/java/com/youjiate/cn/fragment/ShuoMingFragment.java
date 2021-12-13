@@ -92,7 +92,7 @@ public class ShuoMingFragment extends BaseFragment {
 
     @Override
     protected void immersionInit(ImmersionBar mImmersionBar) {
-        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.shenlanhei).init();
+        mImmersionBar.with(this).init();
     }
 
 

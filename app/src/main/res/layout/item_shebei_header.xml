@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="14dp"
         android:text="风暖加热器"
-        android:textColor="#ff333333"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

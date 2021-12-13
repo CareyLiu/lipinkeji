@@ -20,9 +20,8 @@ public class HomeReMenAdapter extends BaseQuickAdapter<Home_NewBean.DataBean.Ind
 
     @Override
     protected void convert(com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder helper, Home_NewBean.DataBean.IndexShowListBean item) {
-
         CornerTransform transformation = new CornerTransform(mContext, 15);
-//只是绘制左上角和右上角圆角
+        //只是绘制左上角和右上角圆角
         transformation.setExceptCorner(false, false, true, true);
 
         Glide.with(mContext)

@@ -15,15 +15,17 @@
             android:layout_height="307pt"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
-            android:src="@mipmap/pic_none_shebei" />
+            android:src="@mipmap/pic_none_shebei"
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_none"
+            android:layout_centerInParent="true"
             android:layout_marginTop="30pt"
-            android:text="暂无设备，点击右上角加号添加设备"
-            android:textColor="@color/text_color_3"
-            android:textSize="30pt" />
+            android:text="暂无设备"
+            android:textColor="@color/color_A6A6A6"
+            android:textSize="46pt" />
     </RelativeLayout>
 </RelativeLayout>

@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.Gson;
 import com.huawei.hms.hmsscankit.ScanUtil;
 import com.huawei.hms.ml.scan.HmsScan;
@@ -18,7 +16,6 @@ import com.huawei.hms.ml.scan.HmsScanAnalyzerOptions;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.youjiate.cn.R;
-import com.youjiate.cn.activity.chelianwang.ScanAddCarActivity;
 import com.youjiate.cn.app.BaseActivity;
 import com.youjiate.cn.app.ConstanceValue;
 import com.youjiate.cn.app.Notice;
@@ -46,8 +43,8 @@ import rx.functions.Action1;
 
 public class BindBoxActivity extends BaseActivity implements View.OnClickListener, EasyPermissions.PermissionCallbacks {
     private RelativeLayout mRlBack;
-    private RelativeLayout mRlScanAdd;
-    private RelativeLayout mRlHandAdd;
+    private View mRlScanAdd;
+    private View mRlHandAdd;
 
     @Override
     public void onCreate(Bundle savedInstanceStateundle) {
@@ -59,7 +56,7 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.with(this).statusBarDarkFont(true).fitsSystemWindows(true).statusBarColor(R.color.white).init();
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.black).init();
     }
 
 
@@ -69,11 +66,11 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void initView() {
-        mRlBack = (RelativeLayout) findViewById(R.id.rl_back);
+        mRlBack = findViewById(R.id.rl_back);
         mRlBack.setOnClickListener(this);
-        mRlScanAdd = (RelativeLayout) findViewById(R.id.rl_scan_add);
+        mRlScanAdd = findViewById(R.id.rl_scan_add);
         mRlScanAdd.setOnClickListener(this);
-        mRlHandAdd = (RelativeLayout) findViewById(R.id.rl_hand_add);
+        mRlHandAdd = findViewById(R.id.rl_hand_add);
         mRlHandAdd.setOnClickListener(this);
 
         _subscriptions.add(toObservable().observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Notice>() {
@@ -93,11 +90,6 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.rl_scan_add:
-//                if (EasyPermissions.hasPermissions(this, Manifest.permission.CAMERA)) {
-//                    ScanAddCarActivity.actionStart(BindBoxActivity.this);
-//                } else {
-//                    EasyPermissions.requestPermissions(this, getString(R.string.xjqx), 0, Manifest.permission.CAMERA);
-//                }
                 loadScanKitBtnClick();
                 break;
             case R.id.rl_hand_add:
@@ -134,9 +126,9 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
         super.initToolbar();
         tv_title.setText("绑定设备");
         tv_title.setTextSize(17);
-        tv_title.setTextColor(getResources().getColor(R.color.text_color_1));
-        mToolbar.setNavigationIcon(R.mipmap.back_black);
-        mToolbar.setBackgroundColor(getResources().getColor(R.color.white));
+        tv_title.setTextColor(getResources().getColor(R.color.white));
+        mToolbar.setNavigationIcon(R.mipmap.back_white);
+        mToolbar.setBackgroundColor(getResources().getColor(R.color.black));
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

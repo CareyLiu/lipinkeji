@@ -1,69 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="@color/bg_app"
+    android:background="@mipmap/app_bg_main"
     android:orientation="vertical">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="643pt"
-        android:src="@mipmap/youjiate_mine_bg" />
+        android:layout_height="122pt"
+        android:background="@color/black"
+        android:gravity="bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58pt">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:text="我的"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rl_set"
+                android:layout_width="88pt"
+                android:layout_height="58pt"
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="46pt"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/mine_shezhi" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_xiaoxi"
+                android:layout_width="88pt"
+                android:layout_height="58pt">
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="46pt"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/mine_icon_xiaoxi" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="88pt">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="88pt"
-                android:layout_alignParentBottom="true">
-
-                <RelativeLayout
-                    android:id="@+id/rl_xiaoxi"
-                    android:layout_width="88pt"
-                    android:layout_height="88pt">
-
-                    <ImageView
-                        android:layout_width="46pt"
-                        android:layout_height="46pt"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/mine_icon_xiaoxi" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:includeFontPadding="false"
-                    android:text="我的"
-                    android:textColor="@color/white"
-                    android:textSize="35pt"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:id="@+id/rl_set"
-                    android:layout_width="88pt"
-                    android:layout_height="88pt"
-                    android:layout_alignParentRight="true">
-
-                    <ImageView
-                        android:layout_width="46pt"
-                        android:layout_height="46pt"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/mine_shezhi" />
-                </RelativeLayout>
-            </RelativeLayout>
-        </RelativeLayout>
-
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/srL_smart"
@@ -98,9 +93,8 @@
                             android:id="@+id/riv_image"
                             android:layout_width="115pt"
                             android:layout_height="115pt"
-                            android:layout_marginLeft="26pt"
+                            android:layout_marginHorizontal="29pt"
                             android:layout_marginTop="42pt"
-                            android:layout_marginRight="29pt"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:background="@color/blue" />
@@ -131,10 +125,10 @@
                     </RelativeLayout>
 
                     <LinearLayout
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="19pt">
+                        android:paddingHorizontal="19pt"
+                        android:visibility="visible">
 
                         <LinearLayout
                             android:id="@+id/ll_tab_shoucang"
@@ -250,15 +244,15 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:visibility="gone"
                         android:id="@+id/ll_qianbao"
                         android:layout_width="match_parent"
                         android:layout_height="90pt"
-                        android:layout_marginHorizontal="19pt"
+                        android:layout_marginHorizontal="29pt"
                         android:layout_marginBottom="19pt"
-                        android:background="@drawable/bg_white_radius_8"
+                        android:background="@mipmap/wd_kuang"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="19pt">
+                        android:paddingHorizontal="19pt"
+                        android:visibility="visible">
 
                         <ImageView
                             android:layout_width="46pt"
@@ -272,21 +266,21 @@
                             android:layout_weight="1"
                             android:includeFontPadding="false"
                             android:text="我的钱包"
-                            android:textColor="@color/text_color_1"
+                            android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <ImageView
                             android:layout_width="19pt"
                             android:layout_height="31pt"
-                            android:src="@drawable/push_gray" />
+                            android:src="@drawable/white_push" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="19pt"
+                        android:layout_marginHorizontal="29pt"
                         android:layout_marginBottom="19pt"
-                        android:background="@drawable/bg_white_radius_8"
+                        android:background="@mipmap/wd_kuang"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -302,7 +296,7 @@
                                 android:layout_weight="1"
                                 android:includeFontPadding="false"
                                 android:text="我的订单"
-                                android:textColor="@color/text_color_1"
+                                android:textColor="@color/white"
                                 android:textSize="27pt" />
 
                             <TextView
@@ -311,13 +305,13 @@
                                 android:layout_marginRight="15pt"
                                 android:includeFontPadding="false"
                                 android:text="查看全部"
-                                android:textColor="@color/text_color_9"
+                                android:textColor="@color/white"
                                 android:textSize="21pt" />
 
                             <ImageView
                                 android:layout_width="10pt"
                                 android:layout_height="18pt"
-                                android:src="@drawable/push_gray" />
+                                android:src="@drawable/white_push" />
                         </LinearLayout>
 
                         <View
@@ -349,7 +343,7 @@
                                     android:layout_height="wrap_content"
                                     android:includeFontPadding="false"
                                     android:text="待付款"
-                                    android:textColor="@color/text_color_1"
+                                    android:textColor="@color/white"
                                     android:textSize="23pt" />
                             </LinearLayout>
 
@@ -372,7 +366,7 @@
                                     android:layout_height="wrap_content"
                                     android:includeFontPadding="false"
                                     android:text="代发货"
-                                    android:textColor="@color/text_color_1"
+                                    android:textColor="@color/white"
                                     android:textSize="23pt" />
                             </LinearLayout>
 
@@ -395,7 +389,7 @@
                                     android:layout_height="wrap_content"
                                     android:includeFontPadding="false"
                                     android:text="待收货"
-                                    android:textColor="@color/text_color_1"
+                                    android:textColor="@color/white"
                                     android:textSize="23pt" />
                             </LinearLayout>
 
@@ -418,7 +412,7 @@
                                     android:layout_height="wrap_content"
                                     android:includeFontPadding="false"
                                     android:text="评价"
-                                    android:textColor="@color/text_color_1"
+                                    android:textColor="@color/white"
                                     android:textSize="23pt" />
                             </LinearLayout>
 
@@ -441,7 +435,7 @@
                                     android:layout_height="wrap_content"
                                     android:includeFontPadding="false"
                                     android:text="退款"
-                                    android:textColor="@color/text_color_1"
+                                    android:textColor="@color/white"
                                     android:textSize="23pt" />
                             </LinearLayout>
                         </LinearLayout>
@@ -450,8 +444,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="19pt"
-                        android:background="@drawable/bg_white_radius_8"
+                        android:layout_marginHorizontal="29pt"
+                        android:background="@mipmap/wd_kuang"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -473,7 +467,7 @@
                                 android:layout_weight="1"
                                 android:includeFontPadding="false"
                                 android:text="店铺收藏"
-                                android:textColor="@color/text_color_1"
+                                android:textColor="@color/white"
                                 android:textSize="27pt" />
 
                             <ImageView
@@ -506,7 +500,7 @@
                                 android:layout_weight="1"
                                 android:includeFontPadding="false"
                                 android:text="商品收藏"
-                                android:textColor="@color/text_color_1"
+                                android:textColor="@color/white"
                                 android:textSize="27pt" />
 
                             <ImageView
@@ -539,7 +533,7 @@
                                 android:layout_weight="1"
                                 android:includeFontPadding="false"
                                 android:text="关于我们"
-                                android:textColor="@color/text_color_1"
+                                android:textColor="@color/white"
                                 android:textSize="27pt" />
 
                             <ImageView
@@ -550,13 +544,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
-
-            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffeeeeee"
-                app:srlTextSizeTime="10sp"
-                app:srlTextSizeTitle="12sp" />
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

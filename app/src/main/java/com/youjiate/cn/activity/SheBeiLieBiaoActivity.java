@@ -3,6 +3,7 @@ package com.youjiate.cn.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.youjiate.cn.activity.device_youjiate.YoujiateMainActivity;
+import com.youjiate.cn.activity.shuinuan.Y;
 import com.youjiate.cn.activity.shuinuan_wzw.ShuinuanWzwMainActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -63,7 +66,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         device_type = getIntent().getStringExtra("device_type");
         sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
-        rlvList.setLayoutManager(new GridLayoutManager(mContext, 2));
+        rlvList.setLayoutManager(new LinearLayoutManager(mContext));
         rlvList.setAdapter(sheBeiListAdapter);
         srLSmart.setEnableLoadMore(false);
         sheBeiListAdapter.notifyDataSetChanged();
@@ -229,13 +232,37 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
         super.initToolbar();
         tv_title.setText("设备列表");
         tv_title.setTextSize(17);
-        tv_title.setTextColor(getResources().getColor(R.color.black));
-        mToolbar.setNavigationIcon(R.mipmap.backbutton);
+        tv_title.setTextColor(getResources().getColor(R.color.white));
+        mToolbar.setBackgroundColor(Color.BLACK);
+        mToolbar.setNavigationIcon(R.mipmap.back_white);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        iv_rightTitle.setVisibility(View.VISIBLE);
+        iv_rightTitle.setImageResource(R.mipmap.tinjia);
+        iv_rightTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BindBoxActivity.actionStart(mContext);
+            }
+        });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getSheBeiData(device_type);
+    }
+
+
+    @Override
+    public void initImmersion() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.black).init();
+    }
+
 }

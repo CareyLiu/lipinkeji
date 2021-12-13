@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.youjiate.cn.R;
+import com.youjiate.cn.activity.shuinuan.Y;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseSectionQuickAdapter;
 import com.youjiate.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder;
 import com.youjiate.cn.model.SheBeiModel;
@@ -37,39 +38,37 @@ public class SheBeiListAdapter extends BaseSectionQuickAdapter<SheBeiModel, Base
 
     @Override
     protected void convert(BaseViewHolder helper, SheBeiModel item) {
-        TextView tv_share_name = helper.getView(R.id.tv_share_name);
+        helper.setText(R.id.tv_name, item.device_name);
+
         TextView tv_state = helper.getView(R.id.tv_state);
+        if (item.validity_state.equals("1")) {
+            tv_state.setText("<使用中>");
+            tv_state.setTextColor(Y.getColor(R.color.color_42FFEB));
+        } else if (item.validity_state.equals("2")) {
+            tv_state.setText("<已失效>");
+            tv_state.setTextColor(Y.getColor(R.color.color_A6A6A6));
+        }
+
+        helper.setText(R.id.tv_youxiaoqi, "设备有效期：" + item.validity_time);
+        helper.setText(R.id.tv_ccid, "设备码: " + item.ccid);
+
+        TextView tv_share_name = helper.getView(R.id.tv_share_name);
         ImageView iv_share_icon = helper.getView(R.id.iv_share_icon);
-        ImageView iv_icon = helper.getView(R.id.iv_icon);
-
-
         if (!TextUtils.isEmpty(item.share_type)) {
             if (item.share_type.equals("2")) {
                 tv_share_name.setVisibility(View.VISIBLE);
-                iv_share_icon.setImageResource(R.mipmap.youjaite_gongxiangshebei);
+                iv_share_icon.setVisibility(View.VISIBLE);
             } else {
                 tv_share_name.setVisibility(View.GONE);
-                iv_share_icon.setImageResource(R.mipmap.youjaite_wugongxiangshebei);
+                iv_share_icon.setVisibility(View.GONE);
             }
         } else {
             tv_share_name.setVisibility(View.GONE);
             iv_share_icon.setImageResource(R.mipmap.youjaite_wugongxiangshebei);
         }
 
-        Glide.with(mContext).load(item.device_img_url).into(iv_icon);
-
-        helper.setText(R.id.tv_name, item.device_name);
-
-        if (item.validity_state.equals("1")) {
-            tv_state.setText("使用中");
-            tv_state.setBackgroundResource(R.drawable.bg_shebei_shiyong_sel);
-        } else if (item.validity_state.equals("2")) {
-            tv_state.setText("已失效");
-            tv_state.setBackgroundResource(R.drawable.bg_shebei_shiyong_nor);
-        }
-
-        helper.setText(R.id.tv_ccid, "设备码: " + item.ccid);
-        helper.setText(R.id.tv_youxiaoqi, "设备有效期至：" + item.validity_time);
+//        ImageView iv_icon = helper.getView(R.id.iv_icon);
+//        Glide.with(mContext).load(item.device_img_url).into(iv_icon);
 
         helper.addOnClickListener(R.id.constrain);
     }

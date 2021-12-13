@@ -208,7 +208,6 @@ dependencies {
     //3D地图so及jar
 
 
-
     implementation 'com.amap.api:map2d:latest.integration'
     implementation 'com.amap.api:location:latest.integration'
     implementation 'com.amap.api:search:latest.integration'
@@ -227,5 +226,5 @@ dependencies {
     //屏幕适配方案
     implementation 'com.bulong.rudeness:rudeness:latest.release@aar'
     //华为二维码扫描
-    implementation 'com.huawei.hms:scanplus:1.1.1.301'
+    implementation 'com.huawei.hms:scanplus:2.2.0.300'
 }

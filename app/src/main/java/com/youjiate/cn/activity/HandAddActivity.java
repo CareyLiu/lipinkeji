@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.youjiate.cn.R;
@@ -57,8 +58,9 @@ public class HandAddActivity extends BaseActivity implements View.OnClickListene
         super.initToolbar();
         tv_title.setText("手动添加设备");
         tv_title.setTextSize(17);
-        tv_title.setTextColor(getResources().getColor(R.color.black));
-        mToolbar.setNavigationIcon(R.mipmap.backbutton);
+        tv_title.setTextColor(getResources().getColor(R.color.white));
+        mToolbar.setNavigationIcon(R.mipmap.back_white);
+        mToolbar.setBackgroundColor(getResources().getColor(R.color.black));
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,5 +154,11 @@ public class HandAddActivity extends BaseActivity implements View.OnClickListene
                         dialog.show();
                     }
                 });
+    }
+
+    @Override
+    public void initImmersion() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.black).init();
     }
 }

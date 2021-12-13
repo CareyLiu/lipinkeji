@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,7 +33,7 @@ import com.youjiate.cn.app.ConstanceValue;
 import com.youjiate.cn.app.Notice;
 import com.youjiate.cn.config.MyApplication;
 import com.youjiate.cn.dialog.newdia.TishiDialog;
-import com.youjiate.cn.fragment.HomeFragment_New;
+import com.youjiate.cn.fragment.HomeFragment;
 import com.youjiate.cn.fragment.MineFragment;
 import com.youjiate.cn.fragment.OnlineFragment;
 import com.youjiate.cn.fragment.ShuoMingFragment;
@@ -88,7 +87,6 @@ public class HomeActivity extends BaseActivity {
     @BindView(R.id.ll_shebei)
     LinearLayout llShebei;
 
-
     private AlarmClass alarmClass;
     private Handler handler;
     private Runnable runnable;
@@ -100,38 +98,24 @@ public class HomeActivity extends BaseActivity {
     }
 
     @Override
+    public void initImmersion() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.init();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
-        Notice notice = new Notice();
-        notice.type = ConstanceValue.TONGYI;
-        sendRx(notice);
-
-        StatusBarUtil.setLightMode(this);
         ButterKnife.bind(this);
+        StatusBarUtil.setLightMode(this);
         init();
         initData();
         initHuidiao();
         initHandler();
-
-
-//        Service service = new Service() {
-//            @Nullable
-//            @Override
-//            public IBinder onBind(Intent intent) {
-//                return null;
-//            }
-//        };
-//        Notification notification = new Notification();
-//        notification.when = 1;
-//        service.startForeground(1, notification);
-
-
     }
 
-
     private void initHandler() {
-
         if (JIESHOUP.equals("1")) {
             return;
         }
@@ -147,13 +131,12 @@ public class HomeActivity extends BaseActivity {
                         .setTopic(CAR_NOTIFY), new IMqttActionListener() {
                     @Override
                     public void onSuccess(IMqttToken asyncActionToken) {
-                        Log.i("Rair", "订阅O.成功");
 
                     }
 
                     @Override
                     public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                        Log.i("Rair", "(MainActivity.java:84)-onFailure:-&gt;发布失败");
+
                     }
                 });
                 handler.postDelayed(this, 5000);
@@ -164,6 +147,10 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void init() {
+        Notice notice = new Notice();
+        notice.type = ConstanceValue.TONGYI;
+        sendRx(notice);
+
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         AppManager.getAppManager().addActivity(this);
@@ -171,10 +158,7 @@ public class HomeActivity extends BaseActivity {
 
     private void initData() {
         List<Fragment> fragments = new ArrayList<>(3);
-
-        // llHome.setVisibility(View.GONE);
-
-        HomeFragment_New youJiaTeShouYeFragment = new HomeFragment_New();
+        HomeFragment youJiaTeShouYeFragment = new HomeFragment();
         OnlineFragment onlineFragment = new OnlineFragment();
         MineFragment mineFragment = new MineFragment();
         ShuoMingFragment shuoMingFragment = new ShuoMingFragment();
@@ -184,11 +168,8 @@ public class HomeActivity extends BaseActivity {
         fragments.add(shuoMingFragment);
         fragments.add(mineFragment);
 
-        // set adapter
         VpAdapter adapter = new VpAdapter(getSupportFragmentManager(), fragments);
-        //禁用懒加载，不然每次切换页面都会重新获取数据
-        mVp.setOffscreenPageLimit(2);
-        //viewPage禁止滑动
+        mVp.setOffscreenPageLimit(4);
         mVp.setScroll(false);
         mVp.setAdapter(adapter);
 
@@ -209,7 +190,6 @@ public class HomeActivity extends BaseActivity {
                     }
 
                 } else if (notice.type == ConstanceValue.MSG_ZHINENGJIAJU) {
-                    //mVp.setCurrentItem(1, false);
                     select(1);
                 }
             }
@@ -286,16 +266,13 @@ public class HomeActivity extends BaseActivity {
                         if (SoundPoolUtils.soundPool != null) {
                             SoundPoolUtils.soundPool.release();
                         }
-
                     }
 
                     @Override
                     public void onDismiss(TishiDialog dialog) {
 
                     }
-                }
-
-                );
+                });
 
                 myCarCaoZuoDialog_notify.setTextTitle("故障推送");
                 myCarCaoZuoDialog_notify.setTextContent("您的加热器出现故障，请及时处理!");
@@ -312,7 +289,6 @@ public class HomeActivity extends BaseActivity {
                         }
                     }
                 });
-
             } else {
                 flag = true;
             }
@@ -345,27 +321,27 @@ public class HomeActivity extends BaseActivity {
 
     private void select(int pos) {
         mVp.setCurrentItem(pos);
-        ivHome.setImageResource(R.mipmap.youjiate_icon_home_nor);
-        ivShebei.setImageResource(R.mipmap.youjiate_icon_shebei_nor);
-        ivDevice.setImageResource(R.mipmap.youjiate_icon_sms_nor);
-        ivMine.setImageResource(R.mipmap.youjiate_icon_wd_nor);
+        ivHome.setImageResource(R.mipmap.jiareqi_shangcheng_nor);
+        ivShebei.setImageResource(R.mipmap.jiareqi_shebei_nor);
+        ivDevice.setImageResource(R.mipmap.jiareqi_shuoming_nor);
+        ivMine.setImageResource(R.mipmap.jiareqi_wd_nor);
 
-        tvHome.setTextColor(Y.getColor(R.color.black_1D1D1D));
-        tvShebei.setTextColor(Y.getColor(R.color.black_1D1D1D));
-        tvDevice.setTextColor(Y.getColor(R.color.black_1D1D1D));
-        tvMine.setTextColor(Y.getColor(R.color.black_1D1D1D));
+        tvHome.setTextColor(Y.getColor(R.color.color_A6A6A6));
+        tvShebei.setTextColor(Y.getColor(R.color.color_A6A6A6));
+        tvDevice.setTextColor(Y.getColor(R.color.color_A6A6A6));
+        tvMine.setTextColor(Y.getColor(R.color.color_A6A6A6));
         if (pos == 0) {
-            ivHome.setImageResource(R.mipmap.youjiate_icon_home_sel);
-            tvHome.setTextColor(Y.getColor(R.color.EC232B));
+            ivHome.setImageResource(R.mipmap.jiareqi_shangcheng_sel);
+            tvHome.setTextColor(Y.getColor(R.color.color_42FFEB));
         } else if (pos == 1) {
-            ivShebei.setImageResource(R.mipmap.youjiate_icon_shebi_sel);
-            tvShebei.setTextColor(Y.getColor(R.color.EC232B));
+            ivShebei.setImageResource(R.mipmap.jiareqi_shebei_sel);
+            tvShebei.setTextColor(Y.getColor(R.color.color_42FFEB));
         } else if (pos == 2) {
-            ivDevice.setImageResource(R.mipmap.youjiate_icon_smis_sel);
-            tvDevice.setTextColor(Y.getColor(R.color.EC232B));
+            ivDevice.setImageResource(R.mipmap.jiareqi_shuoming_sel);
+            tvDevice.setTextColor(Y.getColor(R.color.color_42FFEB));
         } else if (pos == 3) {
-            ivMine.setImageResource(R.mipmap.youjiate_icon_wd_sel);
-            tvMine.setTextColor(Y.getColor(R.color.EC232B));
+            ivMine.setImageResource(R.mipmap.jiareqi_wd_sel);
+            tvMine.setTextColor(Y.getColor(R.color.color_42FFEB));
         }
     }
 
