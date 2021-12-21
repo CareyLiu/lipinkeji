@@ -8,12 +8,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="122pt"
+        android:layout_height="138pt"
         android:gravity="bottom">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="58pt">
+            android:layout_height="88pt">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:includeFontPadding="false"
-                android:text="商城"
+                android:text="力品科技"
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />

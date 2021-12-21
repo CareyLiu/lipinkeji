@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:includeFontPadding="false"
-        android:text="远程遥控平台"
+        android:text="力品科技远程遥控平台"
         android:textColor="@color/text_blue"
         android:textSize="18sp"
         android:textStyle="bold" />

@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context="com.youjiate.cn.activity.CarBrandActivity">
+    tools:context="com.lipinkeji.cn.activity.CarBrandActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -48,7 +48,7 @@
             android:layout_height="match_parent"
             android:descendantFocusability="blocksDescendants"
             android:background="@color/white" />
-        <com.youjiate.cn.view.HintSideBar
+        <com.lipinkeji.cn.view.HintSideBar
             android:id="@+id/hintSideBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

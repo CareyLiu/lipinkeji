@@ -67,7 +67,7 @@
             android:layout_width="493pt"
             android:layout_height="43pt"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/guang" />
+            android:src="@mipmap/yjt_guang" />
 
 
         <LinearLayout

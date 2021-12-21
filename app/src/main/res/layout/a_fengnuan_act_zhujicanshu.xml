@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/sn_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="138pt"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:text="主机参数"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="风机磁铁储量"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_citie_shuang"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="双磁铁"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_citie_dan"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="单磁铁"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="加热塞"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_jiaresai_jingci"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="京瓷"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_jiaresai_limai"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="利麦"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_jiaresai_gaide"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="盖得"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_jiaresai_tuobo"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="拖博"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="机器功率"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_gonglv_2kw"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="2kw"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_gonglv_5kw"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="5kw"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="大风大油"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_fengyou_shineng"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="失能"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_fengyou_youneng"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="使能"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="传感器"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_chuanganqi_ntc"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="NTC"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_chuanganqi_ptc"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="PTC"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+
+                    <CheckBox
+                        android:id="@+id/cb_chuanganqi_zidong"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="自动"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="电压"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_dianya_12v"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="12V"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <CheckBox
+                        android:id="@+id/cb_dianya_24v"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="24V"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+
+                    <CheckBox
+                        android:id="@+id/cb_dianya_zidong"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="自动"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bt_huifuchuchang"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="29pt"
+                android:layout_marginBottom="30pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center"
+                android:text="恢复出厂设置"
+                android:textColor="@color/white"
+                android:textSize="33pt"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

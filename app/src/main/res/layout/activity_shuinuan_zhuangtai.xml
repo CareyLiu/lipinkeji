@@ -33,7 +33,7 @@
             android:layout_centerInParent="true"
             android:text="设置"
             android:textColor="@color/white"
-            android:textSize="33pt"
+            android:textSize="35pt"
             android:textStyle="bold" />
     </RelativeLayout>
 

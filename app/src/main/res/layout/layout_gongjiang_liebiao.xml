@@ -11,7 +11,7 @@
         android:background="@android:color/white"
         android:orientation="vertical">
 
-        <com.youjiate.cn.view.magicindicator.MagicIndicator
+        <com.lipinkeji.cn.view.magicindicator.MagicIndicator
             android:id="@+id/magic_indicator4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:layout_height="1pt"
         android:background="@color/line" />
 
-    <com.youjiate.cn.view.CustomViewPager
+    <com.lipinkeji.cn.view.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp" />

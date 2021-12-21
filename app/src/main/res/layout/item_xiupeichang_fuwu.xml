@@ -88,7 +88,7 @@
                 android:textSize="30pt"
                 android:textStyle="bold" />
 
-            <com.youjiate.cn.activity.xiupeichang.view.DrawLineTextView
+            <com.lipinkeji.cn.activity.xiupeichang.view.DrawLineTextView
                 android:id="@+id/tv_money_yuan"
                 android:layout_width="wrap_content"
                 android:layout_height="24pt"

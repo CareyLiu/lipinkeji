@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.youjiate.cn.activity.CarBrandActivity">
+    tools:context="com.lipinkeji.cn.activity.CarBrandActivity">
 
     <LinearLayout
         android:layout_width="259dp"

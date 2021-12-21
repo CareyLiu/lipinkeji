@@ -56,7 +56,7 @@
         <!--android:layout_alignParentLeft="true"-->
         <!--android:src="@mipmap/backbutton" />-->
 
-        <com.youjiate.cn.view.magicindicator.MagicIndicator
+        <com.lipinkeji.cn.view.magicindicator.MagicIndicator
             android:id="@+id/magic_indicator4"
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -74,7 +74,7 @@
 
     </RelativeLayout>
 
-    <com.youjiate.cn.view.CustomViewPager
+    <com.lipinkeji.cn.view.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -129,7 +129,7 @@
                     android:textSize="31pt"
                     android:textStyle="bold" />
 
-                <com.youjiate.cn.view.AutoNextLineLinearlayout
+                <com.lipinkeji.cn.view.AutoNextLineLinearlayout
                     android:id="@+id/ll_dianneisheshi_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

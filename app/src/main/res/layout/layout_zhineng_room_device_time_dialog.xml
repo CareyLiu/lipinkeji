@@ -55,19 +55,19 @@
         android:minHeight="250dp"
         android:orientation="horizontal">
 
-        <com.youjiate.cn.optiobsPickerView.view.WheelView
+        <com.lipinkeji.cn.optiobsPickerView.view.WheelView
             android:id="@+id/options1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <com.youjiate.cn.optiobsPickerView.view.WheelView
+        <com.lipinkeji.cn.optiobsPickerView.view.WheelView
             android:id="@+id/options2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <com.youjiate.cn.optiobsPickerView.view.WheelView
+        <com.lipinkeji.cn.optiobsPickerView.view.WheelView
             android:id="@+id/options3"
             android:layout_width="0dp"
             android:layout_height="match_parent"

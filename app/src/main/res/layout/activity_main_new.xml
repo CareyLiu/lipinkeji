@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.youjiate.cn.view.NoScrollViewPager
+    <com.lipinkeji.cn.view.NoScrollViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -36,7 +36,7 @@
                 android:layout_marginTop="3pt"
                 android:includeFontPadding="false"
                 android:text="商城"
-                android:textColor="@color/color_42FFEB"
+                android:textColor="@color/color_main_fu"
                 android:textSize="19pt" />
         </LinearLayout>
 

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/sn_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="138pt"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:text="定时"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55pt"
+        android:paddingHorizontal="29pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="定时设置"
+            android:textColor="@color/white"
+            android:textSize="29pt"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_kaiji_tiem"
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18pt"
+        android:paddingRight="24pt">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="定时开机"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_kaiji_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="--:--"
+            android:textColor="#F7FF00"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/iv_swich_kaiji"
+            android:layout_width="152pt"
+            android:layout_height="56pt"
+            android:src="@mipmap/wd_btn_gianbi" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_guanji_time"
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="20pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18pt"
+        android:paddingRight="24pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="定时关机"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_guanji_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="--:--"
+            android:textColor="#F7FF00"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/iv_swich_guanji"
+            android:layout_width="152pt"
+            android:layout_height="56pt"
+            android:src="@mipmap/wd_btn_gianbi" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55pt"
+        android:paddingHorizontal="29pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="星期设置"
+            android:textColor="@color/white"
+            android:textSize="29pt"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="144pt"
+        android:layout_marginHorizontal="29pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="29pt">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10pt"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_monday"
+                android:layout_width="144pt"
+                android:layout_height="48pt"
+                android:layout_marginRight="10pt"
+                android:background="@drawable/youjiate_selector_days"
+                android:button="@null"
+                android:gravity="center"
+                android:text="星期一"
+                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textSize="27pt" />
+
+            <CheckBox
+                android:id="@+id/cb_tuesday"
+                android:layout_width="144pt"
+                android:layout_height="48pt"
+                android:layout_marginRight="10pt"
+                android:background="@drawable/youjiate_selector_days"
+                android:button="@null"
+                android:gravity="center"
+                android:text="星期二"
+                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textSize="27pt" />
+
+            <CheckBox
+                android:id="@+id/cb_wednesday"
+                android:layout_width="144pt"
+                android:layout_height="48pt"
+                android:layout_marginRight="10pt"
+                android:background="@drawable/youjiate_selector_days"
+                android:button="@null"
+                android:gravity="center"
+                android:text="星期三"
+                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textSize="27pt" />
+
+            <CheckBox
+                android:id="@+id/cb_thursday"
+                android:layout_width="144pt"
+                android:layout_height="48pt"
+                android:background="@drawable/youjiate_selector_days"
+                android:button="@null"
+                android:gravity="center"
+                android:text="星期四"
+                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textSize="27pt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_friday"
+                android:layout_width="144pt"
+                android:layout_height="48pt"
+                android:layout_marginRight="10pt"
+                android:background="@drawable/youjiate_selector_days"
+                android:button="@null"
+                android:gravity="center"
+                android:text="星期五"
+                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textSize="27pt" />
+
+            <CheckBox
+                android:id="@+id/cb_saturday"
+                android:layout_width="144pt"
+                android:layout_height="48pt"
+                android:layout_marginRight="10pt"
+                android:background="@drawable/youjiate_selector_days"
+                android:button="@null"
+                android:gravity="center"
+                android:text="星期六"
+                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textSize="27pt" />
+
+            <CheckBox
+                android:id="@+id/cb_sunday"
+                android:layout_width="144pt"
+                android:layout_height="48pt"
+                android:layout_marginRight="10pt"
+                android:background="@drawable/youjiate_selector_days"
+                android:button="@null"
+                android:gravity="center"
+                android:text="星期日"
+                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textSize="27pt" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="19pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center"
+        android:text="00:00"
+        android:textColor="@color/yjt_text_nor"
+        android:textSize="58pt"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_select_time"
+        android:layout_width="match_parent"
+        android:layout_height="107pt"
+        android:layout_marginHorizontal="38pt"
+        android:layout_marginTop="31pt"
+        android:background="@mipmap/tongyong_shezhi_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="38pt"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="31pt"
+            android:includeFontPadding="false"
+            android:text="请预约加热时长"
+            android:textColor="@color/white"
+            android:textSize="31pt" />
+
+        <TextView
+            android:id="@+id/tv_shijian"
+            android:layout_width="0pt"
+            android:layout_height="31pt"
+            android:layout_marginRight="12pt"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:includeFontPadding="false"
+            android:text="30分钟"
+            android:textColor="@color/white"
+            android:textSize="31pt" />
+
+        <ImageView
+            android:layout_width="33pt"
+            android:layout_height="33pt"
+            android:layout_marginRight="22pt"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/push_white" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_queren"
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="29pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center"
+        android:text="确认"
+        android:textColor="@color/white"
+        android:textSize="33pt"
+        android:textStyle="bold"
+        android:visibility="visible" />
+</LinearLayout>

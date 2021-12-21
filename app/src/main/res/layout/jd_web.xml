@@ -61,7 +61,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <com.youjiate.cn.util.x5.utils.MyX5WebView
+    <com.lipinkeji.cn.util.x5.utils.MyX5WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
