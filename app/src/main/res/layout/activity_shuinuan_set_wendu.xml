@@ -55,11 +55,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20pt"
+            android:layout_marginRight="10pt"
             android:includeFontPadding="false"
             android:text="温度上限设置"
             android:textColor="@color/white"
             android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="温度范围50-85，默认80"
+            android:textColor="@color/white"
+            android:textSize="17pt"
             android:textStyle="bold" />
 
         <View
@@ -87,11 +95,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20pt"
+            android:layout_marginRight="10pt"
             android:includeFontPadding="false"
             android:text="温度下限设置"
             android:textColor="@color/white"
             android:textSize="27pt"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="温度范围45-80，默认60"
+            android:textColor="@color/white"
+            android:textSize="17pt"
             android:textStyle="bold" />
 
         <View

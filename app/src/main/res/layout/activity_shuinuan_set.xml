@@ -72,8 +72,8 @@
                     android:textSize="27pt" />
             </LinearLayout>
 
-
             <RelativeLayout
+                android:id="@+id/rl_caozuoquanxian"
                 android:layout_width="match_parent"
                 android:layout_height="90pt"
                 android:layout_marginHorizontal="29pt"
@@ -85,20 +85,20 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="19pt"
                     android:includeFontPadding="false"
-                    android:text="设备码"
+                    android:text="装机操作设置权限"
                     android:textColor="@color/white"
                     android:textSize="27pt" />
 
-                <TextView
-                    android:id="@+id/tv_shebeima"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="28pt"
-                    android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
             </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/rl_dingshi"
@@ -129,13 +129,12 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rl_kongtiao_state"
+                android:id="@+id/rl_jiareqizhuangtai"
                 android:layout_width="match_parent"
                 android:layout_height="90pt"
                 android:layout_marginHorizontal="29pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang"
-                android:visibility="gone">
+                android:background="@mipmap/wd_kuang">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -143,7 +142,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="19pt"
                     android:includeFontPadding="false"
-                    android:text="空调状态"
+                    android:text="加热器状态"
                     android:textColor="@color/white"
                     android:textSize="27pt" />
 
@@ -158,7 +157,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rl_jiareqicanshu"
+                android:id="@+id/rl_wendushezhi"
                 android:layout_width="match_parent"
                 android:layout_height="90pt"
                 android:layout_marginHorizontal="29pt"
@@ -171,7 +170,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="19pt"
                     android:includeFontPadding="false"
-                    android:text="加热器参数"
+                    android:text="温度设置"
                     android:textColor="@color/white"
                     android:textSize="27pt" />
 
@@ -200,63 +199,6 @@
                     android:layout_marginLeft="19pt"
                     android:includeFontPadding="false"
                     android:text="主机参数"
-                    android:textColor="@color/white"
-                    android:textSize="27pt" />
-
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rl_guzhang"
-                android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
-                android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
-                    android:includeFontPadding="false"
-                    android:text="加热器诊断"
-                    android:textColor="@color/white"
-                    android:textSize="27pt" />
-
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rl_jiebangshebei"
-                android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
-                android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
-                    android:includeFontPadding="false"
-                    android:text="解绑设备"
                     android:textColor="@color/white"
                     android:textSize="27pt" />
 
@@ -326,14 +268,129 @@
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
 
+
+            <RelativeLayout
+                android:id="@+id/rl_jiebangshebei"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19pt"
+                    android:includeFontPadding="false"
+                    android:text="解绑设备"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_jiareqizhenduan"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19pt"
+                    android:includeFontPadding="false"
+                    android:text="加热器诊断"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_waikongzhuangzhi"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19pt"
+                    android:includeFontPadding="false"
+                    android:text="外控装置"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_danweiqiehuan"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19pt"
+                    android:includeFontPadding="false"
+                    android:text="档位切换"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </RelativeLayout>
+
+
             <RelativeLayout
                 android:id="@+id/rl_shebeixufei"
                 android:layout_width="match_parent"
                 android:layout_height="90pt"
                 android:layout_marginHorizontal="29pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang"
-                android:visibility="gone">
+                android:background="@mipmap/wd_kuang">
 
                 <TextView
                     android:layout_width="wrap_content"

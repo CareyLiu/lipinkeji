@@ -537,7 +537,7 @@
 
         <!--    水暖主机参数    -->
         <activity
-            android:name="com.lipinkeji.cn.activity.shuinuan.ShuinuanHostNewActivity"
+            android:name="com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanHostActivity"
             android:configChanges="locale|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
@@ -545,7 +545,7 @@
 
         <!--    水暖设备状态   -->
         <activity
-            android:name="com.lipinkeji.cn.activity.shuinuan.ShuinuanZhuangtaiActivity"
+            android:name="com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanZhuangtaiActivity"
             android:configChanges="locale|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
@@ -884,7 +884,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="com.lipinkeji.cn.activity.shuinuan_youjiate.ShuinuanSetActivity"
+            android:name="com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanSetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
@@ -895,13 +895,13 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <!--风暖定时-->
         <activity
-            android:name="com.lipinkeji.cn.activity.ShuinuanDingshiActivity"
+            android:name="com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanDingshiActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <!--风暖解绑-->
         <activity
-            android:name="com.lipinkeji.cn.activity.FengnuanJieActivity"
+            android:name="com.lipinkeji.cn.activity.ShuinuanJieActicity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
@@ -1170,23 +1170,46 @@
             android:windowSoftInputMode="adjustNothing|stateHidden" />
 
         <activity
-            android:name=".activity.shuinuan.ShuinuanWendusetActivity"
+            android:name=".activity.shuinuan_jiareqi.ShuinuanWendusetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name=".activity.shuinuan.ShuinuanGaojisetActivity"
+            android:name=".activity.shuinuan.FengnuanGaojiSetActiviy"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
-
-
+        <!--    小水主页    -->
         <activity
-            android:name=".activity.shuinuan_jiareqi.ShuinuanXiaoActivity"
+            android:name=".activity.shuinuan_jiareqi.ShuinuanMainXiaoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!--    水暖操作权限设置    -->
+        <activity
+            android:name=".activity.shuinuan_jiareqi.ShuinuanCaozuoSetActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!--    水暖大气压参数说明    -->
+        <activity
+            android:name=".activity.shuinuan_jiareqi.ShuinuanDaqiyaShoumingActivty"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!--    水暖外空装置    -->
+        <activity
+            android:name=".activity.shuinuan_jiareqi.ShuinuanWaikongActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"

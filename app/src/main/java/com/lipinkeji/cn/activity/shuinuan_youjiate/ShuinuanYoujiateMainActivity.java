@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanSetActivity;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttSubscribe;
@@ -22,7 +23,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.ShuinuanDingshiActivity;
+import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanDingshiActivity;
 import com.lipinkeji.cn.activity.shuinuan.ShuinuanBaseNewActivity;
 import com.lipinkeji.cn.activity.shuinuan.Y;
 import com.lipinkeji.cn.activity.shuinuan.dialog.GuzhangDialog;
@@ -747,7 +748,6 @@ public class ShuinuanYoujiateMainActivity extends ShuinuanBaseNewActivity implem
                 finish();
                 break;
             case R.id.rl_set:
-                ShuinuanSetActivity.actionStart(mContext, ShuinuanSetActivity.TYPE_SHUINUAN);
                 break;
             case R.id.ll_shuoming:
                 ShuinuanWzwShuomingActivity.actionStart(mContext);

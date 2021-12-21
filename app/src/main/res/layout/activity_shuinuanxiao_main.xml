@@ -178,10 +178,10 @@
                                 android:textSize="27pt" />
                         </LinearLayout>
 
-
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5pt"
                             android:gravity="center"
                             android:paddingRight="29pt">
 
@@ -365,7 +365,7 @@
                         android:background="@mipmap/sn_btn_guanbi"
                         android:gravity="center"
                         android:paddingTop="8pt"
-                        android:text="水泵已关闭"
+                        android:text="水路循环"
                         android:textColor="@color/white"
                         android:textSize="40pt" />
 
@@ -377,7 +377,7 @@
                         android:background="@mipmap/sn_btn_guanbi"
                         android:gravity="center"
                         android:paddingTop="8pt"
-                        android:text="泵油已关闭"
+                        android:text="手动供油"
                         android:textColor="@color/white"
                         android:textSize="40pt" />
                 </RelativeLayout>
@@ -408,7 +408,7 @@
                         android:background="@mipmap/sn_btn_guanbi"
                         android:gravity="center"
                         android:paddingTop="8pt"
-                        android:text="关机"
+                        android:text="清理积碳"
                         android:textColor="@color/white"
                         android:textSize="40pt" />
                 </RelativeLayout>

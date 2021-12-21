@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ShuinuanGaojisetActivity extends BaseActivity {
+public class FengnuanGaojiSetActiviy extends BaseActivity {
 
 
     @BindView(R.id.rl_back)
@@ -34,14 +34,14 @@ public class ShuinuanGaojisetActivity extends BaseActivity {
 
     @Override
     public int getContentViewResId() {
-        return R.layout.activity_shuinuan_gaoji_set;
+        return R.layout.activity_fengnuan_gaoji_set;
     }
 
     /**
      * 用于其他Activty跳转到该Activity
      */
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, ShuinuanGaojisetActivity.class);
+        Intent intent = new Intent(context, FengnuanGaojiSetActiviy.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

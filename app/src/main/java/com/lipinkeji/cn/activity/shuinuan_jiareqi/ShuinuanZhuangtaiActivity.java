@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity.shuinuan;
+package com.lipinkeji.cn.activity.shuinuan_jiareqi;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.activity.shuinuan.ShuinuanBaseNewActivity;
+import com.lipinkeji.cn.activity.shuinuan.Y;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttSubscribe;
@@ -80,7 +82,7 @@ public class ShuinuanZhuangtaiActivity extends ShuinuanBaseNewActivity {
 
     @Override
     public int getContentViewResId() {
-        return R.layout.activity_shuinuan_zhuangtai;
+        return R.layout.activity_shuinuan_set_zhuangtai;
     }
 
     /**

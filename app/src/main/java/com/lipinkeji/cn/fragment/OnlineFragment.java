@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.BindBoxActivity;
 import com.lipinkeji.cn.activity.device_youjiate.YoujiateMainActivity;
-import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanXiaoActivity;
-import com.lipinkeji.cn.activity.shuinuan_youjiate.ShuinuanYoujiateMainActivity;
+import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanMainXiaoActivity;
 import com.lipinkeji.cn.activity.zckt.AirConditionerActivity;
 import com.lipinkeji.cn.adapter.SheBeiListAdapter;
 import com.lipinkeji.cn.app.AppManager;
@@ -136,7 +135,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        ShuinuanXiaoActivity.actionStart(getActivity(), ccid, count);
+                                        ShuinuanMainXiaoActivity.actionStart(getActivity(), ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");

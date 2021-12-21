@@ -36,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FengnuanJieActivity extends BaseActivity {
+public class ShuinuanJieActicity extends BaseActivity {
 
     @BindView(R.id.rl_back)
     RelativeLayout rl_back;
@@ -66,7 +66,7 @@ public class FengnuanJieActivity extends BaseActivity {
     }
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, FengnuanJieActivity.class);
+        Intent intent = new Intent(context, ShuinuanJieActicity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

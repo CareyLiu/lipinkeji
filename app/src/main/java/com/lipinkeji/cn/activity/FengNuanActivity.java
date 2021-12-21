@@ -25,7 +25,8 @@ import com.bumptech.glide.Glide;
 
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.shuinuan.Y;
-import com.lipinkeji.cn.activity.shuinuan_youjiate.ShuinuanSetActivity;
+import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanDingshiActivity;
+import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanSetActivity;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -204,7 +205,6 @@ public class FengNuanActivity extends BaseActivity implements View.OnLongClickLi
         ivShezhi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShuinuanSetActivity.actionStart(mContext, ShuinuanSetActivity.TYPE_FENGNUAN);
             }
         });
         llDingshi.setOnClickListener(new View.OnClickListener() {

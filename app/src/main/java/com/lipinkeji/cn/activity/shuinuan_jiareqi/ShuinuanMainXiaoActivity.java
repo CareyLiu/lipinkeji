@@ -13,14 +13,12 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.shuinuan.ShuinuanBaseNewActivity;
-import com.lipinkeji.cn.activity.shuinuan_youjiate.ShuinuanSetActivity;
-import com.lipinkeji.cn.get_net.Urls;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ShuinuanXiaoActivity extends ShuinuanBaseNewActivity {
+public class ShuinuanMainXiaoActivity extends ShuinuanBaseNewActivity {
 
     @BindView(R.id.rl_back)
     RelativeLayout rl_back;
@@ -75,7 +73,7 @@ public class ShuinuanXiaoActivity extends ShuinuanBaseNewActivity {
      * 用于其他Activty跳转到该Activity
      */
     public static void actionStart(Context context, String ccid, String car_server_id) {
-        Intent intent = new Intent(context, ShuinuanXiaoActivity.class);
+        Intent intent = new Intent(context, ShuinuanMainXiaoActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("ccid", ccid);
         intent.putExtra("car_server_id", car_server_id);
@@ -100,6 +98,6 @@ public class ShuinuanXiaoActivity extends ShuinuanBaseNewActivity {
 
     @OnClick(R.id.rl_set)
     public void onViewClicked() {
-        ShuinuanSetActivity.actionStart(mContext, ShuinuanSetActivity.TYPE_SHUINUAN);
+        ShuinuanSetActivity.actionStart(mContext);
     }
 }

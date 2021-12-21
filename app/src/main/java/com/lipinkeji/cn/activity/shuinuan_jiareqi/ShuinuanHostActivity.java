@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity.shuinuan;
+package com.lipinkeji.cn.activity.shuinuan_jiareqi;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.activity.shuinuan.ShuinuanBaseNewActivity;
+import com.lipinkeji.cn.activity.shuinuan.Y;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttSubscribe;
@@ -31,8 +33,7 @@ import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-public class ShuinuanHostNewActivity extends ShuinuanBaseNewActivity {
-
+public class ShuinuanHostActivity extends ShuinuanBaseNewActivity {
 
     @BindView(R.id.rl_back)
     RelativeLayout rlBack;
@@ -84,7 +85,7 @@ public class ShuinuanHostNewActivity extends ShuinuanBaseNewActivity {
      * 用于其他Activty跳转到该Activity
      */
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, ShuinuanHostNewActivity.class);
+        Intent intent = new Intent(context, ShuinuanHostActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

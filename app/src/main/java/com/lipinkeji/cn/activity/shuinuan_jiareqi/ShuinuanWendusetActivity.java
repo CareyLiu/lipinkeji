@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity.shuinuan;
+package com.lipinkeji.cn.activity.shuinuan_jiareqi;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +18,7 @@ public class ShuinuanWendusetActivity extends BaseActivity {
 
     @Override
     public int getContentViewResId() {
-        return R.layout.activity_shuinuan_wendu_set;
+        return R.layout.activity_shuinuan_set_wendu;
     }
 
     /**

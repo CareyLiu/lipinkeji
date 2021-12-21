@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.ShuinuanDingshiActivity;
-import com.lipinkeji.cn.activity.shuinuan_youjiate.ShuinuanSetActivity;
+import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanDingshiActivity;
+import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanSetActivity;
 import com.lipinkeji.cn.activity.shuinuan.dialog.GuzhangDialog;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.ConstanceValue;
@@ -829,7 +829,6 @@ public class ShuinuanMainActivity extends ShuinuanBaseNewActivity implements Vie
                 finish();
                 break;
             case R.id.rl_set:
-                ShuinuanSetActivity.actionStart(mContext, ShuinuanSetActivity.TYPE_SHUINUAN);
                 break;
             case R.id.iv_shebeima:
                 showShebeima();
