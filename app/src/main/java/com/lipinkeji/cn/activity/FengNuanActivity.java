@@ -24,9 +24,9 @@ import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
 
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
-import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanDingshiActivity;
-import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanSetActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.util.Y;
+import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanDingshiActivity;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -262,7 +262,7 @@ public class FengNuanActivity extends BaseActivity implements View.OnLongClickLi
 
             @Override
             public void clickRight() {
-                DiagnosisActivity.actionStart(mContext);
+                JiareqiGuzhangActivity.actionStart(mContext);
                 //SoundPoolUtils.soundPool.release();
                 myCarCaoZuoDialog_notify.dismiss();
                 if (SoundPoolUtils.soundPool != null) {
@@ -1013,7 +1013,7 @@ public class FengNuanActivity extends BaseActivity implements View.OnLongClickLi
                     if (!StringUtils.isEmpty(zhu_car_stoppage_no)) {
                         Activity currentActivity = AppManager.getAppManager().currentActivity();
                         if (currentActivity != null) {
-                            if (!currentActivity.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+                            if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
 
                                 if (!myCarCaoZuoDialog_notify.isShowing()) {
                                     myCarCaoZuoDialog_notify.show();

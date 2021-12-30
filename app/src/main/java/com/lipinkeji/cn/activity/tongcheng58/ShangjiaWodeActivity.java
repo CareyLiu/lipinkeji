@@ -19,7 +19,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.tongcheng58.model.ShangjiaDetailModel;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.BaseActivity;

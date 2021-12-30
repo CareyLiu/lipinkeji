@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/sn_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="138pt"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:text="温度设置"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="19pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18pt"
+        android:paddingRight="24pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10pt"
+            android:includeFontPadding="false"
+            android:text="温度上限设置"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="温度范围0-35，默32"
+            android:textColor="@color/white"
+            android:textSize="17pt"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="152pt"
+            android:layout_height="56pt"
+            android:src="@mipmap/wd_btn_gianbi" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="19pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18pt"
+        android:paddingRight="24pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10pt"
+            android:includeFontPadding="false"
+            android:text="温度下限设置"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="温度范围035，默认5"
+            android:textColor="@color/white"
+            android:textSize="17pt"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="152pt"
+            android:layout_height="56pt"
+            android:src="@mipmap/wd_btn_gianbi" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="19pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18pt"
+        android:paddingRight="24pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="自动恒温设置"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="152pt"
+            android:layout_height="56pt"
+            android:src="@mipmap/wd_btn_gianbi" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_kaiji_tiem"
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="19pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18pt"
+        android:paddingRight="24pt">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="定时开机"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_kaiji_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="--"
+            android:textColor="#F7FF00"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="℃"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/iv_swich_kaiji"
+            android:layout_width="152pt"
+            android:layout_height="56pt"
+            android:src="@mipmap/wd_btn_gianbi" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_guanji_time"
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginHorizontal="29pt"
+        android:layout_marginTop="20pt"
+        android:background="@mipmap/wd_kuang"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18pt"
+        android:paddingRight="24pt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="定时关机"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_guanji_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="--"
+            android:textColor="#F7FF00"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20pt"
+            android:includeFontPadding="false"
+            android:text="℃"
+            android:textColor="@color/white"
+            android:textSize="27pt"
+            android:textStyle="bold" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/iv_swich_guanji"
+            android:layout_width="152pt"
+            android:layout_height="56pt"
+            android:src="@mipmap/wd_btn_gianbi" />
+    </LinearLayout>
+</LinearLayout>

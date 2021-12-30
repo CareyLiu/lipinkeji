@@ -21,11 +21,11 @@ import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttSubscribe;
 import com.rairmmd.andmqtt.MqttUnSubscribe;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.DiagnosisActivity;
-import com.lipinkeji.cn.activity.device_falaer.FalaerDingshiActivity;
-import com.lipinkeji.cn.activity.device_falaer.FalaerSetActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.FengnuanDingshiActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.FengnuanSetActivity;
 import com.lipinkeji.cn.activity.device_falaer.FalaerShuomingActivity;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -358,7 +358,7 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
         if (!StringUtils.isEmpty(guzhangdaima)) {
             Activity currentActivity = AppManager.getAppManager().currentActivity();
             if (currentActivity != null) {
-                if (!currentActivity.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+                if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
                     if (!myCarCaoZuoDialog_notify.isShowing()) {
                         myCarCaoZuoDialog_notify.show();
                     }
@@ -508,7 +508,7 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
 
             @Override
             public void clickRight() {
-                DiagnosisActivity.actionStart(mContext);
+                JiareqiGuzhangActivity.actionStart(mContext);
             }
         });
         myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
@@ -521,7 +521,7 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
                 finish();
                 break;
             case R.id.rl_set:
-                FalaerSetActivity.actionStart(mContext);
+                FengnuanSetActivity.actionStart(mContext);
                 break;
             case R.id.ll_add:
                 clickUp();
@@ -533,7 +533,7 @@ public class YoujiateMainActivity extends BaseActivity implements View.OnLongCli
                 FalaerShuomingActivity.actionStart(mContext);
                 break;
             case R.id.ll_dingshi:
-                FalaerDingshiActivity.actionStart(mContext);
+                FengnuanDingshiActivity.actionStart(mContext);
                 break;
         }
     }

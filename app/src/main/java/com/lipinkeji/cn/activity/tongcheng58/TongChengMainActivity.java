@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.adapter.NewsFragmentPagerAdapter;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.dialog.newdia.FaBuDialog;

@@ -32,6 +32,7 @@ import androidx.percentlayout.widget.PercentRelativeLayout;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
+import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.rairmmd.andmqtt.AndMqtt;
@@ -403,7 +404,7 @@ public class WindHeaterActivity extends BaseActivity implements View.OnLongClick
                     if (!StringUtils.isEmpty(zhu_car_stoppage_no)) {
                         Activity currentActivity = AppManager.getAppManager().currentActivity();
                         if (currentActivity != null) {
-                            if (!currentActivity.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+                            if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
 
                                 if (!myCarCaoZuoDialog_notify.isShowing()) {
                                     myCarCaoZuoDialog_notify.show();
@@ -585,7 +586,7 @@ public class WindHeaterActivity extends BaseActivity implements View.OnLongClick
 
             @Override
             public void clickRight() {
-                DiagnosisActivity.actionStart(mContext);
+                JiareqiGuzhangActivity.actionStart(mContext);
                 //SoundPoolUtils.soundPool.release();
                 myCarCaoZuoDialog_notify.dismiss();
 
@@ -1226,7 +1227,7 @@ public class WindHeaterActivity extends BaseActivity implements View.OnLongClick
             case R.id.nav_report:
                 //故障报警
                 // startActivity(new Intent(this, DiagnosisActivity.class));
-                DiagnosisActivity.actionStart(this);
+                JiareqiGuzhangActivity.actionStart(this);
                 break;
             case R.id.nav_corral:
                 //地理围栏
@@ -1495,7 +1496,7 @@ public class WindHeaterActivity extends BaseActivity implements View.OnLongClick
 
         Activity currentActivity = AppManager.getAppManager().currentActivity();
         if (currentActivity != null) {
-            if (!currentActivity.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+            if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
                 MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify = new MyCarCaoZuoDialog_Notify(getAppContext(), new MyCarCaoZuoDialog_Notify.OnDialogItemClickListener() {
                     @Override
                     public void clickLeft() {
@@ -1508,7 +1509,7 @@ public class WindHeaterActivity extends BaseActivity implements View.OnLongClick
 
                     @Override
                     public void clickRight() {
-                        DiagnosisActivity.actionStart(mContext);
+                        JiareqiGuzhangActivity.actionStart(mContext);
                         //SoundPoolUtils.soundPool.release();
                         if (SoundPoolUtils.soundPool != null) {
                             SoundPoolUtils.soundPool.release();

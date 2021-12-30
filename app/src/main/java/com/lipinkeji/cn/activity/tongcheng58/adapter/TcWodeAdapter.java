@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.tongcheng58.model.TcWodeModel;
 
 import java.util.List;

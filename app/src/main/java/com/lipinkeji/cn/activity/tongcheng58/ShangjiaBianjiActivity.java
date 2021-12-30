@@ -36,7 +36,7 @@ import com.lzy.okgo.request.base.Request;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.DefaultX5WebViewActivity;
 import com.lipinkeji.cn.activity.ShuRuInterView;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.tongcheng58.adapter.ShangpinBannerAdapter;
 import com.lipinkeji.cn.activity.tongcheng58.adapter.TcSheshiAdapter;
 import com.lipinkeji.cn.activity.tongcheng58.model.ShangjiaDetailModel;

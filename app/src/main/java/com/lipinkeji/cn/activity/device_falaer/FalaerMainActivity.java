@@ -19,8 +19,9 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.DiagnosisActivity;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.FengnuanSetActivity;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -376,7 +377,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
         if (!StringUtils.isEmpty(guzhangdaima)) {
             Activity currentActivity = AppManager.getAppManager().currentActivity();
             if (currentActivity != null) {
-                if (!currentActivity.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+                if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
                     if (!myCarCaoZuoDialog_notify.isShowing()) {
                         myCarCaoZuoDialog_notify.show();
                     }
@@ -459,7 +460,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
 
             @Override
             public void clickRight() {
-                DiagnosisActivity.actionStart(mContext);
+                JiareqiGuzhangActivity.actionStart(mContext);
             }
         });
         myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
@@ -651,7 +652,7 @@ public class FalaerMainActivity extends BaseActivity implements View.OnLongClick
                 finish();
                 break;
             case R.id.iv_set:
-                FalaerSetActivity.actionStart(mContext);
+                FengnuanSetActivity.actionStart(mContext);
                 break;
             case R.id.ll_shuoming:
                 FalaerShuomingActivity.actionStart(mContext);

@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.baseadapter.baserecyclerviewadapterhelper.BaseSectionQuickAdapter;
 import com.lipinkeji.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder;
 import com.lipinkeji.cn.model.SheBeiModel;

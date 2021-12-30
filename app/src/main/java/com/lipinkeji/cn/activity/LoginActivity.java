@@ -1,9 +1,7 @@
 package com.lipinkeji.cn.activity;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,7 +9,6 @@ import android.os.SystemClock;
 import android.provider.Settings;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,7 +22,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.AppConfig;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;

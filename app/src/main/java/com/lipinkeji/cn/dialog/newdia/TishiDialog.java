@@ -55,7 +55,7 @@ public class TishiDialog extends Dialog implements View.OnClickListener {
 
         Log.i("了科技法典里会计法地方都是" + type, "");
         if (type == TYPE_XIAOXI) {//1.消息推送    2.操作失败    3.操作提示    4.操作成功    5.删除
-            setTextTitle("消息推送").setTextContent("为您提供最新消息通知").setTextConfirm("确定").setTextCancel("取消").setImgPic(R.mipmap.alert_pic_xiaoxi);
+            setTextTitle("消息推送").setTextContent("为您提供最新消息通知").setTextConfirm("确定").setTextCancel("").setImgPic(R.mipmap.alert_pic_xiaoxi);
             iv_img.setImageResource(R.mipmap.alert_pic_xiaoxi);
         } else if (type == TYPE_FAILED) {
             setTextTitle("操作失败").setTextContent("操作失败，请稍后再重试").setTextConfirm("确定").setTextCancel("").setImgPic(R.mipmap.alert_pic_failed);

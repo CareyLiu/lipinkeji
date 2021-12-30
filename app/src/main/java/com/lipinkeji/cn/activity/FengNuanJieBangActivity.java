@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.UIHelper;
 import com.lipinkeji.cn.callback.JsonCallback;

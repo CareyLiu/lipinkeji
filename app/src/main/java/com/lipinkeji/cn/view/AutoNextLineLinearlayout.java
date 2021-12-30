@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.lipinkeji.cn.activity.shuinuan.Y;
-
 import java.util.Hashtable;
 
 /**
@@ -89,7 +87,7 @@ public class AutoNextLineLinearlayout extends LinearLayout {
             if (pos != null) {
                 child.layout(pos.left, pos.top, pos.right, pos.bottom);
             } else {
-                com.lipinkeji.cn.activity.shuinuan.Y.e("我出问题了啊啊啊");
+                com.lipinkeji.cn.util.Y.e("我出问题了啊啊啊");
             }
         }
     }

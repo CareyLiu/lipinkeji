@@ -18,7 +18,7 @@ import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttSubscribe;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;

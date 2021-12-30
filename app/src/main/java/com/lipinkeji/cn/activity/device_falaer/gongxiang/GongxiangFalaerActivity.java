@@ -12,10 +12,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.ShuinuanBaseNewActivity;
-import com.lipinkeji.cn.activity.shuinuan.Y;
-import com.lipinkeji.cn.activity.shuinuan.gongxiang.GongxiangAdapter;
-import com.lipinkeji.cn.activity.shuinuan.gongxiang.GongxiangModel;
+import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
+import com.lipinkeji.cn.util.Y;
+import com.lipinkeji.cn.activity.device_shuinuan.gongxiang.GongxiangAdapter;
+import com.lipinkeji.cn.activity.device_shuinuan.gongxiang.GongxiangModel;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
 import com.lipinkeji.cn.callback.JsonCallback;
@@ -113,7 +113,7 @@ public class GongxiangFalaerActivity extends ShuinuanBaseNewActivity {
     }
 
     private void initAdapter() {
-        adapter = new GongxiangAdapter(R.layout.item_shebei_gongxiang_falaer, data);
+        adapter = new GongxiangAdapter(R.layout.a_fengnuan_item_gongxiang_shebei, data);
         rv_content.setLayoutManager(new LinearLayoutManager(mContext));
         rv_content.setAdapter(adapter);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

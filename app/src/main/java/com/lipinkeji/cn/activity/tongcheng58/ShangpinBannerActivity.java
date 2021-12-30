@@ -21,7 +21,7 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.tongcheng58.adapter.ShangpinBannerAdapter;
 import com.lipinkeji.cn.activity.tongcheng58.model.TcUpLoadModel;
 import com.lipinkeji.cn.app.BaseActivity;

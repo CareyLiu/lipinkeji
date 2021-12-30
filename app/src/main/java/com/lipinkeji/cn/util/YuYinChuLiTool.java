@@ -40,8 +40,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static com.lipinkeji.cn.activity.shuinuan.Y.getResources;
-import static com.lipinkeji.cn.activity.shuinuan.Y.getString;
+import static com.lipinkeji.cn.util.Y.getResources;
+import static com.lipinkeji.cn.util.Y.getString;
 
 
 public class YuYinChuLiTool {

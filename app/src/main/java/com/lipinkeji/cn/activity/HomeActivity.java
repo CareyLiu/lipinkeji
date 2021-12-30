@@ -22,11 +22,12 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jaeger.library.StatusBarUtil;
+import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_falaer.FalaerMainActivity;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
@@ -201,7 +202,7 @@ public class HomeActivity extends BaseActivity {
         alarmClass = new Gson().fromJson(message, AlarmClass.class);
         if (MyApplication.activity_main.getClass().getSimpleName().equals(FalaerMainActivity.class.getSimpleName())) {
             return;
-        } else if (MyApplication.activity_main.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+        } else if (MyApplication.activity_main.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
             return;
         }
         if (alarmClass.type.equals("1")) {
@@ -248,7 +249,7 @@ public class HomeActivity extends BaseActivity {
 
         Activity currentActivity = AppManager.getAppManager().currentActivity();
         if (currentActivity != null) {
-            if (!currentActivity.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+            if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
                 TishiDialog myCarCaoZuoDialog_notify = new TishiDialog(HomeActivity.this, 1, new TishiDialog.TishiDialogListener() {
 
                     @Override
@@ -260,7 +261,7 @@ public class HomeActivity extends BaseActivity {
 
                     @Override
                     public void onClickConfirm(View v, TishiDialog dialog) {
-                        DiagnosisActivity.actionStart(HomeActivity.this, alarmClass);
+                        JiareqiGuzhangActivity.actionStart(HomeActivity.this, alarmClass);
                         if (SoundPoolUtils.soundPool != null) {
                             SoundPoolUtils.soundPool.release();
                         }

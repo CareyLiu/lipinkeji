@@ -18,7 +18,7 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanMainXiaoActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinXiaoshuiActivity;
 import com.lipinkeji.cn.activity.zckt.AirConditionerActivity;
 import com.lipinkeji.cn.adapter.SheBeiListAdapter;
 import com.lipinkeji.cn.app.AppManager;
@@ -115,7 +115,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        ShuinuanMainXiaoActivity.actionStart(mContext, ccid, count);
+                                        LipinXiaoshuiActivity.actionStart(mContext, ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");

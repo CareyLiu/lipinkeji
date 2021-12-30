@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -26,8 +25,6 @@ import androidx.multidex.MultiDexApplication;
 import com.billy.android.loading.Gloading;
 import com.bulong.rudeness.RudenessScreenHelper;
 import com.google.gson.Gson;
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechUtility;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -96,15 +93,12 @@ public class MyApplication extends MultiDexApplication {
     public static Activity activity_main;
 
 
-    //String mqttUrl = "tcp://192.168.1.127";//大个本地
-//    String mqttUrl = "tcp://mqtt.hljsdkj.com";//正式
-//    String mqttUrl = "tcp://ggw.hljsdkj.com";//ggw
-
     private String getMqttUrl() {
         if (Urls.SERVER_URL.equals("https://shop.hljsdkj.com/")) {
             return "tcp://mqtt.hljsdkj.com";
         } else {
-            return "tcp://ggw.hljsdkj.com";
+            return "tcp://mqrn.hljsdkj.com";
+//            return "tcp://mqtt.hljsdkj.com";
         }
     }
 
@@ -187,7 +181,7 @@ public class MyApplication extends MultiDexApplication {
 
     public void onCreate() {
 //        StringBuffer param = new StringBuffer();
-//        param.append("appid=" + getString(R.string.app_id));
+ //        param.append("appid=" + getString(R.string.app_id));
 //        param.append(",");
 //        // 设置使用v5+
 //        param.append(SpeechConstant.ENGINE_MODE + "=" + SpeechConstant.MODE_MSC);
@@ -674,7 +668,6 @@ public class MyApplication extends MultiDexApplication {
             public void onActivityDestroyed(Activity activity) {
 
             }
-            //.....
         });
 
     }
@@ -729,14 +722,9 @@ public class MyApplication extends MultiDexApplication {
                 .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE)   //全局统一缓存时间，默认永不过期，可以不传
                 .setRetryCount(3);                         //全局统一超时重连次数，默认为三次，那么最差的情况会请求4次(一次原始请求，三次重连请求)，不需要可以设置为0
 //				.addCommonParams(params);                       //全局公共参数
-
-
     }
 
-    /*
-        屏幕宽高
-     */
-    private void initWindow() {
+    private void initWindow() {//屏幕宽高
         DisplayMetrics mDisplayMetrics = context.getResources().getDisplayMetrics();
         windowWidth = mDisplayMetrics.widthPixels;
         windowHeight = mDisplayMetrics.heightPixels;
@@ -781,8 +769,6 @@ public class MyApplication extends MultiDexApplication {
      *
      * @return
      */
-
-
     public boolean isAppProcess() {
         String processName = JinChengUtils.getProcessName();
         if (processName == null || !processName.equalsIgnoreCase(this.getPackageName())) {
@@ -827,7 +813,7 @@ public class MyApplication extends MultiDexApplication {
 
     @Override
     public void onTerminate() {
-        // 程序终止的时候执行
+        // 程序终止的时候执行s
         Log.d(TAG, "onTerminate");
         super.onTerminate();
         if (AndMqtt.getInstance().getMqttClient().isConnected()) {

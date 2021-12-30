@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import com.alipay.sdk.app.PayTask;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.vip.adapter.ViplistAdapter;
 import com.lipinkeji.cn.activity.vip.dialog.XufeiDialog;
 import com.lipinkeji.cn.activity.vip.model.XufeiModel;

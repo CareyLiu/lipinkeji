@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.BindBoxActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
 import com.lipinkeji.cn.activity.device_youjiate.YoujiateMainActivity;
-import com.lipinkeji.cn.activity.shuinuan_jiareqi.ShuinuanMainXiaoActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinXiaoshuiActivity;
 import com.lipinkeji.cn.activity.zckt.AirConditionerActivity;
 import com.lipinkeji.cn.adapter.SheBeiListAdapter;
 import com.lipinkeji.cn.app.AppManager;
@@ -99,7 +101,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                             PreferenceHelper.getInstance(getContext()).putString("is_platform_bendi", mDatas.get(position).is_platform);
                             if (mDatas.get(position).device_type.equals("1")) {
                                 int i = mDatas.get(position).ccid.length() - 1;
-//                                mDatas.get(position).ccid="aaaaaaaaaaaaa11100010028";
+//                                mDatas.get(position).ccid="aaaaaaaaaaaaa13410020018";
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
                                 PreferenceHelper.getInstance(getActivity()).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
@@ -116,7 +118,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        YoujiateMainActivity.actionStart(getContext());
+                                        LipinFengnuanActivity.actionStart(getContext());
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");
@@ -135,7 +137,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        ShuinuanMainXiaoActivity.actionStart(getActivity(), ccid, count);
+//                                        LipinXiaoshuiActivity.actionStart(getActivity(), ccid, count);
+                                        LipinDashuiActivity.actionStart(getActivity(), ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");

@@ -26,6 +26,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.model.HostModel;
 import com.lipinkeji.cn.model.SerializableMap;
@@ -282,7 +283,7 @@ public class ControCarActivity extends BaseActivity implements NavigationView.On
                 break;
             case R.id.nav_report:
                 //故障报警
-                startActivity(new Intent(this, DiagnosisActivity.class));
+                startActivity(new Intent(this, JiareqiGuzhangActivity.class));
                 break;
             case R.id.nav_corral:
                 //地理围栏

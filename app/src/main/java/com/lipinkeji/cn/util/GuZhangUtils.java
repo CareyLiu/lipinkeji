@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.view.WindowManager;
 
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.DiagnosisActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.dialog.MyCarCaoZuoDialog_Notify;
 
@@ -87,7 +87,7 @@ public class GuZhangUtils {
 
         Activity currentActivity = AppManager.getAppManager().currentActivity();
         if (currentActivity != null) {
-            if (!currentActivity.getClass().getSimpleName().equals(DiagnosisActivity.class.getSimpleName())) {
+            if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
                 MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify = new MyCarCaoZuoDialog_Notify(getAppContext(), new MyCarCaoZuoDialog_Notify.OnDialogItemClickListener() {
                     @Override
                     public void clickLeft() {
@@ -100,7 +100,7 @@ public class GuZhangUtils {
 
                     @Override
                     public void clickRight() {
-                        DiagnosisActivity.actionStart(context);
+                        JiareqiGuzhangActivity.actionStart(context);
                         //SoundPoolUtils.soundPool.release();
                         if (SoundPoolUtils.soundPool != null) {
                             SoundPoolUtils.soundPool.release();

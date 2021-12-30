@@ -34,7 +34,7 @@ import com.orhanobut.logger.Logger;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.DefaultX5WebView_HaveNameActivity;
 import com.lipinkeji.cn.activity.ShuRuInterView;
-import com.lipinkeji.cn.activity.shuinuan.Y;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.tongcheng58.model.TcUpLoadModel;
 import com.lipinkeji.cn.adapter.XiangQingTuAdapter;
 import com.lipinkeji.cn.app.AppConfig;

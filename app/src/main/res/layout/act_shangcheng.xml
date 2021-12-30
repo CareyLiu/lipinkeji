@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:includeFontPadding="false"
-            android:text="优佳特商城"
+            android:text="力品科技商城"
             android:textColor="@color/text_color_3"
             android:textSize="35pt"
             android:textStyle="bold" />

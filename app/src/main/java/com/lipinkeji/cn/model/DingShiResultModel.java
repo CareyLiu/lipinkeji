@@ -3,10 +3,11 @@ package com.lipinkeji.cn.model;
 import java.util.List;
 
 public class DingShiResultModel {
+
     /**
      * msg_code : 0000
      * msg : ok
-     * data : [{"sell_state":"2","device_version":"fle-01","undervoltage_threshold":"","create_time":"2020-09-09","shifen_time":"13:16","sub_inst_id":"419","device_no":"fle-20200908","weeks_time":"0000100","throttle_condition":"","volume":"","ccid":"aaaaaaaaaaaaaaaa90020018","go_time":"2020-09-26","sub_user_id":"243"}]
+     * data : [{"sell_state":"2","device_version":"sn-07","g_shifen_time":"11:33","undervoltage_threshold":"","create_time":"2021-12-15","shifen_time":"10:40","sub_inst_id":"500","device_no":"pc-20211215-2","weeks_time":"0000010","throttle_condition":"","volume":"","validdate":"2022-11-19","iccid":"89860492192070252754","ccid":"aaaaaaaaaaaaaaaa10170028","go_time":"2020-09-26","sub_user_id":"","sim_ccid":"89860492192070252754","g_weeks_time":"0011110"}]
      */
 
     private String msg_code;
@@ -40,22 +41,28 @@ public class DingShiResultModel {
     public static class DataBean {
         /**
          * sell_state : 2
-         * device_version : fle-01
+         * device_version : sn-07
+         * g_shifen_time : 11:33
          * undervoltage_threshold :
-         * create_time : 2020-09-09
-         * shifen_time : 13:16
-         * sub_inst_id : 419
-         * device_no : fle-20200908
-         * weeks_time : 0000100
+         * create_time : 2021-12-15
+         * shifen_time : 10:40
+         * sub_inst_id : 500
+         * device_no : pc-20211215-2
+         * weeks_time : 0000010
          * throttle_condition :
          * volume :
-         * ccid : aaaaaaaaaaaaaaaa90020018
+         * validdate : 2022-11-19
+         * iccid : 89860492192070252754
+         * ccid : aaaaaaaaaaaaaaaa10170028
          * go_time : 2020-09-26
-         * sub_user_id : 243
+         * sub_user_id :
+         * sim_ccid : 89860492192070252754
+         * g_weeks_time : 0011110
          */
 
         private String sell_state;
         private String device_version;
+        private String g_shifen_time;
         private String undervoltage_threshold;
         private String create_time;
         private String shifen_time;
@@ -64,9 +71,13 @@ public class DingShiResultModel {
         private String weeks_time;
         private String throttle_condition;
         private String volume;
+        private String validdate;
+        private String iccid;
         private String ccid;
         private String go_time;
         private String sub_user_id;
+        private String sim_ccid;
+        private String g_weeks_time;
 
         public String getSell_state() {
             return sell_state;
@@ -82,6 +93,14 @@ public class DingShiResultModel {
 
         public void setDevice_version(String device_version) {
             this.device_version = device_version;
+        }
+
+        public String getG_shifen_time() {
+            return g_shifen_time;
+        }
+
+        public void setG_shifen_time(String g_shifen_time) {
+            this.g_shifen_time = g_shifen_time;
         }
 
         public String getUndervoltage_threshold() {
@@ -148,6 +167,22 @@ public class DingShiResultModel {
             this.volume = volume;
         }
 
+        public String getValiddate() {
+            return validdate;
+        }
+
+        public void setValiddate(String validdate) {
+            this.validdate = validdate;
+        }
+
+        public String getIccid() {
+            return iccid;
+        }
+
+        public void setIccid(String iccid) {
+            this.iccid = iccid;
+        }
+
         public String getCcid() {
             return ccid;
         }
@@ -170,6 +205,22 @@ public class DingShiResultModel {
 
         public void setSub_user_id(String sub_user_id) {
             this.sub_user_id = sub_user_id;
+        }
+
+        public String getSim_ccid() {
+            return sim_ccid;
+        }
+
+        public void setSim_ccid(String sim_ccid) {
+            this.sim_ccid = sim_ccid;
+        }
+
+        public String getG_weeks_time() {
+            return g_weeks_time;
+        }
+
+        public void setG_weeks_time(String g_weeks_time) {
+            this.g_weeks_time = g_weeks_time;
         }
     }
 }
