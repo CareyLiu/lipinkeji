@@ -496,7 +496,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
     }
 
     private void initDialog() {
-        myCarCaoZuoDialog_notify = new MyCarCaoZuoDialog_Notify(getAppContext(), new MyCarCaoZuoDialog_Notify.OnDialogItemClickListener() {
+        myCarCaoZuoDialog_notify = new MyCarCaoZuoDialog_Notify(mContext, new MyCarCaoZuoDialog_Notify.OnDialogItemClickListener() {
             @Override
             public void clickLeft() {
                 finish();
@@ -514,8 +514,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
-//                finish();
-                myCarCaoZuoDialog_notify.show();
+                finish();
                 break;
             case R.id.rl_set:
                 FengnuanSetActivity.actionStart(mContext);
