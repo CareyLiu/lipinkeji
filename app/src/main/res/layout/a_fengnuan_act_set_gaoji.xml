@@ -158,6 +158,116 @@
                     android:scaleType="centerCrop"
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="207pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="油泵规格设置"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_youbeng_16p"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="16p"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+
+                    <TextView
+                        android:id="@+id/tv_youbeng_22p"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="22p"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+
+                    <TextView
+                        android:id="@+id/tv_youbeng_28p"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="28p"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+
+                    <TextView
+                        android:id="@+id/tv_youbeng_32p"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="32p"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10pt">
+
+
+                    <TextView
+                        android:id="@+id/tv_youbeng_35p"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="35p"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+
+
+                    <TextView
+                        android:id="@+id/tv_youbeng_65p"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/youjiate_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="65p"
+                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

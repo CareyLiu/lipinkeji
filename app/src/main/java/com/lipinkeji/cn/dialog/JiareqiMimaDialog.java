@@ -33,14 +33,13 @@ public class JiareqiMimaDialog extends Dialog implements View.OnClickListener {
     }
 
     private void init() {
-        setCanceledOnTouchOutside(true);
+        setCancelable(false);
+        setCanceledOnTouchOutside(false);
         setContentView(R.layout.dialog_jiareqi_mima);
-
 
         tv_content = findViewById(R.id.tv_content);
         tv_cancel = findViewById(R.id.tv_cancel);
         tv_confirm = findViewById(R.id.tv_confirm);
-
 
         tv_cancel.setOnClickListener(this);
         tv_confirm.setOnClickListener(this);

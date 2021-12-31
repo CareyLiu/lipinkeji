@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:includeFontPadding="false"
-                android:text="水暖加热器"
+                android:text="水暖加热器(大水)"
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />

@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:includeFontPadding="false"
-                android:text="水暖加热器"
+                android:text="水暖加热器(小水)"
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />
@@ -91,7 +91,7 @@
                         android:background="@mipmap/sn_zhuangshi">
 
                         <ImageView
-                            android:id="@+id/iv_shebei"
+                            android:id="@+id/iv_heater_host"
                             android:layout_width="320pt"
                             android:layout_height="282pt"
                             android:layout_centerHorizontal="true"
@@ -399,7 +399,7 @@
                         android:textSize="40pt" />
 
                     <TextView
-                        android:id="@+id/bt_guanji"
+                        android:id="@+id/bt_jitan"
                         android:layout_width="315pt"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"

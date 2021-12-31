@@ -581,7 +581,6 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
         }
 
 
-
         if (!StringUtils.isEmpty(wiring_harness_id_one)){
             map.put("wiring_harness_id_one", wiring_harness_id_one);
             map.put("wiring_harness_name_one", wiring_harness_name_one);
@@ -607,7 +606,6 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
             map.put("vulcanizate_name_two", vulcanizate_name_two);
             map.put("vulcanizate_all_name", vulcanizate_all_name);
         }
-
 
 
         OkGo.<AppResponse>post(Urls.SERVER_URL + "wit/app/zhu")
@@ -645,12 +643,11 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
         context.startActivity(intent);
     }
 
-
     public void requestData11() {//请求的参数
         Map<String, String> map = new HashMap<>();
         map.put("code", "00005");
         map.put("key", Urls.key);
-        //map.put("token", UserManager.getManager(this).getAppToken());
+        map.put("token", UserManager.getManager(this).getAppToken());
         map.put("type_id", "zhu_parts_factory");
         Gson gson = new Gson();
         OkGo.<AppResponse<DriverData.DataBean>>post(Urls.SERVER_URL + "msg")
@@ -659,27 +656,23 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
                 .execute(new JsonCallback<AppResponse<DriverData.DataBean>>() {
                     @Override
                     public void onSuccess(Response<AppResponse<DriverData.DataBean>> response) {
-                        //  String data = response.body().toString();
-                        //   DriverData driverData = GsonUtil.parseJsonWithGson(data, DriverData.class);
-                        WeiboDialogUtils.closeDialog(mWeiboDialog);
-
                         dataBeans = response.body().data;
-//                        if (driverData.getMsg_code().equals("0000")) {
-//                            dataBeans = driverData.getData();
-//                        } else {
-//                            Toast.makeText(context, driverData.getMsg(), Toast.LENGTH_SHORT).show();
-//                        }
                     }
 
                     @Override
                     public void onError(Response<AppResponse<DriverData.DataBean>> response) {
 
                     }
+
+                    @Override
+                    public void onFinish() {
+                        super.onFinish();
+                        WeiboDialogUtils.closeDialog(mWeiboDialog);
+                    }
                 });
     }
 
     public void requestData() {
-
         Map<String, String> map = new HashMap<>();
         map.put("code", "03205");
         map.put("key", Urls.key);
@@ -693,7 +686,7 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
                     @Override
                     public void onSuccess(final Response<AppResponse<OwnerInfo.DataBean>> response) {
                         dataBean = response.body().data;
-                        viewSetData(dataBean.get(0));
+//                        viewSetData(dataBean.get(0));
                     }
 
                     @Override

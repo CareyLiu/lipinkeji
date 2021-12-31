@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jaeger.library.StatusBarUtil;
 import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.lipinkeji.cn.R;
@@ -200,11 +201,12 @@ public class HomeActivity extends BaseActivity {
     private void tuiSongTanChuang(Notice notice) {
         String message = (String) notice.content;
         alarmClass = new Gson().fromJson(message, AlarmClass.class);
-        if (MyApplication.activity_main.getClass().getSimpleName().equals(FalaerMainActivity.class.getSimpleName())) {
+        if (MyApplication.activity_main.getClass().getSimpleName().equals(LipinFengnuanActivity.class.getSimpleName())) {
             return;
         } else if (MyApplication.activity_main.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
             return;
         }
+
         if (alarmClass.type.equals("1")) {
             switch (alarmClass.sound) {
                 case "chSound1.mp3":
@@ -246,7 +248,6 @@ public class HomeActivity extends BaseActivity {
 
     public void playMusic(int res) {
         boolean flag = false;
-
         Activity currentActivity = AppManager.getAppManager().currentActivity();
         if (currentActivity != null) {
             if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
@@ -277,9 +278,10 @@ public class HomeActivity extends BaseActivity {
                 myCarCaoZuoDialog_notify.setTextContent("您的加热器出现故障，请及时处理!");
                 myCarCaoZuoDialog_notify.setTextCancel("忽略");
 
+                Y.e("放假啦空手道解放大师傅但是");
                 // myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
                 myCarCaoZuoDialog_notify.show();
-
+                Y.e("罚款决定书分厘卡士大夫大师傅但是扩大寄生蜂");
                 myCarCaoZuoDialog_notify.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {

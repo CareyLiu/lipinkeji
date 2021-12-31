@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
 import com.lipinkeji.cn.activity.device_youjiate.YoujiateMainActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -96,7 +98,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        YoujiateMainActivity.actionStart(mContext);
+                                        LipinFengnuanActivity.actionStart(mContext);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");
@@ -109,13 +111,18 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 PreferenceHelper.getInstance(mContext).putString("car_server_id", count);
                                 PreferenceHelper.getInstance(mContext).putString("share_type", mDatas.get(position).share_type);
                                 PreferenceHelper.getInstance(mContext).putString("sim_ccid_save_type", mDatas.get(position).sim_ccid_save_type);
-                                PreferenceHelper.getInstance(mContext).putString("validdate", mDatas.get(position).validdate);
+                                PreferenceHelper.getInstance(mContext).putString("validdate", mDatas.get(position).validity_time);
                                 PreferenceHelper.getInstance(mContext).putString("validdate_state", mDatas.get(position).validdate_state);
                                 PreferenceHelper.getInstance(mContext).putString("sim_ccid", mDatas.get(position).sim_ccid);
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        LipinXiaoshuiActivity.actionStart(mContext, ccid, count);
+                                        String xinghao = ccid.substring(22, 23);
+                                        if (xinghao.equals("2")) {
+                                            LipinXiaoshuiActivity.actionStart(mContext, ccid, count);
+                                        } else if (xinghao.equals("4")) {
+                                            LipinDashuiActivity.actionStart(mContext, ccid, count);
+                                        }
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");

@@ -148,6 +148,7 @@ public class LipinDashuiActivity extends ShuinuanBaseNewActivity implements View
 
     private void init() {
         String validdate = PreferenceHelper.getInstance(mContext).getString("validdate", "0");
+        Y.e("考了几分但是浪费多少 "+validdate);
         tv_youxiaoqi.setText("有效期至:" + validdate);
 
         String car_server_id = getIntent().getStringExtra("car_server_id");

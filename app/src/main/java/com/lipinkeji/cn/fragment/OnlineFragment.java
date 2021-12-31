@@ -124,6 +124,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");
                                 }
                             } else if (mDatas.get(position).device_type.equals("6")) {
+                                String xinghao =  mDatas.get(position).ccid.substring(22, 23);
+                                mDatas.get(position).ccid = "aaaaaaaaaaaaaaaa10170028";
                                 String ccid = mDatas.get(position).ccid;
                                 int pos = ccid.length() - 1;
                                 String count = ccid.charAt(pos) + "/";
@@ -131,14 +133,18 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 PreferenceHelper.getInstance(getContext()).putString("car_server_id", count);
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
                                 PreferenceHelper.getInstance(getContext()).putString("sim_ccid_save_type", mDatas.get(position).sim_ccid_save_type);
-                                PreferenceHelper.getInstance(getContext()).putString("validdate", mDatas.get(position).validdate);
+                                PreferenceHelper.getInstance(getContext()).putString("validdate", mDatas.get(position).validity_time);
                                 PreferenceHelper.getInstance(getContext()).putString("validdate_state", mDatas.get(position).validdate_state);
                                 PreferenceHelper.getInstance(getContext()).putString("sim_ccid", mDatas.get(position).sim_ccid);
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-//                                        LipinXiaoshuiActivity.actionStart(getActivity(), ccid, count);
-                                        LipinDashuiActivity.actionStart(getActivity(), ccid, count);
+//                                        String xinghao = ccid.substring(22, 23);
+                                        if (xinghao.equals("2")) {
+                                            LipinXiaoshuiActivity.actionStart(getActivity(), ccid, count);
+                                        } else if (xinghao.equals("4")) {
+                                            LipinDashuiActivity.actionStart(getActivity(), ccid, count);
+                                        }
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");

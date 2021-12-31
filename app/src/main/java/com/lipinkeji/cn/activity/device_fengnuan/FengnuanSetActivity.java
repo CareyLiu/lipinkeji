@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.DriveinfoActivity;
+import com.lipinkeji.cn.activity.UserInfoActivity;
 import com.lipinkeji.cn.activity.device_falaer.gongxiang.GongxiangFalaerActivity;
 import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.device_shuinuan.gongxiang.GongxiangModel;
@@ -250,8 +252,10 @@ public class FengnuanSetActivity extends BaseActivity {
                 FengnuanWendusetActivity.actionStart(mContext);
                 break;
             case R.id.rl_chezhuxinxi:
+                startActivity(new Intent(this, UserInfoActivity.class));
                 break;
             case R.id.rl_lingpeijianxinxi:
+                DriveinfoActivity.actionStart(this);
                 break;
             case R.id.rl_gongxiang:
                 GongxiangFalaerActivity.actionStart(mContext, ccid);

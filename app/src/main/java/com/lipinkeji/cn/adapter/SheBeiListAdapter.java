@@ -6,6 +6,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinXiaoshuiActivity;
 import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.baseadapter.baserecyclerviewadapterhelper.BaseSectionQuickAdapter;
 import com.lipinkeji.cn.baseadapter.baserecyclerviewadapterhelper.BaseViewHolder;
@@ -69,5 +71,17 @@ public class SheBeiListAdapter extends BaseSectionQuickAdapter<SheBeiModel, Base
 //        Glide.with(mContext).load(item.device_img_url).into(iv_icon);
 
         helper.addOnClickListener(R.id.constrain);
+
+        String device_type = item.device_type;
+        if (device_type.equals("6")){
+            String xinghao =  item.ccid.substring(22, 23);
+            if (xinghao.equals("2")) {
+                helper.setText(R.id.tv_name, item.device_name+"(小水)");
+            } else if (xinghao.equals("3")) {
+                helper.setText(R.id.tv_name, item.device_name+"(中水)");
+            }else if (xinghao.equals("4")) {
+                helper.setText(R.id.tv_name, item.device_name+"(大水)");
+            }
+        }
     }
 }

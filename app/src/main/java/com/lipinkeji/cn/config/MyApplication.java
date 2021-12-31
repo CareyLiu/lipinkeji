@@ -196,7 +196,7 @@ public class MyApplication extends MultiDexApplication {
 //        doMqttValue = new DoMqttValue();
         context = getApplicationContext();
 //        initRongYun();
-//        initLifecycle();
+        initLifecycle();
 //        initWindow();
 //        initDefaultPicker();
 //        initOkgo();

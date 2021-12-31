@@ -19,10 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.blankj.utilcode.util.StringUtils;
-import com.lipinkeji.cn.model.ChuLiGuZhangMa;
+import com.bumptech.glide.Glide;
 import com.flyco.animation.BaseAnimatorSet;
 import com.flyco.animation.BounceEnter.BounceTopEnter;
 import com.flyco.animation.SlideExit.SlideBottomExit;
@@ -31,12 +29,6 @@ import com.flyco.dialog.listener.OnOperItemClickL;
 import com.flyco.dialog.widget.NormalListDialog;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
-import com.lipinkeji.cn.dialog.MyCarCaoZuoDialog_CaoZuoTIshi_Clear;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.model.Response;
-import com.rairmmd.andmqtt.AndMqtt;
-import com.rairmmd.andmqtt.MqttPublish;
-import com.rairmmd.andmqtt.MqttSubscribe;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -49,12 +41,20 @@ import com.lipinkeji.cn.config.MyApplication;
 import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.config.UserManager;
 import com.lipinkeji.cn.dialog.LordingDialog;
+import com.lipinkeji.cn.dialog.MyCarCaoZuoDialog_CaoZuoTIshi_Clear;
 import com.lipinkeji.cn.get_net.Urls;
 import com.lipinkeji.cn.model.AlarmClass;
+import com.lipinkeji.cn.model.ChuLiGuZhangMa;
 import com.lipinkeji.cn.model.HeaterDetails;
 import com.lipinkeji.cn.model.ServiceModel;
 import com.lipinkeji.cn.util.DoMqttValue;
+import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.view.CustomBaseDialog;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
+import com.rairmmd.andmqtt.AndMqtt;
+import com.rairmmd.andmqtt.MqttPublish;
+import com.rairmmd.andmqtt.MqttSubscribe;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
@@ -65,6 +65,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -111,6 +112,8 @@ public class JiareqiGuzhangActivity extends BaseActivity {
     Button btnClean;
     @BindView(R.id.rl_back)
     RelativeLayout rlBack;
+    @BindView(R.id.iv_jiareqi)
+    ImageView iv_jiareqi;
 
     private BaseAnimatorSet mBasIn;
     private BaseAnimatorSet mBasOut;
@@ -124,6 +127,7 @@ public class JiareqiGuzhangActivity extends BaseActivity {
     private LordingDialog lordingDialog;
     private String user_car_id;
     private String zhu_car_stoppage_no;
+    private String jiareqizhuangtai;
 
     @Override
     public int getContentViewResId() {
@@ -152,7 +156,8 @@ public class JiareqiGuzhangActivity extends BaseActivity {
         intent.putExtra("alarmClass", alarmClass);
         context.startActivity(intent);
     }
-    String guZhangMa="";
+
+    String guZhangMa = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -245,6 +250,18 @@ public class JiareqiGuzhangActivity extends BaseActivity {
                     String messageData = message.content.toString().substring(1, message.content.toString().length() - 1);
                     Log.i("msg_car_j_m_data", messageData);
 
+//                    jiareqizhuangtai = messageData.substring(3, 4);
+//                    if (jiareqizhuangtai.equals("1")) {
+//                        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
+//                    } else if (jiareqizhuangtai.equals("2")) {
+//                        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
+//                    } else if (jiareqizhuangtai.equals("3")) {
+//                        Glide.with(mContext).load(R.mipmap.fegnnuan_guanji).into(iv_jiareqi);
+//                    } else {
+//                        Glide.with(mContext).load(R.mipmap.fegnnuan_guanji).into(iv_jiareqi);
+//                    }
+
+
                     // 驻车加热器故障码->01至18	2	 标准故障码
                     String zhu_car_stoppage_no = messageData.substring(35, 37);
                     zhu_car_stoppage_no = 0 <= zhu_car_stoppage_no.indexOf("a") ? "" : String.valueOf(Integer.parseInt(zhu_car_stoppage_no));
@@ -260,7 +277,7 @@ public class JiareqiGuzhangActivity extends BaseActivity {
                         guZhangMa = ChuLiGuZhangMa.getGuZhangMa(ccid, zhu_car_stoppage_no);
                         mTvMessage.setText(ChuLiGuZhangMa.codeXinXiShow(ccid, guZhangMa));
                     } else {
-                        Activity activity =new Activity();
+                        Activity activity = new Activity();
                         if (StringUtils.isEmpty(zhu_car_stoppage_no)) {
                             whatUWant = "";
                             layoutInfo.setVisibility(View.GONE);
@@ -272,6 +289,25 @@ public class JiareqiGuzhangActivity extends BaseActivity {
                 }
             }
         }));
+
+        init();
+    }
+
+    private void init() {
+        if (TextUtils.isEmpty(LipinFengnuanActivity.messageData)){
+            Glide.with(mContext).load(R.mipmap.fegnnuan_guanji).into(iv_jiareqi);
+        }else {
+            jiareqizhuangtai = LipinFengnuanActivity.messageData.substring(3, 4);
+            if (jiareqizhuangtai.equals("1")) {
+                Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
+            } else if (jiareqizhuangtai.equals("2")) {
+                Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
+            } else if (jiareqizhuangtai.equals("3")) {
+                Glide.with(mContext).load(R.mipmap.fegnnuan_guanji).into(iv_jiareqi);
+            } else {
+                Glide.with(mContext).load(R.mipmap.fegnnuan_guanji).into(iv_jiareqi);
+            }
+        }
     }
 
 

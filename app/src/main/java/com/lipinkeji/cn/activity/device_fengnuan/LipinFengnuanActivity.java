@@ -48,7 +48,6 @@ import rx.functions.Action1;
 import static com.lipinkeji.cn.config.MyApplication.CARBOX_GETNOW;
 import static com.lipinkeji.cn.config.MyApplication.CAR_CTROL;
 import static com.lipinkeji.cn.config.MyApplication.CAR_NOTIFY;
-import static com.lipinkeji.cn.config.MyApplication.getAppContext;
 
 public class LipinFengnuanActivity extends BaseActivity implements View.OnLongClickListener {
 
@@ -131,6 +130,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
     private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
 
     private String sim_ccid_save_type;
+    public static String messageData;
 
 
     @Override
@@ -245,7 +245,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
             @Override
             public void call(Notice message) {
                 if (message.type == ConstanceValue.MSG_CAR_J_M) {
-                    String msg = message.content.toString();
+                  String  msg = message.content.toString();
                     getData(msg);
                 } else if (message.type == ConstanceValue.MSG_JIEBANG) {
                     finish();
@@ -259,7 +259,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         typeZaixian = 1;
         handlerStart.removeMessages(1);
 
-        String messageData = msg.substring(1);
+         messageData = msg.substring(1);
         Y.e("风暖的实时数据是" + messageData + "   " + messageData.length());
 
         //当前档位1至5档	    1
@@ -352,12 +352,9 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         }
 
         if (!StringUtils.isEmpty(guzhangdaima)) {
-            Activity currentActivity = AppManager.getAppManager().currentActivity();
-            if (currentActivity != null) {
-                if (!currentActivity.getClass().getSimpleName().equals(JiareqiGuzhangActivity.class.getSimpleName())) {
-                    if (!myCarCaoZuoDialog_notify.isShowing()) {
-                        myCarCaoZuoDialog_notify.show();
-                    }
+            if (isOnActivity){
+                if (!myCarCaoZuoDialog_notify.isShowing()) {
+                    myCarCaoZuoDialog_notify.show();
                 }
             }
         } else {
