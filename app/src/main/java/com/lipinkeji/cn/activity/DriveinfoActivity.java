@@ -486,7 +486,7 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
 
     private void submitData() {
         mWeiboDialog = WeiboDialogUtils.createLoadingDialog(context, "加载中...");
-        String user_car_id = PreferenceHelper.getInstance(DriveinfoActivity.this).getString("car_id", "");
+        String user_car_id = PreferenceHelper.getInstance(DriveinfoActivity.this).getString("user_car_id", "");
         Gson gson = new Gson();
         HashMap<String, String> map = new HashMap<>();
         map.put("code", "03206");
@@ -677,7 +677,7 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
         map.put("code", "03205");
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(this).getAppToken());
-        map.put("user_car_id", PreferenceHelper.getInstance(this).getString("car_id", ""));
+        map.put("user_car_id", PreferenceHelper.getInstance(this).getString("user_car_id", ""));
         Gson gson = new Gson();
         OkGo.<AppResponse<OwnerInfo.DataBean>>post(Urls.SERVER_URL + "wit/app/zhu")
                 .tag(this)//
@@ -686,7 +686,7 @@ public class DriveinfoActivity extends BaseActivity implements View.OnClickListe
                     @Override
                     public void onSuccess(final Response<AppResponse<OwnerInfo.DataBean>> response) {
                         dataBean = response.body().data;
-//                        viewSetData(dataBean.get(0));
+                        viewSetData(dataBean.get(0));
                     }
 
                     @Override

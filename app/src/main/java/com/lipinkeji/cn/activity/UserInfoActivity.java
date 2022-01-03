@@ -121,7 +121,7 @@ public class UserInfoActivity extends BaseActivity {
         map.put("code", "03205");
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(this).getAppToken());
-        map.put("user_car_id", PreferenceHelper.getInstance(this).getString("car_id", ""));
+        map.put("user_car_id", PreferenceHelper.getInstance(this).getString("user_car_id", ""));
         Gson gson = new Gson();
         OkGo.<AppResponse<OwnerInfo.DataBean>>post(Urls.SERVER_URL + "wit/app/zhu")
                 .tag(this)//
@@ -129,16 +129,16 @@ public class UserInfoActivity extends BaseActivity {
                 .execute(new JsonCallback<AppResponse<OwnerInfo.DataBean>>() {
                     @Override
                     public void onSuccess(final Response<AppResponse<OwnerInfo.DataBean>> response) {
-//                            Glide.with(UserInfoActivity.this).load(response.body().data.get(0).getCar_brand_url_one()).into(mIvPic);
-//                            mTvBrand.setText(response.body().data.get(0).getCar_brand_name_one());
-//                            mTvDate.setText(response.body().data.get(0).getInstall_time());
-//                            mTvFuleType.setText(response.body().data.get(0).getFuel_type_name());
-//                            mTvName.setText(response.body().data.get(0).getUser_name());
-//                            mTvNumber.setText(response.body().data.get(0).getUser_phone());
-//                            mTvPhone.setText(response.body().data.get(0).getSell_phone());
-//                            mTvRegion.setText(response.body().data.get(0).getArea_name());
-//                            mTvSafe.setText(response.body().data.get(0).getSell_phone());
-//                            mTvType.setText(response.body().data.get(0).getCar_brand_name_two());
+                            Glide.with(UserInfoActivity.this).load(response.body().data.get(0).getCar_brand_url_one()).into(mIvPic);
+                            mTvBrand.setText(response.body().data.get(0).getCar_brand_name_one());
+                            mTvDate.setText(response.body().data.get(0).getInstall_time());
+                            mTvFuleType.setText(response.body().data.get(0).getFuel_type_name());
+                            mTvName.setText(response.body().data.get(0).getUser_name());
+                            mTvNumber.setText(response.body().data.get(0).getPlate_number());
+                            mTvPhone.setText(response.body().data.get(0).getUser_phone());
+                            mTvRegion.setText(response.body().data.get(0).getArea_name());
+                            mTvSafe.setText(response.body().data.get(0).getSell_phone());
+                            mTvType.setText(response.body().data.get(0).getCar_brand_name_two());
                     }
 
                     @Override

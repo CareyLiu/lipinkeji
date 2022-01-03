@@ -95,6 +95,10 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 PreferenceHelper.getInstance(mContext).putString("validdate_state", mDatas.get(position).validdate_state);
                                 PreferenceHelper.getInstance(mContext).putString("sim_ccid", mDatas.get(position).sim_ccid);
 
+                                PreferenceHelper.getInstance(mContext).putString("user_car_id", mDatas.get(position).user_car_id);
+
+
+
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
@@ -191,6 +195,13 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 sheBeiModel1.device_type = response.body().data.get(i).getControl_type_id();
                                 sheBeiModel1.sim_ccid_save_type = bean.sim_ccid_save_type;
                                 sheBeiModel1.share_type = bean.getShare_type();
+
+                                sheBeiModel1.sim_ccid = bean.getSim_ccid();
+                                sheBeiModel1.validdate = bean.getValiddate();
+                                sheBeiModel1.validdate_state = bean.getValiddate_state();
+
+                                sheBeiModel1.user_car_id = bean.getUser_car_id();
+
                                 mDatas.add(sheBeiModel1);
                             }
                         }

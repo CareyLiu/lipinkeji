@@ -31,5 +31,7 @@ public class SheBeiModel extends SectionEntity {
     public String validdate;
     public String validdate_state;
 
+    public String user_car_id;
+
 
 }

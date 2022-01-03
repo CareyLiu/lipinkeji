@@ -115,6 +115,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 PreferenceHelper.getInstance(getContext()).putString("validdate_state", mDatas.get(position).validdate_state);
                                 PreferenceHelper.getInstance(getContext()).putString("sim_ccid", mDatas.get(position).sim_ccid);
 
+                                PreferenceHelper.getInstance(getContext()).putString("user_car_id", mDatas.get(position).user_car_id);
+
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
@@ -260,6 +262,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 sheBeiModel1.sim_ccid = bean.getSim_ccid();
                                 sheBeiModel1.validdate = bean.getValiddate();
                                 sheBeiModel1.validdate_state = bean.getValiddate_state();
+
+                                sheBeiModel1.user_car_id = bean.getUser_car_id();
                                 mDatas.add(sheBeiModel1);
                             }
                         }
