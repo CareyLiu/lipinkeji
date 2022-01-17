@@ -376,26 +376,28 @@ public class HomeFragment extends BaseFragment {
                         homeReMenAdapter.notifyDataSetChanged();
 
                         bannerList = dataBean.getBannerList();
-                        List<String> items = new ArrayList<>();
-                        for (int i = 0; i < bannerList.size(); i++) {
-                            items.add(bannerList.get(i).getImg_url());
-                        }
-                        banner.setImageLoader(new GlideImageLoader());
-                        banner.setImages(items);
-                        banner.setOnBannerListener(new OnBannerListener() {
-                            @Override
-                            public void OnBannerClick(int position) {
-                                if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("1")) {
-                                    ZiJianShopMallDetailsActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getShop_product_id(), response.body().data.get(0).getBannerList().get(position).getWares_id());
-                                } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("2")) {
-                                    // startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("url", response.body().data.get(0).getBannerList().get(position).getHtml_url()));
-                                    DefaultX5WebView_HaveNameActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getHtml_url(), "产品简介");
-                                } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("3")) {
-                                    DaLiBaoActivity.actionStart(getActivity());
-                                }
+                        if (bannerList!=null){
+                            List<String> items = new ArrayList<>();
+                            for (int i = 0; i < bannerList.size(); i++) {
+                                items.add(bannerList.get(i).getImg_url());
                             }
-                        });
-                        banner.start();
+                            banner.setImageLoader(new GlideImageLoader());
+                            banner.setImages(items);
+                            banner.setOnBannerListener(new OnBannerListener() {
+                                @Override
+                                public void OnBannerClick(int position) {
+                                    if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("1")) {
+                                        ZiJianShopMallDetailsActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getShop_product_id(), response.body().data.get(0).getBannerList().get(position).getWares_id());
+                                    } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("2")) {
+                                        // startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("url", response.body().data.get(0).getBannerList().get(position).getHtml_url()));
+                                        DefaultX5WebView_HaveNameActivity.actionStart(getActivity(), response.body().data.get(0).getBannerList().get(position).getHtml_url(), "产品简介");
+                                    } else if (response.body().data.get(0).getBannerList().get(position).getRotation_img_type().equals("3")) {
+                                        DaLiBaoActivity.actionStart(getActivity());
+                                    }
+                                }
+                            });
+                            banner.start();
+                        }
                     }
 
                     @Override

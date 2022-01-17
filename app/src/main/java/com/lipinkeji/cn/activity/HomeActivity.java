@@ -22,12 +22,11 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jaeger.library.StatusBarUtil;
-import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_falaer.FalaerMainActivity;
 import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -321,6 +320,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void select(int pos) {
+//        ShengmingtestActivity.actionStart(mContext);
         mVp.setCurrentItem(pos);
         ivHome.setImageResource(R.mipmap.jiareqi_shangcheng_nor);
         ivShebei.setImageResource(R.mipmap.jiareqi_shebei_nor);

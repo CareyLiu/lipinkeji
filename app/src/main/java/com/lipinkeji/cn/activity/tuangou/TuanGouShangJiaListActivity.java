@@ -53,7 +53,6 @@ import butterknife.ButterKnife;
 
 import static com.lipinkeji.cn.app.App.JINGDU;
 import static com.lipinkeji.cn.app.App.WEIDU;
-import static com.lipinkeji.cn.fragment.HomeFragment_New.JiaMiToken;
 import static com.lipinkeji.cn.get_net.Urls.LIBAOLIST;
 
 public class TuanGouShangJiaListActivity extends AbStractTuanGouShangJia {
@@ -541,13 +540,13 @@ public class TuanGouShangJiaListActivity extends AbStractTuanGouShangJia {
                                         String jingdu = PreferenceHelper.getInstance(mContext).getString(JINGDU, "0X11");
                                         String weidu = PreferenceHelper.getInstance(mContext).getString(WEIDU, "0X11");
                                         if (!jingdu.equals("0X11")) {
-                                            String str = iconListBeans1.get(finalI).getHref_url() + "?i=" + JiaMiToken + "&" + "gps_x=" + weidu + "&" + "gps_y=" + jingdu;
-                                            TuanYouWebView.actionStart(mContext, str);
+//                                            String str = iconListBeans1.get(finalI).getHref_url() + "?i=" + JiaMiToken + "&" + "gps_x=" + weidu + "&" + "gps_y=" + jingdu;
+//                                            TuanYouWebView.actionStart(mContext, str);
                                         } else {
                                             choosePostion = finalI;
                                             if (iconListBeans1.get(finalI).getId().equals("6")) {
-                                                String str = iconListBeans1.get(finalI).getHref_url() + "?i=" + JiaMiToken + "&" + "gps_x=45.666043" + "&" + "gps_y=126.605713";
-                                                TuanYouWebView.actionStart(mContext, str);
+//                                                String str = iconListBeans1.get(finalI).getHref_url() + "?i=" + JiaMiToken + "&" + "gps_x=45.666043" + "&" + "gps_y=126.605713";
+//                                                TuanYouWebView.actionStart(mContext, str);
                                                 Toast.makeText(mContext, "该应用需要赋予定位的权限！", Toast.LENGTH_LONG).show();
                                             }
                                         }

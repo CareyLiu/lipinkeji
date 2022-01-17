@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.activity.device_a.BindBoxActivity;
 import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
-import com.lipinkeji.cn.activity.device_youjiate.YoujiateMainActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;

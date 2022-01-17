@@ -189,11 +189,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="16p"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
 
@@ -202,11 +202,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="22p"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
 
@@ -215,11 +215,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="28p"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
 
@@ -228,11 +228,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="32p"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
 
@@ -247,11 +247,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="35p"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
 
@@ -260,11 +260,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="65p"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
             </LinearLayout>

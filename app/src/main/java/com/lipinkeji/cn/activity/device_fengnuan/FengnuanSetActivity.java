@@ -10,13 +10,14 @@ import android.widget.RelativeLayout;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.DriveinfoActivity;
-import com.lipinkeji.cn.activity.UserInfoActivity;
-import com.lipinkeji.cn.activity.device_falaer.gongxiang.GongxiangFalaerActivity;
+import com.lipinkeji.cn.activity.device_a.DriveinfoActivity;
+import com.lipinkeji.cn.activity.device_a.UserInfoActivity;
+import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangActivity;
 import com.lipinkeji.cn.util.Y;
-import com.lipinkeji.cn.activity.device_shuinuan.gongxiang.GongxiangModel;
-import com.lipinkeji.cn.activity.vip.dialog.XufeiDialog;
-import com.lipinkeji.cn.activity.vip.model.XufeiModel;
+import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangModel;
+import com.lipinkeji.cn.activity.device_a.vip.dialog.XufeiDialog;
+import com.lipinkeji.cn.activity.device_a.vip.model.XufeiModel;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
@@ -258,7 +259,7 @@ public class FengnuanSetActivity extends BaseActivity {
                 DriveinfoActivity.actionStart(this);
                 break;
             case R.id.rl_gongxiang:
-                GongxiangFalaerActivity.actionStart(mContext, ccid);
+                GongxiangActivity.actionStart(mContext, ccid);
                 break;
             case R.id.rl_gongxiang_jie:
                 clickGongxiangJie();

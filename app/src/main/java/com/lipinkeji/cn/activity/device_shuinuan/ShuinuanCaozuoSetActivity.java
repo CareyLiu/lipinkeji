@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.device_a.DaqiyaShoumingActivty;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -146,7 +147,7 @@ public class ShuinuanCaozuoSetActivity extends ShuinuanBaseNewActivity {
                 selectCheliang(5);
                 break;
             case R.id.iv_daqiya_shuoming:
-                ShuinuanDaqiyaShoumingActivty.actionStart(mContext);
+                DaqiyaShoumingActivty.actionStart(mContext);
                 break;
         }
     }

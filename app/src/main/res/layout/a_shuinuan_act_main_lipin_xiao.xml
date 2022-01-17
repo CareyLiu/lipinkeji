@@ -49,7 +49,7 @@
                     android:layout_width="46pt"
                     android:layout_height="46pt"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/jg_shezhi_icon_white" />
+                    android:src="@mipmap/jiareqi_shezhi_icon_white" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -127,6 +127,7 @@
                         android:id="@+id/ll_shuoming"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="invisible"
                         android:gravity="center"
                         android:paddingVertical="19pt"
                         android:paddingLeft="29pt">

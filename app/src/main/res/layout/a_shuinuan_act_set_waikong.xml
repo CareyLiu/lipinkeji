@@ -69,11 +69,11 @@
                 android:layout_width="144pt"
                 android:layout_height="44pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="断开"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <TextView
@@ -81,11 +81,11 @@
                 android:layout_width="144pt"
                 android:layout_height="44pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="输出"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
         </LinearLayout>
     </LinearLayout>

@@ -12,7 +12,7 @@
             android:id="@+id/tv_setting_back"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:drawableLeft="@mipmap/back"
+            android:drawableLeft="@mipmap/back_black"
             android:textColor="@color/app_bg"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"

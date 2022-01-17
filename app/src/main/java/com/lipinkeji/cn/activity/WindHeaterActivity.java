@@ -32,7 +32,7 @@ import androidx.percentlayout.widget.PercentRelativeLayout;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
-import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.rairmmd.andmqtt.AndMqtt;
@@ -1236,7 +1236,6 @@ public class WindHeaterActivity extends BaseActivity implements View.OnLongClick
                 break;
 
             case R.id.fengnuan_jiebang:
-                FengNuanJieBangActivity.actionStart(mContext);
                 break;
             case R.id.nav_setting:
                 startActivity(new Intent(this, HeaterSettingActivity.class));

@@ -8,10 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.BindBoxActivity;
+import com.lipinkeji.cn.activity.device_a.BindBoxActivity;
 import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
-import com.lipinkeji.cn.activity.device_youjiate.YoujiateMainActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinXiaoshuiActivity;
 import com.lipinkeji.cn.activity.zckt.AirConditionerActivity;
 import com.lipinkeji.cn.adapter.SheBeiListAdapter;
@@ -126,8 +125,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");
                                 }
                             } else if (mDatas.get(position).device_type.equals("6")) {
-                                String xinghao =  mDatas.get(position).ccid.substring(22, 23);
-                                mDatas.get(position).ccid = "aaaaaaaaaaaaaaaa10170028";
+//                                String xinghao =  mDatas.get(position).ccid.substring(22, 23);
+//                                mDatas.get(position).ccid = "aaaaaaaaaaaaaaaa10170028";
                                 String ccid = mDatas.get(position).ccid;
                                 int pos = ccid.length() - 1;
                                 String count = ccid.charAt(pos) + "/";
@@ -141,7 +140,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-//                                        String xinghao = ccid.substring(22, 23);
+                                        String xinghao = ccid.substring(22, 23);
                                         if (xinghao.equals("2")) {
                                             LipinXiaoshuiActivity.actionStart(getActivity(), ccid, count);
                                         } else if (xinghao.equals("4")) {

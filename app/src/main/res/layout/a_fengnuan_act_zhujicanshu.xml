@@ -79,12 +79,12 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:checked="true"
                         android:gravity="center"
                         android:text="双磁铁"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
@@ -92,11 +92,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="单磁铁"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
             </LinearLayout>
@@ -131,12 +131,12 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:checked="true"
                         android:gravity="center"
                         android:text="京瓷"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
@@ -144,11 +144,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="利麦"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
@@ -156,22 +156,22 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="盖得"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
                         android:id="@+id/cb_jiaresai_tuobo"
                         android:layout_width="144pt"
                         android:layout_height="44pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="拖博"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
             </LinearLayout>
@@ -206,12 +206,12 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:checked="true"
                         android:gravity="center"
                         android:text="2kw"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
@@ -219,11 +219,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="5kw"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
             </LinearLayout>
@@ -258,12 +258,12 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:checked="true"
                         android:gravity="center"
                         android:text="失能"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
@@ -271,11 +271,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="使能"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
             </LinearLayout>
@@ -310,12 +310,12 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:checked="true"
                         android:gravity="center"
                         android:text="NTC"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
@@ -323,11 +323,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="PTC"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
 
@@ -336,11 +336,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="自动"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
             </LinearLayout>
@@ -375,12 +375,12 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:checked="true"
                         android:gravity="center"
                         android:text="12V"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
                     <CheckBox
@@ -388,11 +388,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="24V"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
 
 
@@ -401,11 +401,11 @@
                         android:layout_width="144pt"
                         android:layout_height="44pt"
                         android:layout_marginRight="10pt"
-                        android:background="@drawable/youjiate_selector_days"
+                        android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="自动"
-                        android:textColor="@drawable/youjiate_selector_days_text"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
                         android:textSize="27pt" />
                 </LinearLayout>
             </LinearLayout>

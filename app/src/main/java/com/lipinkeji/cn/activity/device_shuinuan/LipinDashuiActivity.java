@@ -17,8 +17,7 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_shuinuan.dialog.GuzhangDialog;
-import com.lipinkeji.cn.activity.shuinuan_wzw.ShuinuanWzwShuomingActivity;
+import com.lipinkeji.cn.activity.device_a.dialog.GuzhangDialog;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
@@ -148,7 +147,6 @@ public class LipinDashuiActivity extends ShuinuanBaseNewActivity implements View
 
     private void init() {
         String validdate = PreferenceHelper.getInstance(mContext).getString("validdate", "0");
-        Y.e("考了几分但是浪费多少 "+validdate);
         tv_youxiaoqi.setText("有效期至:" + validdate);
 
         String car_server_id = getIntent().getStringExtra("car_server_id");
@@ -798,7 +796,7 @@ public class LipinDashuiActivity extends ShuinuanBaseNewActivity implements View
                 ShuinuanSetActivity.actionStart(mContext);
                 break;
             case R.id.ll_shuoming:
-                ShuinuanWzwShuomingActivity.actionStart(mContext);
+                ShuinuanShuomingActivity.actionStart(mContext);
                 break;
             case R.id.ll_dingshi:
                 ShuinuanDingshiActivity.actionStart(mContext);

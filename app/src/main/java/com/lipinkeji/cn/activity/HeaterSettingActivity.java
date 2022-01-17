@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.lipinkeji.cn.activity.device_a.DriveinfoActivity;
+import com.lipinkeji.cn.activity.device_a.UserInfoActivity;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttUnSubscribe;

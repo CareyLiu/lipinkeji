@@ -12,7 +12,7 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.RatioActivity;
 import com.lipinkeji.cn.app.BaseActivity;
-import com.lipinkeji.cn.dialog.JiareqiMimaDialog;
+import com.lipinkeji.cn.activity.device_a.dialog.JiareqiMimaDialog;
 import com.lipinkeji.cn.util.Y;
 
 import butterknife.BindView;

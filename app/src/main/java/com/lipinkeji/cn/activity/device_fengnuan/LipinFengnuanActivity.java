@@ -1,6 +1,5 @@
 package com.lipinkeji.cn.activity.device_fengnuan;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +16,8 @@ import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_falaer.FalaerShuomingActivity;
+import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.app.App;
-import com.lipinkeji.cn.app.AppManager;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
@@ -523,7 +521,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
                 clickDown();
                 break;
             case R.id.ll_shuoming:
-                FalaerShuomingActivity.actionStart(mContext);
+                FengnuanShuomingActivity.actionStart(mContext);
                 break;
             case R.id.ll_dingshi:
                 FengnuanDingshiActivity.actionStart(mContext);

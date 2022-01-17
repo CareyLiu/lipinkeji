@@ -3,7 +3,6 @@ package com.lipinkeji.cn.activity.device_shuinuan;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -11,12 +10,12 @@ import android.widget.RelativeLayout;
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
-import com.lipinkeji.cn.util.Y;
-import com.lipinkeji.cn.activity.device_shuinuan.gongxiang.GongxiangModel;
-import com.lipinkeji.cn.activity.device_shuinuan.gongxiang.ShuinuanGongxiangActivity;
-import com.lipinkeji.cn.activity.vip.dialog.XufeiDialog;
-import com.lipinkeji.cn.activity.vip.model.XufeiModel;
+import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangModel;
+import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.set.ShuinuanGaojiSetActiviy;
+import com.lipinkeji.cn.activity.device_a.vip.dialog.XufeiDialog;
+import com.lipinkeji.cn.activity.device_a.vip.model.XufeiModel;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
 import com.lipinkeji.cn.app.RxBus;
@@ -27,6 +26,7 @@ import com.lipinkeji.cn.config.UserManager;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
 import com.lipinkeji.cn.get_net.Urls;
 import com.lipinkeji.cn.model.YuZhiFuModel;
+import com.lipinkeji.cn.util.Y;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
@@ -78,6 +78,8 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
     RelativeLayout rl_waikongzhuangzhi;
     @BindView(R.id.rl_danweiqiehuan)
     RelativeLayout rl_danweiqiehuan;
+    @BindView(R.id.rl_daqiyacanshu)
+    RelativeLayout rlDaqiyacanshu;
     private String share_type;
 
     @Override
@@ -232,7 +234,7 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
         api.sendReq(req);
     }
 
-    @OnClick({R.id.rl_jiareqizhenduan, R.id.rl_waikongzhuangzhi, R.id.rl_danweiqiehuan, R.id.rl_zhujicanshu, R.id.rl_back, R.id.ll_gaojishezhi, R.id.rl_caozuoquanxian, R.id.rl_dingshi, R.id.rl_jiareqizhuangtai, R.id.rl_wendushezhi, R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.rl_jiebangshebei, R.id.rl_shebeixufei})
+    @OnClick({R.id.rl_jiareqizhenduan, R.id.rl_daqiyacanshu, R.id.rl_waikongzhuangzhi, R.id.rl_danweiqiehuan, R.id.rl_zhujicanshu, R.id.rl_back, R.id.ll_gaojishezhi, R.id.rl_caozuoquanxian, R.id.rl_dingshi, R.id.rl_jiareqizhuangtai, R.id.rl_wendushezhi, R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.rl_jiebangshebei, R.id.rl_shebeixufei})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
@@ -254,7 +256,7 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
                 ShuinuanWendusetActivity.actionStart(mContext);
                 break;
             case R.id.rl_gongxiang:
-                ShuinuanGongxiangActivity.actionStart(mContext, ccid);
+                GongxiangActivity.actionStart(mContext, ccid);
                 break;
             case R.id.rl_gongxiang_jie:
                 clickGongxiangJie();
@@ -276,6 +278,9 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
                 break;
             case R.id.rl_danweiqiehuan:
                 ShuinuanDangweiActivity.actionStart(mContext);
+                break;
+            case R.id.rl_daqiyacanshu:
+                ShuinuanDaqiyaActivity.actionStart(mContext);
                 break;
         }
     }

@@ -50,7 +50,9 @@ public class SheBeiListAdapter extends BaseSectionQuickAdapter<SheBeiModel, Base
         }
 
         helper.setText(R.id.tv_youxiaoqi, "设备有效期：" + item.validity_time);
-        helper.setText(R.id.tv_ccid, "设备码: " + item.ccid);
+
+        String ccidNew = item.ccid.replace("a", "");
+        helper.setText(R.id.tv_ccid, "设备码: " + ccidNew);
 
         TextView tv_share_name = helper.getView(R.id.tv_share_name);
         ImageView iv_share_icon = helper.getView(R.id.iv_share_icon);
@@ -64,23 +66,20 @@ public class SheBeiListAdapter extends BaseSectionQuickAdapter<SheBeiModel, Base
             }
         } else {
             tv_share_name.setVisibility(View.GONE);
-            iv_share_icon.setImageResource(R.mipmap.youjaite_wugongxiangshebei);
         }
 
-//        ImageView iv_icon = helper.getView(R.id.iv_icon);
-//        Glide.with(mContext).load(item.device_img_url).into(iv_icon);
 
         helper.addOnClickListener(R.id.constrain);
 
         String device_type = item.device_type;
-        if (device_type.equals("6")){
-            String xinghao =  item.ccid.substring(22, 23);
+        if (device_type.equals("6")) {
+            String xinghao = item.ccid.substring(22, 23);
             if (xinghao.equals("2")) {
-                helper.setText(R.id.tv_name, item.device_name+"(小水)");
+                helper.setText(R.id.tv_name, item.device_name + "(小水)");
             } else if (xinghao.equals("3")) {
-                helper.setText(R.id.tv_name, item.device_name+"(中水)");
-            }else if (xinghao.equals("4")) {
-                helper.setText(R.id.tv_name, item.device_name+"(大水)");
+                helper.setText(R.id.tv_name, item.device_name + "(中水)");
+            } else if (xinghao.equals("4")) {
+                helper.setText(R.id.tv_name, item.device_name + "(大水)");
             }
         }
     }

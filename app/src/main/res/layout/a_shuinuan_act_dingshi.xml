@@ -125,11 +125,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期一"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -137,11 +137,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期二"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -149,22 +149,22 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期三"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
                 android:id="@+id/cb_thursday"
                 android:layout_width="144pt"
                 android:layout_height="48pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期四"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
         </LinearLayout>
 
@@ -178,11 +178,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期五"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -190,11 +190,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期六"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -202,11 +202,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期日"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
         </LinearLayout>
     </LinearLayout>
@@ -295,11 +295,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期一"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -307,11 +307,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期二"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -319,22 +319,22 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期三"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
                 android:id="@+id/cb_thursday_guan"
                 android:layout_width="144pt"
                 android:layout_height="48pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期四"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
         </LinearLayout>
 
@@ -348,11 +348,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期五"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -360,11 +360,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期六"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
 
             <CheckBox
@@ -372,11 +372,11 @@
                 android:layout_width="144pt"
                 android:layout_height="48pt"
                 android:layout_marginRight="10pt"
-                android:background="@drawable/youjiate_selector_days"
+                android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期日"
-                android:textColor="@drawable/youjiate_selector_days_text"
+                android:textColor="@drawable/jiareqi_selector_days_text"
                 android:textSize="27pt" />
         </LinearLayout>
     </LinearLayout>

@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.config.AudioFocusManager;
 import com.lipinkeji.cn.config.MyApplication;
 import com.lipinkeji.cn.config.PreferenceHelper;

@@ -100,10 +100,13 @@ public class ShuinuanDingshiActivity extends BaseActivity {
     private String g_weeks_time;
     private String g_shifen_time;
 
+    private boolean isKaiji;
+    private boolean isGuanji;
+
 
     @Override
     public int getContentViewResId() {
-        return R.layout.a_shuinuan_act_dingshi;
+        return R.layout.a_fengnuan_act_dingshi;
     }
 
     @Override
@@ -127,6 +130,8 @@ public class ShuinuanDingshiActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         ccid = PreferenceHelper.getInstance(this).getString("ccid", "");
+        clickKaiji();
+        clickGuanji();
         chaXunDingShi();
     }
 
@@ -153,10 +158,10 @@ public class ShuinuanDingshiActivity extends BaseActivity {
                     @Override
                     public void onSuccess(final Response<AppResponse> response) {
                         String msg_code = response.body().msg_code;
-                        if (msg_code.equals("0000")){
+                        if (msg_code.equals("0000")) {
                             UIHelper.ToastMessage(mContext, "定时成功");
-                        }else {
-                            Y.t( response.body().msg);
+                        } else {
+                            Y.t(response.body().msg);
                         }
                     }
 
@@ -217,7 +222,6 @@ public class ShuinuanDingshiActivity extends BaseActivity {
     }
 
     private String getGuanjiTime() {
-
         String strGuanji;
         if (cbSundayGuan.isChecked()) {
             strGuanji = "1";
@@ -298,127 +302,147 @@ public class ShuinuanDingshiActivity extends BaseActivity {
 
                     private void setWeekTimeGuanji() {
                         if (g_weeks_time.length() == 7) {
-                            String zhoutian = String.valueOf(g_weeks_time.charAt(0));
-                            String zhouyi = String.valueOf(g_weeks_time.charAt(1));
-                            String zhouer = String.valueOf(g_weeks_time.charAt(2));
-                            String zhousan = String.valueOf(g_weeks_time.charAt(3));
-                            String zhousi = String.valueOf(g_weeks_time.charAt(4));
-                            String zhouwu = String.valueOf(g_weeks_time.charAt(5));
-                            String zhouliu = String.valueOf(g_weeks_time.charAt(6));
-
-                            if (zhoutian.equals("1")) {
-                                cbSundayGuan.setChecked(true);
+                            if (g_weeks_time.equals("0000000")) {
+                                clickGuanji();
                             } else {
-                                cbSundayGuan.setChecked(false);
-                            }
+                                isGuanji = true;
 
-                            if (zhouyi.equals("1")) {
-                                cbMondayGuan.setChecked(true);
-                            } else {
-                                cbMondayGuan.setChecked(false);
-                            }
+                                String zhoutian = String.valueOf(g_weeks_time.charAt(0));
+                                String zhouyi = String.valueOf(g_weeks_time.charAt(1));
+                                String zhouer = String.valueOf(g_weeks_time.charAt(2));
+                                String zhousan = String.valueOf(g_weeks_time.charAt(3));
+                                String zhousi = String.valueOf(g_weeks_time.charAt(4));
+                                String zhouwu = String.valueOf(g_weeks_time.charAt(5));
+                                String zhouliu = String.valueOf(g_weeks_time.charAt(6));
 
-                            if (zhouer.equals("1")) {
-                                cbTuesdayGuan.setChecked(true);
-                            } else {
-                                cbTuesdayGuan.setChecked(false);
-                            }
+                                if (zhoutian.equals("1")) {
+                                    cbSundayGuan.setChecked(true);
+                                } else {
+                                    cbSundayGuan.setChecked(false);
+                                }
 
-                            if (zhousan.equals("1")) {
-                                cbWednesdayGuan.setChecked(true);
-                            } else {
-                                cbWednesdayGuan.setChecked(false);
-                            }
+                                if (zhouyi.equals("1")) {
+                                    cbMondayGuan.setChecked(true);
+                                } else {
+                                    cbMondayGuan.setChecked(false);
+                                }
 
-                            if (zhousi.equals("1")) {
-                                cbThursdayGuan.setChecked(true);
-                            } else {
-                                cbThursdayGuan.setChecked(false);
-                            }
+                                if (zhouer.equals("1")) {
+                                    cbTuesdayGuan.setChecked(true);
+                                } else {
+                                    cbTuesdayGuan.setChecked(false);
+                                }
 
-                            if (zhouwu.equals("1")) {
-                                cbFridayGuan.setChecked(true);
-                            } else {
-                                cbFridayGuan.setChecked(false);
-                            }
+                                if (zhousan.equals("1")) {
+                                    cbWednesdayGuan.setChecked(true);
+                                } else {
+                                    cbWednesdayGuan.setChecked(false);
+                                }
 
-                            if (zhouliu.equals("1")) {
-                                cbSaturdayGuan.setChecked(true);
-                            } else {
-                                cbSaturdayGuan.setChecked(false);
-                            }
-                        }
+                                if (zhousi.equals("1")) {
+                                    cbThursdayGuan.setChecked(true);
+                                } else {
+                                    cbThursdayGuan.setChecked(false);
+                                }
 
-                        if (!TextUtils.isEmpty(g_shifen_time)) {
-                            String[] shijian = g_shifen_time.split(":");
-                            if (shijian.length >= 2) {
-                                chooseHourGuanji = shijian[0];
-                                chooseMinGuanji = shijian[1];
+                                if (zhouwu.equals("1")) {
+                                    cbFridayGuan.setChecked(true);
+                                } else {
+                                    cbFridayGuan.setChecked(false);
+                                }
+
+                                if (zhouliu.equals("1")) {
+                                    cbSaturdayGuan.setChecked(true);
+                                } else {
+                                    cbSaturdayGuan.setChecked(false);
+                                }
+
+                                if (!TextUtils.isEmpty(g_shifen_time)) {
+                                    String[] shijian = g_shifen_time.split(":");
+                                    if (shijian.length >= 2) {
+                                        chooseHourGuanji = shijian[0];
+                                        chooseMinGuanji = shijian[1];
+                                    }
+                                    tvGuanjiTime.setText(g_shifen_time);
+                                }
+
+                                ivSwichGuanji.setImageResource(R.mipmap.wd_btn_kaiqi);
                             }
-                            tvGuanjiTime.setText(g_shifen_time);
+                        } else {
+                            clickGuanji();
                         }
                     }
 
                     private void setWeekTimeKaiji() {
                         if (weekTimes.length() == 7) {
-                            String zhoutian = String.valueOf(weekTimes.charAt(0));
-                            String zhouyi = String.valueOf(weekTimes.charAt(1));
-                            String zhouer = String.valueOf(weekTimes.charAt(2));
-                            String zhousan = String.valueOf(weekTimes.charAt(3));
-                            String zhousi = String.valueOf(weekTimes.charAt(4));
-                            String zhouwu = String.valueOf(weekTimes.charAt(5));
-                            String zhouliu = String.valueOf(weekTimes.charAt(6));
-
-                            if (zhoutian.equals("1")) {
-                                cbSunday.setChecked(true);
+                            if (weekTimes.equals("0000000")) {
+                                clickKaiji();
                             } else {
-                                cbSunday.setChecked(false);
-                            }
+                                isKaiji = true;
 
-                            if (zhouyi.equals("1")) {
-                                cbMonday.setChecked(true);
-                            } else {
-                                cbMonday.setChecked(false);
-                            }
+                                String zhoutian = String.valueOf(weekTimes.charAt(0));
+                                String zhouyi = String.valueOf(weekTimes.charAt(1));
+                                String zhouer = String.valueOf(weekTimes.charAt(2));
+                                String zhousan = String.valueOf(weekTimes.charAt(3));
+                                String zhousi = String.valueOf(weekTimes.charAt(4));
+                                String zhouwu = String.valueOf(weekTimes.charAt(5));
+                                String zhouliu = String.valueOf(weekTimes.charAt(6));
 
-                            if (zhouer.equals("1")) {
-                                cbTuesday.setChecked(true);
-                            } else {
-                                cbTuesday.setChecked(false);
-                            }
+                                if (zhoutian.equals("1")) {
+                                    cbSunday.setChecked(true);
+                                } else {
+                                    cbSunday.setChecked(false);
+                                }
 
-                            if (zhousan.equals("1")) {
-                                cbWednesday.setChecked(true);
-                            } else {
-                                cbWednesday.setChecked(false);
-                            }
+                                if (zhouyi.equals("1")) {
+                                    cbMonday.setChecked(true);
+                                } else {
+                                    cbMonday.setChecked(false);
+                                }
 
-                            if (zhousi.equals("1")) {
-                                cbThursday.setChecked(true);
-                            } else {
-                                cbThursday.setChecked(false);
-                            }
+                                if (zhouer.equals("1")) {
+                                    cbTuesday.setChecked(true);
+                                } else {
+                                    cbTuesday.setChecked(false);
+                                }
 
-                            if (zhouwu.equals("1")) {
-                                cbFriday.setChecked(true);
-                            } else {
-                                cbFriday.setChecked(false);
-                            }
+                                if (zhousan.equals("1")) {
+                                    cbWednesday.setChecked(true);
+                                } else {
+                                    cbWednesday.setChecked(false);
+                                }
 
-                            if (zhouliu.equals("1")) {
-                                cbSaturday.setChecked(true);
-                            } else {
-                                cbSaturday.setChecked(false);
-                            }
-                        }
+                                if (zhousi.equals("1")) {
+                                    cbThursday.setChecked(true);
+                                } else {
+                                    cbThursday.setChecked(false);
+                                }
 
-                        if (!TextUtils.isEmpty(jinriShijian)) {
-                            String[] shijian = jinriShijian.split(":");
-                            if (shijian.length >= 2) {
-                                chooseHourKaiji = shijian[0];
-                                chooseMinKaiji = shijian[1];
+                                if (zhouwu.equals("1")) {
+                                    cbFriday.setChecked(true);
+                                } else {
+                                    cbFriday.setChecked(false);
+                                }
+
+                                if (zhouliu.equals("1")) {
+                                    cbSaturday.setChecked(true);
+                                } else {
+                                    cbSaturday.setChecked(false);
+                                }
+
+                                if (!TextUtils.isEmpty(jinriShijian)) {
+                                    String[] shijian = jinriShijian.split(":");
+                                    if (shijian.length >= 2) {
+                                        chooseHourKaiji = shijian[0];
+                                        chooseMinKaiji = shijian[1];
+                                    }
+                                    tvKaijiTime.setText(jinriShijian);
+                                }
+
+                                ivSwichKaiji.setImageResource(R.mipmap.wd_btn_kaiqi);
                             }
-                            tvKaijiTime.setText(jinriShijian);
+                        } else {
+                            clickKaiji();
                         }
                     }
 
@@ -436,13 +460,13 @@ public class ShuinuanDingshiActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.iv_swich_kaiji:
-                clickKaiji();
+                kaijiBt();
                 break;
             case R.id.ll_kaiji_tiem:
                 selectDataKaiji();
                 break;
             case R.id.iv_swich_guanji:
-                clickGuanji();
+                guanjiBt();
                 break;
             case R.id.ll_guanji_time:
                 selectDataGuanji();
@@ -453,8 +477,37 @@ public class ShuinuanDingshiActivity extends BaseActivity {
         }
     }
 
-    private void clickKaiji() {
+    private void kaijiBt() {
+        if (isKaiji) {
+            clickKaiji();
+        } else {
+            clickKaijiKai();
+        }
+    }
 
+    private void clickKaijiKai() {
+        isKaiji = true;
+        tvKaijiTime.setText(chooseHourKaiji + ":" + chooseMinKaiji);
+        ivSwichKaiji.setImageResource(R.mipmap.wd_btn_kaiqi);
+    }
+
+    private void clickKaiji() {
+        isKaiji = false;
+
+        cbSunday.setChecked(false);
+        cbMonday.setChecked(false);
+        cbTuesday.setChecked(false);
+        cbWednesday.setChecked(false);
+        cbThursday.setChecked(false);
+        cbFriday.setChecked(false);
+        cbSaturday.setChecked(false);
+
+        chooseHourKaiji = "00";
+        chooseMinKaiji = "00";
+
+        tvKaijiTime.setText("--:--");
+
+        ivSwichKaiji.setImageResource(R.mipmap.wd_btn_gianbi);
     }
 
     private void selectDataKaiji() {
@@ -478,15 +531,44 @@ public class ShuinuanDingshiActivity extends BaseActivity {
                         chooseMinKaiji = "" + minutes;
                     }
 
-                    tvKaijiTime.setText(chooseHourKaiji + ":" + chooseMinKaiji);
+                    clickKaijiKai();
                 }
             }).setType(select).build();
         }
         timePickerKaiji.show();
     }
 
-    private void clickGuanji() {
+    private void guanjiBt() {
+        if (isGuanji) {
+            clickGuanji();
+        } else {
+            clickGuanjiKai();
+        }
+    }
 
+    private void clickGuanjiKai() {
+        isGuanji = true;
+        tvGuanjiTime.setText(chooseHourGuanji + ":" + chooseMinGuanji);
+        ivSwichGuanji.setImageResource(R.mipmap.wd_btn_kaiqi);
+    }
+
+    private void clickGuanji() {
+        isGuanji = false;
+
+        cbSundayGuan.setChecked(false);
+        cbMondayGuan.setChecked(false);
+        cbTuesdayGuan.setChecked(false);
+        cbWednesdayGuan.setChecked(false);
+        cbThursdayGuan.setChecked(false);
+        cbFridayGuan.setChecked(false);
+        cbSaturdayGuan.setChecked(false);
+
+        chooseHourGuanji = "00";
+        chooseMinGuanji = "00";
+
+        tvGuanjiTime.setText("--:--");
+
+        ivSwichGuanji.setImageResource(R.mipmap.wd_btn_gianbi);
     }
 
     private void selectDataGuanji() {
@@ -510,7 +592,7 @@ public class ShuinuanDingshiActivity extends BaseActivity {
                         chooseMinGuanji = "" + minutes;
                     }
 
-                    tvGuanjiTime.setText(chooseHourGuanji + ":" + chooseMinGuanji);
+                    clickGuanjiKai();
                 }
             }).setType(select).build();
         }

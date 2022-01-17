@@ -98,7 +98,6 @@ public class MyApplication extends MultiDexApplication {
             return "tcp://mqtt.hljsdkj.com";
         } else {
             return "tcp://mqrn.hljsdkj.com";
-//            return "tcp://mqtt.hljsdkj.com";
         }
     }
 
@@ -210,7 +209,7 @@ public class MyApplication extends MultiDexApplication {
 //        strategy.setUploadProcess(processName == null || processName.equals(packageName));
 //        // 初始化Bugly
 //        Bugly.init(getApplicationContext(), "9067f261f0", false);
-//
+
         CompositeSubscription _subscriptions = new CompositeSubscription();
         _subscriptions = RxUtils.getNewCompositeSubIfUnsubscribed(_subscriptions);
 
@@ -218,7 +217,6 @@ public class MyApplication extends MultiDexApplication {
             @Override
             public void call(Notice message) {
                 if (message.type == ConstanceValue.MSG_UNSUB_MQTT) {//取消订阅 application 里面所有的关于mqtt 服务的基本信息
-                    // AndMqtt.getInstance().init(MyApplication.this);
                     if (AndMqtt.getInstance().isConneect()) {
 
                         AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(CARBOX_JINGBAO), new IMqttActionListener() {
@@ -248,7 +246,6 @@ public class MyApplication extends MultiDexApplication {
                 } else if (message.type == ConstanceValue.MSG_CONNET_MQTT) {
                     setMqttConnect();
                 } else if (message.type == ConstanceValue.TONGYI) {
-
                     JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
                     JPushInterface.init(application);
 
@@ -263,8 +260,7 @@ public class MyApplication extends MultiDexApplication {
                     CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
                     strategy.setUploadProcess(processName == null || processName.equals(packageName));
                     // 初始化Bugly
-                    Bugly.init(getApplicationContext(), "672d1aa43d", false);
-
+                    Bugly.init(getApplicationContext(), "8ae42bdff9", false);
 
                     mCacheMap = new HashMap<>();
                     mBroadcastData = new MutableLiveData<>();
@@ -278,10 +274,6 @@ public class MyApplication extends MultiDexApplication {
                     doMqttValue = new DoMqttValue();
                     setMqttConnect();
                 }
-
-//                else if (message.type == ConstanceValue.MSG_RONGYUN_CHONGZHI) {
-//                    initRongYun();
-//                }
             }
         }));
 

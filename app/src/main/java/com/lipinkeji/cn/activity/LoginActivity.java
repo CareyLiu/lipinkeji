@@ -139,10 +139,15 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
             }
         });
 
-        mTvGetCode.setVisibility(View.GONE);
-        mEtPwdCode.setHint("请输入登录密码");
-        mEtPwdCode.setTransformationMethod(PasswordTransformationMethod.getInstance());
-        req_type = "1";
+        mTvGetCode.setVisibility(View.VISIBLE);
+        mEtPwdCode.setHint("请输入验证码");
+        mEtPwdCode.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+        req_type = "2";
+
+//        mTvGetCode.setVisibility(View.GONE);
+//        mEtPwdCode.setHint("请输入登录密码");
+//        mEtPwdCode.setTransformationMethod(PasswordTransformationMethod.getInstance());
+//        req_type = "1";
     }
 
     private void init() {
@@ -184,13 +189,13 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
         tvYonghushiyong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
+//                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
             }
         });
         tvYinsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
+//                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
             }
         });
 
@@ -221,12 +226,12 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
                 @Override
                 public void fuwu() {
-                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
+//                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
                 }
 
                 @Override
                 public void yinsixieyi() {
-                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
+//                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
                 }
             });
 

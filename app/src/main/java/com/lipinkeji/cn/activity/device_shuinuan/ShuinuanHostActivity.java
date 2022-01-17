@@ -169,7 +169,7 @@ public class ShuinuanHostActivity extends ShuinuanBaseNewActivity {
         dialog.show();
     }
 
-    /**
+    /** x
      * 注册订阅Mqtt
      */
     private void registerKtMqtt() {

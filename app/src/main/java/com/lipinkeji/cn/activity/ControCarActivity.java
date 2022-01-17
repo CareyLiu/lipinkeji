@@ -26,7 +26,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_fengnuan.JiareqiGuzhangActivity;
+import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.model.HostModel;
 import com.lipinkeji.cn.model.SerializableMap;

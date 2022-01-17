@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanDaqiyaShoumingActivty;
+import com.lipinkeji.cn.activity.device_a.DaqiyaShoumingActivty;
 import com.lipinkeji.cn.app.BaseActivity;
 
 import butterknife.BindView;
@@ -63,7 +63,7 @@ public class FengnuanDaqiyaActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.iv_daqiya_shuoming:
-                ShuinuanDaqiyaShoumingActivty.actionStart(mContext);
+                DaqiyaShoumingActivty.actionStart(mContext);
                 break;
         }
     }

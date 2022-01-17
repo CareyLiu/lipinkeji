@@ -12,6 +12,7 @@ import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.jaeger.library.StatusBarUtil;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.device_a.BindBoxActivity;
 import com.lipinkeji.cn.adapter.CarBrandAdapter;
 import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.model.CarBrand;

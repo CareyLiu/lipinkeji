@@ -4,15 +4,15 @@ android {
     signingConfigs {
         debug {
             keyAlias 'key0'
-            keyPassword 'youjiate123'
-            storeFile file('C:/keystore/youjiate.jks')
-            storePassword 'youjiate123'
+            keyPassword 'lipinkeji123'
+            storeFile file('C:/keystore/lipinkeji.jks')
+            storePassword 'lipinkeji123'
         }
         release {
             keyAlias 'key0'
-            keyPassword 'youjiate123'
-            storeFile file('C:/keystore/youjiate.jks')
-            storePassword 'youjiate123'
+            keyPassword 'lipinkeji123'
+            storeFile file('C:/keystore/lipinkeji.jks')
+            storePassword 'lipinkeji123'
         }
     }
     compileSdkVersion 29

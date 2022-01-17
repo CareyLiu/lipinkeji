@@ -1,6 +1,5 @@
 package com.lipinkeji.cn.get_net;
 
-import com.lipinkeji.cn.activity.LoginActivity;
 
 //网络接口地址
 public class Urls {
@@ -34,6 +33,4 @@ public class Urls {
 
     public static String GONGJIANGXUZHI = SERVER_URL + "ir/gjIssueNotice";//工匠发布须知
     public static String BIANMINXUZHI = SERVER_URL + "ir/bmIssueNotice";//便民发布须知
-
-
 }
