@@ -11,6 +11,13 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.dialog.newdia.TishiDialog;
+import com.lipinkeji.cn.util.Y;
+import com.rairmmd.andmqtt.AndMqtt;
+import com.rairmmd.andmqtt.MqttPublish;
+
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,20 +63,20 @@ public class ShuinuanDangweiActivity extends ShuinuanBaseNewActivity {
     }
 
     private void init() {
-//        if (!TextUtils.isEmpty(msgData)) {
-//            if (msgData.length() >= 62) {
-//                String waidian = msgData.substring(60, 61);
-//                if (waidian.equals("a")) {
-//                    showTiDialog("当前版本暂不支持外接装置功能");
-//                } else {
-//
-//                }
-//            } else {
-//                showTiDialog("当前版本暂不支持外接装置功能");
-//            }
-//        } else {
-//            showTiDialog("设备未链接");
-//        }
+        if (!TextUtils.isEmpty(msgData)) {
+            if (msgData.length() >= 62) {
+                String danqiandangwei = msgData.substring(37, 38);// 1.一档2.二档（注：用*占位
+                if (danqiandangwei.equals("a")) {
+                    showTiDialog("当前版本暂不支持档位切换");
+                } else {
+
+                }
+            } else {
+                showTiDialog("当前版本暂不支持档位切换");
+            }
+        } else {
+            showTiDialog("设备未链接");
+        }
     }
 
     private void selectDangwei(int pos) {
@@ -97,11 +104,71 @@ public class ShuinuanDangweiActivity extends ShuinuanBaseNewActivity {
                 finish();
                 break;
             case R.id.tv_dangwei_1dang:
-                selectDangwei(0);
+                click1Dang();
                 break;
             case R.id.tv_dangwei_2dang:
-                selectDangwei(1);
+                click2Dang();
                 break;
         }
+    }
+
+    private void click1Dang() {
+        selectDangwei(0);
+        seneMing("M_s061.");
+    }
+
+
+    private void click2Dang() {
+        selectDangwei(1);
+        seneMing("M_s062.");
+    }
+
+    private void seneMing(String msg) {
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg(msg)
+                .setQos(2).setRetained(false)
+                .setTopic(SN_Send), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 }

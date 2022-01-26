@@ -13,6 +13,7 @@ import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangModel;
 import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.set.ShuinuanDaqiyaActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.set.ShuinuanGaojiSetActiviy;
 import com.lipinkeji.cn.activity.device_a.vip.dialog.XufeiDialog;
 import com.lipinkeji.cn.activity.device_a.vip.model.XufeiModel;
@@ -78,8 +79,6 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
     RelativeLayout rl_waikongzhuangzhi;
     @BindView(R.id.rl_danweiqiehuan)
     RelativeLayout rl_danweiqiehuan;
-    @BindView(R.id.rl_daqiyacanshu)
-    RelativeLayout rlDaqiyacanshu;
     private String share_type;
 
     @Override
@@ -234,7 +233,7 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
         api.sendReq(req);
     }
 
-    @OnClick({R.id.rl_jiareqizhenduan, R.id.rl_daqiyacanshu, R.id.rl_waikongzhuangzhi, R.id.rl_danweiqiehuan, R.id.rl_zhujicanshu, R.id.rl_back, R.id.ll_gaojishezhi, R.id.rl_caozuoquanxian, R.id.rl_dingshi, R.id.rl_jiareqizhuangtai, R.id.rl_wendushezhi, R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.rl_jiebangshebei, R.id.rl_shebeixufei})
+    @OnClick({R.id.rl_jiareqizhenduan, R.id.rl_waikongzhuangzhi, R.id.rl_danweiqiehuan, R.id.rl_zhujicanshu, R.id.rl_back, R.id.ll_gaojishezhi, R.id.rl_caozuoquanxian, R.id.rl_dingshi, R.id.rl_jiareqizhuangtai, R.id.rl_wendushezhi, R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.rl_jiebangshebei, R.id.rl_shebeixufei})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
@@ -278,9 +277,6 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
                 break;
             case R.id.rl_danweiqiehuan:
                 ShuinuanDangweiActivity.actionStart(mContext);
-                break;
-            case R.id.rl_daqiyacanshu:
-                ShuinuanDaqiyaActivity.actionStart(mContext);
                 break;
         }
     }

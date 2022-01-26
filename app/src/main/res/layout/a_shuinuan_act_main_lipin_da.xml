@@ -86,8 +86,7 @@
                         android:layout_width="397pt"
                         android:layout_height="175pt"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="155pt"
-                        android:src="@drawable/shuinuan_guanji" />
+                        android:layout_marginTop="155pt" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -114,9 +113,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:visibility="invisible"
                         android:paddingVertical="19pt"
-                        android:paddingLeft="29pt">
+                        android:paddingLeft="29pt"
+                        android:visibility="invisible">
 
                         <ImageView
                             android:layout_width="33pt"

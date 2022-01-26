@@ -27,6 +27,8 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
     RelativeLayout rlJingxiaoshang;
     @BindView(R.id.rl_houtaifuwu)
     RelativeLayout rlHoutaifuwu;
+    @BindView(R.id.rl_daqiyacanshu)
+    RelativeLayout rlDaqiyacanshu;
 
     @Override
     public void initImmersion() {
@@ -77,7 +79,7 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
     }
 
 
-    @OnClick({R.id.rl_back, R.id.rl_fengyoubicanshu, R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu})
+    @OnClick({ R.id.rl_daqiyacanshu,R.id.rl_back, R.id.rl_fengyoubicanshu, R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
@@ -90,6 +92,9 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
                 break;
             case R.id.rl_houtaifuwu:
                 ShuinuanHoutaiActivity.actionStart(mContext);
+                break;
+            case R.id.rl_daqiyacanshu:
+                ShuinuanDaqiyaActivity.actionStart(mContext);
                 break;
         }
     }

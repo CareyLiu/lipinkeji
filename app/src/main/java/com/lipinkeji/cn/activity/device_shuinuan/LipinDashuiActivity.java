@@ -143,6 +143,7 @@ public class LipinDashuiActivity extends ShuinuanBaseNewActivity implements View
         initHuidiao();
         registerKtMqtt();
         initHandlerNS();
+        setUiGuanji();
     }
 
     private void init() {

@@ -11,6 +11,12 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.dialog.newdia.TishiDialog;
+import com.rairmmd.andmqtt.AndMqtt;
+import com.rairmmd.andmqtt.MqttPublish;
+
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,12 +68,18 @@ public class ShuinuanWaikongActivity extends ShuinuanBaseNewActivity {
                 if (waidian.equals("a")) {
                     showTiDialog("当前版本暂不支持外接装置功能");
                 } else {
-
+                    if (waidian.equals("1")) {
+                        selectWaikong(1);
+                    } else if (waidian.equals("2")) {
+                        selectWaikong(0);
+                    } else {
+                        showTiDialog("当前版本暂不支持外接装置功能");
+                    }
                 }
             } else {
                 showTiDialog("当前版本暂不支持外接装置功能");
             }
-        }else {
+        } else {
             showTiDialog("设备未链接");
         }
     }
@@ -97,11 +109,70 @@ public class ShuinuanWaikongActivity extends ShuinuanBaseNewActivity {
                 finish();
                 break;
             case R.id.tv_waikong_duankai:
-                selectWaikong(0);
+                clickDuankai();
                 break;
             case R.id.tv_waikong_shuchu:
-                selectWaikong(1);
+                clickShuchu();
                 break;
         }
+    }
+
+    private void clickDuankai() {
+        selectWaikong(0);
+        seneMing("M_s142.");
+    }
+
+    private void clickShuchu() {
+        selectWaikong(1);
+        seneMing("M_s141.");
+    }
+
+    private void seneMing(String msg) {
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg(msg)
+                .setQos(2).setRetained(false)
+                .setTopic(SN_Send), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 }

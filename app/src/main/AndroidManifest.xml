@@ -1101,7 +1101,7 @@
 
         <!--    水暖大气压参数    -->
         <activity
-            android:name=".activity.device_shuinuan.ShuinuanDaqiyaActivity"
+            android:name=".activity.device_shuinuan.set.ShuinuanDaqiyaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"

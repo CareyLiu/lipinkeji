@@ -142,6 +142,7 @@ public class LipinXiaoshuiActivity extends ShuinuanBaseNewActivity implements Vi
         initHuidiao();
         registerKtMqtt();
         initHandlerNS();
+        setUiGuanji();
     }
 
     private void init() {
@@ -177,7 +178,6 @@ public class LipinXiaoshuiActivity extends ShuinuanBaseNewActivity implements Vi
             }
         });
     }
-
 
     private void initView() {
         bt_youbeng.setOnLongClickListener(this);

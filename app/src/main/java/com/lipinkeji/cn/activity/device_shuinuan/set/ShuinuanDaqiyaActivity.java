@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity.device_shuinuan;
+package com.lipinkeji.cn.activity.device_shuinuan.set;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,13 +12,13 @@ import android.widget.TextView;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.DaqiyaShoumingActivty;
-import com.lipinkeji.cn.app.BaseActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ShuinuanDaqiyaActivity extends BaseActivity {
+public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
 
     @BindView(R.id.rl_back)
     RelativeLayout rlBack;

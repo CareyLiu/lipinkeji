@@ -95,8 +95,7 @@
                             android:layout_width="320pt"
                             android:layout_height="282pt"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15pt"
-                            android:src="@mipmap/wzw_xiaoshui_shebei_nor" />
+                            android:layout_marginTop="15pt" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -127,10 +126,10 @@
                         android:id="@+id/ll_shuoming"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="invisible"
                         android:gravity="center"
                         android:paddingVertical="19pt"
-                        android:paddingLeft="29pt">
+                        android:paddingLeft="29pt"
+                        android:visibility="invisible">
 
                         <ImageView
                             android:layout_width="33pt"
