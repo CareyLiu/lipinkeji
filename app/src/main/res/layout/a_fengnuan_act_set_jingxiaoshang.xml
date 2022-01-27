@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/sn_bg"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50pt"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88pt"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="88pt"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="33pt"
+                android:layout_height="33pt"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/back_white" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="经销商设置主机参数"
+            android:textColor="@color/white"
+            android:textSize="35pt"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="19pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5pt"
+                        android:includeFontPadding="false"
+                        android:text="12V点火塞功率设置"
+                        android:textColor="@color/white"
+                        android:textSize="27pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10pt"
+                        android:includeFontPadding="false"
+                        android:text="请选择60w至100w之间的数值"
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_dianhuosai_12v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10pt"
+                    android:background="@color/transparent"
+                    android:max="100"
+                    android:maxHeight="12pt"
+                    android:min="60"
+                    android:minHeight="12pt"
+                    android:progress="1"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/huankuaianniu" />
+
+                <TextView
+                    android:id="@+id/tv_dianhuosai_12v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5pt"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="90W"
+                    android:textColor="@color/white"
+                    android:textSize="17pt" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="19pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5pt"
+                        android:includeFontPadding="false"
+                        android:text="24V点火塞功率设置"
+                        android:textColor="@color/white"
+                        android:textSize="27pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10pt"
+                        android:includeFontPadding="false"
+                        android:text="请选择60w至100w之间的数值"
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_dianhuosai_24v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10pt"
+                    android:background="@color/transparent"
+                    android:max="100"
+                    android:maxHeight="12pt"
+                    android:min="60"
+                    android:minHeight="12pt"
+                    android:progress="1"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/huankuaianniu" />
+
+                <TextView
+                    android:id="@+id/tv_dianhuosai_24v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5pt"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="90W"
+                    android:textColor="@color/white"
+                    android:textSize="17pt" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="点火塞厂家"
+                    android:textColor="@color/white"
+                    android:textSize="27pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_dianhuosai_jingci"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/jiareqi_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="京瓷"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <TextView
+                        android:id="@+id/tv_dianhuosai_limai"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/jiareqi_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="立麦"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
+                        android:textSize="27pt" />
+
+                    <TextView
+                        android:id="@+id/tv_dianhuosai_gaide"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/jiareqi_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="盖得"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
+                        android:textSize="27pt" />
+
+
+                    <TextView
+                        android:id="@+id/tv_dianhuosai_tuobo"
+                        android:layout_width="144pt"
+                        android:layout_height="44pt"
+                        android:layout_marginRight="10pt"
+                        android:background="@drawable/jiareqi_selector_days"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="拓博"
+                        android:textColor="@drawable/jiareqi_selector_days_text"
+                        android:textSize="27pt" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="19pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5pt"
+                        android:includeFontPadding="false"
+                        android:text="油泵规格调整"
+                        android:textColor="@color/white"
+                        android:textSize="27pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10pt"
+                        android:includeFontPadding="false"
+                        android:text="请选12p至70p之间的数值"
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_youbengguige"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10pt"
+                    android:background="@color/transparent"
+                    android:max="70"
+                    android:maxHeight="12pt"
+                    android:min="12"
+                    android:minHeight="12pt"
+                    android:progress="1"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/huankuaianniu" />
+
+                <TextView
+                    android:id="@+id/tv_youbengguige"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5pt"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="50p"
+                    android:textColor="@color/white"
+                    android:textSize="17pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="19pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5pt"
+                        android:includeFontPadding="false"
+                        android:text="12V过压保护阈值"
+                        android:textColor="@color/white"
+                        android:textSize="27pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10pt"
+                        android:includeFontPadding="false"
+                        android:text="请选12v至40v之间的数值"
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_guoyabaohu_12v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10pt"
+                    android:background="@color/transparent"
+                    android:max="40"
+                    android:maxHeight="12pt"
+                    android:min="12"
+                    android:minHeight="12pt"
+                    android:progress="1"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/huankuaianniu" />
+
+                <TextView
+                    android:id="@+id/tv_guoyabaohu_12v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5pt"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="22v"
+                    android:textColor="@color/white"
+                    android:textSize="17pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="19pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5pt"
+                        android:includeFontPadding="false"
+                        android:text="12V欠压保护阈值"
+                        android:textColor="@color/white"
+                        android:textSize="27pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10pt"
+                        android:includeFontPadding="false"
+                        android:text="请选7v至12v之间的数值"
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_qianyabaohu_12v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10pt"
+                    android:background="@color/transparent"
+                    android:max="12"
+                    android:maxHeight="12pt"
+                    android:min="7"
+                    android:minHeight="12pt"
+                    android:progress="7"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/huankuaianniu" />
+
+                <TextView
+                    android:id="@+id/tv_qianyabaohu_12v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5pt"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="22v"
+                    android:textColor="@color/white"
+                    android:textSize="17pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="19pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5pt"
+                        android:includeFontPadding="false"
+                        android:text="24V过压保护阈值"
+                        android:textColor="@color/white"
+                        android:textSize="27pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10pt"
+                        android:includeFontPadding="false"
+                        android:text="请选24v至40v之间的数值"
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_guoyabaohu_24v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10pt"
+                    android:background="@color/transparent"
+                    android:max="40"
+                    android:maxHeight="12pt"
+                    android:min="24"
+                    android:minHeight="12pt"
+                    android:progress="1"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/huankuaianniu" />
+
+                <TextView
+                    android:id="@+id/tv_guoyabaohu_24v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5pt"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="28v"
+                    android:textColor="@color/white"
+                    android:textSize="17pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="19pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5pt"
+                        android:includeFontPadding="false"
+                        android:text="24V欠压保护阈值"
+                        android:textColor="@color/white"
+                        android:textSize="27pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10pt"
+                        android:includeFontPadding="false"
+                        android:text="请选7v至22v之间的数值"
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_qianyabaohu_24v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10pt"
+                    android:background="@color/transparent"
+                    android:max="22"
+                    android:maxHeight="12pt"
+                    android:min="7"
+                    android:minHeight="12pt"
+                    android:progress="1"
+                    android:progressDrawable="@drawable/seekbar_img"
+                    android:secondaryProgress="100"
+                    android:thumb="@mipmap/huankuaianniu" />
+
+                <TextView
+                    android:id="@+id/tv_qianyabaohu_24v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5pt"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="20v"
+                    android:textColor="@color/white"
+                    android:textSize="17pt" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bt_save"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="#16A3DA"
+                android:gravity="center"
+                android:text="保存设置"
+                android:textColor="@color/white"
+                android:textSize="27pt"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50pt" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

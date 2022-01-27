@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity.device_shuinuan.set;
+package com.lipinkeji.cn.activity.device_fengnuan.set;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,7 @@ import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.DaqiyaShoumingActivty;
-import com.lipinkeji.cn.activity.device_fengnuan.set.FengnuanDaqiyaActivity;
-import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
+import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.UIHelper;
 import com.lipinkeji.cn.callback.JsonCallback;
 import com.lipinkeji.cn.config.AppResponse;
@@ -34,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
+public class FengnuanDaqiyaActivity extends BaseActivity {
 
     @BindView(R.id.rl_back)
     RelativeLayout rlBack;
@@ -65,7 +64,7 @@ public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
      * 用于其他Activty跳转到该Activity
      */
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, ShuinuanDaqiyaActivity.class);
+        Intent intent = new Intent(context, FengnuanDaqiyaActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
@@ -136,6 +135,7 @@ public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
                             } else {
                                 daqiyacanshu = atmosBean.getZhu_apc();
                             }
+                            seekBarDaqiya.setProgress(Y.getInt(daqiyacanshu));
                             tvDaqiya.setText(daqiyacanshu + "");
                         }
 

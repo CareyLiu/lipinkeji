@@ -86,6 +86,7 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
                 finish();
                 break;
             case R.id.rl_fengyoubicanshu:
+                ShuinuanFengyoubiActivity.actionStart(mContext);
                 break;
             case R.id.rl_jingxiaoshang:
                 ShuinuanJingxiaoshangActivity.actionStart(mContext);

@@ -118,6 +118,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 PreferenceHelper.getInstance(mContext).putString("validdate", mDatas.get(position).validity_time);
                                 PreferenceHelper.getInstance(mContext).putString("validdate_state", mDatas.get(position).validdate_state);
                                 PreferenceHelper.getInstance(mContext).putString("sim_ccid", mDatas.get(position).sim_ccid);
+                                PreferenceHelper.getInstance(mContext).putString("user_car_id", mDatas.get(position).user_car_id);
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/sn_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="138pt"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:text="风油比参数"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bt_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15pt"
+                android:includeFontPadding="false"
+                android:padding="15pt"
+                android:text="保存"
+                android:textColor="@color/white"
+                android:textSize="29pt"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:paddingLeft="18pt">
+
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
+                    android:layout_marginRight="15pt"
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="1档"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="风机转速"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:layout_width="115pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="700"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：600-5500"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="油泵频率"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:layout_width="115pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：0.50-6.00"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="154pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:paddingLeft="18pt">
+
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
+                    android:layout_marginRight="15pt"
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="2档"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="风机转速"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:layout_width="115pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="700"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：600-5500"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="油泵频率"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:layout_width="115pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：0.50-6.00"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity.device_fengnuan;
+package com.lipinkeji.cn.activity.device_fengnuan.set;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +27,7 @@ public class FengnuanFengyoubiActivity extends BaseActivity {
      * 用于其他Activty跳转到该Activity
      */
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, FengnuanDaqiyaActivity.class);
+        Intent intent = new Intent(context, FengnuanFengyoubiActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

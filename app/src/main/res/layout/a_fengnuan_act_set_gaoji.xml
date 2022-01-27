@@ -81,7 +81,8 @@
                 android:layout_height="90pt"
                 android:layout_marginHorizontal="29pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,6 +131,63 @@
                     android:scaleType="centerCrop"
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_jingxiaoshang"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19pt"
+                    android:includeFontPadding="false"
+                    android:text="经销商设置主机参数"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_houtaifuwu"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="29pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19pt"
+                    android:includeFontPadding="false"
+                    android:text="后台服务设置主机参数"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/rl_daqiyacanshu"

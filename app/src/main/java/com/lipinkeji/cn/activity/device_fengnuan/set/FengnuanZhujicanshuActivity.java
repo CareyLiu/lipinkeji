@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity.device_fengnuan;
+package com.lipinkeji.cn.activity.device_fengnuan.set;
 
 import android.content.Context;
 import android.content.Intent;
