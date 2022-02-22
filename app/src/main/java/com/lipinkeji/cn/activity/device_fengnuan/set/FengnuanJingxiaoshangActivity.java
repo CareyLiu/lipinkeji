@@ -280,10 +280,10 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
     }
 
     private void getData(String msg) {
-        if (msg.contains("m_s")) {
+        if (msg.contains("m")) {
             dismissProgressDialog();
             handlerStart.removeMessages(1);
-
+            msg = "aa" + msg;
             //12v点火塞功率  60 - 100w
             dianhuosai12V = Y.getInt(msg.substring(3, 6));
             //24v点火塞功率  60 - 100w
@@ -418,7 +418,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
     private void sendMingling() {
         //向水暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
-                .setMsg("M_s115.")
+                .setMsg("M514.")
                 .setQos(2).setRetained(false)
                 .setTopic(CAR_CTROL), new IMqttActionListener() {
             @Override
@@ -511,7 +511,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         }
 
 
-        String mingling = "M_s17" + dianhuosai12VS + dianhuosai24VS + jiaresai + youbengguige + guoya12V + qianya12VS + guoya24V + qianya24VS + ".";
+        String mingling = "m" + dianhuosai12VS + dianhuosai24VS + jiaresai + youbengguige + guoya12V + qianya12VS + guoya24V + qianya24VS + ".";
         Y.e("我发送的数据是什么啊啊啊  " + mingling);
 
         //向水暖加热器发送获取实时数据

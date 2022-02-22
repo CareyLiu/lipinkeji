@@ -1,17 +1,20 @@
 package com.lipinkeji.cn.fragment;
 
 import android.app.Activity;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.BindBoxActivity;
 import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
-import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
-import com.lipinkeji.cn.activity.device_shuinuan.LipinXiaoshuiActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivityNew;
 import com.lipinkeji.cn.activity.zckt.AirConditionerActivity;
 import com.lipinkeji.cn.adapter.SheBeiListAdapter;
 import com.lipinkeji.cn.app.AppManager;
@@ -29,8 +32,7 @@ import com.lipinkeji.cn.model.SheBeiLieBieListModel;
 import com.lipinkeji.cn.model.SheBeiModel;
 import com.lipinkeji.cn.tools.NetworkUtils;
 import com.lipinkeji.cn.util.AlertUtil;
-import com.google.gson.Gson;
-import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.util.DensityUtils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -44,6 +46,9 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -62,6 +67,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
     View ivAdd;
     @BindView(R.id.srL_smart)
     SmartRefreshLayout srLSmart;
+    @BindView(R.id.iv_xiaochengxu)
+    ImageView ivXiaoChengXu;
     private Unbinder unbinder;
 
     private SheBeiListAdapter sheBeiListAdapter;
@@ -83,7 +90,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
     protected void initView(View view) {
         view.setClickable(true);// 防止点击穿透，底层的fragment响应上层点击触摸事件
         unbinder = ButterKnife.bind(this, view);
-        sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
+        sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei_new, R.layout.item_shebei_header, mDatas);
         mList.setLayoutManager(new LinearLayoutManager(getContext()));
         mList.setAdapter(sheBeiListAdapter);
         sheBeiListAdapter.notifyDataSetChanged();
@@ -100,7 +107,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                             PreferenceHelper.getInstance(getContext()).putString("is_platform_bendi", mDatas.get(position).is_platform);
                             if (mDatas.get(position).device_type.equals("1")) {
                                 int i = mDatas.get(position).ccid.length() - 1;
-//                                mDatas.get(position).ccid="aaaaaaaaaaaaa13410020018";
+                                mDatas.get(position).ccid = "aaaaaaaaaaaaa88880020018";
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
                                 PreferenceHelper.getInstance(getActivity()).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
@@ -113,12 +120,12 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 PreferenceHelper.getInstance(getContext()).putString("validdate", mDatas.get(position).validdate);
                                 PreferenceHelper.getInstance(getContext()).putString("validdate_state", mDatas.get(position).validdate_state);
                                 PreferenceHelper.getInstance(getContext()).putString("sim_ccid", mDatas.get(position).sim_ccid);
-
                                 PreferenceHelper.getInstance(getContext()).putString("user_car_id", mDatas.get(position).user_car_id);
 
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
+//                                        LipinFengnuanActivity.actionStart(getContext());
                                         LipinFengnuanActivity.actionStart(getContext());
                                     }
                                 } else {
@@ -140,12 +147,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        String xinghao = ccid.substring(22, 23);
-                                        if (xinghao.equals("2")) {
-                                            LipinXiaoshuiActivity.actionStart(getActivity(), ccid, count);
-                                        } else if (xinghao.equals("4")) {
-                                            LipinDashuiActivity.actionStart(getActivity(), ccid, count);
-                                        }
+                                        LipinDashuiActivityNew.actionStart(getActivity(), ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");
@@ -191,6 +193,121 @@ public class OnlineFragment extends BaseFragment implements Observer {
                 getSheBeiData();
             }
         });
+
+        initAddView();
+    }
+
+    private String pingMuHeight;
+    private int lastX;
+    private int lastY;
+
+    private boolean isIntercept = false;
+    /**
+     * 按下时的位置控件相对屏幕左上角的位置X
+     */
+    private int startDownX;
+    /**
+     * 按下时的位置控件距离屏幕左上角的位置Y
+     */
+    private int startDownY;
+    /**
+     * 控件相对屏幕左上角移动的位置X
+     */
+    private int lastMoveX;
+    /**
+     * 控件相对屏幕左上角移动的位置Y
+     */
+    private int lastMoveY;
+
+
+    private void initAddView() {
+        pingMuHeight = DensityUtils.getScreenHeight(getActivity()) + "";
+
+        ivXiaoChengXu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BindBoxActivity.actionStart(getActivity());
+            }
+        });
+
+        ivXiaoChengXu.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+                Log.i("ImageButton-00", "x" + String.valueOf(x));
+                Log.i("ImageButton-00", "y" + String.valueOf(y));
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        lastX = x;
+                        lastY = y;
+
+                        startDownX = lastMoveX = (int) event.getRawX();
+                        startDownY = lastMoveY = (int) event.getRawY();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        int offsetX = x - lastX;
+                        int offsetY = y - lastY;
+                        Log.i("view_00", "差值" + (Float.valueOf(pingMuHeight) - v.getTop()) + "");
+                        Log.i("view_00", "底部栏和控件高度" + DensityUtils.dp2px(getActivity(), 110) + "");
+
+                        v.layout(v.getLeft() + offsetX,
+                                v.getTop() + offsetY,
+                                v.getRight() + offsetX,
+                                v.getBottom() + offsetY);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        // adsorbAnim(event.getRawX(), event.getRawY());
+                        if (v.getTop() < 0) {
+                            RelativeLayout.LayoutParams lpFeedback = new RelativeLayout.LayoutParams(
+                                    DensityUtils.dp2px(getActivity(), 100), DensityUtils.dp2px(getActivity(), 100));
+                            lpFeedback.leftMargin = v.getLeft();
+                            lpFeedback.topMargin = v.getTop();
+                            lpFeedback.setMargins(v.getLeft(), 0, 0, 0);
+                            v.setLayoutParams(lpFeedback);
+
+                        } else if ((Float.valueOf(pingMuHeight) - v.getTop()) < DensityUtils.dp2px(getActivity(), 110)) {
+                            RelativeLayout.LayoutParams lpFeedback = new RelativeLayout.LayoutParams(
+                                    DensityUtils.dp2px(getActivity(), 100), DensityUtils.dp2px(getActivity(), 100));
+                            lpFeedback.leftMargin = v.getLeft();
+                            lpFeedback.topMargin = v.getTop();
+                            lpFeedback.setMargins(v.getLeft(), Integer.valueOf(pingMuHeight) - DensityUtils.dp2px(getActivity(), 140), 0, 0);
+                            v.setLayoutParams(lpFeedback);
+
+                        } else {
+                            RelativeLayout.LayoutParams lpFeedback = new RelativeLayout.LayoutParams(
+                                    DensityUtils.dp2px(getActivity(), 100), DensityUtils.dp2px(getActivity(), 100));
+                            lpFeedback.leftMargin = v.getLeft();
+                            lpFeedback.topMargin = v.getTop();
+                            lpFeedback.setMargins(v.getLeft(), v.getTop(), 0, 0);
+                            v.setLayoutParams(lpFeedback);
+                            int lastMoveDx = Math.abs((int) event.getRawX() - startDownX);
+                            int lastMoveDy = Math.abs((int) event.getRawY() - startDownY);
+                            if (0 != lastMoveDx || 0 != lastMoveDy) {
+                                isIntercept = true;
+                            } else {
+                                isIntercept = false;
+                            }
+                        }
+
+                        adsorbAnim(v, event.getRawX(), event.getRawY());
+
+                        break;
+                }
+                return isIntercept;
+            }
+        });
+    }
+
+    private void adsorbAnim(View view, float rawX, float rawY) {
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        int screenWidth = dm.widthPixels;
+
+        view.animate().setDuration(400)
+                .setInterpolator(new OvershootInterpolator())
+                .xBy(screenWidth - view.getX() - view.getWidth())
+                .start();
+
     }
 
     @Override

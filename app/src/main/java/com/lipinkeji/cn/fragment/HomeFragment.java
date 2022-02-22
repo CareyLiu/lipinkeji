@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.amap.api.location.AMapLocation;
@@ -13,6 +14,8 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.AMapLocationQualityReport;
 import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.activity.ShangchengActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
@@ -74,20 +77,17 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.banner)
     Banner banner;
     @BindView(R.id.ll_fengnuan)
-    LinearLayout llFengnuan;
+    RelativeLayout llFengnuan;
     @BindView(R.id.ll_shuinuan)
-    LinearLayout llShuinuan;
+    RelativeLayout llShuinuan;
     @BindView(R.id.ll_kongtiao)
-    LinearLayout llKongtiao;
-    @BindView(R.id.ll_gengduo)
-    LinearLayout llGengduo;
+    RelativeLayout llKongtiao;
+    @BindView(R.id.ll_shangcheng)
+    LinearLayout ll_shangcheng;
     @BindView(R.id.rv_shangcheng)
     RecyclerView rvShangcheng;
     @BindView(R.id.smartRefreshLayout)
     SmartRefreshLayout smartRefreshLayout;
-    @BindView(R.id.iv_gouwuche)
-    ImageView ivGouwuche;
-    private Unbinder unbinder;
 
     private List<Home_NewBean.DataBean.IndexShowListBean> remenListBean = new ArrayList<>();
     private HomeReMenAdapter homeReMenAdapter;
@@ -105,12 +105,13 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView(View rootView) {
-        unbinder = ButterKnife.bind(this, rootView);
+        ButterKnife.bind(this, rootView);
         initLocation();
-        initAdapter();
         initSM();
-//        initBanner();
         getData();
+
+//        initAdapter();
+//        initBanner();
     }
 
     private void initBanner() {
@@ -126,17 +127,8 @@ public class HomeFragment extends BaseFragment {
         banner.start();
     }
 
-    private void initSM() {
-        smartRefreshLayout.setEnableLoadMore(false);
-        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                getData();
-            }
-        });
-    }
-
     private void initAdapter() {
+        rvShangcheng.setVisibility(View.GONE);
         rvShangcheng.setFocusable(false);
         rvShangcheng.addItemDecoration(new GridAverageUIDecoration(9, 10));
         rvShangcheng.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -150,6 +142,17 @@ public class HomeFragment extends BaseFragment {
             }
         });
     }
+
+    private void initSM() {
+        smartRefreshLayout.setEnableLoadMore(false);
+        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                getData();
+            }
+        });
+    }
+
 
     /**
      * 定位监听
@@ -332,7 +335,7 @@ public class HomeFragment extends BaseFragment {
         locationClient.stopLocation();
     }
 
-    @OnClick({R.id.ll_fengnuan, R.id.ll_shuinuan, R.id.ll_kongtiao, R.id.ll_gengduo, R.id.iv_gouwuche})
+    @OnClick({R.id.ll_fengnuan, R.id.ll_shuinuan, R.id.ll_kongtiao, R.id.ll_shangcheng})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_fengnuan:
@@ -344,13 +347,8 @@ public class HomeFragment extends BaseFragment {
             case R.id.ll_kongtiao:
                 SheBeiLieBiaoActivity.actionStart(getActivity(), "5");
                 break;
-            case R.id.ll_gengduo:
-                Notice n = new Notice();
-                n.type = ConstanceValue.MSG_ZHINENGJIAJU;
-                RxBus.getDefault().sendRx(n);
-                break;
-            case R.id.iv_gouwuche:
-                GouWuCheActivity.actionStart(getActivity());
+            case R.id.ll_shangcheng:
+                ShangchengActivity.actionStart(getActivity());
                 break;
         }
     }
@@ -371,12 +369,12 @@ public class HomeFragment extends BaseFragment {
                     @Override
                     public void onSuccess(Response<AppResponse<Home_NewBean.DataBean>> response) {
                         Home_NewBean.DataBean dataBean = response.body().data.get(0);
-                        remenListBean = dataBean.getIndexShowList();
-                        homeReMenAdapter.setNewData(remenListBean);
-                        homeReMenAdapter.notifyDataSetChanged();
+//                        remenListBean = dataBean.getIndexShowList();
+//                        homeReMenAdapter.setNewData(remenListBean);
+//                        homeReMenAdapter.notifyDataSetChanged();
 
                         bannerList = dataBean.getBannerList();
-                        if (bannerList!=null){
+                        if (bannerList != null) {
                             List<String> items = new ArrayList<>();
                             for (int i = 0; i < bannerList.size(); i++) {
                                 items.add(bannerList.get(i).getImg_url());
@@ -406,17 +404,23 @@ public class HomeFragment extends BaseFragment {
                     }
 
                     @Override
-                    public void onStart(Request<AppResponse<Home_NewBean.DataBean>, ? extends Request> request) {
-                        super.onStart(request);
-                        showProgressDialog();
-                    }
-
-                    @Override
                     public void onFinish() {
                         super.onFinish();
-                        dismissProgressDialog();
                         smartRefreshLayout.finishRefresh();
                     }
                 });
+    }
+
+    @Override
+    protected boolean immersionEnabled() {
+        return true;
+    }
+
+    @Override
+    protected void immersionInit(ImmersionBar mImmersionBar) {
+        super.immersionInit(mImmersionBar);
+        mImmersionBar.with(this);
+        mImmersionBar.statusBarDarkFont(false);
+        mImmersionBar.init();
     }
 }

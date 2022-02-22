@@ -16,6 +16,8 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.activity.device_a.BindBoxActivity;
 import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivityNew;
+import com.lipinkeji.cn.util.Y;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -63,7 +65,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         device_type = getIntent().getStringExtra("device_type");
-        sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei, R.layout.item_shebei_header, mDatas);
+        sheBeiListAdapter = new SheBeiListAdapter(R.layout.item_shebei_new, R.layout.item_shebei_header, mDatas);
         rlvList.setLayoutManager(new LinearLayoutManager(mContext));
         rlvList.setAdapter(sheBeiListAdapter);
         srLSmart.setEnableLoadMore(false);
@@ -98,7 +100,6 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 PreferenceHelper.getInstance(mContext).putString("user_car_id", mDatas.get(position).user_car_id);
 
 
-
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
@@ -122,12 +123,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        String xinghao = ccid.substring(22, 23);
-                                        if (xinghao.equals("2")) {
-                                            LipinXiaoshuiActivity.actionStart(mContext, ccid, count);
-                                        } else if (xinghao.equals("4")) {
-                                            LipinDashuiActivity.actionStart(mContext, ccid, count);
-                                        }
+                                        LipinDashuiActivityNew.actionStart(mContext, ccid, count);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");
@@ -246,9 +242,8 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
     protected void initToolbar() {
         super.initToolbar();
         tv_title.setText("设备列表");
-        tv_title.setTextSize(17);
         tv_title.setTextColor(getResources().getColor(R.color.white));
-        mToolbar.setBackgroundColor(Color.BLACK);
+        mToolbar.setBackgroundColor(Y.getColor(R.color.bg_app_lipin));
         mToolbar.setNavigationIcon(R.mipmap.back_white);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -277,7 +272,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
     @Override
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.black).init();
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.bg_app_lipin).init();
     }
 
 }

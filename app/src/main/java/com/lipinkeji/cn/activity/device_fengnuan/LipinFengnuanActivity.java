@@ -50,70 +50,84 @@ import static com.lipinkeji.cn.config.MyApplication.CAR_NOTIFY;
 public class LipinFengnuanActivity extends BaseActivity implements View.OnLongClickListener {
 
 
-    @BindView(R.id.rl_back)
-    RelativeLayout rl_back;
-    @BindView(R.id.rl_set)
-    RelativeLayout rl_set;
+    @BindView(R.id.bt_back)
+    RelativeLayout bt_back;
     @BindView(R.id.iv_jiareqi)
     ImageView iv_jiareqi;
-    @BindView(R.id.ll_shuoming)
-    LinearLayout ll_shuoming;
     @BindView(R.id.ll_dingshi)
     LinearLayout ll_dingshi;
     @BindView(R.id.iv_xinhao)
     ImageView iv_xinhao;
     @BindView(R.id.tv_xinhao)
     TextView tv_xinhao;
-    @BindView(R.id.tv_dangwei)
-    TextView tv_dangwei;
-    @BindView(R.id.view_dangwei5)
-    View view_dangwei5;
-    @BindView(R.id.view_dangwei4)
-    View view_dangwei4;
-    @BindView(R.id.view_dangwei3)
-    View view_dangwei3;
-    @BindView(R.id.view_dangwei2)
-    View view_dangwei2;
-    @BindView(R.id.view_dangwei1)
-    View view_dangwei1;
-    @BindView(R.id.bt_kaiguan)
-    ImageView bt_kaiguan;
-    @BindView(R.id.iv_add)
-    ImageView iv_add;
-    @BindView(R.id.tv_add)
-    TextView tv_add;
-    @BindView(R.id.ll_add)
-    LinearLayout ll_add;
-    @BindView(R.id.iv_reduce)
-    ImageView iv_reduce;
-    @BindView(R.id.tv_reduce)
-    TextView tv_reduce;
-    @BindView(R.id.ll_reduce)
-    LinearLayout ll_reduce;
-    @BindView(R.id.tv_wendu)
-    TextView tv_wendu;
-    @BindView(R.id.view_wendu5)
-    View view_wendu5;
-    @BindView(R.id.view_wendu4)
-    View view_wendu4;
-    @BindView(R.id.view_wendu3)
-    View view_wendu3;
-    @BindView(R.id.view_wendu2)
-    View view_wendu2;
-    @BindView(R.id.view_wendu1)
-    View view_wendu1;
-    @BindView(R.id.iv_mode_shoudong)
-    TextView iv_mode_shoudong;
-    @BindView(R.id.iv_mode_hengwen)
-    TextView iv_mode_hengwen;
     @BindView(R.id.tv_dianya)
     TextView tv_dianya;
     @BindView(R.id.tv_chufengkouwendu)
     TextView tv_chufengkouwendu;
+    @BindView(R.id.id_line)
+    View id_line;
     @BindView(R.id.tv_huanjingwendu)
     TextView tv_huanjingwendu;
     @BindView(R.id.tv_rufengkouwendu)
     TextView tv_rufengkouwendu;
+    @BindView(R.id.tv_shebeima)
+    TextView tv_shebeima;
+    @BindView(R.id.tv_dangqianzhuangtai)
+    TextView tv_dangqianzhuangtai;
+    @BindView(R.id.tv_youxiaoqi)
+    TextView tv_youxiaoqi;
+    @BindView(R.id.tv_dangwei)
+    TextView tv_dangwei;
+    @BindView(R.id.view_dangwei5)
+    ImageView view_dangwei5;
+    @BindView(R.id.view_dangwei4)
+    ImageView view_dangwei4;
+    @BindView(R.id.view_dangwei3)
+    ImageView view_dangwei3;
+    @BindView(R.id.view_dangwei2)
+    ImageView view_dangwei2;
+    @BindView(R.id.view_dangwei1)
+    ImageView view_dangwei1;
+    @BindView(R.id.tv_wendu)
+    TextView tv_wendu;
+    @BindView(R.id.view_wendu5)
+    ImageView view_wendu5;
+    @BindView(R.id.view_wendu4)
+    ImageView view_wendu4;
+    @BindView(R.id.view_wendu3)
+    ImageView view_wendu3;
+    @BindView(R.id.view_wendu2)
+    ImageView view_wendu2;
+    @BindView(R.id.view_wendu1)
+    ImageView view_wendu1;
+    @BindView(R.id.bt_set)
+    TextView bt_set;
+    @BindView(R.id.bt1)
+    View bt1;
+    @BindView(R.id.bt2)
+    View bt2;
+    @BindView(R.id.bt3)
+    View bt3;
+    @BindView(R.id.bt4)
+    View bt4;
+    @BindView(R.id.bt5)
+    View bt5;
+    @BindView(R.id.iv_mode_shoudong)
+    ImageView iv_mode_shoudong;
+    @BindView(R.id.tv_mode_shoudong)
+    TextView tv_mode_shoudong;
+    @BindView(R.id.iv_jia)
+    ImageView iv_jia;
+    @BindView(R.id.tv_jia)
+    TextView tv_jia;
+    @BindView(R.id.iv_jian)
+    ImageView iv_jian;
+    @BindView(R.id.tv_jian)
+    TextView tv_jian;
+    @BindView(R.id.iv_mode_zidong)
+    ImageView iv_mode_zidong;
+    @BindView(R.id.tv_mode_zidong)
+    TextView tv_mode_zidong;
 
     private boolean isFirst;//是否第一次进入
     private boolean isKaiji;//是否开机
@@ -162,9 +176,18 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         initHuidiao();
         initDialog();
         initHandlerNS();
+        setUiGuanji();
     }
 
     private void initData() {
+        String ccid = PreferenceHelper.getInstance(mContext).getString("ccid", "");
+        ccid = ccid.replace("a", "");
+        tv_shebeima.setText("设备编码："+ccid);
+
+
+        String validdate = PreferenceHelper.getInstance(mContext).getString("validdate", "0");
+        tv_youxiaoqi.setText(validdate);
+
         sim_ccid_save_type = PreferenceHelper.getInstance(mContext).getString("sim_ccid_save_type", "0");
         PreferenceHelper.getInstance(mContext).putString(App.CHOOSE_KONGZHI_XIANGMU, DoMqttValue.FENGNUAN);
         isFirst = true;
@@ -179,9 +202,9 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         MyApplication.mqttDingyue.add(CARBOX_GETNOW);
         MyApplication.mqttDingyue.add(CAR_CTROL);
 
-        bt_kaiguan.setOnLongClickListener(this);
-        iv_mode_shoudong.setOnLongClickListener(this);
-        iv_mode_hengwen.setOnLongClickListener(this);
+        bt1.setOnLongClickListener(this);
+        bt4.setOnLongClickListener(this);
+        bt5.setOnLongClickListener(this);
     }
 
     private void initMqtt() {
@@ -243,7 +266,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
             @Override
             public void call(Notice message) {
                 if (message.type == ConstanceValue.MSG_CAR_J_M) {
-                  String  msg = message.content.toString();
+                    String msg = message.content.toString();
                     getData(msg);
                 } else if (message.type == ConstanceValue.MSG_JIEBANG) {
                     finish();
@@ -257,7 +280,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         typeZaixian = 1;
         handlerStart.removeMessages(1);
 
-         messageData = msg.substring(1);
+        messageData = msg.substring(1);
         Y.e("风暖的实时数据是" + messageData + "   " + messageData.length());
 
         //当前档位1至5档	    1
@@ -272,10 +295,10 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         //当前温度 256=25.6     3
         int dangqianwenduDian = Y.getInt(messageData.substring(6, 7));
         if (dangqianwenduDian == 0) {
-            tv_huanjingwendu.setText("环境温度：" + Y.getInt(messageData.substring(4, 6)) + "℃");
+            tv_huanjingwendu.setText(Y.getInt(messageData.substring(4, 6)) + "℃");
         } else {
             String dangqianwendu = Y.getInt(messageData.substring(4, 6)) + "." + messageData.substring(6, 7);
-            tv_huanjingwendu.setText(dangqianwendu);
+            tv_huanjingwendu.setText(dangqianwendu + "℃");
         }
 
         //信号强度 00-35    2
@@ -331,9 +354,9 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         //含氧量g/立方米      2
         String hanyangliang = messageData.substring(53);
 
-        tv_dianya.setText("当前电压：" + dianya + "V");
-        tv_chufengkouwendu.setText("出风口温度：" + Y.getInt(wendu_chufengkou) + "℃");
-        tv_rufengkouwendu.setText("入风口温度：" + Y.getInt(wendu_rufengkou) + "℃");
+        tv_dianya.setText(dianya + "V");
+        tv_chufengkouwendu.setText(Y.getInt(wendu_chufengkou) + "℃");
+        tv_rufengkouwendu.setText(Y.getInt(wendu_rufengkou) + "℃");
 
         if (jiareqizhuangtai.equals("1")) {
             setUiShoudong();
@@ -350,7 +373,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         }
 
         if (!StringUtils.isEmpty(guzhangdaima)) {
-            if (isOnActivity){
+            if (isOnActivity) {
                 if (!myCarCaoZuoDialog_notify.isShowing()) {
                     myCarCaoZuoDialog_notify.show();
                 }
@@ -417,75 +440,73 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         }
     }
 
-
     private void setwendu(String yushewendu) {
-        view_wendu1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_wendu2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_wendu3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_wendu4.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_wendu5.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
+        view_wendu1.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_wendu2.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_wendu3.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_wendu4.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_wendu5.setImageResource(R.mipmap.fn_dangkuangdi);
         tv_wendu.setText("--℃");
         int wendu = Y.getInt(yushewendu);
         if (isKaiji) {
             if (wendu >= 1 && wendu <= 6) {
-                view_wendu1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_wendu1.setImageResource(R.mipmap.fn_dangkuang);
             } else if (wendu >= 7 && wendu <= 13) {
-                view_wendu1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_wendu1.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu2.setImageResource(R.mipmap.fn_dangkuang);
             } else if (wendu >= 14 && wendu <= 20) {
-                view_wendu1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_wendu1.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu2.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu3.setImageResource(R.mipmap.fn_dangkuang);
             } else if (wendu >= 21 && wendu <= 27) {
-                view_wendu1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu4.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_wendu1.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu2.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu3.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu4.setImageResource(R.mipmap.fn_dangkuang);
             } else if (wendu >= 27 && wendu <= 33) {
-                view_wendu1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu4.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_wendu5.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_wendu1.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu2.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu3.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu4.setImageResource(R.mipmap.fn_dangkuang);
+                view_wendu5.setImageResource(R.mipmap.fn_dangkuang);
             }
             tv_wendu.setText(yushewendu + "℃");
         }
     }
 
     private void setDangwei(String oper_dang) {
-        view_dangwei1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_dangwei2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_dangwei3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_dangwei4.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
-        view_dangwei5.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
+        view_dangwei1.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_dangwei2.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_dangwei3.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_dangwei4.setImageResource(R.mipmap.fn_dangkuangdi);
+        view_dangwei5.setImageResource(R.mipmap.fn_dangkuangdi);
         tv_dangwei.setText("--档");
-
         if (isKaiji) {
             if (oper_dang.equals("1")) {
                 tv_dangwei.setText("1档");
-                view_dangwei1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_dangwei1.setImageResource(R.mipmap.fn_dangkuang);
             } else if (oper_dang.equals("2")) {
                 tv_dangwei.setText("2档");
-                view_dangwei1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_dangwei1.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei2.setImageResource(R.mipmap.fn_dangkuang);
             } else if (oper_dang.equals("3")) {
                 tv_dangwei.setText("3档");
-                view_dangwei1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_dangwei1.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei2.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei3.setImageResource(R.mipmap.fn_dangkuang);
             } else if (oper_dang.equals("4")) {
                 tv_dangwei.setText("4档");
-                view_dangwei1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei4.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_dangwei1.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei2.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei3.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei4.setImageResource(R.mipmap.fn_dangkuang);
             } else if (oper_dang.equals("5")) {
                 tv_dangwei.setText("5档");
-                view_dangwei1.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei2.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei3.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei4.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-                view_dangwei5.setBackgroundColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+                view_dangwei1.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei2.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei3.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei4.setImageResource(R.mipmap.fn_dangkuang);
+                view_dangwei5.setImageResource(R.mipmap.fn_dangkuang);
             }
         }
     }
@@ -505,26 +526,23 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
     }
 
-    @OnClick({R.id.rl_back, R.id.rl_set, R.id.ll_add, R.id.ll_reduce, R.id.ll_shuoming, R.id.ll_dingshi})
+    @OnClick({R.id.bt_back, R.id.ll_dingshi, R.id.bt_set, R.id.bt2, R.id.bt3})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.rl_back:
+            case R.id.bt_back:
                 finish();
-                break;
-            case R.id.rl_set:
-                FengnuanSetActivity.actionStart(mContext);
-                break;
-            case R.id.ll_add:
-                clickUp();
-                break;
-            case R.id.ll_reduce:
-                clickDown();
-                break;
-            case R.id.ll_shuoming:
-                FengnuanShuomingActivity.actionStart(mContext);
                 break;
             case R.id.ll_dingshi:
                 FengnuanDingshiActivity.actionStart(mContext);
+                break;
+            case R.id.bt_set:
+                FengnuanSetActivity.actionStart(mContext);
+                break;
+            case R.id.bt2:
+                clickDown();
+                break;
+            case R.id.bt3:
+                clickUp();
                 break;
         }
     }
@@ -535,14 +553,14 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
             time = 0;
             handlerStart.removeMessages(1);
             switch (v.getId()) {
-                case R.id.bt_kaiguan:
-                    kaiguan();
-                    break;
-                case R.id.iv_mode_shoudong:
+                case R.id.bt1:
                     clickShoudong();
                     break;
-                case R.id.iv_mode_hengwen:
+                case R.id.bt4:
                     clickHengwen();
+                    break;
+                case R.id.bt5:
+                    kaiguan();
                     break;
             }
         } else if (typeZaixian == 3) {
@@ -778,53 +796,49 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
     private void setUiShoudong() {
         isKaiji = true;
         isHenwenMode = false;
-        bt_kaiguan.setImageResource(R.mipmap.stop_sel);
         setDangwei(dangwei);
-
-        iv_mode_hengwen.setBackgroundResource(R.mipmap.fn_btn_moshi_nor);
-        iv_mode_hengwen.setTextColor(Y.getColor(R.color.color_main));
-
-        iv_mode_shoudong.setBackgroundResource(R.mipmap.fn_btn_moshi_sel);
-        iv_mode_shoudong.setTextColor(Y.getColor(R.color.color_main_fu));
-
 
         Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
 
-        iv_add.setImageResource(R.mipmap.fn_jiadang_sel);
-        iv_reduce.setImageResource(R.mipmap.fn_jiandang_sel);
-        tv_add.setTextColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
-        tv_reduce.setTextColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+        iv_mode_shoudong.setImageResource(R.mipmap.fn_shoudong_sel);
+        tv_mode_shoudong.setTextColor(Y.getColor(R.color.color_lipin));
 
-        tv_add.setText("加档");
-        tv_reduce.setText("减档");
+        iv_mode_zidong.setImageResource(R.mipmap.fn_zd);
+        tv_mode_zidong.setTextColor(Y.getColor(R.color.white));
+
+        iv_jia.setImageResource(R.mipmap.fn_jia_sel);
+        tv_jia.setTextColor(Y.getColor(R.color.color_lipin));
+
+        iv_jian.setImageResource(R.mipmap.fn_jian_sel);
+        tv_jian.setTextColor(Y.getColor(R.color.color_lipin));
+
+        tv_dangqianzhuangtai.setText("档位模式：" + dangwei + "档");
     }
 
     private void setUiHengwen() {
         isKaiji = true;
         isHenwenMode = true;
-        bt_kaiguan.setImageResource(R.mipmap.stop_sel);
         setwendu(yushewendu);
-
-        iv_mode_shoudong.setBackgroundResource(R.mipmap.fn_btn_moshi_nor);
-        iv_mode_shoudong.setTextColor(Y.getColor(R.color.color_main));
-
-        iv_mode_hengwen.setBackgroundResource(R.mipmap.fn_btn_moshi_sel);
-        iv_mode_hengwen.setTextColor(Y.getColor(R.color.color_main_fu));
 
         Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
 
-        iv_add.setImageResource(R.mipmap.fn_jiadang_sel);
-        iv_reduce.setImageResource(R.mipmap.fn_jiandang_sel);
-        tv_add.setTextColor(Y.getColor(R.color.color_main_fu));
-        tv_reduce.setTextColor(Y.getColor(R.color.color_main_fu));
+        iv_mode_shoudong.setImageResource(R.mipmap.fn_shoudong);
+        tv_mode_shoudong.setTextColor(Y.getColor(R.color.white));
 
-        tv_add.setText("升温");
-        tv_reduce.setText("降温");
+        iv_mode_zidong.setImageResource(R.mipmap.fn_zd_sel);
+        tv_mode_zidong.setTextColor(Y.getColor(R.color.color_lipin));
+
+        iv_jia.setImageResource(R.mipmap.fn_jia_sel);
+        tv_jia.setTextColor(Y.getColor(R.color.color_lipin));
+
+        iv_jian.setImageResource(R.mipmap.fn_jian_sel);
+        tv_jian.setTextColor(Y.getColor(R.color.color_lipin));
+
+        tv_dangqianzhuangtai.setText("恒温模式：" + yushewendu + "℃");
     }
 
     private void setUiGuanji() {
         isKaiji = false;
-        bt_kaiguan.setImageResource(R.mipmap.stop_nor);
 
         if (isHenwenMode) {
             setwendu(yushewendu);
@@ -832,17 +846,21 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
             setDangwei(dangwei);
         }
 
-        iv_add.setImageResource(R.mipmap.fn_jiadang);
-        iv_reduce.setImageResource(R.mipmap.fn_jiandang);
-        tv_add.setTextColor(Y.getColor(R.color.color_main));
-        tv_reduce.setTextColor(Y.getColor(R.color.color_main));
-
         Glide.with(mContext).load(R.mipmap.fegnnuan_guanji).into(iv_jiareqi);
 
-        iv_mode_shoudong.setBackgroundResource(R.mipmap.fn_btn_moshi_nor);
-        iv_mode_shoudong.setTextColor(Y.getColor(R.color.color_main));
-        iv_mode_hengwen.setBackgroundResource(R.mipmap.fn_btn_moshi_nor);
-        iv_mode_hengwen.setTextColor(Y.getColor(R.color.color_main));
+        iv_mode_shoudong.setImageResource(R.mipmap.fn_shoudong);
+        tv_mode_shoudong.setTextColor(Y.getColor(R.color.white));
+
+        iv_mode_zidong.setImageResource(R.mipmap.fn_zd);
+        tv_mode_zidong.setTextColor(Y.getColor(R.color.white));
+
+        iv_jia.setImageResource(R.mipmap.fn_jia);
+        tv_jia.setTextColor(Y.getColor(R.color.white));
+
+        iv_jian.setImageResource(R.mipmap.fn_jian);
+        tv_jian.setTextColor(Y.getColor(R.color.white));
+
+        tv_dangqianzhuangtai.setText("设备已关闭");
     }
 
     private void sendMingling() {

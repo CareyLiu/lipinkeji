@@ -61,8 +61,8 @@
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="242pt"
-                    android:layout_marginHorizontal="23pt"
+                    android:layout_height="288pt"
+                    android:layout_marginHorizontal="29pt"
                     android:layout_marginTop="19pt"
                     app:image_scale_type="fit_xy"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -74,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30pt"
-                    android:paddingHorizontal="23pt" />
+                    android:paddingHorizontal="29pt" />
 
 
             </LinearLayout>

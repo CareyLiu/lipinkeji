@@ -2,42 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/sn_bg"
+    android:background="@color/app_bg"
     android:orientation="vertical">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="50pt"
-        android:background="@color/black" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="88pt"
-        android:background="@color/black">
+        android:layout_height="142pt"
+        android:background="@color/app_bg">
 
         <RelativeLayout
-            android:id="@+id/rl_back"
-            android:layout_width="88pt"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
 
-            <ImageView
-                android:layout_width="33pt"
-                android:layout_height="33pt"
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@mipmap/back_white" />
+                android:includeFontPadding="false"
+                android:text="后台服务设置主机参数"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
         </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="高级设置"
-            android:textColor="@color/white"
-            android:textSize="35pt"
-            android:textStyle="bold" />
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -538,7 +542,7 @@
                 android:layout_height="90pt"
                 android:layout_marginHorizontal="29pt"
                 android:layout_marginTop="19pt"
-                android:background="#16A3DA"
+                android:background="@color/color_lipin"
                 android:gravity="center"
                 android:text="保存设置"
                 android:textColor="@color/white"
@@ -549,5 +553,5 @@
                 android:layout_width="match_parent"
                 android:layout_height="50pt" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

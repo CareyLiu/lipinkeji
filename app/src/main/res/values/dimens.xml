@@ -12,4 +12,6 @@
 
     <dimen name="default_divider_padding_5dp">5dp</dimen>
 
+
+    <dimen name="tab_lan">94pt</dimen>
 </resources>

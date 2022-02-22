@@ -137,8 +137,8 @@ public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
                                 daqiyacanshu = atmosBean.getZhu_apc();
                             }
                             tvDaqiya.setText(daqiyacanshu + "");
+                            seekBarDaqiya.setProgress(Y.getInt(daqiyacanshu));
                         }
-
                     }
 
                     @Override

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/app_bg_main">
+    android:background="@mipmap/login_bg">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_icon"
@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/logi_icon" />
+        android:src="@mipmap/login_icon" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -22,7 +22,7 @@
         android:layout_marginTop="10dp"
         android:includeFontPadding="false"
         android:text="力品科技远程遥控平台"
-        android:textColor="@color/text_blue"
+        android:textColor="@color/color_lipin"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -38,8 +38,8 @@
         android:inputType="text"
         android:maxLines="1"
         android:paddingHorizontal="72dp"
-        android:textColor="@color/color_main"
-        android:textColorHint="@color/color_main_50"
+        android:textColor="@color/color_lipin"
+        android:textColorHint="@color/color_lipin"
         android:textSize="15sp" />
 
     <View
@@ -76,8 +76,8 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingLeft="72dp"
-                android:textColor="@color/color_main"
-                android:textColorHint="@color/color_main_50"
+                android:textColor="@color/color_lipin"
+                android:textColorHint="@color/color_lipin"
                 android:textSize="15sp" />
 
             <View
@@ -92,7 +92,7 @@
             android:id="@+id/get_code"
             android:layout_width="107dp"
             android:layout_height="30dp"
-            android:background="@drawable/bt_yanzhengma"
+            android:background="@mipmap/login_btn"
             android:gravity="center"
             android:text="获取验证码"
             android:textColor="@color/color_main"
@@ -103,21 +103,19 @@
         android:id="@+id/ll_qiehuan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bt_login"
-        android:layout_marginLeft="68pt"
-        android:layout_marginTop="30pt"
-        android:layout_marginRight="101pt"
+        android:layout_below="@+id/ll_pwd"
         android:orientation="horizontal"
-        android:visibility="gone">
+        android:paddingHorizontal="52dp">
 
         <TextView
             android:id="@+id/tv_switch"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="5pt"
+            android:includeFontPadding="false"
+            android:padding="10dp"
             android:text="切换登录方式"
-            android:textColor="#FF9600"
-            android:textSize="23pt" />
+            android:textColor="#076E95"
+            android:textSize="13sp" />
 
         <View
             android:layout_width="0dp"
@@ -128,20 +126,21 @@
             android:id="@+id/tv_zhaohui"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5pt"
+            android:includeFontPadding="false"
+            android:padding="10dp"
             android:text="找回密码"
-            android:textColor="#FF9600"
-            android:textSize="23pt" />
+            android:textColor="#076E95"
+            android:textSize="13sp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/ll_pwd"
+        android:layout_below="@+id/ll_qiehuan"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="62dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:background="@mipmap/login_btn"
         android:text="登录"
         android:textColor="@color/color_main"

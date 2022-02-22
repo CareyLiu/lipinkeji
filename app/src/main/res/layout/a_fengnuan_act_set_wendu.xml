@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/sn_bg"
+    android:background="@color/app_bg"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="138pt"
-        android:background="@color/black">
+        android:layout_height="142pt"
+        android:background="@color/app_bg">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,7 +28,6 @@
                     android:src="@mipmap/back_white" />
             </RelativeLayout>
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,8 +42,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -59,7 +58,7 @@
             android:includeFontPadding="false"
             android:text="温度上限设置"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -67,7 +66,7 @@
             android:layout_height="wrap_content"
             android:text="温度范围0-35，默32"
             android:textColor="@color/white"
-            android:textSize="17pt"
+            android:textSize="19pt"
             android:textStyle="bold" />
 
         <View
@@ -76,15 +75,15 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="152pt"
-            android:layout_height="56pt"
+            android:layout_width="186pt"
+            android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -99,7 +98,7 @@
             android:includeFontPadding="false"
             android:text="温度下限设置"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
 
@@ -108,7 +107,7 @@
             android:layout_height="wrap_content"
             android:text="温度范围035，默认5"
             android:textColor="@color/white"
-            android:textSize="17pt"
+            android:textSize="19pt"
             android:textStyle="bold" />
 
         <View
@@ -117,15 +116,15 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="152pt"
-            android:layout_height="56pt"
+            android:layout_width="186pt"
+            android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -140,7 +139,7 @@
             android:includeFontPadding="false"
             android:text="自动恒温设置"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <View
@@ -149,16 +148,16 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="152pt"
-            android:layout_height="56pt"
+            android:layout_width="186pt"
+            android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_kaiji_tiem"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -174,7 +173,7 @@
             android:includeFontPadding="false"
             android:text="定时开机"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -184,7 +183,7 @@
             android:includeFontPadding="false"
             android:text="--"
             android:textColor="#F7FF00"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -194,7 +193,7 @@
             android:includeFontPadding="false"
             android:text="℃"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <View
@@ -204,16 +203,16 @@
 
         <ImageView
             android:id="@+id/iv_swich_kaiji"
-            android:layout_width="152pt"
-            android:layout_height="56pt"
+            android:layout_width="186pt"
+            android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_guanji_time"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="20pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -228,7 +227,7 @@
             android:includeFontPadding="false"
             android:text="定时关机"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -238,7 +237,7 @@
             android:includeFontPadding="false"
             android:text="--"
             android:textColor="#F7FF00"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -248,7 +247,7 @@
             android:includeFontPadding="false"
             android:text="℃"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
 
@@ -259,8 +258,8 @@
 
         <ImageView
             android:id="@+id/iv_swich_guanji"
-            android:layout_width="152pt"
-            android:layout_height="56pt"
+            android:layout_width="186pt"
+            android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 </LinearLayout>

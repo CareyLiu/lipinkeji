@@ -697,7 +697,7 @@ public class QueRenDingDanActivity extends BaseActivity implements QueRenDingDan
             map.put("users_addr_id", users_addr_id);
             map.put("pro", productDetailsForJava);
             map.put("deduction_type", userHongBao);
-            map.put("project_type", "zdjh");
+            map.put("project_type", "lp");
 
             String myHeaderLog = new Gson().toJson(map);
             String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
@@ -758,7 +758,7 @@ public class QueRenDingDanActivity extends BaseActivity implements QueRenDingDan
             map.put("pro", productDetailsForJava);
 
             map.put("deduction_type", userHongBao);
-            map.put("project_type", "zdjh");
+            map.put("project_type", "lp");
 
 
             String myHeaderLog = new Gson().toJson(map);

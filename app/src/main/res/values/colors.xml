@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <!-- 主题背景颜色-->
-    <color name="app_bg">#FC5F20</color>
+    <color name="app_bg">#061335</color>
     <!--字体-->
     <!-- 透明 -->
     <color name="white">#ffffff</color>
@@ -68,7 +68,7 @@
     <color name="text_red">#FC0100</color>
     <color name="blue00fff">#00FFFF</color>
     <color name="gray999999">#999999</color>
-    <color name="bg_app_new">#02222B</color>
+
     <color name="bg_title_new">#00151B</color>
     <color name="blue_ff3a85f8">#ff3a85f8</color>
 
@@ -104,8 +104,6 @@
     <color name="falaer_text_shuinuan_lan">#0EA9F4</color>
 
     <color name="shenlanhei">#192231</color>
-    <color name="text_blue">#0EA9F4</color>
-    <color name="text_blue_80">#CC0EA9F4</color>
 
     <color name="blue_00FFFF">#00FFFF</color>
     <color name="black_333333">#333333</color>
@@ -117,7 +115,7 @@
 
     <color name="yjt_danwei_wendu_sel">#42FFEB</color>
     <color name="yjt_danwei_wendu_nor">#16A4DB</color>
-    <color name="yjt_text_nor">#0080DE</color>
+
     <color name="yjt_text_sel">#024884</color>
     <color name="text_color3">#494947</color>
 
@@ -141,14 +139,19 @@
     <color name="color_7">#777777</color>
     <color name="color_8">#888888</color>
     <color name="color_9">#999999</color>
-    <color name="color_main">#16A4DB</color>
-    <color name="color_main_50">#8016A4DB</color>
-    <color name="color_main_80">#CC16A4DB</color>
     <color name="black_55">#55000000</color>
     <color name="black353e4f">#353e4f</color>
     <color name="grayeeeeeee">#eeeeee</color>
     <color name="green_ff57c3b3">#ff57c3b3</color>
 
 
+    <color name="text_blue">#00E4FF</color>
+    <color name="text_blue_80">#CC00E4FF</color>
+    <color name="color_main_50">#8000E4FF</color>
+    <color name="color_main_80">#CC00E4FF</color>
+    <color name="yjt_text_nor">#00E4FF</color>
+    <color name="color_lipin">#00E4FF</color>
+    <color name="color_main">#00E4FF</color>
+    <color name="bg_app_lipin">#061335</color>
 
 </resources>

@@ -2,9 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
-    android:gravity="center_horizontal"
+    android:background="@color/app_bg"
     android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="142pt"
+        android:background="@color/app_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:text="设置登录密码"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -100,7 +135,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="42pt"
         android:layout_marginTop="30dp"
-        android:background="@mipmap/denglu"
+        android:background="@mipmap/login_btn"
         android:maxLines="1"
         android:text="确定"
         android:textColor="@color/text_blue"

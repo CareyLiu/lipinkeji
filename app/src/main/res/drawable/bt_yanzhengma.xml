@@ -9,5 +9,5 @@
         android:topRightRadius="2dp" />
     <stroke
         android:width="0.5dp"
-        android:color="@color/color_main" />
+        android:color="@color/color_lipin" />
 </shape>

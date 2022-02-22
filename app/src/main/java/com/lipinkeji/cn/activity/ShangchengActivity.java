@@ -122,7 +122,7 @@ public class ShangchengActivity extends BaseActivity {
         indexShowList.clear();
         page_number = 0;
         Map<String, String> map = new HashMap<>();
-        map.put("code", "04433");
+        map.put("code", "04436");
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(mContext).getAppToken());
         map.put("page_number", page_number + "");
@@ -139,7 +139,7 @@ public class ShangchengActivity extends BaseActivity {
                         indexShowList.addAll(shangpinModel);
                         shangchengAdapter.notifyDataSetChanged();
 
-                      setBanner();
+                        setBanner();
                     }
 
                     @Override

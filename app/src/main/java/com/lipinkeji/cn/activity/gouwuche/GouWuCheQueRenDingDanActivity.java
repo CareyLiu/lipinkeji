@@ -117,10 +117,10 @@ public class GouWuCheQueRenDingDanActivity extends BaseActivity implements QueRe
         llNowPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (true){
-                    Y.t("暂未开通");
-                    return;
-                }
+//                if (true){
+//                    Y.t("暂未开通");
+//                    return;
+//                }
 
 
                 if (shouHuoAddress.equals("0")) {
@@ -562,7 +562,7 @@ public class GouWuCheQueRenDingDanActivity extends BaseActivity implements QueRe
             map.put("users_addr_id", users_addr_id);
             map.put("pro", setPro());
             map.put("deduction_type", userHongBao);
-            map.put("project_type", "zdjh");
+            map.put("project_type", "lp");
             String myHeaderLog = new Gson().toJson(map);
             String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
             Log.i("request_log", myHeaderInfo);
@@ -574,14 +574,18 @@ public class GouWuCheQueRenDingDanActivity extends BaseActivity implements QueRe
                         @Override
                         public void onSuccess(Response<AppResponse<YuZhiFuModel_AliPay.DataBean>> response) {
 
-                            appId = response.body().data.get(0).getPay();
-                            form_id = response.body().data.get(0).getOut_trade_no();
-                            if (pay_id.equals("2")) {
-                                //     finish();
-                                goToWeChatPay(dataBean_pay);
+                            if (response.body().msg_code.equals("0000")) {
+                                appId = response.body().data.get(0).getPay();
+                                form_id = response.body().data.get(0).getOut_trade_no();
+                                if (pay_id.equals("2")) {
+                                    //     finish();
+                                    goToWeChatPay(dataBean_pay);
 
-                            } else if (pay_id.equals("1")) {
-                                payV2(appId);//这里填写后台返回的支付信息
+                                } else if (pay_id.equals("1")) {
+                                    payV2(appId);//这里填写后台返回的支付信息
+                                }
+                            } else {
+                                Y.t(response.body().msg);
                             }
 
                             progressDialog.dismiss();
@@ -623,7 +627,7 @@ public class GouWuCheQueRenDingDanActivity extends BaseActivity implements QueRe
             map.put("users_addr_id", users_addr_id);
             map.put("pro", setPro());
             map.put("deduction_type", userHongBao);
-            map.put("project_type", "zdjh");
+            map.put("project_type", "lp");
             String myHeaderLog = new Gson().toJson(map);
             String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
             Log.i("request_log", myHeaderInfo);

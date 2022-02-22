@@ -55,7 +55,7 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
-//        showMimaDialog();
+        showMimaDialog();
     }
 
     private void showMimaDialog() {

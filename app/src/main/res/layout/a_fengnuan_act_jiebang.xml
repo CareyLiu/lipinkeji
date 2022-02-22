@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/sn_bg"
+    android:background="@color/app_bg"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="138pt"
-        android:background="@color/black">
+        android:layout_height="142pt"
+        android:background="@color/app_bg">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -40,11 +40,10 @@
         </RelativeLayout>
     </RelativeLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="14pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -72,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="36pt"
-        android:layout_marginLeft="29pt"
+        android:layout_marginLeft="19pt"
         android:includeFontPadding="false"
         android:text="手机验证"
         android:textColor="@color/white"
@@ -80,8 +79,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical">
 
@@ -112,8 +111,8 @@
     <LinearLayout
         android:id="@+id/ll_jiebang"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="29pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center">

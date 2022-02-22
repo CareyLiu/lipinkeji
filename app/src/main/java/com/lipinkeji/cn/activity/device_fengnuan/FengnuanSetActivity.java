@@ -195,7 +195,7 @@ public class FengnuanSetActivity extends BaseActivity {
         map.put("operate_type", "52");
         map.put("operate_id", "11");
         map.put("ccid", ccid);
-        map.put("project_type", "btfn");
+        map.put("project_type", "lp");
         String myHeaderLog = new Gson().toJson(map);
         String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
         OkGo.<AppResponse<YuZhiFuModel.DataBean>>post(Urls.DALIBAO_PAY)

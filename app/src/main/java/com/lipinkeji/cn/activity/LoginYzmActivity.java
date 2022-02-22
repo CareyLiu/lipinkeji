@@ -7,14 +7,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.model.Response;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.callback.JsonCallback;
 import com.lipinkeji.cn.config.AppResponse;
@@ -22,6 +20,9 @@ import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.get_net.Urls;
 import com.lipinkeji.cn.model.Message;
 import com.lipinkeji.cn.util.TimeCount;
+import com.lipinkeji.cn.util.Y;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,6 +42,8 @@ public class LoginYzmActivity extends BaseActivity {
     TextView tv_yzm;
     @BindView(R.id.bt_ok)
     Button bt_ok;
+    @BindView(R.id.rl_back)
+    RelativeLayout rl_back;
 
     private TimeCount timeCount;
     private String smsId;//短信验证码id
@@ -53,30 +56,13 @@ public class LoginYzmActivity extends BaseActivity {
     @Override
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.statusBarColor(R.color.black);
         mImmersionBar.init();
-        mImmersionBar.statusBarDarkFont(true);
     }
+
 
     @Override
     public boolean showToolBar() {
-        return true;
-    }
-
-    @Override
-    protected void initToolbar() {
-        super.initToolbar();
-        mToolbar.setBackgroundColor(Y.getColor(R.color.black));
-        mToolbar.setNavigationIcon(R.mipmap.back_white);
-        tv_title.setTextColor(Y.getColor(R.color.text_blue));
-        tv_title.setText("手机验证");
-
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        return false;
     }
 
     /**
@@ -99,7 +85,7 @@ public class LoginYzmActivity extends BaseActivity {
         timeCount = new TimeCount(60000, 1000, tv_yzm);
     }
 
-    @OnClick({R.id.tv_yzm, R.id.bt_ok})
+    @OnClick({R.id.tv_yzm, R.id.bt_ok, R.id.rl_back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_yzm:
@@ -107,6 +93,9 @@ public class LoginYzmActivity extends BaseActivity {
                 break;
             case R.id.bt_ok:
                 requestData();
+                break;
+            case R.id.rl_back:
+                finish();
                 break;
         }
     }

@@ -68,14 +68,12 @@ public abstract class BasicActivity<T extends BasicPresenter, E extends BasicMod
      */
     protected void initToolbar() {
         mToolbar.setTitle("");
-     // mToolbar.setTitleTextColor(getResources().getColor(R.color.black));
-        tv_title = (TextView) rootView.findViewById(R.id.toolbar_title);
-        tv_title.setVisibility(View.VISIBLE);
-        tv_rightTitle = (TextView) rootView.findViewById(R.id.tv_toolbar_right);
+        tv_title = rootView.findViewById(R.id.toolbar_title);
+        tv_rightTitle = rootView.findViewById(R.id.tv_toolbar_right);
         tv_rightTitle.setVisibility(View.GONE);
-        iv_rightTitle = (ImageView) rootView.findViewById(R.id.iv_toolbar_right);
-        tv_leftTitle = (TextView) rootView.findViewById(R.id.tv_toolbar_left);
-        iv_leftTitle = (ImageView) rootView.findViewById(R.id.iv_toolbar_left);
+        iv_rightTitle = rootView.findViewById(R.id.iv_toolbar_right);
+        tv_leftTitle = rootView.findViewById(R.id.tv_toolbar_left);
+        iv_leftTitle = rootView.findViewById(R.id.iv_toolbar_left);
         mToolbar.collapseActionView();
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {

@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/app_bg_main"
+    android:background="@color/bg_app_lipin"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="138pt"
-        android:background="@color/black"
+        android:layout_height="142pt"
         android:gravity="bottom">
 
         <RelativeLayout
@@ -120,7 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="19pt"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:id="@+id/ll_tab_shoucang"
@@ -244,7 +243,7 @@
                     android:background="@mipmap/wd_kuang"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="19pt"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="46pt"
@@ -272,19 +271,22 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="29pt"
                     android:layout_marginBottom="19pt"
-                    android:background="@mipmap/wd_kuang"
+                    android:background="@mipmap/wd_kuang1"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/ll_dingdan_quan"
                         android:layout_width="match_parent"
-                        android:layout_height="74pt"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20pt"
+                        android:layout_marginBottom="10pt"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="19pt">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5pt"
                             android:layout_weight="1"
                             android:includeFontPadding="false"
                             android:text="我的订单"
@@ -301,20 +303,16 @@
                             android:textSize="21pt" />
 
                         <ImageView
-                            android:layout_width="10pt"
-                            android:layout_height="18pt"
+                            android:layout_width="12pt"
+                            android:layout_height="20pt"
+                            android:layout_marginRight="15pt"
                             android:src="@drawable/white_push" />
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1pt"
-                        android:background="@color/line" />
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="126pt">
+                        android:layout_height="113pt">
 
                         <LinearLayout
                             android:id="@+id/ll_dingdan_daifukuan"
@@ -435,17 +433,18 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="230pt"
                     android:layout_marginHorizontal="29pt"
-                    android:background="@mipmap/wd_kuang"
-                    android:orientation="vertical">
+                    android:background="@mipmap/wd_kuang2"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="29pt">
 
                     <LinearLayout
                         android:id="@+id/ll_dianpushoucang"
                         android:layout_width="match_parent"
                         android:layout_height="65pt"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="23pt">
+                        android:gravity="center_vertical">
 
                         <ImageView
                             android:layout_width="46pt"
@@ -463,9 +462,10 @@
                             android:textSize="27pt" />
 
                         <ImageView
-                            android:layout_width="10pt"
-                            android:layout_height="18pt"
-                            android:src="@drawable/push_gray" />
+                            android:layout_width="12pt"
+                            android:layout_height="20pt"
+                            android:layout_marginRight="5pt"
+                            android:src="@drawable/white_push" />
                     </LinearLayout>
 
                     <View
@@ -477,8 +477,7 @@
                         android:id="@+id/ll_shangpinshoucang"
                         android:layout_width="match_parent"
                         android:layout_height="65pt"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="23pt">
+                        android:gravity="center_vertical">
 
                         <ImageView
                             android:layout_width="46pt"
@@ -496,9 +495,10 @@
                             android:textSize="27pt" />
 
                         <ImageView
-                            android:layout_width="10pt"
-                            android:layout_height="18pt"
-                            android:src="@drawable/push_gray" />
+                            android:layout_width="12pt"
+                            android:layout_height="20pt"
+                            android:layout_marginRight="5pt"
+                            android:src="@drawable/white_push" />
                     </LinearLayout>
 
                     <View
@@ -510,8 +510,7 @@
                         android:id="@+id/ll_guanyuwomen"
                         android:layout_width="match_parent"
                         android:layout_height="65pt"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="23pt">
+                        android:gravity="center_vertical">
 
                         <ImageView
                             android:layout_width="46pt"
@@ -529,9 +528,10 @@
                             android:textSize="27pt" />
 
                         <ImageView
-                            android:layout_width="10pt"
-                            android:layout_height="18pt"
-                            android:src="@drawable/push_gray" />
+                            android:layout_width="12pt"
+                            android:layout_height="20pt"
+                            android:layout_marginRight="5pt"
+                            android:src="@drawable/white_push" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

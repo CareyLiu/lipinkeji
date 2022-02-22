@@ -2,41 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/sn_bg"
+    android:background="@color/app_bg"
     android:orientation="vertical">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="50pt"
-        android:background="@color/black" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="88pt"
-        android:background="@color/black">
+        android:layout_height="142pt"
+        android:background="@color/app_bg">
 
         <RelativeLayout
-            android:id="@+id/rl_back"
-            android:layout_width="88pt"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
 
-            <ImageView
-                android:layout_width="33pt"
-                android:layout_height="33pt"
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@mipmap/back_white" />
+                android:includeFontPadding="false"
+                android:text="设置"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
         </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="设置"
-            android:textColor="@color/white"
-            android:textSize="35pt"
-            android:textStyle="bold" />
     </RelativeLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -57,8 +59,8 @@
 
 
                 <ImageView
-                    android:layout_width="25pt"
-                    android:layout_height="25pt"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
                     android:layout_marginRight="10pt"
                     android:src="@mipmap/gaojishezhi" />
 
@@ -69,14 +71,14 @@
                     android:includeFontPadding="false"
                     android:text="高级设置"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_caozuoquanxian"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:background="@mipmap/wd_kuang"
                 android:visibility="gone">
 
@@ -88,7 +90,7 @@
                     android:includeFontPadding="false"
                     android:text="装机操作设置权限"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -104,8 +106,8 @@
             <RelativeLayout
                 android:id="@+id/rl_dingshi"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:background="@mipmap/wd_kuang">
 
                 <TextView
@@ -116,7 +118,7 @@
                     android:includeFontPadding="false"
                     android:text="定时"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -131,8 +133,8 @@
             <RelativeLayout
                 android:id="@+id/rl_jiareqizhuangtai"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -144,7 +146,7 @@
                     android:includeFontPadding="false"
                     android:text="加热器状态"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -159,8 +161,8 @@
             <RelativeLayout
                 android:id="@+id/rl_wendushezhi"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -172,7 +174,7 @@
                     android:includeFontPadding="false"
                     android:text="温度设置"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -187,8 +189,8 @@
             <RelativeLayout
                 android:id="@+id/rl_zhujicanshu"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -200,7 +202,7 @@
                     android:includeFontPadding="false"
                     android:text="主机参数"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -215,8 +217,8 @@
             <RelativeLayout
                 android:id="@+id/rl_gongxiang"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -228,7 +230,7 @@
                     android:includeFontPadding="false"
                     android:text="共享成员"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -243,8 +245,8 @@
             <RelativeLayout
                 android:id="@+id/rl_gongxiang_jie"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -256,7 +258,7 @@
                     android:includeFontPadding="false"
                     android:text="退出共享"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -272,8 +274,8 @@
             <RelativeLayout
                 android:id="@+id/rl_jiebangshebei"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -285,7 +287,7 @@
                     android:includeFontPadding="false"
                     android:text="解绑设备"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -301,8 +303,8 @@
             <RelativeLayout
                 android:id="@+id/rl_jiareqizhenduan"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang"
                 android:visibility="gone">
@@ -315,7 +317,7 @@
                     android:includeFontPadding="false"
                     android:text="加热器诊断"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -331,8 +333,8 @@
             <RelativeLayout
                 android:id="@+id/rl_waikongzhuangzhi"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -344,7 +346,7 @@
                     android:includeFontPadding="false"
                     android:text="外控装置"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -359,8 +361,8 @@
             <RelativeLayout
                 android:id="@+id/rl_danweiqiehuan"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -372,7 +374,7 @@
                     android:includeFontPadding="false"
                     android:text="档位切换"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
@@ -388,8 +390,8 @@
             <RelativeLayout
                 android:id="@+id/rl_shebeixufei"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -401,7 +403,7 @@
                     android:includeFontPadding="false"
                     android:text="续费查询"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"

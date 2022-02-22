@@ -56,7 +56,7 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.black).init();
+        mImmersionBar.with(this).fitsSystemWindows(true).statusBarColor(R.color.app_bg).init();
     }
 
 
@@ -128,7 +128,7 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
         tv_title.setTextSize(17);
         tv_title.setTextColor(getResources().getColor(R.color.white));
         mToolbar.setNavigationIcon(R.mipmap.back_white);
-        mToolbar.setBackgroundColor(getResources().getColor(R.color.black));
+        mToolbar.setBackgroundColor(getResources().getColor(R.color.app_bg));
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

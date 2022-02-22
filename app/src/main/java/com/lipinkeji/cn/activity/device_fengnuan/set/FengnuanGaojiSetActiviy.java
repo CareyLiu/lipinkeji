@@ -72,8 +72,8 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
-        showMimaDialog();
-        selectYoubeng(0);
+//        showMimaDialog();
+//        selectYoubeng(0);
     }
 
     private void showMimaDialog() {
@@ -96,7 +96,7 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
         mimaDialog.show();
     }
 
-    @OnClick({R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu,R.id.rl_back, R.id.rl_zhujicanshu, R.id.rl_fengyoubicanshu, R.id.rl_daqiyacanshu, R.id.tv_youbeng_16p, R.id.tv_youbeng_22p, R.id.tv_youbeng_28p, R.id.tv_youbeng_32p, R.id.tv_youbeng_35p, R.id.tv_youbeng_65p})
+    @OnClick({R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu, R.id.rl_back, R.id.rl_zhujicanshu, R.id.rl_fengyoubicanshu, R.id.rl_daqiyacanshu, R.id.tv_youbeng_16p, R.id.tv_youbeng_22p, R.id.tv_youbeng_28p, R.id.tv_youbeng_32p, R.id.tv_youbeng_35p, R.id.tv_youbeng_65p})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
@@ -106,7 +106,7 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
                 FengnuanZhujicanshuActivity.actionStart(mContext);
                 break;
             case R.id.rl_fengyoubicanshu:
-                RatioActivity.actionStart(mContext);
+//                RatioActivity.actionStart(mContext);
                 FengnuanFengyoubiActivity.actionStart(mContext);
                 break;
             case R.id.rl_daqiyacanshu:
@@ -129,6 +129,12 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
                 break;
             case R.id.tv_youbeng_65p:
                 selectYoubeng(5);
+                break;
+            case R.id.rl_jingxiaoshang:
+                FengnuanJingxiaoshangActivity.actionStart(mContext);
+                break;
+            case R.id.rl_houtaifuwu:
+                FengnuanHoutaiActivity.actionStart(mContext);
                 break;
         }
     }
@@ -171,10 +177,6 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
             case 5:
                 tvYoubeng65p.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tvYoubeng65p.setTextColor(Color.WHITE);
-                break;
-            case R.id.rl_jingxiaoshang:
-                break;
-            case R.id.rl_houtaifuwu:
                 break;
         }
     }

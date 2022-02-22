@@ -1010,9 +1010,33 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
+        <!--    风暖经销商设置主机参数    -->
+        <activity
+            android:name=".activity.device_fengnuan.set.FengnuanJingxiaoshangActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!--    后台服务设置主机参数    -->
+        <activity
+            android:name=".activity.device_fengnuan.set.FengnuanHoutaiActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
         <!--    风暖大气压参数    -->
         <activity
             android:name=".activity.device_fengnuan.set.FengnuanDaqiyaActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!--    水碾主页-力品科技    -->
+        <activity
+            android:name=".activity.device_shuinuan.LipinDashuiActivityNew"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"

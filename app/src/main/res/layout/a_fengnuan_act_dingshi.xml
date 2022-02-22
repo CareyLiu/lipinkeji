@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/sn_bg"
+    android:background="@color/app_bg"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="138pt"
-        android:background="@color/black">
+        android:layout_height="142pt"
+        android:background="@color/app_bg">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,7 +28,6 @@
                     android:src="@mipmap/back_white" />
             </RelativeLayout>
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +43,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55pt"
-        android:paddingHorizontal="29pt">
+        android:paddingHorizontal="19pt">
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,20 +53,19 @@
             android:includeFontPadding="false"
             android:text="定时开机"
             android:textColor="@color/white"
-            android:textSize="29pt"
+            android:textSize="33pt"
             android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/ll_kaiji_tiem"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="18pt"
-        android:paddingRight="24pt">
+        android:paddingHorizontal="29pt">
 
 
         <TextView
@@ -77,7 +75,7 @@
             android:includeFontPadding="false"
             android:text="定时开机"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -88,7 +86,7 @@
             android:includeFontPadding="false"
             android:text="--:--"
             android:textColor="#F7FF00"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <View
@@ -98,16 +96,16 @@
 
         <ImageView
             android:id="@+id/iv_swich_kaiji"
-            android:layout_width="152pt"
-            android:layout_height="56pt"
+            android:layout_width="186pt"
+            android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="144pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="173pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -123,49 +121,49 @@
             <CheckBox
                 android:id="@+id/cb_monday"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期一"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_tuesday"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期二"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_wednesday"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期三"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_thursday"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期四"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
         </LinearLayout>
 
         <LinearLayout
@@ -176,38 +174,38 @@
             <CheckBox
                 android:id="@+id/cb_friday"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期五"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_saturday"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期六"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_sunday"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期日"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
         </LinearLayout>
     </LinearLayout>
 
@@ -216,7 +214,7 @@
         android:layout_width="match_parent"
         android:layout_height="55pt"
         android:layout_marginTop="15pt"
-        android:paddingHorizontal="29pt">
+        android:paddingHorizontal="19pt">
 
         <TextView
             android:layout_width="wrap_content"
@@ -226,20 +224,19 @@
             android:includeFontPadding="false"
             android:text="定时关机"
             android:textColor="@color/white"
-            android:textSize="29pt"
+            android:textSize="33pt"
             android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/ll_guanji_time"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="18pt"
-        android:paddingRight="24pt">
+        android:paddingHorizontal="29pt">
 
         <TextView
             android:layout_width="wrap_content"
@@ -248,7 +245,7 @@
             android:includeFontPadding="false"
             android:text="定时关机"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -259,7 +256,7 @@
             android:includeFontPadding="false"
             android:text="--:--"
             android:textColor="#F7FF00"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <View
@@ -269,15 +266,15 @@
 
         <ImageView
             android:id="@+id/iv_swich_guanji"
-            android:layout_width="152pt"
-            android:layout_height="56pt"
+            android:layout_width="186pt"
+            android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="144pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="173pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -293,49 +290,49 @@
             <CheckBox
                 android:id="@+id/cb_monday_guan"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期一"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_tuesday_guan"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期二"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_wednesday_guan"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期三"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_thursday_guan"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期四"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
         </LinearLayout>
 
         <LinearLayout
@@ -346,46 +343,46 @@
             <CheckBox
                 android:id="@+id/cb_friday_guan"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期五"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_saturday_guan"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期六"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
 
             <CheckBox
                 android:id="@+id/cb_sunday_guan"
                 android:layout_width="144pt"
-                android:layout_height="48pt"
+                android:layout_height="58pt"
                 android:layout_marginRight="10pt"
                 android:background="@drawable/jiareqi_selector_days"
                 android:button="@null"
                 android:gravity="center"
                 android:text="星期日"
                 android:textColor="@drawable/jiareqi_selector_days_text"
-                android:textSize="27pt" />
+                android:textSize="29pt" />
         </LinearLayout>
     </LinearLayout>
 
     <TextView
         android:id="@+id/tv_queren"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="29pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center"

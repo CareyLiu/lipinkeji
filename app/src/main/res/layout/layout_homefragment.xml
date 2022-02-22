@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/transparent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="138pt"
+        android:layout_height="142pt"
+        android:background="@color/black"
         android:gravity="bottom">
 
         <RelativeLayout
@@ -81,7 +82,8 @@
                         android:layout_marginHorizontal="29pt"
                         android:layout_marginTop="10pt"
                         android:background="@drawable/sousuo"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="25pt"
@@ -110,149 +112,144 @@
                     <com.youth.banner.Banner
                         android:id="@+id/banner"
                         android:layout_width="match_parent"
-                        android:layout_height="240pt"
+                        android:layout_height="288pt"
                         android:layout_marginHorizontal="29pt"
                         android:layout_marginTop="10pt" />
 
                     <LinearLayout
+                        android:id="@+id/ll_shangcheng"
                         android:layout_width="match_parent"
-                        android:layout_height="70pt"
+                        android:layout_height="77pt"
+                        android:layout_marginHorizontal="29pt"
+                        android:layout_marginTop="19pt"
+                        android:background="@mipmap/gnszk_zhong"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="30pt">
+                        android:paddingHorizontal="20pt">
 
                         <ImageView
-                            android:layout_width="30pt"
-                            android:layout_height="30pt"
+                            android:layout_width="38pt"
+                            android:layout_height="38pt"
                             android:layout_marginRight="10pt"
-                            android:src="@mipmap/zhinengyure" />
+                            android:src="@mipmap/home_shangcheng" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:includeFontPadding="false"
+                            android:text="商城"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="10pt"
                             android:includeFontPadding="false"
-                            android:text="智能预热"
-                            android:textColor="@color/color_main"
+                            android:text="查看更多"
+                            android:textColor="@color/white"
                             android:textSize="27pt" />
+
+                        <ImageView
+                            android:layout_width="12pt"
+                            android:layout_height="21pt"
+                            android:src="@drawable/white_push" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10pt"
-                        android:gravity="center">
 
-                        <LinearLayout
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="192pt"
+                        android:layout_marginHorizontal="29pt"
+                        android:layout_marginTop="19pt">
+
+                        <RelativeLayout
                             android:id="@+id/ll_fengnuan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="80pt"
-                            android:gravity="center"
+                            android:layout_width="192pt"
+                            android:layout_height="192pt"
+                            android:background="@mipmap/kuang"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="96pt"
-                                android:layout_height="96pt"
-                                android:layout_marginBottom="10pt"
-                                android:src="@mipmap/youjiate_fengnuan" />
+                                android:layout_width="100pt"
+                                android:layout_height="75pt"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/fengnuan_kaiji" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="18pt"
                                 android:includeFontPadding="false"
                                 android:text="风暖"
-                                android:textColor="@color/color_main"
+                                android:textColor="#16A4DB"
                                 android:textSize="23pt" />
-                        </LinearLayout>
+                        </RelativeLayout>
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:id="@+id/ll_shuinuan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="80pt"
-                            android:gravity="center"
+                            android:layout_width="192pt"
+                            android:layout_height="192pt"
+                            android:layout_centerHorizontal="true"
+                            android:background="@mipmap/kuang"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="96pt"
-                                android:layout_height="96pt"
-                                android:layout_marginBottom="10pt"
-                                android:src="@mipmap/youjaiteshuinuan" />
+                                android:layout_width="109pt"
+                                android:layout_height="49pt"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/shuinuan_kaiji3" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="18pt"
                                 android:includeFontPadding="false"
                                 android:text="水暖"
-                                android:textColor="@color/color_main"
+                                android:textColor="#16A4DB"
                                 android:textSize="23pt" />
-                        </LinearLayout>
+                        </RelativeLayout>
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:id="@+id/ll_kongtiao"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="80pt"
-                            android:gravity="center"
+                            android:layout_width="192pt"
+                            android:layout_height="192pt"
+                            android:layout_alignParentRight="true"
+                            android:background="@mipmap/kuang"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="96pt"
-                                android:layout_height="96pt"
-                                android:layout_marginBottom="10pt"
-                                android:src="@mipmap/youjiate_suanming" />
+                                android:layout_width="110pt"
+                                android:layout_height="60pt"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/img_air_conditioner_open" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="18pt"
                                 android:includeFontPadding="false"
                                 android:text="空调"
-                                android:textColor="@color/color_main"
+                                android:textColor="#16A4DB"
                                 android:textSize="23pt" />
-                        </LinearLayout>
+                        </RelativeLayout>
+                    </RelativeLayout>
 
-                        <LinearLayout
-                            android:id="@+id/ll_gengduo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="96pt"
-                                android:layout_height="96pt"
-                                android:layout_marginBottom="10pt"
-                                android:src="@mipmap/youjiate_geduo" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:includeFontPadding="false"
-                                android:text="更多"
-                                android:textColor="@color/color_main"
-                                android:textSize="23pt" />
-                        </LinearLayout>
-                    </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_shangcheng"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="21pt" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="20pt" />
+                        android:paddingHorizontal="21pt"
+                        android:visibility="gone" />
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-
-        <ImageView
-            android:id="@+id/iv_gouwuche"
-            android:layout_width="88pt"
-            android:layout_height="88pt"
-            android:layout_gravity="bottom|right"
-            android:layout_marginRight="30pt"
-            android:layout_marginBottom="120pt"
-            android:src="@mipmap/youjiate_icon_gouwuche" />
     </FrameLayout>
 </LinearLayout>

@@ -7,14 +7,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.model.Response;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.callback.JsonCallback;
 import com.lipinkeji.cn.config.AppResponse;
@@ -22,6 +20,9 @@ import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
 import com.lipinkeji.cn.get_net.Urls;
 import com.lipinkeji.cn.model.Message;
+import com.lipinkeji.cn.util.Y;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +44,8 @@ public class LoginPwdActivity extends BaseActivity {
     EditText ed_pwd_two;
     @BindView(R.id.bt_ok)
     Button bt_ok;
+    @BindView(R.id.rl_back)
+    RelativeLayout rlBack;
 
     private String sms_id;
     private String sms_code;
@@ -56,29 +59,14 @@ public class LoginPwdActivity extends BaseActivity {
     @Override
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.statusBarColor(R.color.black);
         mImmersionBar.init();
-        mImmersionBar.statusBarDarkFont(true);
     }
 
     @Override
     public boolean showToolBar() {
-        return true;
+        return false;
     }
 
-    @Override
-    protected void initToolbar() {
-        super.initToolbar();
-        mToolbar.setBackgroundColor(Y.getColor(R.color.black));
-        mToolbar.setNavigationIcon(R.mipmap.back_white);
-        tv_title.setTextColor(Y.getColor(R.color.text_blue));
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
 
     /**
      * 用于其他Activty跳转到该Activity
@@ -103,13 +91,23 @@ public class LoginPwdActivity extends BaseActivity {
         sms_id = PreferenceHelper.getInstance(this).getString("SMS_ID", "");
         sms_code = PreferenceHelper.getInstance(this).getString("SMS_CODE", "");
         mod_id = getIntent().getStringExtra("mod_id");
-        tv_title.setText("设置登录密码");
         ed_pwd.setHint("请输入登录密码");
         ed_pwd_two.setHint("请确认登录密码");
     }
 
-    @OnClick(R.id.bt_ok)
-    public void onViewClicked() {
+    @OnClick({R.id.rl_back, R.id.bt_ok})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.rl_back:
+                finish();
+                break;
+            case R.id.bt_ok:
+                clickOk();
+                break;
+        }
+    }
+
+    private void clickOk() {
         String pwd = ed_pwd.getText().toString();
         String pwd_two = ed_pwd_two.getText().toString();
 

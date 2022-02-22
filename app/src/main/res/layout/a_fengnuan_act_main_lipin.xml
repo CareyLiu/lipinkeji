@@ -2,14 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/fn_bg"
+    android:background="#061335"
     android:orientation="vertical">
-
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="138pt"
-        android:background="@color/black">
+        android:layout_height="142pt">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -17,7 +15,7 @@
             android:layout_alignParentBottom="true">
 
             <RelativeLayout
-                android:id="@+id/rl_back"
+                android:id="@+id/bt_back"
                 android:layout_width="88pt"
                 android:layout_height="match_parent">
 
@@ -38,19 +36,6 @@
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />
-
-            <RelativeLayout
-                android:id="@+id/rl_set"
-                android:layout_width="88pt"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true">
-
-                <ImageView
-                    android:layout_width="46pt"
-                    android:layout_height="46pt"
-                    android:layout_centerInParent="true"
-                    android:src="@mipmap/jiareqi_shezhi_icon_white" />
-            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 
@@ -66,56 +51,354 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="352pt"
+                android:layout_marginHorizontal="19pt"
+                android:background="@drawable/bg_fengnuan_radius_10"
+                android:gravity="center_vertical">
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="397pt">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="236pt"
-                        android:background="@mipmap/shuinuan_guang" />
+                        android:layout_width="288pt"
+                        android:layout_height="144pt"
+                        android:layout_marginLeft="21pt"
+                        android:layout_marginTop="133pt"
+                        android:src="@mipmap/fn_zs" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="394pt"
-                        android:layout_centerVertical="true"
-                        android:layout_marginHorizontal="29pt"
-                        android:background="@mipmap/fn_jiareqizhuangshi">
-
-                        <ImageView
-                            android:id="@+id/iv_jiareqi"
-                            android:layout_width="364pt"
-                            android:layout_height="252pt"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="82pt"
-                            android:src="@mipmap/fegnnuan_guanji" />
-                    </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/iv_jiareqi"
+                        android:layout_width="192pt"
+                        android:layout_height="134pt"
+                        android:layout_marginLeft="70pt"
+                        android:layout_marginTop="60pt" />
 
                     <LinearLayout
-                        android:id="@+id/ll_shuoming"
+                        android:id="@+id/ll_dingshi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="60pt"
+                        android:layout_marginBottom="25pt"
                         android:gravity="center"
-                        android:visibility="invisible"
-                        android:paddingVertical="19pt"
-                        android:paddingLeft="29pt">
+                        android:padding="12pt">
 
                         <ImageView
-                            android:layout_width="33pt"
-                            android:layout_height="33pt"
-                            android:src="@mipmap/fn_icon_shumingshu" />
+                            android:layout_width="25pt"
+                            android:layout_height="25pt"
+                            android:layout_marginRight="12pt"
+                            android:src="@mipmap/fn_icon_dingshi" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="8pt"
                             android:includeFontPadding="false"
-                            android:text="风暖说明书"
+                            android:text="定时"
                             android:textColor="@color/white"
-                            android:textSize="27pt" />
+                            android:textSize="23pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="25pt"
+                        android:layout_toRightOf="@id/ll_dingshi"
+                        android:gravity="center"
+                        android:padding="12pt">
+
+                        <ImageView
+                            android:id="@+id/iv_xinhao"
+                            android:layout_width="25pt"
+                            android:layout_height="25pt"
+                            android:layout_marginRight="12pt"
+                            android:src="@mipmap/fengnuan_icon_signal" />
+
+                        <TextView
+                            android:id="@+id/tv_xinhao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="在线"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1pt"
+                    android:layout_height="283pt"
+                    android:background="@color/white" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37pt"
+                        android:layout_marginTop="33pt"
+                        android:includeFontPadding="true"
+                        android:text="加热器状态"
+                        android:textColor="@color/color_lipin"
+                        android:textSize="23pt" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginTop="78pt"
+                        android:layout_toLeftOf="@id/id_line"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_dianya"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="0V"
+                            android:textColor="@color/white"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12pt"
+                            android:includeFontPadding="false"
+                            android:text="当前电压"
+                            android:textColor="@color/white"
+                            android:textSize="20pt" />
+
+                        <TextView
+                            android:id="@+id/tv_chufengkouwendu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25pt"
+                            android:includeFontPadding="false"
+                            android:text="0℃"
+                            android:textColor="@color/white"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12pt"
+                            android:includeFontPadding="false"
+                            android:text="出风口温度"
+                            android:textColor="@color/white"
+                            android:textSize="20pt" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/id_line"
+                        android:layout_width="1pt"
+                        android:layout_height="176pt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="79pt"
+                        android:background="@color/white" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="78pt"
+                        android:layout_marginRight="30pt"
+                        android:layout_toRightOf="@id/id_line"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_huanjingwendu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="0℃"
+                            android:textColor="@color/white"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12pt"
+                            android:includeFontPadding="false"
+                            android:text="环境温度"
+                            android:textColor="@color/white"
+                            android:textSize="20pt" />
+
+                        <TextView
+                            android:id="@+id/tv_rufengkouwendu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25pt"
+                            android:includeFontPadding="false"
+                            android:text="0℃"
+                            android:textColor="@color/white"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12pt"
+                            android:includeFontPadding="false"
+                            android:text="入风口温度"
+                            android:textColor="@color/white"
+                            android:textSize="20pt" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_shebeima"
+                        android:layout_width="247pt"
+                        android:layout_height="44pt"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="32pt"
+                        android:background="@drawable/bg_fengnuan_radius_22"
+                        android:gravity="center"
+                        android:text="设备编码："
+                        android:textColor="@color/white"
+                        android:textSize="17pt" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
+                android:background="@drawable/bg_fengnuan_radius_10"
+                android:gravity="center_vertical"
+                android:paddingLeft="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="18pt"
+                    android:includeFontPadding="false"
+                    android:text="工作状态"
+                    android:textColor="@color/white"
+                    android:textSize="23pt" />
+
+                <View
+                    android:layout_width="1pt"
+                    android:layout_height="50pt"
+                    android:layout_marginRight="18pt"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_dangqianzhuangtai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="18pt"
+                    android:includeFontPadding="false"
+                    android:text="加热器增温：3档"
+                    android:textColor="@color/white"
+                    android:textSize="23pt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
+                android:background="@drawable/bg_fengnuan_radius_10"
+                android:gravity="center_vertical"
+                android:paddingLeft="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="18pt"
+                    android:includeFontPadding="false"
+                    android:text="有效期至"
+                    android:textColor="@color/white"
+                    android:textSize="23pt" />
+
+                <View
+                    android:layout_width="1pt"
+                    android:layout_height="50pt"
+                    android:layout_marginRight="18pt"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_youxiaoqi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="18pt"
+                    android:includeFontPadding="false"
+                    android:text="2022-01-24  17：29：12"
+                    android:textColor="@color/white"
+                    android:textSize="23pt" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="480pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
+                android:background="@drawable/bg_fengnuan_radius_10"
+                android:gravity="center">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/fn_anjiandg">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38pt"
+                        android:layout_marginTop="124pt"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_dangwei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5pt"
+                            android:includeFontPadding="false"
+                            android:text="--档"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+
+                        <ImageView
+                            android:id="@+id/view_dangwei5"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
+
+                        <ImageView
+                            android:id="@+id/view_dangwei4"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
+
+                        <ImageView
+                            android:id="@+id/view_dangwei3"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
+
+                        <ImageView
+                            android:id="@+id/view_dangwei2"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
+
+
+                        <ImageView
+                            android:id="@+id/view_dangwei1"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
                     </LinearLayout>
 
 
@@ -123,346 +406,203 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginTop="19pt"
+                        android:layout_marginTop="124pt"
+                        android:layout_marginRight="38pt"
+                        android:gravity="center_horizontal"
                         android:orientation="vertical">
 
-                        <LinearLayout
-                            android:id="@+id/ll_dingshi"
+                        <TextView
+                            android:id="@+id/tv_wendu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:paddingRight="29pt">
+                            android:layout_marginBottom="5pt"
+                            android:includeFontPadding="false"
+                            android:text="--℃"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
 
-                            <ImageView
-                                android:layout_width="33pt"
-                                android:layout_height="33pt"
-                                android:layout_marginRight="14pt"
-                                android:src="@mipmap/fn_icon_dingshi" />
+                        <ImageView
+                            android:id="@+id/view_wendu5"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:includeFontPadding="false"
-                                android:text="定时"
-                                android:textColor="@color/white"
-                                android:textSize="27pt" />
-                        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/view_wendu4"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5pt"
-                            android:gravity="center"
-                            android:paddingRight="29pt">
+                        <ImageView
+                            android:id="@+id/view_wendu3"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
 
-                            <ImageView
-                                android:id="@+id/iv_xinhao"
-                                android:layout_width="33pt"
-                                android:layout_height="33pt"
-                                android:layout_marginRight="14pt"
-                                android:src="@mipmap/fengnuan_icon_signal" />
+                        <ImageView
+                            android:id="@+id/view_wendu2"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
 
-                            <TextView
-                                android:id="@+id/tv_xinhao"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:includeFontPadding="false"
-                                android:text="在线"
-                                android:textColor="@color/white"
-                                android:textSize="27pt" />
-                        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/view_wendu1"
+                            android:layout_width="77pt"
+                            android:layout_height="48pt"
+                            android:src="@mipmap/fn_dangkuangdi" />
                     </LinearLayout>
-                </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="416pt"
-                            android:layout_marginBottom="20pt"
-                            android:orientation="horizontal"
-                            android:paddingHorizontal="36pt">
-
-                            <LinearLayout
-                                android:layout_width="141pt"
-                                android:layout_height="match_parent"
-                                android:background="@mipmap/fn_dang"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/tv_dangwei"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10pt"
-                                    android:layout_marginBottom="5pt"
-                                    android:includeFontPadding="false"
-                                    android:text="--档"
-                                    android:textColor="@color/color_main"
-                                    android:textSize="29pt" />
-
-                                <View
-                                    android:id="@+id/view_dangwei5"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_dangwei4"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_dangwei3"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_dangwei2"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_dangwei1"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:background="@color/color_main" />
-                            </LinearLayout>
-
-                            <RelativeLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-
-                                <ImageView
-                                    android:id="@+id/bt_kaiguan"
-                                    android:layout_width="284pt"
-                                    android:layout_height="284pt"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="26pt"
-                                    android:src="@mipmap/stop_nor" />
-
-                                <LinearLayout
-                                    android:id="@+id/ll_add"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_marginLeft="23pt"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:id="@+id/iv_add"
-                                        android:layout_width="96pt"
-                                        android:layout_height="92pt"
-                                        android:layout_marginBottom="12pt"
-                                        android:src="@mipmap/fn_jiadang" />
-
-                                    <TextView
-                                        android:id="@+id/tv_add"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:includeFontPadding="false"
-                                        android:text="加档"
-                                        android:textColor="@color/color_main"
-                                        android:textSize="29pt" />
-                                </LinearLayout>
-
-
-                                <LinearLayout
-                                    android:id="@+id/ll_reduce"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_marginRight="23pt"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:id="@+id/iv_reduce"
-                                        android:layout_width="96pt"
-                                        android:layout_height="92pt"
-                                        android:layout_marginBottom="12pt"
-                                        android:src="@mipmap/fn_jiandang" />
-
-                                    <TextView
-                                        android:id="@+id/tv_reduce"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:includeFontPadding="false"
-                                        android:text="减档"
-                                        android:textColor="@color/color_main"
-                                        android:textSize="29pt" />
-                                </LinearLayout>
-
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="141pt"
-                                android:layout_height="match_parent"
-                                android:background="@mipmap/fn_du"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/tv_wendu"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10pt"
-                                    android:layout_marginBottom="5pt"
-                                    android:includeFontPadding="false"
-                                    android:text="--档"
-                                    android:textColor="@color/color_main"
-                                    android:textSize="29pt" />
-
-                                <View
-                                    android:id="@+id/view_wendu5"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_wendu4"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_wendu3"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_wendu2"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:layout_marginBottom="16pt"
-                                    android:background="@color/color_main" />
-
-                                <View
-                                    android:id="@+id/view_wendu1"
-                                    android:layout_width="67pt"
-                                    android:layout_height="42pt"
-                                    android:background="@color/color_main" />
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22pt"
-                            android:paddingHorizontal="40pt">
-
-                            <TextView
-                                android:id="@+id/iv_mode_shoudong"
-                                android:layout_width="267pt"
-                                android:layout_height="86pt"
-                                android:background="@mipmap/fn_btn_moshi_nor"
-                                android:gravity="center"
-                                android:text="手动模式"
-                                android:textColor="@color/color_main"
-                                android:textSize="35pt"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/iv_mode_hengwen"
-                                android:layout_width="267pt"
-                                android:layout_height="86pt"
-                                android:layout_alignParentRight="true"
-                                android:background="@mipmap/fn_btn_moshi_nor"
-                                android:gravity="center"
-                                android:text="恒温模式"
-                                android:textColor="@color/color_main"
-                                android:textSize="35pt"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
-                    </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="232pt"
-                        android:layout_marginHorizontal="29pt"
-                        android:layout_marginTop="16pt"
-                        android:layout_marginBottom="28pt"
-                        android:background="@mipmap/fn_jrqizt">
+                        android:layout_width="422pt"
+                        android:layout_height="422pt"
+                        android:layout_centerInParent="true"
+                        android:rotation="45">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="52pt"
-                            android:includeFontPadding="false"
-                            android:text="加热器状态"
-                            android:textColor="@color/white"
-                            android:textSize="29pt" />
+                        <View
+                            android:id="@+id/bt1"
+                            android:layout_width="211pt"
+                            android:layout_height="211pt" />
 
-                        <TextView
-                            android:id="@+id/tv_dianya"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="63pt"
-                            android:layout_marginTop="108pt"
-                            android:includeFontPadding="false"
-                            android:text="当前电压：0V"
-                            android:textColor="@color/white"
-                            android:textSize="29pt" />
+                        <View
+                            android:id="@+id/bt2"
+                            android:layout_width="211pt"
+                            android:layout_height="211pt"
+                            android:layout_alignParentRight="true" />
 
-                        <TextView
-                            android:id="@+id/tv_chufengkouwendu"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="63pt"
-                            android:layout_marginTop="163pt"
-                            android:includeFontPadding="false"
-                            android:text="出风口温度：0℃"
-                            android:textColor="@color/white"
-                            android:textSize="29pt" />
+                        <View
+                            android:id="@+id/bt3"
+                            android:layout_width="211pt"
+                            android:layout_height="211pt"
+                            android:layout_alignParentBottom="true" />
 
-                        <TextView
-                            android:id="@+id/tv_huanjingwendu"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="351pt"
-                            android:layout_marginTop="108pt"
-                            android:includeFontPadding="false"
-                            android:text="环境温度：0℃"
-                            android:textColor="@color/white"
-                            android:textSize="29pt" />
-
-                        <TextView
-                            android:id="@+id/tv_rufengkouwendu"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="351pt"
-                            android:layout_marginTop="163pt"
-                            android:includeFontPadding="false"
-                            android:text="入风口温度：0℃"
-                            android:textColor="@color/white"
-                            android:textSize="29pt" />
+                        <View
+                            android:id="@+id/bt4"
+                            android:layout_width="211pt"
+                            android:layout_height="211pt"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true" />
                     </RelativeLayout>
-                </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="58pt"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_mode_shoudong"
+                            android:layout_width="58pt"
+                            android:layout_height="58pt"
+                            android:layout_marginBottom="3pt"
+                            android:src="@mipmap/fn_shoudong" />
+
+                        <TextView
+                            android:id="@+id/tv_mode_shoudong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="档位模式"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="162pt"
+                        android:layout_marginTop="202pt"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_jia"
+                            android:layout_width="58pt"
+                            android:layout_height="58pt"
+                            android:layout_marginBottom="3pt"
+                            android:src="@mipmap/fn_jia" />
+
+                        <TextView
+                            android:id="@+id/tv_jia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="加"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="463pt"
+                        android:layout_marginTop="202pt"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_jian"
+                            android:layout_width="58pt"
+                            android:layout_height="58pt"
+                            android:layout_marginBottom="3pt"
+                            android:src="@mipmap/fn_jian" />
+
+                        <TextView
+                            android:id="@+id/tv_jian"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="减"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="44pt"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_mode_zidong"
+                            android:layout_width="58pt"
+                            android:layout_height="58pt"
+                            android:layout_marginBottom="3pt"
+                            android:src="@mipmap/fn_zd" />
+
+                        <TextView
+                            android:id="@+id/tv_mode_zidong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="恒温模式"
+                            android:textColor="@color/white"
+                            android:textSize="23pt" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/bt5"
+                        android:layout_width="163pt"
+                        android:layout_height="163pt"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/bt_set"
+                android:layout_width="match_parent"
+                android:layout_height="66pt"
+                android:layout_marginHorizontal="23pt"
+                android:layout_marginTop="52pt"
+                android:layout_marginBottom="44pt"
+                android:background="@drawable/bg_fengnuan_radius_bt"
+                android:gravity="center"
+                android:text="功能设置"
+                android:textColor="@color/white"
+                android:textSize="23pt" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>
