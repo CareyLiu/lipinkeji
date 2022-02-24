@@ -283,7 +283,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         if (msg.contains("m")) {
             dismissProgressDialog();
             handlerStart.removeMessages(1);
-            msg = "aa" + msg;
+            msg = "aa" + msg;//加占位符
             //12v点火塞功率  60 - 100w
             dianhuosai12V = Y.getInt(msg.substring(3, 6));
             //24v点火塞功率  60 - 100w

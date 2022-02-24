@@ -615,7 +615,7 @@
                     <TextView
                         android:id="@+id/tv_dianya_12v"
                         android:layout_width="144pt"
-                        android:layout_height="wrap_content"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"

@@ -41,6 +41,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ll_wendu_shangxian"
         android:layout_width="match_parent"
         android:layout_height="115pt"
         android:layout_marginHorizontal="19pt"
@@ -62,11 +63,12 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_wendu_shangxian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="温度范围0-35，默32"
             android:textColor="@color/white"
-            android:textSize="19pt"
+            android:textSize="17pt"
             android:textStyle="bold" />
 
         <View
@@ -75,12 +77,14 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/iv_wendu_shangxian"
             android:layout_width="186pt"
             android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_wendu_xiaxian"
         android:layout_width="match_parent"
         android:layout_height="115pt"
         android:layout_marginHorizontal="19pt"
@@ -103,11 +107,12 @@
 
 
         <TextView
+            android:id="@+id/tv_wendu_xiaxian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="温度范围035，默认5"
+            android:text="温度范围0-35，默认5"
             android:textColor="@color/white"
-            android:textSize="19pt"
+            android:textSize="17pt"
             android:textStyle="bold" />
 
         <View
@@ -116,6 +121,7 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/iv_wendu_xiaxian"
             android:layout_width="186pt"
             android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
@@ -148,13 +154,14 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/iv_wendu_hengwen"
             android:layout_width="186pt"
             android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_kaiji_tiem"
+        android:id="@+id/ll_wendu_kaiji"
         android:layout_width="match_parent"
         android:layout_height="115pt"
         android:layout_marginHorizontal="19pt"
@@ -171,17 +178,17 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20pt"
             android:includeFontPadding="false"
-            android:text="定时开机"
+            android:text="监测温度开机"
             android:textColor="@color/white"
             android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_kaiji_time"
+            android:id="@+id/tv_wendu_kaiji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
-            android:text="--"
+            android:text="---"
             android:textColor="#F7FF00"
             android:textSize="29pt"
             android:textStyle="bold" />
@@ -202,14 +209,14 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/iv_swich_kaiji"
+            android:id="@+id/iv_wendu_kaiji"
             android:layout_width="186pt"
             android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_guanji_time"
+        android:id="@+id/ll_wendu_guanji"
         android:layout_width="match_parent"
         android:layout_height="115pt"
         android:layout_marginHorizontal="19pt"
@@ -225,17 +232,17 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20pt"
             android:includeFontPadding="false"
-            android:text="定时关机"
+            android:text="监测温度关机"
             android:textColor="@color/white"
             android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_guanji_time"
+            android:id="@+id/tv_wendu_guanji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
-            android:text="--"
+            android:text="---"
             android:textColor="#F7FF00"
             android:textSize="29pt"
             android:textStyle="bold" />
@@ -250,16 +257,29 @@
             android:textSize="29pt"
             android:textStyle="bold" />
 
-
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/iv_swich_guanji"
+            android:id="@+id/iv_wendu_guanji"
             android:layout_width="186pt"
             android:layout_height="60pt"
             android:src="@mipmap/wd_btn_gianbi" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/bt_save"
+        android:layout_width="match_parent"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
+        android:layout_marginTop="19pt"
+        android:background="#16A3DA"
+        android:gravity="center"
+        android:text="保存设置"
+        android:textColor="@color/white"
+        android:textSize="33pt"
+        android:textStyle="bold" />
 </LinearLayout>
+

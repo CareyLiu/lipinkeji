@@ -43,8 +43,8 @@
     <LinearLayout
         android:id="@+id/ll_wendu_shangxian"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -59,7 +59,7 @@
             android:includeFontPadding="false"
             android:text="温度上限设置"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -86,8 +86,8 @@
     <LinearLayout
         android:id="@+id/ll_wendu_xiaxian"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -102,7 +102,7 @@
             android:includeFontPadding="false"
             android:text="温度下限设置"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
 
@@ -129,8 +129,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -145,7 +145,7 @@
             android:includeFontPadding="false"
             android:text="自动恒温设置"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <View
@@ -163,8 +163,8 @@
     <LinearLayout
         android:id="@+id/ll_wendu_kaiji"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -180,7 +180,7 @@
             android:includeFontPadding="false"
             android:text="监测温度开机"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -190,7 +190,7 @@
             android:includeFontPadding="false"
             android:text="---"
             android:textColor="#F7FF00"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -200,7 +200,7 @@
             android:includeFontPadding="false"
             android:text="℃"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <View
@@ -218,8 +218,8 @@
     <LinearLayout
         android:id="@+id/ll_wendu_guanji"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="20pt"
         android:background="@mipmap/wd_kuang"
         android:gravity="center_vertical"
@@ -234,7 +234,7 @@
             android:includeFontPadding="false"
             android:text="监测温度关机"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -244,7 +244,7 @@
             android:includeFontPadding="false"
             android:text="---"
             android:textColor="#F7FF00"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
 
         <TextView
@@ -254,9 +254,8 @@
             android:includeFontPadding="false"
             android:text="℃"
             android:textColor="@color/white"
-            android:textSize="27pt"
+            android:textSize="29pt"
             android:textStyle="bold" />
-
 
         <View
             android:layout_width="0dp"
@@ -273,13 +272,13 @@
     <TextView
         android:id="@+id/bt_save"
         android:layout_width="match_parent"
-        android:layout_height="90pt"
-        android:layout_marginHorizontal="29pt"
+        android:layout_height="115pt"
+        android:layout_marginHorizontal="19pt"
         android:layout_marginTop="19pt"
         android:background="#16A3DA"
         android:gravity="center"
         android:text="保存设置"
         android:textColor="@color/white"
-        android:textSize="27pt"
+        android:textSize="33pt"
         android:textStyle="bold" />
 </LinearLayout>

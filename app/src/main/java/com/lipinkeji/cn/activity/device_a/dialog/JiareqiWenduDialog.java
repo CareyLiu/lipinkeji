@@ -130,7 +130,17 @@ public class JiareqiWenduDialog extends Dialog implements View.OnClickListener {
     public void setType(String type, String wendu) {
         this.type = type;
         this.wendu = wendu;
-        if (type.equals("3")) {
+        if (type.equals("1")) {
+            seekBar.setMin(0);
+            seekBar.setMax(35);
+            tv_content.setText("温度范围0-35，当前" + wendu);
+            tv_title.setText("温度上限设置");
+        } else if (type.equals("2")) {
+            seekBar.setMin(0);
+            seekBar.setMax(35);
+            tv_content.setText("温度范围0-35，当前" + wendu);
+            tv_title.setText("温度下限设置");
+        } else if (type.equals("3")) {
             seekBar.setMin(50);
             seekBar.setMax(85);
             tv_content.setText("温度范围50-85，当前" + wendu);

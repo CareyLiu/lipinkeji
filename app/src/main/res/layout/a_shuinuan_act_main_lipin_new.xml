@@ -84,9 +84,22 @@
                     <ImageView
                         android:id="@+id/iv_jiareqi"
                         android:layout_width="192pt"
-                        android:layout_height="134pt"
-                        android:layout_centerHorizontal="true" />
+                        android:layout_height="85pt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="25pt" />
 
+                    <ImageView
+                        android:id="@+id/iv_jiareqi_xiao_kaiji"
+                        android:layout_width="192pt"
+                        android:layout_height="167pt"
+                        android:layout_marginLeft="230pt" />
+
+                    <ImageView
+                        android:id="@+id/iv_jiareqi_xiao_guanji"
+                        android:layout_width="160pt"
+                        android:layout_height="138pt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20pt" />
 
                     <TextView
                         android:id="@+id/tv_shebeima"

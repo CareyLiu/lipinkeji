@@ -2,8 +2,6 @@ package com.lipinkeji.cn.activity.device_shuinuan;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,7 +16,6 @@ import android.widget.TextView;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.dialog.GuzhangDialog;
-import com.lipinkeji.cn.activity.device_fengnuan.FengnuanDingshiActivity;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
@@ -92,6 +89,10 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     TextView bt_set;
     @BindView(R.id.smartRefreshLayout)
     SmartRefreshLayout smartRefreshLayout;
+    @BindView(R.id.iv_jiareqi_xiao_kaiji)
+    ImageView iv_jiareqi_xiao_kaiji;
+    @BindView(R.id.iv_jiareqi_xiao_guanji)
+    ImageView iv_jiareqi_xiao_guanji;
 
     private GuzhangDialog guzhangDialog;
     private String sim_ccid_save_type;
@@ -178,6 +179,9 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         typeZaixian = 3;
 
         jitan_state = "0";
+        shuibeng_state = "0";
+        youbeng_state = "0";
+
         isJitan = false;
     }
 
@@ -990,12 +994,19 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         isKaiji = false;
 
         if (jiareqiType.equals("2")) {
-            iv_jiareqi.setBackgroundResource(R.mipmap.wzw_xiaoshui_shebei_nor);
+            iv_jiareqi.setVisibility(View.GONE);
+            iv_jiareqi_xiao_kaiji.setVisibility(View.GONE);
+            iv_jiareqi_xiao_guanji.setVisibility(View.VISIBLE);
+            iv_jiareqi_xiao_guanji.setBackgroundResource(R.mipmap.wzw_xiaoshui_shebei_nor);
         } else if (jiareqiType.equals("4")) {
+            iv_jiareqi.setVisibility(View.VISIBLE);
             iv_jiareqi.setBackgroundResource(R.drawable.shuinuan_guanji);
+
+            iv_jiareqi_xiao_kaiji.setVisibility(View.GONE);
+            iv_jiareqi_xiao_guanji.setVisibility(View.GONE);
         }
 
-        bt_kaiji.setBackgroundResource(R.mipmap.sn_kaiguan_nor);
+        bt_kaiji.setImageResource(R.mipmap.sn_kaiguan_nor);
 
         bt_shuibeng.setBackgroundResource(R.mipmap.sn_anjian_nor);
         bt_youbeng.setBackgroundResource(R.mipmap.sn_anjian_nor);
@@ -1009,15 +1020,25 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         isJitan = false;
 
         if (jiareqiType.equals("2")) {
-            iv_jiareqi.setBackgroundResource(R.drawable.shuinuan_kaiji_xiao);
+            iv_jiareqi.setVisibility(View.GONE);
+            iv_jiareqi_xiao_guanji.setVisibility(View.GONE);
+            iv_jiareqi_xiao_kaiji.setVisibility(View.VISIBLE);
+            iv_jiareqi_xiao_kaiji.setBackgroundResource(R.drawable.shuinuan_kaiji_xiao);
+
+            AnimationDrawable animationDrawable = (AnimationDrawable) iv_jiareqi_xiao_kaiji.getBackground();
+            animationDrawable.start();
         } else if (jiareqiType.equals("4")) {
+            iv_jiareqi_xiao_guanji.setVisibility(View.GONE);
+            iv_jiareqi_xiao_kaiji.setVisibility(View.GONE);
+
+            iv_jiareqi.setVisibility(View.VISIBLE);
             iv_jiareqi.setBackgroundResource(R.drawable.shuinuan_kaiji);
+
+            AnimationDrawable animationDrawable = (AnimationDrawable) iv_jiareqi.getBackground();
+            animationDrawable.start();
         }
 
-        AnimationDrawable animationDrawable = (AnimationDrawable) iv_jiareqi.getBackground();
-        animationDrawable.start();
-
-        bt_kaiji.setBackgroundResource(R.mipmap.sn_kaiguan_sel);
+        bt_kaiji.setImageResource(R.mipmap.sn_kaiguan_sel);
 
         if (shuibeng_state.equals("1")) {
             bt_shuibeng.setBackgroundResource(R.mipmap.sn_anjian_sel);

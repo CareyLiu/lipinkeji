@@ -208,7 +208,7 @@
                     <TextView
                         android:id="@+id/tv_dianhuosai_jingci"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
@@ -220,7 +220,7 @@
                     <TextView
                         android:id="@+id/tv_dianhuosai_limai"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
@@ -232,7 +232,7 @@
                     <TextView
                         android:id="@+id/tv_dianhuosai_gaide"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
@@ -245,7 +245,7 @@
                     <TextView
                         android:id="@+id/tv_dianhuosai_tuobo"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"

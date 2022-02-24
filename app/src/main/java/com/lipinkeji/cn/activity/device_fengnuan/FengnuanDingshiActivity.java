@@ -449,7 +449,7 @@ public class FengnuanDingshiActivity extends BaseActivity {
 
                     @Override
                     public void onError(Response<AppResponse<DingShiResultModel.DataBean>> response) {
-                        UIHelper.ToastMessage(mContext, response.body().msg);
+                        Y.tError(response);
                     }
                 });
     }
