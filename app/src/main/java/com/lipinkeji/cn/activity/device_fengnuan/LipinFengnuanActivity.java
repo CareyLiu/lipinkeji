@@ -25,6 +25,7 @@ import com.lipinkeji.cn.config.MyApplication;
 import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.dialog.MyCarCaoZuoDialog_Notify;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
+import com.lipinkeji.cn.get_net.Urls;
 import com.lipinkeji.cn.util.DoMqttValue;
 import com.lipinkeji.cn.util.SoundPoolUtils;
 import com.lipinkeji.cn.util.Y;
@@ -128,6 +129,10 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
     ImageView iv_mode_zidong;
     @BindView(R.id.tv_mode_zidong)
     TextView tv_mode_zidong;
+    @BindView(R.id.bt_tongfeng)
+    TextView bt_tongfeng;
+    @BindView(R.id.bt_bengyou)
+    TextView bt_bengyou;
 
     private boolean isFirst;//是否第一次进入
     private boolean isKaiji;//是否开机
@@ -140,6 +145,8 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
     private String dangwei;
     private String yushewendu;
     private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
+    private TishiDialog bengyouDialog;
+    private TishiDialog tongfengDialog;
 
     private String sim_ccid_save_type;
     public static String messageData;
@@ -182,7 +189,7 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
     private void initData() {
         String ccid = PreferenceHelper.getInstance(mContext).getString("ccid", "");
         ccid = ccid.replace("a", "");
-        tv_shebeima.setText("设备编码："+ccid);
+        tv_shebeima.setText("设备编码：" + ccid);
 
 
         String validdate = PreferenceHelper.getInstance(mContext).getString("validdate", "0");
@@ -205,6 +212,8 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         bt1.setOnLongClickListener(this);
         bt4.setOnLongClickListener(this);
         bt5.setOnLongClickListener(this);
+        bt_tongfeng.setOnLongClickListener(this);
+        bt_bengyou.setOnLongClickListener(this);
     }
 
     private void initMqtt() {
@@ -364,6 +373,10 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
             setUiHengwen();
         } else if (jiareqizhuangtai.equals("3")) {
             setUiGuanji();
+        } else if (jiareqizhuangtai.equals("6")) {
+            setUiBengyou();
+        } else if (jiareqizhuangtai.equals("7")) {
+            setUiTongfeng();
         } else {
             setUiGuanji();
         }
@@ -524,7 +537,65 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
             }
         });
         myCarCaoZuoDialog_notify.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG);
+
+        initTongfeng();
+        initBengyou();
     }
+
+    private void initTongfeng() {
+        tongfengDialog = new TishiDialog(mContext, TishiDialog.TYPE_XIAOXI, new TishiDialog.TishiDialogListener() {
+            @Override
+            public void onClickCancel(View v, TishiDialog dialog) {
+
+            }
+
+            @Override
+            public void onClickConfirm(View v, TishiDialog dialog) {
+                tongfengDialog.setTextConfirm("正在停止...");
+                typeMingling = 3;
+                sendMingling();
+                initHandlerMingling();
+            }
+
+            @Override
+            public void onDismiss(TishiDialog dialog) {
+
+            }
+        });
+        tongfengDialog.setTextTitle("预通风模式运行中");
+        tongfengDialog.setTextContent("正在通风");
+        tongfengDialog.setTextConfirm("停止通风");
+        tongfengDialog.setTextCancel("");
+        tongfengDialog.setDismissAfterClick(false);
+    }
+
+    private void initBengyou() {
+        bengyouDialog = new TishiDialog(mContext, TishiDialog.TYPE_XIAOXI, new TishiDialog.TishiDialogListener() {
+            @Override
+            public void onClickCancel(View v, TishiDialog dialog) {
+
+            }
+
+            @Override
+            public void onClickConfirm(View v, TishiDialog dialog) {
+                bengyouDialog.setTextConfirm("正在停止...");
+                typeMingling = 3;
+                sendMingling();
+                initHandlerMingling();
+            }
+
+            @Override
+            public void onDismiss(TishiDialog dialog) {
+
+            }
+        });
+        bengyouDialog.setTextTitle("预泵油模式运行中");
+        bengyouDialog.setTextContent("正在泵油");
+        bengyouDialog.setTextConfirm("停止泵油");
+        bengyouDialog.setTextCancel("");
+        bengyouDialog.setDismissAfterClick(false);
+    }
+
 
     @OnClick({R.id.bt_back, R.id.ll_dingshi, R.id.bt_set, R.id.bt2, R.id.bt3})
     public void onViewClicked(View view) {
@@ -562,6 +633,12 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
                 case R.id.bt5:
                     kaiguan();
                     break;
+                case R.id.bt_tongfeng:
+                    clickTongfeng();
+                    break;
+                case R.id.bt_bengyou:
+                    clickBengyou();
+                    break;
             }
         } else if (typeZaixian == 3) {
             Y.t("正在连接设备，请稍后...");
@@ -570,6 +647,33 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         }
         return false;
     }
+
+    private void clickBengyou() {
+        if (isKaiji) {
+            Y.t("请关机后再执行泵油操作！");
+            return;
+        }
+
+        SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
+        typeMingling = 4;//预泵油
+        setUiBengyou();
+        sendMingling();
+        initHandlerMingling();
+    }
+
+    private void clickTongfeng() {
+        if (isKaiji) {
+            Y.t("请关机后再执行通风操作！");
+            return;
+        }
+
+        SoundPoolUtils.soundPool(mContext, R.raw.yutongfeng);
+        typeMingling = 5;//预通风
+        setUiTongfeng();
+        sendMingling();
+        initHandlerMingling();
+    }
+
 
     private void clickUp() {
         if (typeZaixian != 1) {
@@ -813,6 +917,14 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         tv_jian.setTextColor(Y.getColor(R.color.color_lipin));
 
         tv_dangqianzhuangtai.setText("档位模式：" + dangwei + "档");
+
+        if (bengyouDialog != null && bengyouDialog.isShowing()) {
+            bengyouDialog.dismiss();
+        }
+
+        if (tongfengDialog != null && tongfengDialog.isShowing()) {
+            tongfengDialog.dismiss();
+        }
     }
 
     private void setUiHengwen() {
@@ -835,6 +947,14 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         tv_jian.setTextColor(Y.getColor(R.color.color_lipin));
 
         tv_dangqianzhuangtai.setText("恒温模式：" + yushewendu + "℃");
+
+        if (bengyouDialog != null && bengyouDialog.isShowing()) {
+            bengyouDialog.dismiss();
+        }
+
+        if (tongfengDialog != null && tongfengDialog.isShowing()) {
+            tongfengDialog.dismiss();
+        }
     }
 
     private void setUiGuanji() {
@@ -861,6 +981,48 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         tv_jian.setTextColor(Y.getColor(R.color.white));
 
         tv_dangqianzhuangtai.setText("设备已关闭");
+
+
+        bt_tongfeng.setBackgroundResource(R.mipmap.fn_btn_moshi_nor);
+        bt_tongfeng.setTextColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
+
+        bt_bengyou.setBackgroundResource(R.mipmap.fn_btn_moshi_nor);
+        bt_bengyou.setTextColor(Y.getColor(R.color.yjt_danwei_wendu_nor));
+
+        if (bengyouDialog != null && bengyouDialog.isShowing()) {
+            bengyouDialog.dismiss();
+        }
+
+        if (tongfengDialog != null && tongfengDialog.isShowing()) {
+            tongfengDialog.dismiss();
+        }
+    }
+
+
+    private void setUiBengyou() {
+        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji_mode).into(iv_jiareqi);
+        isKaiji = false;
+        bt_bengyou.setBackgroundResource(R.mipmap.fn_btn_moshi_sel);
+        bt_bengyou.setTextColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+        bengyouDialog.setTextConfirm("停止泵油");
+        if (bengyouDialog != null && !bengyouDialog.isShowing()) {
+            bengyouDialog.show();
+        }
+
+        tv_dangqianzhuangtai.setText("预泵油");
+    }
+
+    private void setUiTongfeng() {
+        Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji_mode).into(iv_jiareqi);
+        isKaiji = false;
+        bt_tongfeng.setBackgroundResource(R.mipmap.fn_btn_moshi_sel);
+        bt_tongfeng.setTextColor(Y.getColor(R.color.yjt_danwei_wendu_sel));
+        tongfengDialog.setTextConfirm("停止通风");
+        if (tongfengDialog != null && !tongfengDialog.isShowing()) {
+            tongfengDialog.show();
+        }
+
+        tv_dangqianzhuangtai.setText("预通风");
     }
 
     private void sendMingling() {

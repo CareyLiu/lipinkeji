@@ -591,6 +591,37 @@
                 </RelativeLayout>
             </LinearLayout>
 
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="55pt"
+                android:layout_marginTop="30pt">
+
+                <TextView
+                    android:id="@+id/bt_tongfeng"
+                    android:layout_width="280pt"
+                    android:layout_height="80pt"
+                    android:background="@mipmap/fn_btn_moshi_nor"
+                    android:gravity="center"
+                    android:text="预通风"
+                    android:textColor="@color/yjt_danwei_wendu_nor"
+                    android:textSize="35pt" />
+
+
+                <TextView
+                    android:id="@+id/bt_bengyou"
+                    android:layout_width="280pt"
+                    android:layout_height="80pt"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/fn_btn_moshi_nor"
+                    android:gravity="center"
+                    android:text="预泵油"
+                    android:textColor="@color/yjt_danwei_wendu_nor"
+                    android:textSize="35pt" />
+            </RelativeLayout>
+
+
             <TextView
                 android:id="@+id/bt_set"
                 android:layout_width="match_parent"
