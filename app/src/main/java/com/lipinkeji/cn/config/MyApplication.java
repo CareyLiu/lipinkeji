@@ -97,8 +97,7 @@ public class MyApplication extends MultiDexApplication {
         if (Urls.SERVER_URL.equals("https://shop.hljsdkj.com/")) {
             return "tcp://mqtt.hljsdkj.com";
         } else {
-//            return "tcp://mqrn.hljsdkj.com";
-            return "tcp://mqtt.hljsdkj.com";
+            return "tcp://mqrn.hljsdkj.com";
         }
     }
 

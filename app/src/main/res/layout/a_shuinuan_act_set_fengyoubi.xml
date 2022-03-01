@@ -81,7 +81,7 @@
                     android:gravity="center"
                     android:text="1档"
                     android:textColor="@color/white"
-                    android:textSize="29pt" />
+                    android:textSize="27pt" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -99,16 +99,17 @@
                             android:includeFontPadding="false"
                             android:text="风机转速"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
 
                         <EditText
-                            android:layout_width="115pt"
+                            android:id="@+id/ed_1dan_fengji"
+                            android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
                             android:background="@drawable/bg_fengyoubi_xian"
                             android:gravity="center"
                             android:inputType="number"
-                            android:text="700"
+                            android:text="3000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -116,9 +117,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：600-5500"
+                            android:text="参数范围：3000-8000"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -132,10 +133,11 @@
                             android:includeFontPadding="false"
                             android:text="油泵频率"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
 
                         <EditText
-                            android:layout_width="115pt"
+                            android:id="@+id/ed_1dan_youbeng"
+                            android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
                             android:background="@drawable/bg_fengyoubi_xian"
@@ -149,9 +151,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-6.00"
+                            android:text="参数范围：0.50-16.00"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -173,7 +175,7 @@
                     android:gravity="center"
                     android:text="2档"
                     android:textColor="@color/white"
-                    android:textSize="29pt" />
+                    android:textSize="27pt" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -191,16 +193,17 @@
                             android:includeFontPadding="false"
                             android:text="风机转速"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
 
                         <EditText
-                            android:layout_width="115pt"
-                            android:layout_height="32pt"
+                            android:id="@+id/ed_2dan_fengji"
+                            android:layout_width="105pt"
+                            android:layout_height="22dp"
                             android:layout_marginHorizontal="10pt"
                             android:background="@drawable/bg_fengyoubi_xian"
                             android:gravity="center"
                             android:inputType="number"
-                            android:text="700"
+                            android:text="3000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -208,9 +211,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：600-5500"
+                            android:text="参数范围：3000-8000"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -224,10 +227,11 @@
                             android:includeFontPadding="false"
                             android:text="油泵频率"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
 
                         <EditText
-                            android:layout_width="115pt"
+                            android:id="@+id/ed_2dan_youbeng"
+                            android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
                             android:background="@drawable/bg_fengyoubi_xian"
@@ -241,9 +245,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-6.00"
+                            android:text="参数范围：0.50-16.00"
                             android:textColor="@color/white"
-                            android:textSize="29pt" />
+                            android:textSize="27pt" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

@@ -152,7 +152,7 @@ public class Y {
      * 获取Money
      */
     public static String getMoney(float money) {
-        String format = new DecimalFormat("#.##").format(money);
+        String format = new DecimalFormat("##0.00").format(money);
         return format;
     }
 
