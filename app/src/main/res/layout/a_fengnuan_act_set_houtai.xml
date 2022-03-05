@@ -656,7 +656,7 @@
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="#16A3DA"
+                android:background="@mipmap/wd_kuang"
                 android:gravity="center"
                 android:text="保存设置"
                 android:textColor="@color/white"

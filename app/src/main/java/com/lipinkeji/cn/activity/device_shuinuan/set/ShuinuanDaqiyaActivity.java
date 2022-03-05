@@ -126,18 +126,20 @@ public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
                 .execute(new JsonCallback<AppResponse<AtmosBean.DataBean>>() {
                     @Override
                     public void onSuccess(final Response<AppResponse<AtmosBean.DataBean>> response) {
-                        AtmosBean.DataBean atmosBean = response.body().data.get(0);
-                        System.out.println("大气压" + atmosBean.getZhu_apc());
-                        if (atmosBean.getZhu_apc() != null) {
-                            if (atmosBean.getZhu_apc().equals("aaa")) {
-                                daqiyacanshu = "100";
-                            } else if (atmosBean.getZhu_apc().indexOf('0') == 0) {
-                                daqiyacanshu = atmosBean.getZhu_apc().substring(1);
-                            } else {
-                                daqiyacanshu = atmosBean.getZhu_apc();
+                        if ( response.body().data!=null&& response.body().data.size()>0){
+                            AtmosBean.DataBean atmosBean = response.body().data.get(0);
+                            System.out.println("大气压" + atmosBean.getZhu_apc());
+                            if (atmosBean.getZhu_apc() != null) {
+                                if (atmosBean.getZhu_apc().equals("aaa")) {
+                                    daqiyacanshu = "100";
+                                } else if (atmosBean.getZhu_apc().indexOf('0') == 0) {
+                                    daqiyacanshu = atmosBean.getZhu_apc().substring(1);
+                                } else {
+                                    daqiyacanshu = atmosBean.getZhu_apc();
+                                }
+                                tvDaqiya.setText(daqiyacanshu + "");
+                                seekBarDaqiya.setProgress(Y.getInt(daqiyacanshu));
                             }
-                            tvDaqiya.setText(daqiyacanshu + "");
-                            seekBarDaqiya.setProgress(Y.getInt(daqiyacanshu));
                         }
                     }
 

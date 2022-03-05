@@ -53,8 +53,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="20pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
@@ -68,7 +68,7 @@
                     android:includeFontPadding="false"
                     android:text="火焰传感器类型"
                     android:textColor="@color/white"
-                    android:textSize="27pt"
+                    android:textSize="29pt"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -78,58 +78,58 @@
                     <TextView
                         android:id="@+id/tv_huoyan_redianou"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="热电偶"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_huoyan_pt1000"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="PT1000"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
 
                     <TextView
                         android:id="@+id/tv_huoyan_neizu"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="内阻"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_huoyan_wu"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="无"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="20pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
@@ -143,7 +143,7 @@
                     android:includeFontPadding="false"
                     android:text="风机转速传感器"
                     android:textColor="@color/white"
-                    android:textSize="27pt"
+                    android:textSize="29pt"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -153,59 +153,59 @@
                     <TextView
                         android:id="@+id/tv_fengji_dan"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="单极"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_fengji_shuang"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="双极"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_fengji_si"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="四极"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
 
                     <TextView
                         android:id="@+id/tv_fengji_wu"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="无极"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
                 </LinearLayout>
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="20pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
@@ -226,7 +226,7 @@
                         android:includeFontPadding="false"
                         android:text="进水温度传感器"
                         android:textColor="@color/white"
-                        android:textSize="27pt"
+                        android:textSize="29pt"
                         android:textStyle="bold" />
 
                     <TextView
@@ -246,45 +246,45 @@
                     <TextView
                         android:id="@+id/tv_jinshuikou_ntc"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="NTC50K"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_jinshuikou_pt1000"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="PT1000"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_jinshuikou_guanbi"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="关闭"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="20pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
@@ -305,7 +305,7 @@
                         android:includeFontPadding="false"
                         android:text="出水温度传感器"
                         android:textColor="@color/white"
-                        android:textSize="27pt"
+                        android:textSize="29pt"
                         android:textStyle="bold" />
 
                     <TextView
@@ -326,46 +326,46 @@
                     <TextView
                         android:id="@+id/tv_chushuikou_ntc"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="NTC50K"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_chushuikou_pt1000"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="PT1000"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_chushuikou_guanbi"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="关闭"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
                 </LinearLayout>
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="20pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
@@ -379,7 +379,7 @@
                     android:includeFontPadding="false"
                     android:text="水泵故障检测"
                     android:textColor="@color/white"
-                    android:textSize="27pt"
+                    android:textSize="29pt"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -389,33 +389,33 @@
                     <TextView
                         android:id="@+id/tv_shuibeng_shineng"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="使能"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_shuibeng_guanbi"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="关闭"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="20pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
@@ -429,7 +429,7 @@
                     android:includeFontPadding="false"
                     android:text="机型电压设置"
                     android:textColor="@color/white"
-                    android:textSize="27pt"
+                    android:textSize="29pt"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -439,45 +439,45 @@
                     <TextView
                         android:id="@+id/tv_dianya_12v"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="12V"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_dianya_24v"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="24V"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_dianya_moren"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="自动"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="154pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="20pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
@@ -491,7 +491,7 @@
                     android:includeFontPadding="false"
                     android:text="燃油类型"
                     android:textColor="@color/white"
-                    android:textSize="27pt"
+                    android:textSize="29pt"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -501,52 +501,52 @@
                     <TextView
                         android:id="@+id/tv_you_chaiyou"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="柴油"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_you_qiyou"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="汽油"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
 
                     <TextView
                         android:id="@+id/tv_you_qita"
                         android:layout_width="144pt"
-                        android:layout_height="44pt"
+                        android:layout_height="58pt"
                         android:layout_marginRight="10pt"
                         android:background="@drawable/jiareqi_selector_days"
                         android:button="@null"
                         android:gravity="center"
                         android:text="其他"
                         android:textColor="@drawable/jiareqi_selector_days_text"
-                        android:textSize="27pt" />
+                        android:textSize="29pt" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/bt_save"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@color/color_lipin"
+                android:background="@mipmap/wd_kuang"
                 android:gravity="center"
                 android:text="保存设置"
                 android:textColor="@color/white"
-                android:textSize="27pt"
+                android:textSize="33pt"
                 android:textStyle="bold" />
 
             <View

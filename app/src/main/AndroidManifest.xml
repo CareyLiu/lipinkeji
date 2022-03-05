@@ -1258,5 +1258,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
+
+
+        <!--    生命外空    -->
+        <activity
+            android:name=".activity.device_fengnuan.LipinFengnuanActivityNew"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 </manifest>

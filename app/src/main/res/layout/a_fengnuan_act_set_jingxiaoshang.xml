@@ -198,7 +198,7 @@
                     android:includeFontPadding="false"
                     android:text="点火塞厂家"
                     android:textColor="@color/white"
-                    android:textSize="27pt"
+                    android:textSize="29pt"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -577,7 +577,7 @@
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@color/color_lipin"
+                android:background="@mipmap/wd_kuang"
                 android:gravity="center"
                 android:text="保存设置"
                 android:textColor="@color/white"

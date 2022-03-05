@@ -53,7 +53,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="240pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_horizontal"
@@ -73,14 +73,14 @@
                     android:includeFontPadding="false"
                     android:text="非专业人员勿操作"
                     android:textColor="@color/red"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_fengyoubicanshu"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -88,18 +88,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="风油比参数设置"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
                     android:layout_height="31pt"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
@@ -108,8 +108,8 @@
             <RelativeLayout
                 android:id="@+id/rl_jingxiaoshang"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -117,18 +117,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="经销商设置主机参数"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
                     android:layout_height="31pt"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
@@ -136,8 +136,8 @@
             <RelativeLayout
                 android:id="@+id/rl_houtaifuwu"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -145,18 +145,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="后台服务设置主机参数"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
                     android:layout_height="31pt"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
@@ -164,8 +164,8 @@
             <RelativeLayout
                 android:id="@+id/rl_daqiyacanshu"
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -173,18 +173,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="大气压参数"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <ImageView
                     android:layout_width="31pt"
                     android:layout_height="31pt"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/push_white" />
             </RelativeLayout>

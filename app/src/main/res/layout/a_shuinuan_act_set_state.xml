@@ -63,11 +63,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="设备码"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_shebeima"
@@ -75,15 +75,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -91,11 +91,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="工作状态"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_zhuangtai"
@@ -103,16 +103,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -120,11 +120,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="水泵状态"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_zhuangtai_shuibeng"
@@ -132,16 +132,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -149,11 +149,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="油泵状态"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_zhuangtai_youbeng"
@@ -161,9 +161,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -178,11 +178,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="风机状态"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_zhuangtai_fengji"
@@ -190,15 +190,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -206,11 +206,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="电压"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_dianya"
@@ -218,9 +218,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -235,11 +235,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="风机转速"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_fengjizhuansu"
@@ -247,9 +247,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
 
@@ -265,11 +265,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="加热塞功率"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_jiaresaigonglv"
@@ -277,9 +277,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
 
@@ -295,11 +295,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="油泵频率"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_youbengpinlv"
@@ -307,15 +307,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -323,11 +323,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="入水口温度"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_rushukouwendu"
@@ -335,16 +335,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -352,11 +352,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="出水口温度"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_chushuikouwendu"
@@ -364,16 +364,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -381,11 +381,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="尾气温度"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_weiqiwendu"
@@ -393,9 +393,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -410,11 +410,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="当前档位"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_dangwei"
@@ -422,15 +422,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -438,11 +438,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="预设温度"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_yushewendu"
@@ -450,15 +450,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -466,11 +466,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="总工作时长"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_gongzuoshichang"
@@ -478,15 +478,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -494,11 +494,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="大气压"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_daqiya"
@@ -506,15 +506,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -522,11 +522,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="海拔高度"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_haibagaodu"
@@ -534,15 +534,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -550,11 +550,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="含氧量"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_hanyangliang"
@@ -562,15 +562,15 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="90pt"
-                android:layout_marginHorizontal="29pt"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 
@@ -578,11 +578,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="19pt"
+                    android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
                     android:text="信号强度"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
 
                 <TextView
                     android:id="@+id/tv_xinhao"
@@ -590,9 +590,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
+                    android:layout_marginRight="29pt"
                     android:textColor="@color/white"
-                    android:textSize="27pt" />
+                    android:textSize="29pt" />
             </RelativeLayout>
 
             <View
