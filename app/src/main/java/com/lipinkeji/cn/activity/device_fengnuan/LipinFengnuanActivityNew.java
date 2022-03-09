@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -138,14 +139,15 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     private boolean isOnActivity;//是否处于当前页面
     private boolean isHenwenMode;//true恒温模式   false档位模式
     private int typeZaixian;//1 在线、2 离线、3 连接中
-    private int typeMingling;//0 发送实时数据、1 档位模式、2 恒温模式、3 关机、4 预泵油、5 预通风、6 水泵、8 改变温度、9 改变档位
-
-    private boolean isCanKaiguan;
-    private boolean isCanWD;
+    private int typeMingling;//0 发送实时数据、1 档位模式、2 恒温模式、3 关机、4 预泵油、5 预通风、6 水泵、
+    private int typeWendang;//1 改变温度、2 改变档位
 
     private String jiareqizhuangtai;//1.档位开机2.空调开机3.关机 4.水泵开机9.关机中6.预泵油7.预通风
     private String dangwei;
+    private String dangweiYushe;
     private String yushewendu;
+    private String yushewenduYushe;
+
     private MyCarCaoZuoDialog_Notify myCarCaoZuoDialog_notify;
     private TishiDialog bengyouDialog;
     private TishiDialog tongfengDialog;
@@ -153,6 +155,9 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     private String sim_ccid_save_type;
     public static String messageData;
     private String sendMsg;
+
+    private boolean isCanKaiguan;
+    private boolean isSetWenduDangwei;
 
 
     @Override
@@ -205,8 +210,6 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         isHenwenMode = false;
         jiareqizhuangtai = "3";
         typeZaixian = 3;
-        yushewendu = "0";
-        dangwei = "1";
 
         MyApplication.mqttDingyue.add(CAR_NOTIFY);
         MyApplication.mqttDingyue.add(CARBOX_GETNOW);
@@ -219,7 +222,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         bt_bengyou.setOnLongClickListener(this);
 
         isCanKaiguan = true;
-        isCanWD = false;
+        isSetWenduDangwei = false;
+        timeWendang = 0;
     }
 
     private void initMqtt() {
@@ -294,10 +298,16 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         Y.e("风暖的实时数据是" + messageData + "   " + messageData.length());
 
         //当前档位1至5档	    1
-        dangwei = messageData.substring(0, 1);
+        dangweiYushe = messageData.substring(0, 1);
+        if (TextUtils.isEmpty(dangwei)) {
+            dangwei = dangweiYushe;
+        }
 
         //预设温度1至32度	2
-        yushewendu = messageData.substring(1, 3);
+        yushewenduYushe = messageData.substring(1, 3);
+        if (TextUtils.isEmpty(yushewendu)) {
+            yushewendu = yushewenduYushe;
+        }
 
         //1.档位开机2.空调开机3.关机 4.水泵开机9.关机中6.预泵油7.预通风	1
         jiareqizhuangtai = messageData.substring(3, 4);
@@ -388,7 +398,6 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             isCanKaiguan = true;
             handlerStart.removeMessages(1);
         }
-
 
         if (isCanKaiguan) {
             if (jiareqizhuangtai.equals("1")) {
@@ -707,7 +716,11 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         if (!isKaiji) {
             return;
         }
-        handlerStart.removeMessages(1);
+
+        if (jiareqizhuangtai.equals("3")) {
+            Y.t("正在开机中，请稍后...");
+            return;
+        }
 
         if (isHenwenMode) {
             int wendu = Y.getInt(yushewendu);
@@ -715,6 +728,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
                 Y.t("预设温度已达最高值，无法调高！");
                 return;
             }
+            handlerWendang.removeMessages(1);
+            timeWendang = 0;
 
             if (wendu < 33) {
                 wendu++;
@@ -725,16 +740,19 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             } else {
                 yushewendu = "" + wendu;
             }
+
             setwendu(yushewendu);
             String mingling = 50 + wendu + "";
             sendMsg = "M6" + mingling + ".";
-            typeMingling = 8;
-            sendMingling();
+            typeWendang = 1;
+            sendMinglingWendang();
         } else {
             if (dangwei.equals("5")) {
                 Y.t("已是最高档位，无法升档！");
                 return;
             }
+            handlerWendang.removeMessages(1);
+            timeWendang = 0;
 
             switch (dangwei) {
                 case "1":
@@ -752,8 +770,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             }
             setDangwei(dangwei);
             sendMsg = "M62" + dangwei + ".";
-            typeMingling = 9;
-            sendMingling();
+            typeWendang = 2;
+            sendMinglingWendang();
         }
     }
 
@@ -766,7 +784,10 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             return;
         }
 
-        handlerStart.removeMessages(1);
+        if (jiareqizhuangtai.equals("3")) {
+            Y.t("正在开机中，请稍后...");
+            return;
+        }
 
         if (isHenwenMode) {
             int wendu = Y.getInt(yushewendu);
@@ -774,6 +795,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
                 Y.t("预设温度已达最低值，无法降低！");
                 return;
             }
+            handlerWendang.removeMessages(1);
+            timeWendang = 0;
 
             wendu--;
 
@@ -786,13 +809,16 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             setwendu(yushewendu);
             String mingling = 50 + wendu + "";
             sendMsg = "M6" + mingling + ".";
-            typeMingling = 8;
-            sendMingling();
+            typeWendang = 1;
+            sendMinglingWendang();
         } else {
             if (dangwei.equals("1")) {
                 Y.t("已是最低档位，无法降档！");
                 return;
             }
+
+            handlerWendang.removeMessages(1);
+            timeWendang = 0;
 
             switch (dangwei) {
                 case "2":
@@ -810,8 +836,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             }
             setDangwei(dangwei);
             sendMsg = "M62" + dangwei + ".";
-            typeMingling = 9;
-            sendMingling();
+            typeWendang = 2;
+            sendMinglingWendang();
         }
     }
 
@@ -879,7 +905,19 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     private void setUiShoudong() {
         isKaiji = true;
         isHenwenMode = false;
-        setDangwei(dangwei);
+
+        if (isSetWenduDangwei) {
+            if (dangwei.equals(dangweiYushe)) {
+                handlerWendang.removeMessages(1);
+                isSetWenduDangwei = false;
+                setDangwei(dangwei);
+            }
+        } else {
+            handlerWendang.removeMessages(1);
+            isSetWenduDangwei = false;
+            dangwei = dangweiYushe;
+            setDangwei(dangwei);
+        }
 
         Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
 
@@ -909,7 +947,19 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     private void setUiHengwen() {
         isKaiji = true;
         isHenwenMode = true;
-        setwendu(yushewendu);
+
+        if (isSetWenduDangwei) {
+            if (yushewendu.equals(yushewenduYushe)) {
+                handlerWendang.removeMessages(1);
+                isSetWenduDangwei = false;
+                setwendu(yushewendu);
+            }
+        } else {
+            handlerWendang.removeMessages(1);
+            isSetWenduDangwei = false;
+            yushewendu = yushewenduYushe;
+            setwendu(yushewendu);
+        }
 
         Glide.with(mContext).asGif().load(R.drawable.fengnuan_kaiji).into(iv_jiareqi);
 
@@ -937,7 +987,9 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     }
 
     private void setUiGuanji() {
+        handlerWendang.removeMessages(1);
         isKaiji = false;
+        isSetWenduDangwei = false;
 
         if (isHenwenMode) {
             setwendu(yushewendu);
@@ -1115,7 +1167,13 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
 
                 }
             });
-        } else if (typeMingling == 8) {//改变温度
+        }
+    }
+
+    private void sendMinglingWendang() {
+        isSetWenduDangwei = true;
+        initHandlerWendagn();
+        if (typeWendang == 1) {//改变温度
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(sendMsg)
                     .setQos(2).setRetained(false)
@@ -1130,7 +1188,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
 
                 }
             });
-        } else if (typeMingling == 9) {//改变档位
+        } else if (typeWendang == 2) {//改变档位
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(sendMsg)
                     .setQos(2).setRetained(false)
@@ -1147,6 +1205,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             });
         }
     }
+
 
     private int time;
 
@@ -1171,6 +1230,33 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     private void initHandlerMingling() {
         Message message = handlerStart.obtainMessage(1);
         handlerStart.sendMessageDelayed(message, 5000);
+    }
+
+
+    private int timeWendang;
+
+    private Handler handlerWendang = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            timeWendang += 5;
+            switch (msg.what) {
+                case 1:
+                    if (timeWendang >= 15) {
+                        isSetWenduDangwei = false;
+                        handlerWendang.removeMessages(1);
+                    } else {
+                        sendMinglingWendang();
+                    }
+                    break;
+            }
+            Y.e(msg.what + "  温档时间时多少啊  " + timeWendang);
+            return false;
+        }
+    });
+
+    private void initHandlerWendagn() {
+        Message message = handlerWendang.obtainMessage(1);
+        handlerWendang.sendMessageDelayed(message, 5000);
     }
 
     private void showTishiDialog() {
@@ -1220,10 +1306,11 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
 
     private void initHandlerNS() {
         Message message = handlerTime10.obtainMessage(1);
-        handlerTime10.sendMessageDelayed(message, 10000);
+        handlerTime10.sendMessageDelayed(message, 20000);
     }
 
     private void getNData() {
+        Y.e("我发送了实时数据");
         //向风暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
                 .setMsg("N.")
@@ -1259,6 +1346,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         super.onDestroy();
         handlerStart.removeMessages(1);
         handlerTime10.removeMessages(1);
+        handlerWendang.removeMessages(1);
 
         PreferenceHelper.getInstance(mContext).removeKey(App.CHOOSE_KONGZHI_XIANGMU);
         AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(CAR_NOTIFY), new IMqttActionListener() {

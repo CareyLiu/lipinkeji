@@ -1250,7 +1250,7 @@ public class LipinDashuiActivity extends ShuinuanBaseNewActivity implements View
 
     private void initHandlerNS() {
         Message message = handlerTime10.obtainMessage(1);
-        handlerTime10.sendMessageDelayed(message, 10000);
+        handlerTime10.sendMessageDelayed(message, 20000);
     }
 
 

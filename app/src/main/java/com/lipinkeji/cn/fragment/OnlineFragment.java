@@ -106,9 +106,10 @@ public class OnlineFragment extends BaseFragment implements Observer {
                     switch (view.getId()) {
                         case R.id.constrain:
                             PreferenceHelper.getInstance(getContext()).putString("is_platform_bendi", mDatas.get(position).is_platform);
-                            if (mDatas.get(position).device_type.equals("1")) {
+                            if (mDatas.get(position).device_type.equals("6")) {//1
                                 int i = mDatas.get(position).ccid.length() - 1;
-//                                mDatas.get(position).ccid = "aaaaaaaaaaaaa88880020018";
+//                                mDatas.get(position).ccid = "aaaaaaaaaaaaa88880070018";
+                                mDatas.get(position).ccid = "aaaaaaaaaaaaa88880020018";
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
                                 PreferenceHelper.getInstance(getActivity()).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);
@@ -126,14 +127,14 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 if (NetworkUtils.isConnected(getActivity())) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        LipinFengnuanActivity.actionStart(getContext());
-//                                        LipinFengnuanActivityNew.actionStart(getContext());
+//                                        LipinFengnuanActivity.actionStart(getContext());
+                                        LipinFengnuanActivityNew.actionStart(getContext());
                                     }
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");
                                 }
-                            } else if (mDatas.get(position).device_type.equals("6")) {
-//                                mDatas.get(position).ccid = "aaaaaaaaaaaaaaaa10170028";
+                            } else if (mDatas.get(position).device_type.equals("1")) {//6
+                                mDatas.get(position).ccid = "aaaaaaaaaaaaa11910040018";
                                 String ccid = mDatas.get(position).ccid;
                                 int pos = ccid.length() - 1;
                                 String count = ccid.charAt(pos) + "/";

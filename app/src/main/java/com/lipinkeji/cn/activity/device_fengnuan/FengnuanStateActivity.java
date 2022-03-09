@@ -93,6 +93,7 @@ public class FengnuanStateActivity extends BaseActivity {
         isZaixian = false;
         initMqtt();
         initHuidiao();
+        initHandlerNS();
     }
 
     private void initMqtt() {
@@ -313,5 +314,25 @@ public class FengnuanStateActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         handlerStart.removeMessages(1);
+        handlerTime10.removeMessages(1);
+    }
+
+
+    private Handler handlerTime10 = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            switch (msg.what) {
+                case 1:
+                    getNData();
+                    initHandlerNS();
+                    break;
+            }
+            return false;
+        }
+    });
+
+    private void initHandlerNS() {
+        Message message = handlerTime10.obtainMessage(1);
+        handlerTime10.sendMessageDelayed(message, 20000);
     }
 }

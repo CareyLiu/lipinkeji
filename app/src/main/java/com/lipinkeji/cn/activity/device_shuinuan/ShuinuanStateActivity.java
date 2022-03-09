@@ -104,6 +104,7 @@ public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
         tvShebeima.setText(ccid);
         initHuidiao();
         registerKtMqtt();
+        initHandlerNS();
     }
 
     private void initHuidiao() {
@@ -335,5 +336,24 @@ public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
     protected void onDestroy() {
         super.onDestroy();
         handlerStart.removeMessages(1);
+        handlerTime10.removeMessages(1);
+    }
+
+    private Handler handlerTime10 = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            switch (msg.what) {
+                case 1:
+                    getNs();
+                    initHandlerNS();
+                    break;
+            }
+            return false;
+        }
+    });
+
+    private void initHandlerNS() {
+        Message message = handlerTime10.obtainMessage(1);
+        handlerTime10.sendMessageDelayed(message, 20000);
     }
 }

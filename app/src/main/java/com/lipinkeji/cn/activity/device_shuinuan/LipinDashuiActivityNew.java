@@ -111,9 +111,13 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     private boolean isWaijizhuangzhi;
     private boolean isOnActivity;
     private int typeZaixian;//1 在线、2 离线、3 连接中
-    private int typeMingling;//0 获取实时数据、1 开机、2 关机、3 油泵开、4 油泵关、5 水泵开、6水泵关 7外接开 8外接关  9清理积碳开  10积碳关
+    private int typeMingling;//0 获取实时数据、1 开机、2 关机、
+    private int typeShuiyou;//3 油泵开、4 油泵关、5 水泵开、6水泵关 7外接开 8外接关  9清理积碳开  10积碳关
     private String waidianState;
     private String jiareqiType;
+
+    private boolean isCanKaiguan;
+    private boolean isCanShuiYou;
 
     @Override
     public int getContentViewResId() {
@@ -183,6 +187,9 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         youbeng_state = "0";
 
         isJitan = false;
+
+        isCanKaiguan = true;
+        isCanShuiYou = true;
     }
 
     private void initSM() {
@@ -236,7 +243,6 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         if (msg.contains("j_s")) {
             msgData = msg;
             typeZaixian = 1;
-            handlerStart.removeMessages(1);
 
             tv_xinhao.setText("在线");
             sn_state = msg.substring(3, 4);//水暖状态
@@ -355,22 +361,69 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
             typeZaixian = 1;
 
-            switch (sn_state) {
-                case "1"://开机中
-                case "2"://加热中
-                case "4"://循环水
-                    isKaiji = true;
-                    break;
-                case "0"://关机中
-                case "3"://待机中
-                    isKaiji = false;
-                    break;
+
+            if (typeMingling == 1) {
+                if (sn_state.equals("1")) {
+                    isCanKaiguan = true;
+                    handlerStart.removeMessages(1);
+                }
+            } else if (typeMingling == 2) {
+                if (sn_state.equals("0")) {
+                    isCanKaiguan = true;
+                    handlerStart.removeMessages(1);
+                }
+            } else {
+                isCanKaiguan = true;
+                handlerStart.removeMessages(1);
             }
 
-            if (isKaiji) {
-                setUiKaiji();
+
+            if (typeShuiyou == 3) {
+                if (youbeng_state.equals("1")) {
+                    isCanShuiYou = true;
+                    handlerShuiyou.removeMessages(1);
+                }
+            } else if (typeShuiyou == 4) {
+                if (youbeng_state.equals("2")) {
+                    isCanShuiYou = true;
+                    handlerShuiyou.removeMessages(1);
+                }
+            } else if (typeShuiyou == 5) {
+                if (shuibeng_state.equals("1")) {
+                    isCanShuiYou = true;
+                    handlerShuiyou.removeMessages(1);
+                }
+            } else if (typeShuiyou == 6) {
+                if (shuibeng_state.equals("2")) {
+                    isCanShuiYou = true;
+                    handlerShuiyou.removeMessages(1);
+                }
             } else {
-                setUiGuanji();
+                isCanShuiYou = true;
+                handlerShuiyou.removeMessages(1);
+            }
+
+            if (isCanKaiguan) {
+                switch (sn_state) {
+                    case "1"://开机中
+                    case "2"://加热中
+                    case "4"://循环水
+                        isKaiji = true;
+                        break;
+                    case "0"://关机中
+                    case "3"://待机中
+                        isKaiji = false;
+                        break;
+                }
+
+                if (isKaiji) {
+                    setUiKaiji();
+                } else {
+                    setUiGuanji();
+                }
+            }
+
+            if (isCanShuiYou) {
                 if (shuibeng_state.equals("1")) {
                     setShuibengUiKai();
                 } else {
@@ -689,11 +742,10 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
      * 注册订阅Mqtt
      */
     private void registerKtMqtt() {
+        getNs();
         time = 0;
         typeMingling = 0;
-        initHandlerMingling();
-        getNs();
-        getNsData();
+        sendMingling();
     }
 
     private void getNs() {
@@ -757,7 +809,6 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
                         showTishiDialog();
                     } else {
                         sendMingling();
-                        initHandlerMingling();
                     }
                     break;
             }
@@ -770,6 +821,33 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     private void initHandlerMingling() {
         Message message = handlerStart.obtainMessage(1);
         handlerStart.sendMessageDelayed(message, 5000);
+    }
+
+
+    private int timeShuiyou = 0;
+
+    private Handler handlerShuiyou = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            timeShuiyou += 5;
+            switch (msg.what) {
+                case 1:
+                    if (timeShuiyou >= 15) {
+                        isCanShuiYou = true;
+                        handlerShuiyou.removeMessages(1);
+                    } else {
+                        sendMinglingShuiYou();
+                    }
+                    break;
+            }
+            Y.e(msg.what + "  温档时间时多少啊  " + timeShuiyou);
+            return false;
+        }
+    });
+
+    private void initHandlerShuiYou() {
+        Message message = handlerShuiyou.obtainMessage(1);
+        handlerShuiyou.sendMessageDelayed(message, 5000);
     }
 
     private void showTishiDialog() {
@@ -816,18 +894,6 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     @Override
     public boolean onLongClick(View v) {
         if (typeZaixian == 1) {
-            if (typeMingling == 1 || typeMingling == 2) {
-                handlerStart.removeMessages(2);
-            } else if (typeMingling == 3 || typeMingling == 4) {
-                handlerStart.removeMessages(4);
-            } else if (typeMingling == 5 || typeMingling == 6) {
-                handlerStart.removeMessages(3);
-            } else {
-                handlerStart.removeMessages(1);
-            }
-
-            time = 0;
-
             switch (v.getId()) {
                 case R.id.bt_kaiji:
                     kaiguan();
@@ -859,13 +925,13 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
         if (isJitan) {
 //            SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_youbeng_off);
-            typeMingling = 10;
-            sendMingling();
+//            typeShuiyou = 10;
+//            sendMingling();
             setJitanUiGuan();
         } else {
 //            SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_youbeng_on);
-            typeMingling = 9;
-            sendMingling();
+//            typeShuiyou = 9;
+//            sendMingling();
             setJitanUiKai();
         }
     }
@@ -881,15 +947,18 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
             return;
         }
 
+        timeShuiyou = 0;
+        handlerShuiyou.removeMessages(1);
+
         if (isYoubeng) {
             SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_youbeng_off);
-            typeMingling = 4;
-            sendMingling();
+            typeShuiyou = 4;
+            sendMinglingShuiYou();
             setYoubengUiGuan();
         } else {
             SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_youbeng_on);
-            typeMingling = 3;
-            sendMingling();
+            typeShuiyou = 3;
+            sendMinglingShuiYou();
             setYoubengUiKai();
         }
     }
@@ -905,15 +974,18 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
             return;
         }
 
+        timeShuiyou = 0;
+        handlerShuiyou.removeMessages(1);
+
         if (isShuibeng) {
             SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_shuibeng_off);
-            typeMingling = 6;
-            sendMingling();
+            typeShuiyou = 6;
+            sendMinglingShuiYou();
             setShuibengUiGuan();
         } else {
             SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_shuibeng_on);
-            typeMingling = 5;
-            sendMingling();
+            typeShuiyou = 5;
+            sendMinglingShuiYou();
             setShuibengUiKai();
         }
     }
@@ -942,6 +1014,11 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
             return;
         }
 
+        time = 0;
+        isCanShuiYou = true;
+        handlerShuiyou.removeMessages(1);
+        handlerStart.removeMessages(1);
+
         SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_start_on);
         typeMingling = 1;
         sendMingling();
@@ -952,6 +1029,11 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         if (!isKaiji) {
             return;
         }
+
+        time = 0;
+        isCanShuiYou = true;
+        handlerShuiyou.removeMessages(1);
+        handlerStart.removeMessages(1);
 
         SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_start_off);
         typeMingling = 2;
@@ -1007,10 +1089,6 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         }
 
         bt_kaiji.setImageResource(R.mipmap.sn_kaiguan_nor);
-
-        bt_shuibeng.setBackgroundResource(R.mipmap.sn_anjian_nor);
-        bt_youbeng.setBackgroundResource(R.mipmap.sn_anjian_nor);
-//        bt_jitan.setBackgroundResource(R.mipmap.sn_anjian_nor);
     }
 
     private void setUiKaiji() {
@@ -1039,27 +1117,12 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         }
 
         bt_kaiji.setImageResource(R.mipmap.sn_kaiguan_sel);
-
-        if (shuibeng_state.equals("1")) {
-            bt_shuibeng.setBackgroundResource(R.mipmap.sn_anjian_sel);
-        } else {
-            bt_shuibeng.setBackgroundResource(R.mipmap.sn_anjian_nor);
-        }
-
-        if (youbeng_state.equals("1")) {
-            bt_youbeng.setBackgroundResource(R.mipmap.sn_anjian_sel);
-        } else {
-            bt_youbeng.setBackgroundResource(R.mipmap.sn_anjian_nor);
-        }
-
-//        if (isJitan) {
-//            bt_jitan.setBackgroundResource(R.mipmap.sn_anjian_sel);
-//        } else {
-//            bt_jitan.setBackgroundResource(R.mipmap.sn_anjian_nor);
-//        }
     }
 
     private void sendMingling() {
+        isCanKaiguan = false;
+        initHandlerMingling();
+
         if (typeMingling == 0) {//发送实时数据
             getNsData();
         } else if (typeMingling == 1) {//开机
@@ -1094,7 +1157,15 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 3) {//开启油泵
+        }
+    }
+
+
+    private void sendMinglingShuiYou() {
+        isCanShuiYou = false;
+        initHandlerShuiYou();
+
+        if (typeShuiyou == 3) {//开启油泵
             String data = "M_s051.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1110,7 +1181,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 4) {//关闭油泵
+        } else if (typeShuiyou == 4) {//关闭油泵
             String data = "M_s052.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1126,7 +1197,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 5) {//水泵开启
+        } else if (typeShuiyou == 5) {//水泵开启
             String data = "M_s021.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1142,7 +1213,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 6) {//水泵关闭
+        } else if (typeShuiyou == 6) {//水泵关闭
             String data = "M_s022.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1158,7 +1229,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 7) {//外电开启
+        } else if (typeShuiyou == 7) {//外电开启
             String data = "M_s141.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1174,7 +1245,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 8) {//外电关闭
+        } else if (typeShuiyou == 8) {//外电关闭
             String data = "M_s142.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1190,7 +1261,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 9) {//清理积碳开启
+        } else if (typeShuiyou == 9) {//清理积碳开启
             String data = "M_s142.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1206,7 +1277,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
                 }
             });
-        } else if (typeMingling == 10) {//清理积碳关闭
+        } else if (typeShuiyou == 10) {//清理积碳关闭
             String data = "M_s142.";
             AndMqtt.getInstance().publish(new MqttPublish()
                     .setMsg(data)
@@ -1225,6 +1296,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         }
     }
 
+
     private Handler handlerTime10 = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(@NonNull Message msg) {
@@ -1242,7 +1314,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
     private void initHandlerNS() {
         Message message = handlerTime10.obtainMessage(1);
-        handlerTime10.sendMessageDelayed(message, 10000);
+        handlerTime10.sendMessageDelayed(message, 20000);
     }
 
 
@@ -1272,6 +1344,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         super.onDestroy();
         handlerStart.removeMessages(1);
         handlerTime10.removeMessages(1);
+        handlerShuiyou.removeMessages(1);
 
         AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(SN_Send), new IMqttActionListener() {
             @Override
