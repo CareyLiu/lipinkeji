@@ -106,7 +106,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                     switch (view.getId()) {
                         case R.id.constrain:
                             PreferenceHelper.getInstance(getContext()).putString("is_platform_bendi", mDatas.get(position).is_platform);
-                            if (mDatas.get(position).device_type.equals("6")) {//1
+                            if (mDatas.get(position).device_type.equals("1")) {//1
                                 int i = mDatas.get(position).ccid.length() - 1;
 //                                mDatas.get(position).ccid = "aaaaaaaaaaaaa88880070018";
                                 mDatas.get(position).ccid = "aaaaaaaaaaaaa88880020018";
@@ -133,8 +133,8 @@ public class OnlineFragment extends BaseFragment implements Observer {
                                 } else {
                                     UIHelper.ToastMessage(getActivity(), "请连接网络后重新尝试");
                                 }
-                            } else if (mDatas.get(position).device_type.equals("1")) {//6
-                                mDatas.get(position).ccid = "aaaaaaaaaaaaa11910040018";
+                            } else if (mDatas.get(position).device_type.equals("6")) {//6
+//                                mDatas.get(position).ccid = "aaaaaaaaaaaaa11910040018";
                                 String ccid = mDatas.get(position).ccid;
                                 int pos = ccid.length() - 1;
                                 String count = ccid.charAt(pos) + "/";

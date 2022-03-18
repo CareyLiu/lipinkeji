@@ -394,6 +394,16 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
                 isCanKaiguan = true;
                 handlerStart.removeMessages(1);
             }
+        } else if (typeMingling == 4) {
+            if (jiareqizhuangtai.equals("6")) {
+                isCanKaiguan = true;
+                handlerStart.removeMessages(1);
+            }
+        } else if (typeMingling == 5) {
+            if (jiareqizhuangtai.equals("7")) {
+                isCanKaiguan = true;
+                handlerStart.removeMessages(1);
+            }
         } else {
             isCanKaiguan = true;
             handlerStart.removeMessages(1);
@@ -589,6 +599,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             @Override
             public void onClickConfirm(View v, TishiDialog dialog) {
                 tongfengDialog.setTextConfirm("正在停止...");
+                time = 0;
+                handlerStart.removeMessages(1);
                 typeMingling = 3;
                 sendMingling();
             }
@@ -615,6 +627,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             @Override
             public void onClickConfirm(View v, TishiDialog dialog) {
                 bengyouDialog.setTextConfirm("正在停止...");
+                time = 0;
+                handlerStart.removeMessages(1);
                 typeMingling = 3;
                 sendMingling();
             }
@@ -656,8 +670,6 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     @Override
     public boolean onLongClick(View v) {
         if (typeZaixian == 1) {
-            time = 0;
-            handlerStart.removeMessages(1);
             switch (v.getId()) {
                 case R.id.bt1:
                     clickShoudong();
@@ -689,6 +701,9 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             return;
         }
 
+        time = 0;
+        handlerStart.removeMessages(1);
+
         SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
         typeMingling = 4;//预泵油
         setUiBengyou();
@@ -700,6 +715,9 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
             Y.t("请关机后再执行通风操作！");
             return;
         }
+
+        time = 0;
+        handlerStart.removeMessages(1);
 
         SoundPoolUtils.soundPool(mContext, R.raw.yutongfeng);
         typeMingling = 5;//预通风
@@ -842,21 +860,32 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     }
 
     private void clickHengwen() {
-        if (!isKaiji) {
-            SoundPoolUtils.soundPool(mContext, R.raw.mode_temp);
-            typeMingling = 2;//恒温模式
-            setUiHengwen();
-
-            sendMingling();
-        } else {
-            if (isHenwenMode) {
-                guanji();
-            }
+        if (isKaiji) {
+            Y.t("请关机后再执行泵油操作！");
+            return;
         }
+
+        if (!jiareqizhuangtai.equals("3")) {
+            Y.t("正在关机中，请稍后...");
+            return;
+        }
+
+        time = 0;
+        handlerStart.removeMessages(1);
+
+        SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
+        typeMingling = 4;//预泵油
+        setUiBengyou();
+        sendMingling();
     }
 
     private void clickShoudong() {
         if (!isKaiji) {
+            time = 0;
+            isSetWenduDangwei = false;
+            handlerStart.removeMessages(1);
+            handlerWendang.removeMessages(1);
+
             SoundPoolUtils.soundPool(mContext, R.raw.mode_gear);
             setUiShoudong();
             typeMingling = 1;//档位模式
@@ -894,6 +923,11 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         if (!isKaiji) {
             return;
         }
+
+        time = 0;
+        isSetWenduDangwei = false;
+        handlerStart.removeMessages(1);
+        handlerWendang.removeMessages(1);
 
         SoundPoolUtils.soundPool(mContext, R.raw.shuinuan_start_off);
         typeMingling = 3;
@@ -1265,6 +1299,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         handlerStart.removeMessages(1);
         typeZaixian = 2;
         time = 0;
+        isCanKaiguan = true;
         TishiDialog tishiDialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
             @Override
             public void onClickCancel(View v, TishiDialog dialog) {

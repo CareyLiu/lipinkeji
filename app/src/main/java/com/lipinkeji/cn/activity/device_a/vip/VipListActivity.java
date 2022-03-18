@@ -135,11 +135,9 @@ public class VipListActivity extends BaseActivity {
                 SheBeiModel sheBeiModel = mDatas.get(position);
                 xufeiDialog = new XufeiDialog(mContext);
                 xufeiDialog.setModels(xufeiModels);
-                xufeiDialog.setTv_shebei_youxiaoqi(sheBeiModel.validity_time);
                 xufeiDialog.setXufeiClick(new XufeiDialog.XufeiClick() {
                     @Override
-                    public void xufei() {
-//                        payZfb(sheBeiModel, xufeiBean);
+                    public void xufei(XufeiModel.DataBean xufeiBean) {
                         payWX(sheBeiModel);
                     }
                 });

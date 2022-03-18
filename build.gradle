@@ -35,9 +35,9 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url "https://www.jitpack.io" }
-        maven {
-            url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
-        }
+//        maven {
+//            url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
+//        }
         maven { url 'http://developer.huawei.com/repo/'}
         maven { url "https://dl.bintray.com/rongcloud/maven" }
     }

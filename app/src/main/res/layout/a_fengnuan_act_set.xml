@@ -8,7 +8,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="54pt"
-        android:background="@color/app_bg"/>
+        android:background="@color/app_bg" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -133,7 +133,8 @@
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"

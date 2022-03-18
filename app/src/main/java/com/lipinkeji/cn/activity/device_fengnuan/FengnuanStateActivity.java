@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.get_net.Urls;
 import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;

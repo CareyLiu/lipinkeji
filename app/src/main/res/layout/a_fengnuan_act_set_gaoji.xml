@@ -221,6 +221,33 @@
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/rl_wendushezhi"
+                android:layout_width="match_parent"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19pt"
+                    android:includeFontPadding="false"
+                    android:text="温度设置"
+                    android:textColor="@color/white"
+                    android:textSize="29pt" />
+
+                <ImageView
+                    android:layout_width="31pt"
+                    android:layout_height="31pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19pt"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/push_white" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

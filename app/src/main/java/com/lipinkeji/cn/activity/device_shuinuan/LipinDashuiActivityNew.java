@@ -851,8 +851,10 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     }
 
     private void showTishiDialog() {
+        handlerStart.removeMessages(1);
         typeZaixian = 2;
         time = 0;
+        isCanKaiguan = true;
         TishiDialog tishiDialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
             @Override
             public void onClickCancel(View v, TishiDialog dialog) {
@@ -1345,6 +1347,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         handlerStart.removeMessages(1);
         handlerTime10.removeMessages(1);
         handlerShuiyou.removeMessages(1);
+        handlerGuanzhang.removeMessages(1);
 
         AndMqtt.getInstance().unSubscribe(new MqttUnSubscribe().setTopic(SN_Send), new IMqttActionListener() {
             @Override

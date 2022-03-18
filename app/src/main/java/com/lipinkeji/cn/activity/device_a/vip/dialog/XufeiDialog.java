@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.vip.adapter.XufeiAdapter;
 import com.lipinkeji.cn.activity.device_a.vip.model.XufeiModel;
+import com.lipinkeji.cn.util.Y;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +67,14 @@ public class XufeiDialog extends Dialog implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == bt_xufei) {
-            xufeiClick.xufei();
+            if (selectBeen == null) {
+                Y.t("请选择付费金额");
+                return;
+            }
+
+            if (xufeiClick != null) {
+                xufeiClick.xufei(selectBeen);
+            }
         }
     }
 
@@ -83,6 +91,6 @@ public class XufeiDialog extends Dialog implements View.OnClickListener {
     }
 
     public interface XufeiClick {
-        void xufei();
+        void xufei(XufeiModel.DataBean bean);
     }
 }

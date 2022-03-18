@@ -133,7 +133,7 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
             rl_gongxiang_jie.setVisibility(View.GONE);
         }
 
-        initXufei(false);
+        initXufei(true);
 
         rl_zhujicanshu.setVisibility(View.GONE);
     }
@@ -164,37 +164,61 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
         getXufei();
     }
 
+//    private void getXufei() {
+//        xufeiModels = new ArrayList<>();
+//        XufeiModel.DataBean bean = new XufeiModel.DataBean();
+//        bean.setMoney("5");
+//        bean.setYear("1");
+//        xufeiModels.add(bean);
+//    }
+
     private void getXufei() {
-        xufeiModels = new ArrayList<>();
-        XufeiModel.DataBean bean = new XufeiModel.DataBean();
-        bean.setMoney("5");
-        bean.setYear("1");
-        xufeiModels.add(bean);
+        Map<String, String> map = new HashMap<>();
+        map.put("code", "03521");
+        map.put("key", Urls.key);
+        map.put("token", UserManager.getManager(mContext).getAppToken());
+        Gson gson = new Gson();
+        OkGo.<AppResponse<XufeiModel.DataBean>>post(Urls.SERVER_URL + "wit/app")
+                .tag(this)//
+                .upJson(gson.toJson(map))
+                .execute(new JsonCallback<AppResponse<XufeiModel.DataBean>>() {
+                    @Override
+                    public void onSuccess(Response<AppResponse<XufeiModel.DataBean>> response) {
+                        xufeiModels = response.body().data;
+                    }
+                });
     }
 
     private void clickXufei() {
-        xufeiDialog = new XufeiDialog(mContext);
-        xufeiDialog.setModels(xufeiModels);
-        xufeiDialog.setTv_shebei_youxiaoqi(validdate);
-        xufeiDialog.setXufeiClick(new XufeiDialog.XufeiClick() {
-            @Override
-            public void xufei() {
-                payWX();
-            }
-        });
-        xufeiDialog.show();
+        if (xufeiModels != null) {
+            xufeiDialog = new XufeiDialog(mContext);
+            xufeiDialog.setTv_shebei_youxiaoqi(validdate);
+            xufeiDialog.setModels(xufeiModels);
+            xufeiDialog.setXufeiClick(new XufeiDialog.XufeiClick() {
+                @Override
+                public void xufei(XufeiModel.DataBean xufeiBean) {
+                    payWX(xufeiBean);
+                }
+            });
+            xufeiDialog.show();
+        } else {
+            getXufei();
+        }
     }
 
-    private void payWX() {
+    private void payWX(XufeiModel.DataBean xufeiBean) {
+        String pay_m_y_type = xufeiBean.getPay_m_y_type();
+
         Map<String, String> map = new HashMap<>();
         map.put("key", Urls.key);
         map.put("token", UserManager.getManager(mContext).getAppToken());
         map.put("pay_id", "2");
         map.put("pay_type", "4");
-        map.put("operate_type", "52");
-        map.put("operate_id", "11");
+        map.put("operate_type", "60");
+        map.put("operate_id", "14");
         map.put("ccid", ccid);
         map.put("project_type", "lp");
+        map.put("pay_m_y_type", pay_m_y_type);
         String myHeaderLog = new Gson().toJson(map);
         String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
         OkGo.<AppResponse<YuZhiFuModel.DataBean>>post(Urls.DALIBAO_PAY)

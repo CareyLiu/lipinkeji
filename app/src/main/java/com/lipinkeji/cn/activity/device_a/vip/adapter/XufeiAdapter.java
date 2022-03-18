@@ -20,7 +20,7 @@ public class XufeiAdapter extends RecyclerView.Adapter<XufeiAdapter.XufeiViewHol
 
     private List<XufeiModel.DataBean> xufeiModels;
     private Context mContext;
-    private int count = 0;
+    private int count = -1;
     private XufeiClick xufeiClick;
 
     public XufeiAdapter(List<XufeiModel.DataBean> xufeiModels, Context mContext) {

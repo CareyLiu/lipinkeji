@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.activity.device_a.BindBoxActivity;
 import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivityNew;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivityNew;
 import com.lipinkeji.cn.util.Y;
@@ -103,7 +104,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                 if (NetworkUtils.isConnected(mContext)) {
                                     Activity currentActivity = AppManager.getAppManager().currentActivity();
                                     if (currentActivity != null) {
-                                        LipinFengnuanActivity.actionStart(mContext);
+                                        LipinFengnuanActivityNew.actionStart(mContext);
                                     }
                                 } else {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");

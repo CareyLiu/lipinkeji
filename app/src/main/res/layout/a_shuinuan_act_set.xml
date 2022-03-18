@@ -163,6 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
+                android:visibility="gone"
                 android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang">
 

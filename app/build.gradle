@@ -194,8 +194,11 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
     implementation 'androidx.cardview:cardview'
     implementation 'org.apache.commons:commons-lang3:3.7'
+
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
     implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
-    implementation 'com.tencent.bugly:nativecrashreport:3.8.0'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
 
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
