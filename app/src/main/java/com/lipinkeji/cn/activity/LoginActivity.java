@@ -189,13 +189,13 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
         tvYonghushiyong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
+                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://mqrn.hljsdkj.com/shop_new/lp_user_agreements");
             }
         });
         tvYinsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
+                DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://mqrn.hljsdkj.com/shop_new/lp_privacy_clause");
             }
         });
 
@@ -212,8 +212,6 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
                 public void onClickConfirm() {
 
                     String[] perms = {
-                            Manifest.permission.ACCESS_COARSE_LOCATION,
-                            Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE};
                     EasyPermissions.requestPermissions(LoginActivity.this, "申请开启app需要的权限", 0, perms);
                     fuWuDialog.dismiss();
@@ -226,12 +224,12 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
 
                 @Override
                 public void fuwu() {
-//                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
+                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://mqrn.hljsdkj.com/shop_new/lp_user_agreements");
                 }
 
                 @Override
                 public void yinsixieyi() {
-//                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
+                    DefaultX5WebViewActivity.actionStart(LoginActivity.this, "https://mqrn.hljsdkj.com/shop_new/lp_privacy_clause");
                 }
             });
 
@@ -263,6 +261,7 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
             AppManager.getAppManager().finishAllActivity();
         }
         return super.onKeyDown(keyCode, event);
+
 
     }
 

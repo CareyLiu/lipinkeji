@@ -113,6 +113,13 @@ public class FengnuanSetActivity extends BaseActivity {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initView();
+
+    }
+
     private void initHuidiao() {
         _subscriptions.add(toObservable().observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Notice>() {
             @Override
@@ -232,6 +239,7 @@ public class FengnuanSetActivity extends BaseActivity {
                         Y.t(response.body().msg);
                         dataBean_pay = response.body().data.get(0);
                         goToWeChatPay(dataBean_pay);
+                        xufeiDialog.dismiss();
                     }
 
                     @Override

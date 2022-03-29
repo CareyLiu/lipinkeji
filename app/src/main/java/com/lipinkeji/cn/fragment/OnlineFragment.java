@@ -109,7 +109,7 @@ public class OnlineFragment extends BaseFragment implements Observer {
                             if (mDatas.get(position).device_type.equals("1")) {//1
                                 int i = mDatas.get(position).ccid.length() - 1;
 //                                mDatas.get(position).ccid = "aaaaaaaaaaaaa88880070018";
-                                mDatas.get(position).ccid = "aaaaaaaaaaaaa88880020018";
+                               // mDatas.get(position).ccid = "aaaaaaaaaaaaa88880020018";
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
                                 PreferenceHelper.getInstance(getActivity()).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(getContext()).putString("share_type", mDatas.get(position).share_type);

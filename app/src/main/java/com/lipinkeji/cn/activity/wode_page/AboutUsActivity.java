@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.DefaultX5WebViewActivity;
+import com.lipinkeji.cn.activity.LoginActivity;
 import com.lipinkeji.cn.app.BaseActivity;
 
 import butterknife.BindView;
@@ -34,13 +35,13 @@ public class AboutUsActivity extends BaseActivity {
         tvYonghushiyong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                DefaultX5WebViewActivity.actionStart(mContext, "https://shop.hljsdkj.com/shop_new/f_user_agreements");
+                DefaultX5WebViewActivity.actionStart(AboutUsActivity.this, "https://mqrn.hljsdkj.com/shop_new/lp_user_agreements");
             }
         });
         tvYinsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                DefaultX5WebViewActivity.actionStart(mContext, "https://shop.hljsdkj.com/shop_new/f_privacy_clause");
+                DefaultX5WebViewActivity.actionStart(AboutUsActivity.this, "https://mqrn.hljsdkj.comshop_new/lp_privacy_clause");
 
             }
         });
@@ -51,7 +52,7 @@ public class AboutUsActivity extends BaseActivity {
         String versionName = "";
         try {
             PackageManager packageManager = context.getPackageManager();
-            PackageInfo packageInfo = packageManager.getPackageInfo("com.falaer.cn", 0);
+            PackageInfo packageInfo = packageManager.getPackageInfo("com.lipinkeji.cn", 0);
             versionName = packageInfo.versionName;
             if (TextUtils.isEmpty(versionName)) {
                 return "";

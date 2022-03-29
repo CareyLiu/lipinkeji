@@ -186,6 +186,8 @@ public class LipinFengnuanActivity extends BaseActivity implements View.OnLongCl
         setUiGuanji();
     }
 
+
+
     private void initData() {
         String ccid = PreferenceHelper.getInstance(mContext).getString("ccid", "");
         ccid = ccid.replace("a", "");

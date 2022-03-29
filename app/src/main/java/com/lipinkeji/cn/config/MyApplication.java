@@ -190,25 +190,10 @@ public class MyApplication extends MultiDexApplication {
         application = this;
         int designWidth = 720;
         new RudenessScreenHelper(application, designWidth).activate();
-//        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
-//        JPushInterface.init(this);
-//        doMqttValue = new DoMqttValue();
         context = getApplicationContext();
-//        initRongYun();
+
         initLifecycle();
-//        initWindow();
-//        initDefaultPicker();
-//        initOkgo();
-//
-//        // 获取当前包名
-//        String packageName = context.getPackageName();
-//        // 获取当前进程名
-//        String processName = JinChengUtils.getProcessName();
-//        // 设置是否为上报进程
-//        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
-//        strategy.setUploadProcess(processName == null || processName.equals(packageName));
-//        // 初始化Bugly
-//        Bugly.init(getApplicationContext(), "9067f261f0", false);
+
 
         CompositeSubscription _subscriptions = new CompositeSubscription();
         _subscriptions = RxUtils.getNewCompositeSubIfUnsubscribed(_subscriptions);
@@ -261,7 +246,7 @@ public class MyApplication extends MultiDexApplication {
                     strategy.setUploadProcess(processName == null || processName.equals(packageName));
                     // 初始化Bugly
                     Bugly.init(getApplicationContext(), "8ae42bdff9", false);
-
+                    initRongYun();
                     mCacheMap = new HashMap<>();
                     mBroadcastData = new MutableLiveData<>();
                     IntentFilter filter = new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION);

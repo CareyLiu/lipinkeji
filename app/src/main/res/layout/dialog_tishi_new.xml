@@ -15,7 +15,6 @@
 
 
         <TextView
-            android:paddingTop="30dp"
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,6 +22,7 @@
             android:layout_marginBottom="12dp"
             android:gravity="center"
             android:includeFontPadding="false"
+            android:paddingTop="30dp"
             android:text="服务协议和隐私政策"
             android:textColor="@color/text_color_3"
             android:textSize="17sp"
@@ -32,35 +32,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <TextView
+            <ScrollView
                 android:id="@+id/tv_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:includeFontPadding="false"
-                android:paddingHorizontal="30dp"
-                android:text="请你务必审慎阅读，充分理解“服务协议”和隐私政策的各条款，和其中的各项服务"
-                android:textColor="@color/black_666666"
-                android:textSize="13sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:includeFontPadding="false"
+                        android:paddingHorizontal="30dp"
+                        android:text="如果您有任何疑问，意见或建议，请通过以下联系方式与我们联系：0451-86302963
+下面是收集您个人信息的详细清单，如下：
+1.我们在登陆页面将使用您的手机号进行短信验证码登陆和注册账号的服务，仅手机您的手机号用作二次登陆校验不做其他功能。
+2.我们在修改头像操作的时候将使用您的相机照相并存储照片用于您的头像展示
+，其中客服聊天功能中也会用于拍摄，还有扫描二
+维码添加设备的时候也会收集相应功能。
+3.您的账号进行用户登录的时候，我们对登录的设备进行二次认证，保障登录的设备是您授权的设备，我们可能会收集您的登录设
+备相关的信息：硬件型号、设备MAC地址、IMEI、IMSI、手机品牌、系统版本，该信息的收集用于保障您的账号安全、防盗号、信息
+安全的功能，我们不会作其他用途使用。
+4.当您将我们的应用切换到后台，检测到此状态后，我们将不再获取数据，防止您使用额外的流量。
+同时承诺除了以上收集隐私功能，将不做其他收集隐私的相关权限操作"
+                        android:textColor="@color/black_666666"
+                        android:textSize="13sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+            </ScrollView>
+
+
 
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 app:layout_constraintLeft_toLeftOf="@+id/tv_content"
                 app:layout_constraintTop_toBottomOf="@+id/tv_content">
 
                 <TextView
-               android:paddingLeft="30dp"
-                    android:textColor="@color/black_666666"
-                    android:textSize="13sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:text="也可以阅读"></TextView>
+                    android:paddingLeft="30dp"
+                    android:text="您也可以阅读"
+                    android:textColor="@color/black_666666"
+                    android:textSize="13sp"></TextView>
 
                 <TextView
                     android:id="@+id/tv_yinsi"
@@ -85,9 +111,9 @@
 
 
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:gravity="center"
             android:orientation="horizontal">
@@ -99,7 +125,7 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/dialog_cancel_bt"
                 android:gravity="center"
-                android:text="暂不使用"
+                android:text="拒绝"
                 android:textColor="@color/text_color_3"
                 android:textSize="15sp" />
 

@@ -672,7 +672,7 @@ public class QueRenDingDanActivity extends BaseActivity implements QueRenDingDan
     private void getWeiXinOrZhiFuBao() {
 
 
-       productDetailsForJava.get(0).shop_form_text = etLiuYan.getText().toString();
+        productDetailsForJava.get(0).shop_form_text = etLiuYan.getText().toString();
 //        form_product_id 	购物车产品id
 //        shop_product_id	商品套餐id
 //        pay_count	购买数量
@@ -726,7 +726,7 @@ public class QueRenDingDanActivity extends BaseActivity implements QueRenDingDan
                         @Override
                         public void onError(Response<AppResponse<YuZhiFuModel_AliPay.DataBean>> response) {
                             super.onError(response);
-
+                            UIHelper.ToastMessage(mContext, response.getException().getMessage());
                             progressDialog.dismiss();
                         }
                     });

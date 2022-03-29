@@ -181,7 +181,7 @@ public class AddAddressActivity extends BaseActivity implements OnAddressSelecte
         map.put("user_addr_state", user_addr_state);
 
         Gson gson = new Gson();
-        OkGo.<AppResponse>post(Urls.SERVER_URL + "/shop_new/app/user")
+        OkGo.<AppResponse>post(Urls.SERVER_URL + "shop_new/app/user")
                 .tag(this)//
                 .upJson(gson.toJson(map))
                 .execute(new JsonCallback<AppResponse>() {
