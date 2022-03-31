@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
+import com.lipinkeji.cn.activity.rongyun_liaotian.ConversationActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lipinkeji.cn.R;
@@ -46,6 +47,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.rong.imkit.RongIM;
+import io.rong.imkit.utils.RouteUtils;
 import io.rong.imlib.model.Conversation;
 
 import static com.lipinkeji.cn.get_net.Urls.HOME_PICTURE_HOME;
@@ -416,7 +418,9 @@ public class ZiJianShopMallDetailsActivity extends BaseActivity implements Zijia
                 bundle.putString("dianpuming", instName);
                 bundle.putString("inst_accid", response.body().data.get(0).getInst_accid());
                 bundle.putString("shoptype","1");
-                RongIM.getInstance().startConversation(mContext, conversationType, targetId, instName, bundle);
+                //RongIM.getInstance().startConversation(mContext, conversationType, targetId, instName, bundle);
+              RouteUtils.registerActivity(RouteUtils.RongActivityType.ConversationActivity, ConversationActivity.class);
+                RouteUtils.routeToConversationActivity(mContext, conversationType, targetId, bundle);
             }
         });
         tvKefu.setOnClickListener(new View.OnClickListener() {
@@ -431,7 +435,8 @@ public class ZiJianShopMallDetailsActivity extends BaseActivity implements Zijia
                 bundle.putString("dianpuming", instName);
                 bundle.putString("inst_accid", response.body().data.get(0).getInst_accid());
                 bundle.putString("shoptype","1");
-                RongIM.getInstance().startConversation(mContext, conversationType, targetId, instName, bundle);
+                RouteUtils.registerActivity(RouteUtils.RongActivityType.ConversationActivity, ConversationActivity.class);
+                RouteUtils.routeToConversationActivity(mContext, conversationType, targetId, bundle);
             }
         });
 

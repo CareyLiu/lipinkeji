@@ -41,7 +41,7 @@ public class AboutUsActivity extends BaseActivity {
         tvYinsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DefaultX5WebViewActivity.actionStart(AboutUsActivity.this, "https://mqrn.hljsdkj.comshop_new/lp_privacy_clause");
+                DefaultX5WebViewActivity.actionStart(AboutUsActivity.this, "https://mqrn.hljsdkj.com/shop_new/lp_privacy_clause");
 
             }
         });

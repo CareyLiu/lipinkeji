@@ -25,7 +25,8 @@ import com.lipinkeji.cn.util.AlertUtil;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.rong.imkit.fragment.ConversationFragment;
+
+import io.rong.imkit.conversation.ConversationFragment;
 import io.rong.imlib.RongIMClient;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -65,21 +66,13 @@ public class ConversationActivity extends BaseActivity {
                         //连接中
                         // notice.content = status.CONNECTING;
                         showLoading();
-                    } else if (status.getMessage().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.DISCONNECTED)) {
-                        //断开连接
-                        // notice.content = status.DISCONNECTED;
-                        showLoadFailed();
-                    } else if (status.getMessage().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT)) {
+                    }  else if (status.getMessage().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT)) {
                         //用户账户在其他设备登录，本机会被踢掉线。
                         UIHelper.ToastMessage(mContext, "用户账户在其他设备登录，本机会被踢掉线。");
                     } else if (status.getMessage().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.NETWORK_UNAVAILABLE)) {
                         //网络不可用
                         showLoadFailed();
-                    } else if (status.getMessage().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.SERVER_INVALID)) {
-                        //TOKEN_INCORRECT
-                        //连接失败
-                        UIHelper.ToastMessage(mContext, "连接失败");
-                    } else if (status.getMessage().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.TOKEN_INCORRECT)) {
+                    }  else if (status.getMessage().equals(RongIMClient.ConnectionStatusListener.ConnectionStatus.TOKEN_INCORRECT)) {
                         //Token 不正确
                         //notice.content = status.TOKEN_INCORRECT;
                     }

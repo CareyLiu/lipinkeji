@@ -74,6 +74,7 @@ import java.util.logging.Level;
 
 import cn.jpush.android.api.JPushInterface;
 import io.rong.imkit.RongIM;
+import io.rong.imkit.utils.RouteUtils;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Message;
 import okhttp3.OkHttpClient;
@@ -277,39 +278,43 @@ public class MyApplication extends MultiDexApplication {
     private void initRongYun() {
         // 初始化. 建议在 Application 中进行初始化.
         String appKey = "cpj2xarlct6en";
-        RongIM.init(context, appKey);
+        RongIM.init(getApp(), appKey);
 
         String rongYunToken = PreferenceHelper.getInstance(getApplicationContext()).getString("token_rong", "");
         if (!StringUtils.isEmpty(rongYunToken)) {
             connectRongYun(rongYunToken);
+//
+//            RongIM.setOnReceiveMessageListener(new RongIMClient.OnReceiveMessageWrapperListener() {
+//                /**
+//                 * 接收实时或者离线消息。
+//                 * 注意:
+//                 * 1. 针对接收离线消息时，服务端会将 200 条消息打成一个包发到客户端，客户端对这包数据进行解析。
+//                 * 2. hasPackage 标识是否还有剩余的消息包，left 标识这包消息解析完逐条抛送给 App 层后，剩余多少条。
+//                 * 如何判断离线消息收完：
+//                 * 1. hasPackage 和 left 都为 0；
+//                 * 2. hasPackage 为 0 标识当前正在接收最后一包（200条）消息，left 为 0 标识最后一包的最后一条消息也已接收完毕。
+//                 *
+//                 * @param message    接收到的消息对象
+//                 * @param left       每个数据包数据逐条上抛后，还剩余的条数
+//                 * @param hasPackage 是否在服务端还存在未下发的消息包
+//                 * @param offline    消息是否离线消息
+//                 * @return 是否处理消息。 如果 App 处理了此消息，返回 true; 否则返回 false 由 SDK 处理。
+//                 */
+//                @Override
+//                public boolean onReceived(final Message message, final int left, boolean hasPackage, boolean offline) {
+//                    Notice notice = new Notice();
+//                    notice.type = ConstanceValue.MSG_RONGYUN_REVICE;
+//                    // notice.content = status.
+//                    //* 用户被开发者后台封禁
+//                    notice.content = message;
+//                    RxBus.getDefault().sendRx(notice);
+//                    return false;
+//                }
+//            });
 
-            RongIM.setOnReceiveMessageListener(new RongIMClient.OnReceiveMessageWrapperListener() {
-                /**
-                 * 接收实时或者离线消息。
-                 * 注意:
-                 * 1. 针对接收离线消息时，服务端会将 200 条消息打成一个包发到客户端，客户端对这包数据进行解析。
-                 * 2. hasPackage 标识是否还有剩余的消息包，left 标识这包消息解析完逐条抛送给 App 层后，剩余多少条。
-                 * 如何判断离线消息收完：
-                 * 1. hasPackage 和 left 都为 0；
-                 * 2. hasPackage 为 0 标识当前正在接收最后一包（200条）消息，left 为 0 标识最后一包的最后一条消息也已接收完毕。
-                 *
-                 * @param message    接收到的消息对象
-                 * @param left       每个数据包数据逐条上抛后，还剩余的条数
-                 * @param hasPackage 是否在服务端还存在未下发的消息包
-                 * @param offline    消息是否离线消息
-                 * @return 是否处理消息。 如果 App 处理了此消息，返回 true; 否则返回 false 由 SDK 处理。
-                 */
-                @Override
-                public boolean onReceived(final Message message, final int left, boolean hasPackage, boolean offline) {
-                    Notice notice = new Notice();
-                    notice.type = ConstanceValue.MSG_RONGYUN_REVICE;
-                    // notice.content = status.
-                    //* 用户被开发者后台封禁
-                    notice.content = message;
-                    RxBus.getDefault().sendRx(notice);
-                    return false;
-                }
-            });
+
+
+
 
             RongIM.setConnectionStatusListener(new RongIMClient.ConnectionStatusListener() {
                 /**
@@ -360,47 +365,23 @@ public class MyApplication extends MultiDexApplication {
     }
 
     public void connectRongYun(String token) {
-        RongIM.connect(token, new RongIMClient.ConnectCallbackEx() {
-            /**
-             * 数据库回调.
-             * @param code 数据库打开状态. DATABASE_OPEN_SUCCESS 数据库打开成功; DATABASE_OPEN_ERROR 数据库打开失败
-             */
-            @Override
-            public void OnDatabaseOpened(RongIMClient.DatabaseOpenStatus code) {
-                Log.i("rongYun", "数据库打开失败");
-            }
-
-            /**
-             * token 无效
-             */
-            @Override
-            public void onTokenIncorrect() {
-                Log.i("rongYun", "token 无效");
-            }
-
-            /**
-             * 成功回调
-             * @param userId 当前用户 ID
-             */
+        RongIM.connect(token, new RongIMClient.ConnectCallback() {
             @Override
             public void onSuccess(String userId) {
-                //UIHelper.ToastMessage(mContext, "融云连接成功");
-                Log.i("rongYun", "融云连接成功");
+                // 登录成功，跳转到默认会话列表页。
                 PreferenceHelper.getInstance(getApplicationContext()).putString(AppConfig.RONGYUN_TOKEN, token);
+            }
 
+            @Override
+            public void onError(RongIMClient.ConnectionErrorCode connectionErrorCode) {
 
             }
 
-            /**
-             * 错误回调
-             * @param errorCode 错误码
-             */
             @Override
-            public void onError(RongIMClient.ErrorCode errorCode) {
-                Log.i("rongYun", "融云连接失败");
+            public void onDatabaseOpened(RongIMClient.DatabaseOpenStatus databaseOpenStatus) {
+
             }
         });
-
     }
 
 

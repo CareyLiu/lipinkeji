@@ -354,7 +354,7 @@ public class OrderListFragment extends BaseFragment {
                 bundle.putString("dianpuming", instName);
                 bundle.putString("inst_accid", response.body().data.get(0).getInst_accid());
                 bundle.putString("shoptype", "2");
-                RongIM.getInstance().startConversation(getActivity(), conversationType, targetId, instName, bundle);
+                RongIM.getInstance().startConversation(getActivity(), conversationType, targetId, instName);
                 break;
             case "6":
                 showDngDanCaoZuo(dataBean, position, "是否删除订单", "04157");
