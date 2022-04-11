@@ -7,7 +7,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.LocusActivity;
 import com.lipinkeji.cn.model.Locus;
 
 /**
@@ -39,7 +38,7 @@ public class LocusListAdapter extends ListBaseAdapter<Locus.DataBean> {
             @Override
             public void onClick(View view) {
                 //跳转轨迹地图
-                mContext.startActivity(new Intent(mContext, LocusActivity.class).putExtra("time", getDataList().get(position).getCreate_time()));
+             //   mContext.startActivity(new Intent(mContext, LocusActivity.class).putExtra("time", getDataList().get(position).getCreate_time()));
             }
         });
 

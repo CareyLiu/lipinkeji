@@ -10,10 +10,14 @@ import com.lipinkeji.cn.dialog.newdia.TishiDialog;
 
 public class ShuinuanBaseNewActivity extends BaseActivity {
 
-    public static String SN_Send;//"wh/hardware/";
+    public static String SN_Send = "wh/hardware/";//"wh/hardware/";
     public static String SN_Accept;//"wh/app/";
     public static String ccid;
     public static String msgData;
+
+    public final String dianHuoSai = "M_s03";//点火塞加热命令
+    public final String youbeng = "M_s04";//油泵加热命令
+
 
 
     @Override

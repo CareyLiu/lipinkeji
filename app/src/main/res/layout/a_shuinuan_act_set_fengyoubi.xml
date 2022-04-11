@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_bg"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="142pt"
+        android:layout_height="100pt"
         android:background="@color/app_bg">
 
         <RelativeLayout
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:includeFontPadding="false"
-                android:text="大气压参数"
+                android:text="风油比参数"
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />
@@ -64,7 +65,190 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:paddingLeft="18pt">
 
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
+                    android:layout_marginRight="15pt"
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="点火"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="点火转速"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_dianhuozhuansu"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="3000"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：1000-8000"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="点火油泵"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_dianhuoyoubeng"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：0.50-10.00"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:paddingLeft="18pt">
+
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
+                    android:layout_marginRight="15pt"
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="目标"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="目标转速"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_mubiaozhuansu"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="3000"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：3000-7000"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="目标油泵"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_mubiaoyoubeng"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：0.50-10.00"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
@@ -151,7 +335,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-16.00"
+                            android:text="参数范围：0.50-10.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -198,7 +382,7 @@
                         <EditText
                             android:id="@+id/ed_2dan_fengji"
                             android:layout_width="105pt"
-                            android:layout_height="22dp"
+                            android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
                             android:background="@drawable/bg_fengyoubi_xian"
                             android:gravity="center"
@@ -245,7 +429,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-16.00"
+                            android:text="参数范围：0.50-10.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>

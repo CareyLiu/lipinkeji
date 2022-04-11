@@ -305,6 +305,8 @@ public class LipinXiaoshuiActivity extends ShuinuanBaseNewActivity implements Vi
             }
 
 
+
+
             if (xinhaoStr.equals("aa")) {
                 iv_xinhao.setImageResource(R.mipmap.fengnuan_icon_signal2);
             } else {

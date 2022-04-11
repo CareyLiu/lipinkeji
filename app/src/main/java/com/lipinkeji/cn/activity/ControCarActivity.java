@@ -267,7 +267,7 @@ public class ControCarActivity extends BaseActivity implements NavigationView.On
                 break;
             case R.id.nav_location:
                 //定位
-                startActivity(new Intent(this, LocationActivity.class));
+//                startActivity(new Intent(this, LocationActivity.class));
                 break;
             case R.id.nav_timing:
                 //定时

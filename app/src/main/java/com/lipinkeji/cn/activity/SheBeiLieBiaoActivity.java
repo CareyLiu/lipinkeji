@@ -18,6 +18,7 @@ import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivity;
 import com.lipinkeji.cn.activity.device_fengnuan.LipinFengnuanActivityNew;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.LipinDashuiActivityNew;
+import com.lipinkeji.cn.activity.device_shuinuan.set.ShuiNuanKaiJiMoShiSheZhiActivity;
 import com.lipinkeji.cn.util.Y;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -143,6 +144,8 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                                     UIHelper.ToastMessage(mContext, "请连接网络后重新尝试");
                                 }
                             }
+
+
                             break;
                     }
                 } else {

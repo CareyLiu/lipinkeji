@@ -123,10 +123,10 @@
                 android:layout_width="115dp"
                 android:layout_height="42dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/dialog_cancel_bt"
+                android:background="@drawable/bt_login_bacground"
                 android:gravity="center"
                 android:text="拒绝"
-                android:textColor="@color/text_color_3"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
 
             <TextView

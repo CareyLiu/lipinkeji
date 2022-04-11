@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
@@ -25,7 +26,6 @@ import com.rairmmd.andmqtt.MqttSubscribe;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 
-import androidx.annotation.NonNull;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -46,6 +46,15 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
     EditText ed2danFengji;
     @BindView(R.id.ed_2dan_youbeng)
     EditText ed2danYoubeng;
+    @BindView(R.id.et_dianhuozhuansu)
+    EditText etDianhuozhuansu;
+    @BindView(R.id.et_dianhuoyoubeng)
+    EditText etDianhuoyoubeng;
+    @BindView(R.id.et_mubiaozhuansu)
+    EditText etMubiaozhuansu;
+    @BindView(R.id.et_mubiaoyoubeng)
+    EditText etMubiaoyoubeng;
+
 
     @Override
     public int getContentViewResId() {
@@ -242,6 +251,29 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
         int fengji2 = Y.getInt(ed2danFengji.getText().toString());
         float youbeng2 = Y.getFloat(ed2danYoubeng.getText().toString());
 
+        int dianhuozhuansu = Y.getInt(etDianhuozhuansu.getText().toString());
+        float dianHuoYouBeng = Y.getFloat(etDianhuoyoubeng.getText().toString());
+
+        int muBianZhuanSu = Y.getInt(etMubiaozhuansu.getText().toString());
+        float muBiaoYouBeng = Y.getFloat(etMubiaoyoubeng.getText().toString());
+
+
+        if (dianhuozhuansu < 1000 || dianhuozhuansu > 3000) {
+            Y.t("请输入正确的点火转速");
+        }
+
+        if (dianHuoYouBeng < 0.5 || dianHuoYouBeng > 10.0) {
+            Y.t("请输入正确的点火油泵");
+        }
+
+        if (muBianZhuanSu < 3000 || muBianZhuanSu > 7000) {
+            Y.t("请输入正确目标转速");
+        }
+
+        if (muBiaoYouBeng < 0.5 || muBiaoYouBeng > 10.0) {
+            Y.t("请输入正确的目标油泵");
+        }
+
 
         if (fengji1 < 3000 || fengji1 > 8000) {
             Y.t("请输入1档正确的风机转速");
@@ -263,6 +295,13 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
             return;
         }
 
+        String dianHuoZhuanSu1 = "0" + dianhuozhuansu;
+        String dianHuoYouBeng1 = Y.getMoney(dianHuoYouBeng).replace(".", "");
+
+        String mubiaozhuansu = "0" + muBianZhuanSu;
+        String mubiaobengyou1 = Y.getMoney(muBiaoYouBeng).replace(".", "");
+
+
         String feng1 = "0" + fengji1;
         String feng2 = "0" + fengji2;
 
@@ -278,7 +317,7 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
         }
 
 
-        String mingling = "M_s12" + feng1 + you1 + feng2 + you2 + ".";
+        String mingling = "h_s" + dianHuoZhuanSu1+dianHuoYouBeng1+mubiaozhuansu+mubiaobengyou1+feng1 + you1 + feng2 + you2 + ".";
         //向水暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
                 .setMsg(mingling)

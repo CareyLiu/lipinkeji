@@ -117,6 +117,20 @@
                 tools:replace="android:resource" />
         </provider>
 
+<!--        <activity-->
+<!--            android:name="com.lipinkeji.cn.activity.device_shuinuan.set.ShuiNuanKaiJiMoShiSheZhiActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|fontScale|screenSize"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            tools:ignore="LockedOrientationActivity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+
         <activity
             android:name="com.lipinkeji.cn.activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|fontScale|screenSize"
@@ -203,17 +217,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
-            android:name="com.lipinkeji.cn.activity.LocationActivity"
-            android:configChanges="locale|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
             android:name="com.lipinkeji.cn.activity.HistoryLocusActivity"
-            android:configChanges="locale|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name="com.lipinkeji.cn.activity.LocusActivity"
             android:configChanges="locale|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
@@ -671,11 +675,6 @@
         </receiver>
 
         <activity
-            android:name="com.lipinkeji.cn.activity.CheLianWangNoticeActvity"
-            android:configChanges="locale|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
             android:name="com.lipinkeji.cn.activity.AccessListActivity"
             android:configChanges="locale|keyboardHidden|orientation"
             android:screenOrientation="portrait"
@@ -808,13 +807,6 @@
 
         <activity
             android:name=".activity.tongcheng58.BianMinFaBuActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
-            android:name=".activity.tongcheng58.PoiKeywordSearchActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -1259,6 +1251,26 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
+        <activity
+            android:name=".activity.device_shuinuan.set.ShuiNuanKaiJiMoShiSheZhiActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".activity.DianHuoSaiActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".activity.YouBengActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity" />
 
     </application>
 </manifest>

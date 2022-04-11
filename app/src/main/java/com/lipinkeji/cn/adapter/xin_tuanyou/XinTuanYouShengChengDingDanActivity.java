@@ -24,7 +24,7 @@ import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.tuangou.TuanGouDiYongQuanActivity;
+
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
@@ -271,7 +271,7 @@ public class XinTuanYouShengChengDingDanActivity extends BaseActivity {
                     if (tvZanwu.getText().toString().equals("暂无可用")) {
 
                     } else {
-                        TuanGouDiYongQuanActivity.actionStart(XinTuanYouShengChengDingDanActivity.this, inst_id, shenMJIne, "");
+                        //TuanGouDiYongQuanActivity.actionStart(XinTuanYouShengChengDingDanActivity.this, inst_id, shenMJIne, "");
 
                     }
 

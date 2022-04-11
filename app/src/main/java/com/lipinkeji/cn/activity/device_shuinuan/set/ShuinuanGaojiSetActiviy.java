@@ -8,9 +8,11 @@ import android.widget.RelativeLayout;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.DianHuoSaiActivity;
+import com.lipinkeji.cn.activity.YouBengActivity;
+import com.lipinkeji.cn.activity.device_a.dialog.JiareqiMimaDialog;
 import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanWendusetActivity;
 import com.lipinkeji.cn.app.BaseActivity;
-import com.lipinkeji.cn.activity.device_a.dialog.JiareqiMimaDialog;
 import com.lipinkeji.cn.util.Y;
 
 import butterknife.BindView;
@@ -32,6 +34,10 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
     RelativeLayout rlDaqiyacanshu;
     @BindView(R.id.rl_wendushezhi)
     RelativeLayout rl_wendushezhi;
+    @BindView(R.id.rl_kaijimoshishezhi)
+    RelativeLayout rlKaijimoshishezhi;
+    @BindView(R.id.rl_dianhuosai_shezhi)
+    RelativeLayout rlDianhuosaiShezhi;
 
     @Override
     public void initImmersion() {
@@ -82,7 +88,9 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
     }
 
 
-    @OnClick({R.id.rl_daqiyacanshu, R.id.rl_back, R.id.rl_fengyoubicanshu, R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu, R.id.rl_wendushezhi})
+    @OnClick({R.id.rl_daqiyacanshu, R.id.rl_back, R.id.rl_fengyoubicanshu,
+            R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu, R.id.rl_wendushezhi,
+            R.id.rl_kaijimoshishezhi, R.id.rl_dianhuosai_shezhi, R.id.rl_youbeng_shezhi})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_back:
@@ -103,6 +111,19 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
             case R.id.rl_wendushezhi:
                 ShuinuanWendusetActivity.actionStart(mContext);
                 break;
+            case R.id.rl_kaijimoshishezhi:
+                //ShuiNuanKaiJiMoShiSheZhiActivity.actionStart(mContext);
+                break;
+            case R.id.rl_dianhuosai_shezhi:
+                DianHuoSaiActivity.actionStart(mContext);
+                break;
+
+            case R.id.rl_youbeng_shezhi:
+                YouBengActivity.actionStart(mContext);
+                break;
+
         }
     }
+
+
 }

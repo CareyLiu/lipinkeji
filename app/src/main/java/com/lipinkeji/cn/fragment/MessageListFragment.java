@@ -21,7 +21,6 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.CheLianWangNoticeActvity;
 import com.lipinkeji.cn.activity.dingdan.XiaoXiEnterDingDanActivity;
 import com.lipinkeji.cn.adapter.MessageListAdapter;
 import com.lipinkeji.cn.baseadapter.baserecyclerviewadapterhelper.BaseQuickAdapter;
@@ -204,7 +203,7 @@ public class MessageListFragment extends BaseFragment {
                             case "1":
                             case "2":
                             case "3":
-                                CheLianWangNoticeActvity.actionStart(getActivity(), dataBean.getNotify_id());
+                                //CheLianWangNoticeActvity.actionStart(getActivity(), dataBean.getNotify_id());
                                 break;
                             case "8":
                                 break;
