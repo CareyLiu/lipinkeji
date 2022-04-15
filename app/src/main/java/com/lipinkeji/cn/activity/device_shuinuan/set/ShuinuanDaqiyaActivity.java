@@ -126,7 +126,7 @@ public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
                 .execute(new JsonCallback<AppResponse<AtmosBean.DataBean>>() {
                     @Override
                     public void onSuccess(final Response<AppResponse<AtmosBean.DataBean>> response) {
-                        if ( response.body().data!=null&& response.body().data.size()>0){
+                        if (response.body().data != null && response.body().data.size() > 0) {
                             AtmosBean.DataBean atmosBean = response.body().data.get(0);
                             System.out.println("大气压" + atmosBean.getZhu_apc());
                             if (atmosBean.getZhu_apc() != null) {
@@ -167,6 +167,7 @@ public class ShuinuanDaqiyaActivity extends ShuinuanBaseNewActivity {
                     public void onSuccess(final Response<AppResponse> response) {
                         if (response.body().msg_code.equals("0000")) {
                             Y.t("大气压参数输入成功");
+                            finish();
                         } else if (response.body().msg_code.equals("0001")) {
                             UIHelper.ToastMessage(mContext, response.body().msg, Toast.LENGTH_SHORT);
                         }

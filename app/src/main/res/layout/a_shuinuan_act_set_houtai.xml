@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15pt"
                     android:includeFontPadding="false"
-                    android:text="风机转速传感器"
+                    android:text="霍尔传感器"
                     android:textColor="@color/white"
                     android:textSize="29pt"
                     android:textStyle="bold" />

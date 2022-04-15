@@ -13,8 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.DianHuoSaiActivity;
+import com.lipinkeji.cn.activity.YouBengActivity;
 import com.lipinkeji.cn.activity.device_a.dialog.GuzhangDialog;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.ConstanceValue;
@@ -39,7 +43,6 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -93,6 +96,18 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     ImageView iv_jiareqi_xiao_kaiji;
     @BindView(R.id.iv_jiareqi_xiao_guanji)
     ImageView iv_jiareqi_xiao_guanji;
+    @BindView(R.id.rl_shezhi)
+    RelativeLayout rlShezhi;
+    @BindView(R.id.iv_huoyan)
+    ImageView ivHuoyan;
+    @BindView(R.id.tv_huoyan)
+    TextView tvHuoyan;
+    @BindView(R.id.bt_dianhuosaijiare)
+    LinearLayout btDianhuosaijiare;
+    @BindView(R.id.bt_youbengjiare)
+    LinearLayout btYoubengjiare;
+    @BindView(R.id.bt_shuomingshu)
+    LinearLayout btShuomingshu;
 
     private GuzhangDialog guzhangDialog;
     private String sim_ccid_save_type;
@@ -259,15 +274,11 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
 
 
             int rushukowenduInt = (Y.getInt(msg.substring(27, 30)) - 50);
-            if (rushukowenduInt <= 0) {
-                rushukowenduInt = 0;
-            }
+
             String rushukowendu = rushukowenduInt + "";// 入水口温度（℃）  -50至150（000 = -50，100 = 50）
 
             int chushuikowenduInt = (Y.getInt(msg.substring(30, 33)) - 50);
-            if (chushuikowenduInt <= 0) {
-                chushuikowenduInt = 0;
-            }
+
             String chushuikowendu = chushuikowenduInt + "";// 出水口温度（℃）  -50至150（000 = -50，100 = 50）
 
             int weiqiwenduInt = (Y.getInt(msg.substring(33, 37)) - 100);
@@ -275,7 +286,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
                 weiqiwenduInt = 0;
             }
             String weiqiwendu = weiqiwenduInt + "";// 尾气温度（℃）  -50至2000（000 = -50，100 = 50）
-
+            tvHuoyan.setText(weiqiwendu + "℃");
 
             String danqiandangwei = msg.substring(37, 38);// 1.一档2.二档（注：用*占位）
             yushewendu = msg.substring(38, 40);//预设温度（℃） 预设温度（℃）
@@ -366,11 +377,13 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
                 if (sn_state.equals("1")) {
                     isCanKaiguan = true;
                     handlerStart.removeMessages(1);
+                    tv_dangqianzhuangtai.setText("当前状态:开机");
                 }
             } else if (typeMingling == 2) {
                 if (sn_state.equals("0")) {
                     isCanKaiguan = true;
                     handlerStart.removeMessages(1);
+                    tv_dangqianzhuangtai.setText("当前状态:关机");
                 }
             } else {
                 isCanKaiguan = true;
@@ -749,6 +762,9 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     }
 
     private void getNs() {
+        if (!AndMqtt.getInstance().isConneect()) {
+            return;
+        }
         AndMqtt.getInstance().subscribe(new MqttSubscribe()
                 .setTopic(SN_Send)
                 .setQos(2), new IMqttActionListener() {
@@ -780,6 +796,9 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     }
 
     private void getNsData() {
+        if (!AndMqtt.getInstance().isConneect()) {
+            return;
+        }
         //向水暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
                 .setMsg("N_s.")
@@ -872,13 +891,13 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
             }
         });
         tishiDialog.setTextTitle("提示：网络信号异常");
-        tishiDialog.setTextContent("请检查设备情况。1:设备是否接通电源 2:设备信号灯是否闪烁 3:设备是否有损坏 4:手机是否开启网络，如已确认以上问题，请重新尝试。");
+        tishiDialog.setTextContent("请检查设备情况。1:设备是否接通电源 2:设备信号灯是否闪烁 3:设备  是否有损坏 4:手机是否开启网络，如已确认以上问题，请重新尝试。");
         tishiDialog.setTextConfirm("重试");
         tishiDialog.setTextCancel("忽略");
         tishiDialog.show();
     }
 
-    @OnClick({R.id.bt_back, R.id.ll_dingshi, R.id.bt_set})
+    @OnClick({R.id.bt_back, R.id.ll_dingshi, R.id.bt_set, R.id.bt_jitan, R.id.bt_dianhuosaijiare, R.id.bt_youbengjiare, R.id.bt_shuomingshu, R.id.rl_shezhi})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_back:
@@ -888,6 +907,21 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
                 ShuinuanDingshiActivity.actionStart(mContext);
                 break;
             case R.id.bt_set:
+                ShuinuanSetActivity.actionStart(mContext);
+                break;
+            case R.id.bt_jitan:
+                ShuinuanWendusetActivity.actionStart(mContext);
+                break;
+            case R.id.bt_dianhuosaijiare:
+                DianHuoSaiActivity.actionStart(mContext);
+                break;
+            case R.id.bt_youbengjiare:
+                YouBengActivity.actionStart(mContext);
+                break;
+            case R.id.bt_shuomingshu:
+                ShuinuanShuomingActivity.actionStart(mContext);
+                break;
+            case R.id.rl_shezhi:
                 ShuinuanSetActivity.actionStart(mContext);
                 break;
         }
@@ -905,9 +939,6 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
                     break;
                 case R.id.bt_shuibeng:
                     shuibeng();
-                    break;
-                case R.id.bt_jitan:
-                    jitan();
                     break;
             }
         } else if (typeZaixian == 3) {

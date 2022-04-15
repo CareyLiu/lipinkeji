@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
 import com.gyf.barlibrary.ImmersionBar;
@@ -37,7 +39,6 @@ import com.rairmmd.andmqtt.MqttUnSubscribe;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 
-import androidx.annotation.NonNull;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -133,6 +134,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     TextView bt_tongfeng;
     @BindView(R.id.bt_bengyou)
     TextView bt_bengyou;
+    @BindView(R.id.rl_shezhi)
+    RelativeLayout rlShezhi;
 
     private boolean isFirst;//是否第一次进入
     private boolean isKaiji;//是否开机
@@ -646,7 +649,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     }
 
 
-    @OnClick({R.id.bt_back, R.id.ll_dingshi, R.id.bt_set, R.id.bt2, R.id.bt3})
+    @OnClick({R.id.bt_back, R.id.ll_dingshi, R.id.bt_set, R.id.bt2, R.id.bt3, R.id.rl_shezhi})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_back:
@@ -663,6 +666,9 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
                 break;
             case R.id.bt3:
                 clickUp();
+                break;
+            case R.id.rl_shezhi:
+                FengnuanSetActivity.actionStart(mContext);
                 break;
         }
     }
@@ -860,42 +866,33 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     }
 
     private void clickHengwen() {
-        if (isKaiji) {
-            Y.t("请关机后再执行泵油操作！");
-            return;
-        }
-
-        if (!jiareqizhuangtai.equals("3")) {
-            Y.t("正在关机中，请稍后...");
-            return;
-        }
 
         time = 0;
+        isSetWenduDangwei = true;
         handlerStart.removeMessages(1);
+        handlerWendang.removeMessages(1);
 
-        SoundPoolUtils.soundPool(mContext, R.raw.yubengyou);
-        typeMingling = 4;//预泵油
-        setUiBengyou();
+        SoundPoolUtils.soundPool(mContext, R.raw.mode_temp);
+        setUiHengwen();
+        typeMingling = 2;//档位模式
+
         sendMingling();
+
     }
 
     private void clickShoudong() {
-        if (!isKaiji) {
-            time = 0;
-            isSetWenduDangwei = false;
-            handlerStart.removeMessages(1);
-            handlerWendang.removeMessages(1);
 
-            SoundPoolUtils.soundPool(mContext, R.raw.mode_gear);
-            setUiShoudong();
-            typeMingling = 1;//档位模式
+        time = 0;
+        isSetWenduDangwei = false;
+        handlerStart.removeMessages(1);
+        handlerWendang.removeMessages(1);
 
-            sendMingling();
-        } else {
-            if (!isHenwenMode) {
-                guanji();
-            }
-        }
+        SoundPoolUtils.soundPool(mContext, R.raw.mode_gear);
+        setUiShoudong();
+        typeMingling = 1;//档位模式
+
+        sendMingling();
+
     }
 
     private void kaiguan() {

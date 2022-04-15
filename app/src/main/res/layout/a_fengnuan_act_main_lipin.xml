@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="142pt">
+        android:layout_height="100pt">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -37,6 +37,22 @@
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rl_shezhi"
+                android:layout_width="88pt"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/sn_shezhi" />
+            </RelativeLayout>
+
+
         </RelativeLayout>
     </RelativeLayout>
 
@@ -475,7 +491,8 @@
                             android:id="@+id/bt3"
                             android:layout_width="211pt"
                             android:layout_height="211pt"
-                            android:layout_alignParentBottom="true" />
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="4dp" />
 
                         <View
                             android:id="@+id/bt4"

@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_bg"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="142pt"
+        android:layout_height="100pt"
         android:background="@color/app_bg">
 
         <RelativeLayout
@@ -37,23 +38,13 @@
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />
-        </RelativeLayout>
-    </RelativeLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/ll_gaojishezhi"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="64pt"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:gravity="right|center_vertical"
                 android:paddingRight="29pt">
 
@@ -73,6 +64,20 @@
                     android:textColor="@color/white"
                     android:textSize="29pt" />
             </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
 
             <RelativeLayout
                 android:id="@+id/rl_caozuoquanxian"
@@ -159,13 +164,14 @@
             </RelativeLayout>
 
             <RelativeLayout
+
                 android:id="@+id/rl_wendushezhi"
                 android:layout_width="match_parent"
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
-                android:visibility="gone"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -173,7 +179,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="19pt"
                     android:includeFontPadding="false"
-                    android:text="温度设置"
+                    android:text="开机模式设置"
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
@@ -337,7 +343,8 @@
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -365,7 +372,8 @@
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -419,6 +427,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="50pt" />
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

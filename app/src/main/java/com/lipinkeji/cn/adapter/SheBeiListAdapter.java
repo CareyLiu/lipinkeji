@@ -3,6 +3,7 @@ package com.lipinkeji.cn.adapter;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lipinkeji.cn.R;
@@ -50,7 +51,7 @@ public class SheBeiListAdapter extends BaseSectionQuickAdapter<SheBeiModel, Base
         String ccidNew = item.ccid.replace("a", "");
         helper.setText(R.id.tv_ccid, ccidNew);
 
-        TextView tv_share_name = helper.getView(R.id.tv_share_name);
+        RelativeLayout tv_share_name = helper.getView(R.id.tv_share_name);
         if (!TextUtils.isEmpty(item.share_type)) {
             if (item.share_type.equals("2")) {
                 tv_share_name.setVisibility(View.VISIBLE);

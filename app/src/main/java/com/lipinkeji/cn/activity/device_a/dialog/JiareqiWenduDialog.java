@@ -18,7 +18,7 @@ public class JiareqiWenduDialog extends Dialog implements View.OnClickListener {
     public TextView tv_title;
     public SeekBar seekBar;
     private String wendu;
-    private String type;//1 风暖上限  2风暖下限   3水暖上限   4水暖下限  5监测温度开机  6监测温度关机
+    private String type;//1 风暖上限  2风暖下限(限时模式)   3水暖上限   4水暖下限  5监测温度开机（开机）  6监测温度关机（关机）
 
     private TishiDialogListener mListener;
 
@@ -54,12 +54,13 @@ public class JiareqiWenduDialog extends Dialog implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 wendu = progress + "";
+                //  3水暖上限   4水暖下限(限时模式)   5监测温度开机（开机）  6监测温度关机（关机）
                 if (type.equals("1")) {
                     tv_content.setText("温度范围0-35，当前" + wendu);
                 } else if (type.equals("3")) {
-                    tv_content.setText("温度范围50-85，当前" + wendu);
+                    tv_content.setText("温度范围40-85，当前" + wendu);
                 } else if (type.equals("4")) {
-                    tv_content.setText("温度范围45-80，当前" + wendu);
+                    tv_content.setText("时间范围10-120，当前" + wendu);
                 } else if (type.equals("5")) {
                     tv_content.setText("当温度为" + wendu + "的时候开启加热器");
                 } else if (type.equals("6")) {
@@ -141,23 +142,23 @@ public class JiareqiWenduDialog extends Dialog implements View.OnClickListener {
             tv_content.setText("温度范围0-35，当前" + wendu);
             tv_title.setText("温度下限设置");
         } else if (type.equals("3")) {
-            seekBar.setMin(50);
+            seekBar.setMin(40);
             seekBar.setMax(85);
             tv_content.setText("温度范围50-85，当前" + wendu);
             tv_title.setText("温度上限设置");
         } else if (type.equals("4")) {
-            seekBar.setMin(45);
-            seekBar.setMax(80);
+            seekBar.setMin(10);
+            seekBar.setMax(120);
             tv_content.setText("温度范围45-80，当前" + wendu);
             tv_title.setText("温度下限设置");
         } else if (type.equals("5")) {
-            seekBar.setMin(-99);
-            seekBar.setMax(99);
+            seekBar.setMin(35);
+            seekBar.setMax(85);
             tv_content.setText("当温度为" + wendu + "的时候开启加热器");
             tv_title.setText("监测温度开机");
         } else if (type.equals("6")) {
-            seekBar.setMin(-99);
-            seekBar.setMax(99);
+            seekBar.setMin(5);
+            seekBar.setMax(75);
             tv_content.setText("当温度为" + wendu + "的时候关闭加热器");
             tv_title.setText("监测温度关机");
         }

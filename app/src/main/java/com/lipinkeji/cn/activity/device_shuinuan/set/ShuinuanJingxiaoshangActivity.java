@@ -1,6 +1,5 @@
 package com.lipinkeji.cn.activity.device_shuinuan.set;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -28,6 +27,9 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.math.BigDecimal;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
@@ -173,7 +175,7 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 youbengguige = progress;
-                tv_youbengguige.setText(youbengguige + "w");
+                tv_youbengguige.setText(youbengguige + "p");
             }
 
             @Override
@@ -192,7 +194,7 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 guoya12V = progress;
-                tv_guoyabaohu_12v.setText(guoya12V + "w");
+                tv_guoyabaohu_12v.setText(guoya12V + "v");
             }
 
             @Override
@@ -211,7 +213,7 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 qianya12V = progress;
-                tv_qianyabaohu_12v.setText(qianya12V + "w");
+                tv_qianyabaohu_12v.setText(qianya12V + "v");
             }
 
             @Override
@@ -230,7 +232,7 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 guoya24V = progress;
-                tv_guoyabaohu_24v.setText(guoya24V + "w");
+                tv_guoyabaohu_24v.setText(guoya24V + "v");
             }
 
             @Override
@@ -248,7 +250,7 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 qianya24V = progress;
-                tv_qianyabaohu_24v.setText(qianya24V + "w");
+                tv_qianyabaohu_24v.setText(qianya24V + "v");
             }
 
             @Override
@@ -289,13 +291,13 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
             //油泵规格  12 - 70P
             youbengguige = Y.getInt(msg.substring(10, 12));
             //12v过压保护阙值  12 - 40v
-            guoya12V = Y.getInt(msg.substring(12, 14));
+            guoya12V = Y.getInt(msg.substring(12, 15));
             //12v欠压保护阙值  7 -12v
-            qianya12V = Y.getInt(msg.substring(14, 16));
+            qianya12V = Y.getInt(msg.substring(15, 18));
             //24v过压保护阙值  24 – 40v
-            guoya24V = Y.getInt(msg.substring(16, 18));
+            guoya24V = Y.getInt(msg.substring(18, 21));
             //24v欠压保护阙值  7 – 22v
-            qianya24V = Y.getInt(msg.substring(18, 20));
+            qianya24V = Y.getInt(msg.substring(21, 24));
 
             setView();
         }
@@ -309,20 +311,38 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
         tv_dianhuosai_24v.setText(dianhuosai24V + "w");
 
         seekbar_youbengguige.setProgress(youbengguige);
-        tv_youbengguige.setText(youbengguige + "w");
+        tv_youbengguige.setText(youbengguige + "p");
 
-        seekbar_guoyabaohu_12v.setProgress(guoya12V);
-        tv_guoyabaohu_12v.setText(guoya12V + "w");
+        BigDecimal guoYa12Vdecimal = new BigDecimal(guoya12V);
+        BigDecimal guoya12floag = guoYa12Vdecimal.divide(new BigDecimal(5));
+        seekbar_guoyabaohu_12v.setProgress(guoya12floag.intValue());
 
-        seekbar_qianyabaohu_12v.setProgress(qianya12V);
-        tv_qianyabaohu_12v.setText(qianya12V + "w");
+        tv_guoyabaohu_12v.setText(guoya12floag.intValue() + "v");
+        guoya12V = guoYa12Vdecimal.intValue();
 
-        seekbar_guoyabaohu_24v.setProgress(guoya24V);
-        tv_guoyabaohu_24v.setText(guoya24V + "w");
+        BigDecimal qianYa12Vdecimal = new BigDecimal(qianya12V);
+        BigDecimal qianya12floag = qianYa12Vdecimal.divide(new BigDecimal(5));
+        seekbar_qianyabaohu_12v.setProgress(qianya12floag.intValue());
+        tv_qianyabaohu_12v.setText(qianya12floag.intValue() + "v");
 
-        seekbar_qianyabaohu_24v.setProgress(qianya24V);
-        tv_qianyabaohu_24v.setText(qianya24V + "w");
+        qianya12V = qianya12floag.intValue();
 
+        BigDecimal guoya24Vdecimal = new BigDecimal(guoya24V);
+        BigDecimal guoya24floag = guoya24Vdecimal.divide(new BigDecimal(5));
+
+        seekbar_guoyabaohu_24v.setProgress(guoya24floag.intValue());
+        tv_guoyabaohu_24v.setText(guoya24floag.intValue() + "v");
+
+        guoya24V = guoya24floag.intValue();
+
+        BigDecimal qianya24Vdecimal = new BigDecimal(qianya24V);
+        BigDecimal qiamua24floag = qianya24Vdecimal.divide(new BigDecimal(5));
+        //seekbar_guoyabaohu_24v.setProgress(guoya24floag.intValue());
+
+        seekbar_qianyabaohu_24v.setProgress(qiamua24floag.intValue());
+        tv_qianyabaohu_24v.setText(qiamua24floag.intValue() + "v");
+
+        qianya24V = qiamua24floag.intValue();
         clickDianhuosai(jiaresai);
     }
 
@@ -477,19 +497,29 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
             dianhuosai24VS = "0" + dianhuosai24VS;
         }
 
-        String qianya12VS = qianya12V + "";
-        if (qianya12VS.length() == 1) {
+        String qianya12VS = qianya12V * 5 + "";
+        if (qianya12VS.length() == 2) {
             qianya12VS = "0" + qianya12VS;
         }
 
 
-        String qianya24VS = qianya24V + "";
-        if (qianya24VS.length() == 1) {
+        String qianya24VS = qianya24V * 5 + "";
+        if (qianya24VS.length() == 2) {
             qianya24VS = "0" + qianya24VS;
         }
 
 
-        String mingling = "M_s17" + dianhuosai12VS + dianhuosai24VS + jiaresai + youbengguige + guoya12V + qianya12VS + guoya24V + qianya24VS + ".";
+        String guoya12 = guoya12V * 5 + "";
+        if (guoya12.length() == 2) {
+            guoya12 = "0" + guoya12;
+        }
+
+        String guoya24 = guoya24V * 5 + "";
+        if (guoya24.length() == 2) {
+            guoya24 = "0" + guoya24;
+        }
+
+        String mingling = "M_s17" + dianhuosai12VS + dianhuosai24VS + jiaresai + youbengguige + guoya12 + qianya12VS + guoya24 + qianya24VS + ".";
         Y.e("我发送的数据是什么啊啊啊  " + mingling);
 
         //向水暖加热器发送获取实时数据

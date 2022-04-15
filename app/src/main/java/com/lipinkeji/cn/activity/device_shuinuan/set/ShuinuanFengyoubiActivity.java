@@ -17,6 +17,7 @@ import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
+import com.lipinkeji.cn.app.UIHelper;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
 import com.lipinkeji.cn.util.Y;
 import com.rairmmd.andmqtt.AndMqtt;
@@ -103,21 +104,62 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
             dismissProgressDialog();
             handlerStart.removeMessages(1);
 
-            //1档：风机转速
-            int fengji1 = Y.getInt(msg.substring(3, 8));
-            ed1danFengji.setText(fengji1 + "");
-            //1档：油泵频率
-            int you1_qian = Y.getInt(msg.substring(8, 10));
-            int you1_hou = Y.getInt(msg.substring(10, 12));
-            ed1danYoubeng.setText(you1_qian + "." + you1_hou);
+//            //1档：风机转速
+//            int fengji1 = Y.getInt(msg.substring(3, 8));
+//            ed1danFengji.setText(fengji1 + "");
+//            //1档：油泵频率
+//            int you1_qian = Y.getInt(msg.substring(8, 10));
+//            int you1_hou = Y.getInt(msg.substring(10, 12));
+//            ed1danYoubeng.setText(you1_qian + "." + you1_hou);
+//
+//            //2档：风机转速
+//            int fengji2 = Y.getInt(msg.substring(12, 17));
+//            ed2danFengji.setText(fengji2 + "");
+//            //2档：油泵频率
+//            int you2_qian = Y.getInt(msg.substring(17, 19));
+//            int you2_hou = Y.getInt(msg.substring(19, 21));
+//            ed2danYoubeng.setText(you2_qian + "." + you2_hou);
 
-            //2档：风机转速
-            int fengji2 = Y.getInt(msg.substring(12, 17));
-            ed2danFengji.setText(fengji2 + "");
-            //2档：油泵频率
-            int you2_qian = Y.getInt(msg.substring(17, 19));
-            int you2_hou = Y.getInt(msg.substring(19, 21));
-            ed2danYoubeng.setText(you2_qian + "." + you2_hou);
+
+            String dianHuoZhuanSu = msg.substring(3, 8).substring(1);//点火转速
+
+            //  String dianHuoYouBeng = msg.substring(8, 12);//点火油泵
+            int dianHuoYouBeng_dianQian = Y.getInt(msg.substring(8, 10));
+            int dianHuoYouBeng_dianHou = Y.getInt(msg.substring(10, 12));
+
+            String dianHuoYouBeng = dianHuoYouBeng_dianQian + "." + dianHuoYouBeng_dianHou;
+            String muBiaoZhuanSu = msg.substring(12, 17).substring(1);//目标转速
+            //String muBiaoYouBeng = msg.substring(17, 21);//目标油泵
+            int muBiaoYouBeng_qian = Y.getInt(msg.substring(17, 19));
+            int muBiaoYouBeng_hou = Y.getInt(msg.substring(19, 21));
+            String muBiaoYouBeng = muBiaoYouBeng_qian + "." + muBiaoYouBeng_hou;
+
+            String fengJiZhuanSu1 = msg.substring(21, 26).substring(1);//风机转速
+            //  String fengJiYouBeng1 = msg.substring(26, 30);//风机油泵
+
+            int fengjiyoubegn_qian = Y.getInt(msg.substring(26, 28));
+            int fengjiyoubegn_hou = Y.getInt(msg.substring(28, 30));
+            String fengJiYouBeng1 = fengjiyoubegn_qian + "." + fengjiyoubegn_hou;
+
+
+            String fengJiZhuanSu2 = msg.substring(30, 35).substring(1);//风机转速2
+            //   String fengJiYouBeng2 = msg.substring(35, 39);//风机油泵2
+
+            int fengjiyoubeg2_qian = Y.getInt(msg.substring(35, 37));
+            int fengjiyoubeng2_hou = Y.getInt(msg.substring(37, 39));
+            String fengJiYouBeng2 = fengjiyoubeg2_qian + "." + fengjiyoubeng2_hou;
+
+            etDianhuozhuansu.setText(dianHuoZhuanSu);
+            etDianhuoyoubeng.setText(dianHuoYouBeng);
+            etMubiaozhuansu.setText(muBiaoZhuanSu);
+            etMubiaoyoubeng.setText(muBiaoYouBeng);
+
+            ed1danFengji.setText(fengJiZhuanSu1);
+            ed1danYoubeng.setText(fengJiYouBeng1);
+
+            ed2danFengji.setText(fengJiZhuanSu2);
+            ed2danYoubeng.setText(fengJiYouBeng2);
+
         }
     }
 
@@ -257,40 +299,46 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
         int muBianZhuanSu = Y.getInt(etMubiaozhuansu.getText().toString());
         float muBiaoYouBeng = Y.getFloat(etMubiaoyoubeng.getText().toString());
 
-
-        if (dianhuozhuansu < 1000 || dianhuozhuansu > 3000) {
+        if (youbeng2 < youbeng1) {
+            UIHelper.ToastMessage(mContext, "请校验输出2档油泵频率大于1档油泵频率");
+            return;
+        } else if (youbeng1 < muBiaoYouBeng) {
+            UIHelper.ToastMessage(mContext, "请校验1档油泵频率大于目标油泵频率");
+            return;
+        } else if (muBiaoYouBeng < dianHuoYouBeng) {
+            UIHelper.ToastMessage(mContext, "请校验目标油泵频率大于点火油泵频率");
+            return;
+        } else if (fengji2 < fengji1) {
+            UIHelper.ToastMessage(mContext, "请校验2档风机转速大于1档风机转速");
+            return;
+        } else if (fengji1 < muBianZhuanSu) {
+            UIHelper.ToastMessage(mContext, "请校验1档风机转速大于目标转速");
+            return;
+        } else if (muBianZhuanSu < dianhuozhuansu) {
+            UIHelper.ToastMessage(mContext, "请校验目标转速大于点火转速");
+            return;
+        } else if (dianhuozhuansu < 1000 || dianhuozhuansu > 3000) {
             Y.t("请输入正确的点火转速");
-        }
-
-        if (dianHuoYouBeng < 0.5 || dianHuoYouBeng > 10.0) {
+            return;
+        } else if (dianHuoYouBeng < 0.5 || dianHuoYouBeng > 10.0) {
             Y.t("请输入正确的点火油泵");
-        }
-
-        if (muBianZhuanSu < 3000 || muBianZhuanSu > 7000) {
+            return;
+        } else if (muBianZhuanSu < 3000 || muBianZhuanSu > 7000) {
             Y.t("请输入正确目标转速");
-        }
-
-        if (muBiaoYouBeng < 0.5 || muBiaoYouBeng > 10.0) {
+            return;
+        } else if (muBiaoYouBeng < 0.5 || muBiaoYouBeng > 10.0) {
             Y.t("请输入正确的目标油泵");
-        }
-
-
-        if (fengji1 < 3000 || fengji1 > 8000) {
+            return;
+        } else if (fengji1 < 5000 || fengji1 > 9000) {
             Y.t("请输入1档正确的风机转速");
             return;
-        }
-
-        if (youbeng1 < 0.5 || youbeng1 > 16) {
+        } else if (youbeng1 < 0.5 || youbeng1 > 16) {
             Y.t("请输入1档正确的油泵频率");
             return;
-        }
-
-        if (fengji2 < 3000 || fengji2 > 8000) {
+        } else if (fengji2 < 6000 || fengji2 > 9900) {
             Y.t("请输入2档正确的风机转速");
             return;
-        }
-
-        if (youbeng2 < 0.5 || youbeng2 > 16) {
+        } else if (youbeng2 < 0.5 || youbeng2 > 16) {
             Y.t("请输入2档正确的油泵频率");
             return;
         }
@@ -316,8 +364,16 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
             you2 = "0" + you2;
         }
 
+        if (dianHuoYouBeng1.length() == 3) {
+            dianHuoYouBeng1 = "0" + dianHuoYouBeng1;
+        }
 
-        String mingling = "h_s" + dianHuoZhuanSu1+dianHuoYouBeng1+mubiaozhuansu+mubiaobengyou1+feng1 + you1 + feng2 + you2 + ".";
+        if (mubiaobengyou1.length() == 3) {
+            mubiaobengyou1 = "0" + mubiaobengyou1;
+        }
+
+
+        String mingling = "M_s12" + dianHuoZhuanSu1 + dianHuoYouBeng1 + mubiaozhuansu + mubiaobengyou1 + feng1 + you1 + feng2 + you2 + ".";
         //向水暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
                 .setMsg(mingling)
@@ -334,6 +390,7 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
                     @Override
                     public void onClickConfirm(View v, TishiDialog dialog) {
 
+                        finish();
                     }
 
                     @Override

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.activity.RatioActivity;
 import com.lipinkeji.cn.activity.device_a.dialog.JiareqiMimaDialog;
 import com.lipinkeji.cn.activity.device_fengnuan.FengnuanWendusetActivity;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -108,7 +109,7 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
                 FengnuanZhujicanshuActivity.actionStart(mContext);
                 break;
             case R.id.rl_fengyoubicanshu:
-//                RatioActivity.actionStart(mContext);
+                //RatioActivity.actionStart(mContext);
                 FengnuanFengyoubiActivity.actionStart(mContext);
                 break;
             case R.id.rl_daqiyacanshu:

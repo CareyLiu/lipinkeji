@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_bg"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="142pt"
+        android:layout_height="100pt"
         android:background="@color/app_bg">
 
         <RelativeLayout
@@ -32,8 +33,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
                 android:includeFontPadding="false"
-                android:text="温度设置"
+                android:text="开机模式设置"
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />
@@ -57,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10pt"
             android:includeFontPadding="false"
-            android:text="温度上限设置"
+            android:text="限温上限设置"
             android:textColor="@color/white"
             android:textSize="29pt"
             android:textStyle="bold" />
@@ -66,7 +68,7 @@
             android:id="@+id/tv_wendu_shangxian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="温度范围50-85，默认80"
+            android:text="温度范围40-85"
             android:textColor="@color/white"
             android:textSize="17pt"
             android:textStyle="bold" />
@@ -93,14 +95,15 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="18pt"
-        android:paddingRight="24pt">
+        android:paddingRight="24pt"
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10pt"
             android:includeFontPadding="false"
-            android:text="温度下限设置"
+            android:text="限时模式设置"
             android:textColor="@color/white"
             android:textSize="29pt"
             android:textStyle="bold" />
@@ -110,7 +113,7 @@
             android:id="@+id/tv_wendu_xiaxian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="温度范围45-80，默认60"
+            android:text="时间范围10-120min"
             android:textColor="@color/white"
             android:textSize="17pt"
             android:textStyle="bold" />
@@ -136,14 +139,15 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="18pt"
-        android:paddingRight="24pt">
+        android:paddingRight="24pt"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20pt"
             android:includeFontPadding="false"
-            android:text="自动恒温设置"
+            android:text="限时模式设置"
             android:textColor="@color/white"
             android:textSize="29pt"
             android:textStyle="bold" />
@@ -178,7 +182,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20pt"
             android:includeFontPadding="false"
-            android:text="监测温度开机"
+            android:text="恒温上限设置"
             android:textColor="@color/white"
             android:textSize="29pt"
             android:textStyle="bold" />
@@ -232,7 +236,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20pt"
             android:includeFontPadding="false"
-            android:text="监测温度关机"
+            android:text="恒温下限设置"
             android:textColor="@color/white"
             android:textSize="29pt"
             android:textStyle="bold" />

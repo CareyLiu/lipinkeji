@@ -383,7 +383,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
-                    android:text="尾气温度"
+                    android:text="火焰温度"
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 

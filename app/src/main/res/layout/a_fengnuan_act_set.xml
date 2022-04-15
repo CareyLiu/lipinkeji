@@ -5,12 +5,6 @@
     android:background="@color/app_bg"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="54pt"
-        android:background="@color/app_bg" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="88pt"

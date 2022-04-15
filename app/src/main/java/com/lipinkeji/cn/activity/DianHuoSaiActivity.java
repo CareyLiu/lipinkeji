@@ -57,6 +57,12 @@ public class DianHuoSaiActivity extends ShuinuanBaseNewActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        rlBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         car_server_id = getIntent().getStringExtra("car_server_id");
         llJiare.setOnClickListener(new View.OnClickListener() {
             @Override

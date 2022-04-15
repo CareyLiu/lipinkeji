@@ -26,6 +26,7 @@ import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import androidx.annotation.NonNull;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -114,13 +115,13 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
     }
 
     private void initData() {
-        wenduShangxian = "80";
-        wenduXiaxian = "60";
+        wenduShangxian = "aa";
+        wenduXiaxian = "aaa";
         hengwen = "1";
-        wenduKaiji = "50";
-        wenduGuanji = "80";
+        wenduKaiji = "aa";
+        wenduGuanji = "aa";
 
-        isShangxian = "2";
+        isShangxian = "0";
         isXiaxian = "2";
 
         isKaiji = "1";
@@ -133,50 +134,52 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
     }
 
     private void setWendu() {
-        tv_wendu_shangxian.setText("温度范围50-85，当前" + wenduShangxian);
-        if (isShangxian.equals("1")) {
-            iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_kaiqi);
-        } else {
-            iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
-        }
 
-        tv_wendu_xiaxian.setText("温度范围45-80，当前" + wenduXiaxian);
-        if (isXiaxian.equals("1")) {
-            iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_kaiqi);
-        } else {
-            iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);
-        }
 
-        if (hengwen.equals("1")) {
-            iv_wendu_hengwen.setImageResource(R.mipmap.wd_btn_kaiqi);
-        } else {
-            iv_wendu_hengwen.setImageResource(R.mipmap.wd_btn_gianbi);
-        }
-
-        if (isKaiji.equals("1")) {
-            tv_wendu_kaiji.setText(wenduKaiji);
-            iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_kaiqi);
-            if (kaijiLing.equals("1")) {
-                tv_wendu_kaiji.setText(wenduKaiji);
-            } else {
-                tv_wendu_kaiji.setText("-" + wenduKaiji);
-            }
-        } else {
-            tv_wendu_kaiji.setText("---");
-            iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
-        }
-
-        if (isGuanji.equals("1")) {
-            if (guanjiLing.equals("1")) {
-                tv_wendu_guanji.setText(wenduGuanji);
-            } else {
-                tv_wendu_guanji.setText("-" + wenduGuanji);
-            }
-            iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_kaiqi);
-        } else {
-            tv_wendu_guanji.setText("---");
-            iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
-        }
+//        tv_wendu_shangxian.setText("温度范围50-85，当前" + wenduShangxian);
+//        if (isShangxian.equals("1")) {
+//            iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_kaiqi);
+//        } else {
+//            iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
+//        }
+//
+//        tv_wendu_xiaxian.setText("温度范围45-80，当前" + wenduXiaxian);
+//        if (isXiaxian.equals("1")) {
+//            iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_kaiqi);
+//        } else {
+//            iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);
+//        }
+//
+//        if (hengwen.equals("1")) {
+//            iv_wendu_hengwen.setImageResource(R.mipmap.wd_btn_kaiqi);
+//        } else {
+//            iv_wendu_hengwen.setImageResource(R.mipmap.wd_btn_gianbi);
+//        }
+//
+//        if (isKaiji.equals("1")) {
+//            tv_wendu_kaiji.setText(wenduKaiji);
+//            iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_kaiqi);
+//            if (kaijiLing.equals("1")) {
+//                tv_wendu_kaiji.setText(wenduKaiji);
+//            } else {
+//                tv_wendu_kaiji.setText("-" + wenduKaiji);
+//            }
+//        } else {
+//            tv_wendu_kaiji.setText("---");
+//            iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
+//        }
+//
+//        if (isGuanji.equals("1")) {
+//            if (guanjiLing.equals("1")) {
+//                tv_wendu_guanji.setText(wenduGuanji);
+//            } else {
+//                tv_wendu_guanji.setText("-" + wenduGuanji);
+//            }
+//            iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_kaiqi);
+//        } else {
+//            tv_wendu_guanji.setText("---");
+//            iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
+//        }
     }
 
     private void initHuidiao() {
@@ -192,27 +195,51 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
     }
 
     private void getData(String msg) {
-        if (msg.contains("e_s")) {
+        if (msg.contains("a_s")) {
             dismissProgressDialog();
             handlerStart.removeMessages(1);
+            qiDongMoShi = msg.substring(3, 4);//启动模式
+            wenduShangxian = msg.substring(4, 6);
+            wenduXiaxian = msg.substring(6, 9);
+            wenduKaiji = msg.substring(9, 11);
+            wenduGuanji = msg.substring(11, 13);
 
-            isShangxian = msg.substring(3, 4);
-            String shangxianLing = msg.substring(4, 5);
-            wenduShangxian = msg.substring(5, 7);
+            iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
+            iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);
+            iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
+            iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
 
-            isXiaxian = msg.substring(7, 8);
-            String xiaxianLing = msg.substring(8, 9);
-            wenduXiaxian = msg.substring(9, 11);
+            if (qiDongMoShi.equals("0")) {
 
-            hengwen = msg.substring(11, 12);
+                iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_kaiqi);
+                tv_wendu_shangxian.setText("当前设置温度：" + wenduShangxian);
+            } else if (qiDongMoShi.equals("1")) {
+                iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_kaiqi);
+                tv_wendu_xiaxian.setText("当前设置时间：" + wenduXiaxian);
+            } else if (qiDongMoShi.equals("2")) {
 
-            isKaiji = msg.substring(12, 13);
-            kaijiLing = msg.substring(13, 14);
-            wenduKaiji = msg.substring(14, 16);
-
-            isGuanji = msg.substring(16, 17);
-            guanjiLing = msg.substring(17, 18);
-            wenduGuanji = msg.substring(18, 20);
+                tv_wendu_kaiji.setText("当前恒温上限：" + wenduKaiji);
+                tv_wendu_guanji.setText("当前恒温下限" + wenduGuanji);
+                iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_kaiqi);
+                iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_kaiqi);
+            }
+//            isShangxian = msg.substring(3, 4);
+//            String shangxianLing = msg.substring(4, 5);
+//            wenduShangxian = msg.substring(5, 7);
+//
+//            isXiaxian = msg.substring(7, 8);
+//            String xiaxianLing = msg.substring(8, 9);
+//            wenduXiaxian = msg.substring(9, 11);
+//
+//            hengwen = msg.substring(11, 12);
+//
+//            isKaiji = msg.substring(12, 13);
+//            kaijiLing = msg.substring(13, 14);
+//            wenduKaiji = msg.substring(14, 16);
+//
+//            isGuanji = msg.substring(16, 17);
+//            guanjiLing = msg.substring(17, 18);
+//            wenduGuanji = msg.substring(18, 20);
 
             setWendu();
         }
@@ -287,7 +314,7 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
 
         //向水暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
-                .setMsg("M_s114.")
+                .setMsg("M_s117.")
                 .setQos(2).setRetained(false)
                 .setTopic(SN_Send), new IMqttActionListener() {
             @Override
@@ -372,18 +399,30 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
         }
     }
 
-    private void save() {
-        String shangxian = isShangxian + "1" + wenduShangxian;
-        String xiaxian = isXiaxian + "1" + wenduXiaxian;
-        String kaiji = isKaiji + kaijiLing + wenduKaiji;
-        String guanji = isGuanji + guanjiLing + wenduGuanji;
 
-        String mingling = "M_s16" + shangxian + xiaxian + hengwen + kaiji + guanji;
-        Y.e("我发送的数据是什么啊啊啊  " + mingling);
+    private void save() {
+
+//        if (qiDongMoShi.equals("0")) {//限温
+//            wendushangxian = tv_wendu_shangxian.getText().toString();
+//        } else if (qiDongMoShi.equals("1")) {//限时
+//            sheDingShiJian = tv_wendu_xiaxian.getText().toString();
+//        } else if (qiDongMoShi.equals("2")) {//恒温
+//            hengWenShang = tv_wendu_kaiji.getText().toString();//恒温上
+//            hengWenXia = tv_wendu_guanji.getText().toString();//恒温下
+//        }
+
+
+        if (wenduXiaxian.length() == 2) {
+            wenduXiaxian = "0" + wenduXiaxian;
+        }
+        String zhiLing = "M_s19" + qiDongMoShi + wenduShangxian + wenduXiaxian + wenduKaiji + wenduGuanji + ".";
+
+
+        Y.e("我发送的数据是什么啊啊啊  " + zhiLing);
 
         //向水暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
-                .setMsg(mingling)
+                .setMsg(zhiLing)
                 .setQos(2).setRetained(false)
                 .setTopic(SN_Send), new IMqttActionListener() {
             @Override
@@ -478,38 +517,54 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
         }
     }
 
+    private String qiDongMoShi = "";
+
+    //温度上限 限温
+    //温度下限 限时
+    //温度开机 恒温温度上限
+    //温度关机 恒温温度下限
+
     private void showWenduDialog(String type, String wendu) {
         JiareqiWenduDialog dialog = new JiareqiWenduDialog(mContext, new JiareqiWenduDialog.TishiDialogListener() {
             @Override
             public void onClickCancel(View v, JiareqiWenduDialog dialog) {
-//                if (type.equals("3")) {
-//                    iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
-//                } else if (type.equals("4")) {
-//                    iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);
-//                } else if (type.equals("5")) {
-//                    tv_wendu_kaiji.setText("---");
-//                    iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
-//                } else if (type.equals("6")) {
-//                    tv_wendu_guanji.setText("---");
-//                    iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
-//                }
+                if (type.equals("3")) {
+                    iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
+                } else if (type.equals("4")) {
+                    iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);//限时
+                } else if (type.equals("5")) {
+                    tv_wendu_kaiji.setText("---");//恒温上限
+                    iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
+                } else if (type.equals("6")) {
+                    tv_wendu_guanji.setText("---");//恒温下限
+                    iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
+                }
                 dialog.dismiss();
             }
 
             @Override
             public void onClickConfirm(View v, JiareqiWenduDialog dialog) {
                 String wenduNow = dialog.getWendu();
+                iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
+                iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);
+                iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
+                iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
+
+
                 if (type.equals("3")) {
                     isShangxian = "1";
+                    qiDongMoShi = "0";
                     wenduShangxian = wenduNow;
                     tv_wendu_shangxian.setText("温度范围50-85，当前" + wenduShangxian);
                     iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_kaiqi);
                 } else if (type.equals("4")) {
+                    qiDongMoShi = "1";
                     isXiaxian = "1";
                     wenduXiaxian = wenduNow;
                     tv_wendu_xiaxian.setText("温度范围45-80，当前" + wenduXiaxian);
                     iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_kaiqi);
                 } else if (type.equals("5")) {
+                    qiDongMoShi = "2";
                     isKaiji = "1";
                     wenduKaiji = Math.abs(Y.getInt(wenduNow)) + "";
                     tv_wendu_kaiji.setText(wenduKaiji);
@@ -521,6 +576,7 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
                         kaijiLing = "1";
                     }
                 } else if (type.equals("6")) {
+                    qiDongMoShi = "2";
                     isGuanji = "1";
                     wenduGuanji = Math.abs(Y.getInt(wenduNow)) + "";
                     tv_wendu_guanji.setText(wenduGuanji);

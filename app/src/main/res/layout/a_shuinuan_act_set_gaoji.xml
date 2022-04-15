@@ -95,14 +95,32 @@
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="29pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textColor="@color/white"
+                        android:textSize="29pt" />
+
+                    <ImageView
+                        android:layout_width="31pt"
+                        android:layout_height="31pt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginRight="29pt"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/push_white" />
+                </LinearLayout>
+
+
             </RelativeLayout>
 
 
@@ -120,18 +138,35 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
-                    android:text="经销商设置主机参数"
+                    android:text="主机参数[*]"
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="29pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textColor="@color/white"
+                        android:textSize="29pt" />
+
+                    <ImageView
+                        android:layout_width="31pt"
+                        android:layout_height="31pt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginRight="29pt"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/push_white" />
+                </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -148,27 +183,45 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
-                    android:text="后台服务设置主机参数"
+                    android:text="高级主机参数[*]"
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="29pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textColor="@color/white"
+                        android:textSize="29pt" />
+
+                    <ImageView
+                        android:layout_width="31pt"
+                        android:layout_height="31pt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginRight="29pt"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/push_white" />
+                </LinearLayout>
+
             </RelativeLayout>
+
             <RelativeLayout
-                android:visibility="gone"
                 android:id="@+id/rl_kaijimoshishezhi"
                 android:layout_width="match_parent"
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -189,6 +242,7 @@
                     android:scaleType="centerCrop"
                     android:src="@mipmap/push_white" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_daqiyacanshu"
                 android:layout_width="match_parent"
@@ -207,14 +261,31 @@
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="29pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textColor="@color/white"
+                        android:textSize="29pt" />
+
+                    <ImageView
+                        android:layout_width="31pt"
+                        android:layout_height="31pt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginRight="29pt"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/push_white" />
+                </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -235,14 +306,31 @@
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textColor="@color/white"
+                        android:textSize="29pt" />
+
+                    <ImageView
+                        android:layout_width="31pt"
+                        android:layout_height="31pt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginRight="29pt"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/push_white" />
+                </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -263,14 +351,31 @@
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textColor="@color/white"
+                        android:textSize="29pt" />
+
+                    <ImageView
+                        android:layout_width="31pt"
+                        android:layout_height="31pt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginRight="29pt"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/push_white" />
+                </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -291,14 +396,31 @@
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 
-                <ImageView
-                    android:layout_width="31pt"
-                    android:layout_height="31pt"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="19pt"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/push_white" />
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textColor="@color/white"
+                        android:textSize="29pt" />
+
+                    <ImageView
+                        android:layout_width="31pt"
+                        android:layout_height="31pt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30pt"
+                        android:layout_marginRight="29pt"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/push_white" />
+                </LinearLayout>
+
             </RelativeLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

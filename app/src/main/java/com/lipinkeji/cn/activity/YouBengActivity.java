@@ -56,7 +56,12 @@ public class YouBengActivity extends ShuinuanBaseNewActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        rlBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         llJiare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -203,7 +208,7 @@ public class YouBengActivity extends ShuinuanBaseNewActivity {
         Log.i("dianHuoSai_Rair", youbeng + wendu_zhiling);
         MqttPublish mqttPublish = new MqttPublish();
         mqttPublish.setTopic(SN_Send);
-        mqttPublish.setMsg(youbeng + wendu_zhiling+".");
+        mqttPublish.setMsg(youbeng + wendu_zhiling + ".");
         mqttPublish.setQos(2);
         AndMqtt.getInstance().publish(mqttPublish, new IMqttActionListener() {
             @Override
