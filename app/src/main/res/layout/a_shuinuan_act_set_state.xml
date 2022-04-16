@@ -171,8 +171,8 @@
                 android:layout_height="129pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="14pt"
-                android:background="@mipmap/yjt_shezhi_kuang"
-                android:visibility="gone">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -228,8 +228,8 @@
                 android:layout_height="129pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="14pt"
-                android:background="@mipmap/yjt_shezhi_kuang"
-                android:visibility="gone">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -258,8 +258,8 @@
                 android:layout_height="129pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="14pt"
-                android:background="@mipmap/yjt_shezhi_kuang"
-                android:visibility="gone">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -288,8 +288,8 @@
                 android:layout_height="129pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="14pt"
-                android:background="@mipmap/yjt_shezhi_kuang"
-                android:visibility="gone">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -403,8 +403,8 @@
                 android:layout_height="129pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="14pt"
-                android:background="@mipmap/yjt_shezhi_kuang"
-                android:visibility="gone">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"

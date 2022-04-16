@@ -253,6 +253,8 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
         }));
     }
 
+    String fengjizhuansu;
+
     private void getData(String msg) {
         Log.e("水暖加热器返回的数据是", msg);
         if (msg.contains("j_s")) {
@@ -268,7 +270,7 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
             youbeng_state = msg.substring(8, 9);
             String fengji_state = msg.substring(9, 10);//风机状态  1.工作中2.待机中
             String dianyan = (Y.getInt(msg.substring(10, 14)) / 10.0f) + "";//电压  0253 = 25.3
-            String fengjizhuansu = msg.substring(14, 19);//风机转速   13245
+            fengjizhuansu = msg.substring(14, 19);//风机转速   13245
             String jairesaigonglv = (Y.getInt(msg.substring(19, 23)) / 10.0f) + "";// 加热塞功率  0264=26.4
             String youbenggonglv = (Y.getInt(msg.substring(23, 27)) / 10.0f) + "";// 油泵频率  0264=26.4
 
@@ -364,9 +366,9 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
                     + "  信号强度" + xinhaoStr;
 
             Y.e(num);
-            tv_haibagaodu.setText(Y.getInt(haibagaodu) + "M");
-            tv_daqiya.setText(Y.getInt(daqiya) + "KPA");
-            tv_dianya.setText(dianyan + "V");
+            tv_haibagaodu.setText(Y.getInt(haibagaodu) + "m");
+            tv_daqiya.setText(Y.getInt(daqiya) + "kpa");
+            tv_dianya.setText(dianyan + "v");
             tv_chushuikou_wendu.setText(chushuikowendu + "℃");
             tv_jinshuikou_wendu.setText(rushukowendu + "℃");
 
@@ -1032,7 +1034,8 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
     }
 
 
-    private void kaiji() {
+    public void kaiji() {
+
         if (isKaiji) {
             return;
         }
