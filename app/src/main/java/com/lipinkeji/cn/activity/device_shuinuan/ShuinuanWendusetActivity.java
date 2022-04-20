@@ -117,11 +117,11 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
     }
 
     private void initData() {
-        wenduShangxian = "aa";
-        wenduXiaxian = "aaa";
+        wenduShangxian = "80";
+        wenduXiaxian = "60";
         hengwen = "1";
-        wenduKaiji = "aa";
-        wenduGuanji = "aa";
+        wenduKaiji = "50";
+        wenduGuanji = "80";
 
         isShangxian = "0";
         isXiaxian = "2";
@@ -244,6 +244,7 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
 //            wenduGuanji = msg.substring(18, 20);
 
             setWendu();
+            handlerStart.removeMessages(1);
         }
     }
 
@@ -575,7 +576,7 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
                     tv_wendu_xiaxian.setText("温度范围45-80，当前" + wenduXiaxian);
                     iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_kaiqi);
 
-                    iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_kaiqi);
+                    iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
                     iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
                     iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
                 } else if (type.equals("5")) {

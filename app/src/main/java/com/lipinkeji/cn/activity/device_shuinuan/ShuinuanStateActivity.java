@@ -105,6 +105,7 @@ public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
         initHuidiao();
         registerKtMqtt();
         initHandlerNS();
+        showTiDialog("数据加载中，请稍后......");
     }
 
     private void initHuidiao() {
@@ -122,6 +123,7 @@ public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
     @SuppressLint("SetTextI18n")
     private void getData(String msg) {
         if (msg.contains("j_s")) {
+            dismissProgressDialog();
             String sn_state = msg.substring(3, 4);//水暖状态
             String syscTime = msg.substring(4, 7);//加热剩余时长
             String shuibeng_state = msg.substring(7, 8);//水泵状态  1.工作中2.待机中
