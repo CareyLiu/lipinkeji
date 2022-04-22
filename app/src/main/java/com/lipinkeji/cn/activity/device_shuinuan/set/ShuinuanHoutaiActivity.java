@@ -82,6 +82,9 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
     TextView bt_save;
     @BindView(R.id.tv_huoyan_neizu)
     TextView tv_huoyan_neizu;
+    @BindView(R.id.bt_huifuchuchang)
+    TextView btHuifuchuchang;
+
 
     private String cgq_huoyan;
     private String cgq_fengji;
@@ -119,6 +122,72 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
         initData();
         initHuidiao();
         registerKtMqtt();
+        btHuifuchuchang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zhuangTai = "2";
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+                        huiFuChuChangSheZhi();
+                        showProgressDialog("正在恢复出厂,请稍后...");
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
+            }
+        });
+        showProgressDialog("加载中,请稍后...");
+    }
+    private String zhuangTai = "0";//0 第一次进入 1.保存基本数据 2.恢复出厂设置
+
+    //恢复经销商主机参数
+    private void huiFuChuChangSheZhi() {
+
+        String mingling = "M_s10" + "3.";
+        Y.e("我发送的数据是什么啊啊啊  " + mingling);
+
+        //向水暖加热器发送获取实时数据
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg(mingling)
+                .setQos(2).setRetained(false)
+                .setTopic(SN_Send), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 
     private void initData() {
@@ -157,6 +226,29 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
 
     private void getData(String msg) {
         if (msg.contains("n_s")) {
+            if (zhuangTai.equals("0")) {
+
+            } else {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
+            }
+
             dismissProgressDialog();
             handlerStart.removeMessages(1);
 
@@ -366,7 +458,26 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
                 clickYou("3");
                 break;
             case R.id.bt_save:
-                clickSave();
+                zhuangTai="1";
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+                        clickSave();
+                        showProgressDialog("保存中,请稍后...");
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
                 break;
         }
     }
@@ -382,23 +493,23 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
                 .setTopic(SN_Send), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
-                    @Override
-                    public void onClickCancel(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onClickConfirm(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onDismiss(TishiDialog dialog) {
-
-                    }
-                });
-                dialog.show();
+//                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+//                    @Override
+//                    public void onClickCancel(View v, TishiDialog dialog) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onClickConfirm(View v, TishiDialog dialog) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onDismiss(TishiDialog dialog) {
+//
+//                    }
+//                });
+//                dialog.show();
             }
 
             @Override

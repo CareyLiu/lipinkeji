@@ -55,7 +55,9 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
     EditText etMubiaozhuansu;
     @BindView(R.id.et_mubiaoyoubeng)
     EditText etMubiaoyoubeng;
-
+    @BindView(R.id.bt_huifuchuchang)
+    TextView btHuifuchuchang;
+    private String zhuangTai = "0";//0 第一次进入 1.保存基本数据 2.恢复出厂设置
 
     @Override
     public int getContentViewResId() {
@@ -84,6 +86,32 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
         ButterKnife.bind(this);
         initHuidiao();
         registerKtMqtt();
+        showProgressDialog("正在加载风油比参数,请稍后...");
+        btHuifuchuchang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zhuangTai = "2";
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+                        huiFuChuChangSheZhi();
+                        showProgressDialog("正在恢复出厂,请稍后...");
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
+            }
+        });
     }
 
 
@@ -101,6 +129,31 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
 
     private void getData(String msg) {
         if (msg.contains("h_s")) {
+
+            if (zhuangTai.equals("0")) {
+
+            } else {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
+            }
+
+
             dismissProgressDialog();
             handlerStart.removeMessages(1);
 
@@ -282,10 +335,70 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
                 finish();
                 break;
             case R.id.bt_save:
-                clickSave();
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+                        //showProgressDialog("设置中，请稍后......");
+                        zhuangTai = "1";
+                        clickSave();
+                        showProgressDialog("设置中,请稍后...");
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
                 break;
         }
     }
+
+    //恢复经销商主机参数
+    private void huiFuChuChangSheZhi() {
+
+        String mingling = "M_s10" + "2.";
+        Y.e("我发送的数据是什么啊啊啊  " + mingling);
+
+        //向水暖加热器发送获取实时数据
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg(mingling)
+                .setQos(2).setRetained(false)
+                .setTopic(SN_Send), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+        });
+    }
+
 
     private void clickSave() {
         int fengji1 = Y.getInt(ed1danFengji.getText().toString());
@@ -381,24 +494,7 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
                 .setTopic(SN_Send), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
-                    @Override
-                    public void onClickCancel(View v, TishiDialog dialog) {
 
-                    }
-
-                    @Override
-                    public void onClickConfirm(View v, TishiDialog dialog) {
-
-                        finish();
-                    }
-
-                    @Override
-                    public void onDismiss(TishiDialog dialog) {
-
-                    }
-                });
-                dialog.show();
             }
 
             @Override

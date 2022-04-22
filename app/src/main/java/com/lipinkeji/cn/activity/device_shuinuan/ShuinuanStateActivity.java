@@ -7,71 +7,68 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.widget.RelativeLayout;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.R;
+import com.lipinkeji.cn.app.ConstanceValue;
+import com.lipinkeji.cn.app.Notice;
 import com.lipinkeji.cn.util.Y;
 import com.rairmmd.andmqtt.AndMqtt;
 import com.rairmmd.andmqtt.MqttPublish;
 import com.rairmmd.andmqtt.MqttSubscribe;
-import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.app.ConstanceValue;
-import com.lipinkeji.cn.app.Notice;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
 public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
 
-    @BindView(R.id.rl_back)
-    RelativeLayout rl_back;
-    @BindView(R.id.tv_shebeima)
-    TextView tvShebeima;
-    @BindView(R.id.tv_zhuangtai)
-    TextView tvZhuangtai;
-    @BindView(R.id.tv_zhuangtai_shuibeng)
-    TextView tvZhuangtaiShuibeng;
-    @BindView(R.id.tv_zhuangtai_youbeng)
-    TextView tvZhuangtaiYoubeng;
-    @BindView(R.id.tv_zhuangtai_fengji)
-    TextView tvZhuangtaiFengji;
-    @BindView(R.id.tv_dianya)
-    TextView tvDianya;
-    @BindView(R.id.tv_fengjizhuansu)
-    TextView tvFengjizhuansu;
-    @BindView(R.id.tv_jiaresaigonglv)
-    TextView tvJiaresaigonglv;
+
+    @BindView(R.id.tv_jiareqizhuangtai)
+    TextView tvJiareqizhuangtai;
+    @BindView(R.id.tv_shuibengzhuangtai)
+    TextView tvShuibengzhuangtai;
+    @BindView(R.id.tv_youbengzhuangtai)
+    TextView tvYoubengzhuangtai;
     @BindView(R.id.tv_youbengpinlv)
     TextView tvYoubengpinlv;
-    @BindView(R.id.tv_rushukouwendu)
-    TextView tvRushukouwendu;
-    @BindView(R.id.tv_chushuikouwendu)
-    TextView tvChushuikouwendu;
-    @BindView(R.id.tv_weiqiwendu)
-    TextView tvWeiqiwendu;
-    @BindView(R.id.tv_dangwei)
-    TextView tvDangwei;
+    @BindView(R.id.tv_fengjizhuansu)
+    TextView tvFengjizhuansu;
+    @BindView(R.id.tv_dianhuosaigonglv)
+    TextView tvDianhuosaigonglv;
+    @BindView(R.id.tv_rushuiwendu)
+    TextView tvRushuiwendu;
+    @BindView(R.id.tv_chushuiwendu)
+    TextView tvChushuiwendu;
     @BindView(R.id.tv_yushewendu)
     TextView tvYushewendu;
+    @BindView(R.id.tv_dangqiandianya)
+    TextView tvDangqiandianya;
     @BindView(R.id.tv_gongzuoshichang)
     TextView tvGongzuoshichang;
+    @BindView(R.id.tv_shebeizhuangtai)
+    TextView tvShebeizhuangtai;
+    @BindView(R.id.tv_huoyanwendu)
+    TextView tvHuoyanwendu;
     @BindView(R.id.tv_daqiya)
     TextView tvDaqiya;
     @BindView(R.id.tv_haibagaodu)
     TextView tvHaibagaodu;
     @BindView(R.id.tv_hanyangliang)
     TextView tvHanyangliang;
-    @BindView(R.id.tv_xinhao)
-    TextView tvXinhao;
+    @BindView(R.id.tv_xinhaoqiangdu)
+    TextView tvXinhaoqiangdu;
+    @BindView(R.id.iv_back)
+    ImageView ivBack;
 
     @Override
     public void initImmersion() {
@@ -81,7 +78,7 @@ public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
 
     @Override
     public int getContentViewResId() {
-        return R.layout.a_shuinuan_act_set_state;
+        return R.layout.layout_jiareqi_zhuangtai;
     }
 
     /**
@@ -93,19 +90,22 @@ public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
         context.startActivity(intent);
     }
 
-    @OnClick(R.id.rl_back)
-    public void onViewClicked() {
-        finish();
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tvShebeima.setText(ccid);
+
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         initHuidiao();
         registerKtMqtt();
         initHandlerNS();
-        showTiDialog("数据加载中，请稍后......");
+//        showTiDialog("数据加载中，请稍后......");
+        showProgressDialog("加载中,请稍后......");
     }
 
     private void initHuidiao() {
@@ -182,66 +182,68 @@ public class ShuinuanStateActivity extends ShuinuanBaseNewActivity {
                     + "  信号强度" + xinhao;
             Y.e(num);
 
-            tvXinhao.setText(xinhao + "");
+            tvXinhaoqiangdu.setText(xinhao + "");
 
             switch (sn_state) {
                 case "1"://开机中
                 case "2"://加热中
                 case "4"://循环水
-                    tvZhuangtai.setText("开机");
+                    tvJiareqizhuangtai.setText("开机");
+                    tvShebeizhuangtai.setText("开机");
                     break;
                 case "0"://待机中
                 case "3"://关机中
-                    tvZhuangtai.setText("关机");
+                    tvJiareqizhuangtai.setText("关机");
+                    tvShebeizhuangtai.setText("关机");
                     break;
             }
 
             switch (shuibeng_state) {
                 case "1":
-                    tvZhuangtaiShuibeng.setText("工作中");
+                    tvShuibengzhuangtai.setText("工作中");
                     break;
                 case "2":
-                    tvZhuangtaiShuibeng.setText("待机中");
+                    tvShuibengzhuangtai.setText("待机中");
                     break;
             }
 
             switch (youbeng_state) {
                 case "1":
-                    tvZhuangtaiYoubeng.setText("工作中");
+                    tvYoubengzhuangtai.setText("工作中");
                     break;
                 case "2":
-                    tvZhuangtaiYoubeng.setText("待机中");
+                    tvYoubengzhuangtai.setText("待机中");
                     break;
             }
 
-            switch (fengji_state) {
-                case "1":
-                    tvZhuangtaiFengji.setText("工作中");
-                    break;
-                case "2":
-                    tvZhuangtaiFengji.setText("待机中");
-                    break;
-            }
+//            switch (fengji_state) {
+//                case "1":
+//                    tvShebeizhuangtai.setText("工作中");
+//                    break;
+//                case "2":
+//                    tvShebeizhuangtai.setText("待机中");
+//                    break;
+//            }
 
-            tvDianya.setText(dianyan + "v");
-            tvFengjizhuansu.setText(fengjizhuansu);
-            tvJiaresaigonglv.setText(jairesaigonglv);
-            tvYoubengpinlv.setText(youbenggonglv);
-            tvRushukouwendu.setText(rushukowendu + "℃");
-            tvChushuikouwendu.setText(chushuikowendu + "℃");
-            tvWeiqiwendu.setText(weiqiwendu + "℃");
-
-            switch (danqiandangwei) {
-                case "1":
-                    tvDangwei.setText("1档");
-                    break;
-                case "2":
-                    tvDangwei.setText("2档");
-                    break;
-                default:
-                    tvDangwei.setText("暂无档位");
-                    break;
-            }
+            tvDangqiandianya.setText(dianyan + "v");
+            tvFengjizhuansu.setText(fengjizhuansu + "rpm");
+            tvDianhuosaigonglv.setText(jairesaigonglv + "w");
+            tvYoubengpinlv.setText(youbenggonglv + "Hz");
+            tvRushuiwendu.setText(rushukowendu + "℃");
+            tvChushuiwendu.setText(chushuikowendu + "℃");
+            tvHuoyanwendu.setText(weiqiwendu + "℃");
+//
+//            switch (danqiandangwei) {
+//                case "1":
+//                    tvDangwei.setText("1档");
+//                    break;
+//                case "2":
+//                    tvDangwei.setText("2档");
+//                    break;
+//                default:
+//                    tvDangwei.setText("暂无档位");
+//                    break;
+//            }
 
             tvYushewendu.setText(yushewendu + "℃");
             tvGongzuoshichang.setText(zongTime + "h");

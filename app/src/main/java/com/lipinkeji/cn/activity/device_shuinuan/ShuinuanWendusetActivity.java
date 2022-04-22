@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.dialog.JiareqiWenduDialog;
@@ -25,8 +27,6 @@ import com.rairmmd.andmqtt.MqttSubscribe;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
-
-import androidx.annotation.NonNull;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,6 +66,8 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
     LinearLayout ll_wendu_kaiji;
     @BindView(R.id.ll_wendu_guanji)
     LinearLayout ll_wendu_guanji;
+    @BindView(R.id.bt_huifuchuchang)
+    TextView btHuifuchuchang;
 
 
     private String wenduShangxian;
@@ -83,7 +85,8 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
     private String wenduGuanji;
     private String guanjiLing;
     private String isGuanji;
-
+    private String zhiLingZhuangTai = "0";// 0 是请求态 1.发送命令待接收 2.是设置完毕
+    private String zhuangTai = "0";//0 第一次进入 1.保存基本数据 2.恢复出厂设置
 
     @Override
     public void initImmersion() {
@@ -114,6 +117,31 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
         initHuidiao();
         registerKtMqtt();
         showProgressDialog("数据加载中，请稍后...");
+        btHuifuchuchang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zhuangTai = "2";
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+                        huiFuChuChangSheZhi();
+                        showProgressDialog("正在恢复出厂,请稍后...");
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
+            }
+        });
     }
 
     private void initData() {
@@ -183,6 +211,44 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
 //            iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
 //        }
     }
+    //恢复经销商主机参数
+    private void huiFuChuChangSheZhi() {
+
+        String mingling = "M_s10" + "4.";
+        Y.e("我发送的数据是什么啊啊啊  " + mingling);
+
+        //向水暖加热器发送获取实时数据
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg(mingling)
+                .setQos(2).setRetained(false)
+                .setTopic(SN_Send), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+        });
+    }
 
     private void initHuidiao() {
         _subscriptions.add(toObservable().observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Notice>() {
@@ -198,33 +264,57 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
 
     private void getData(String msg) {
         if (msg.contains("a_s")) {
-            dismissProgressDialog();
-            handlerStart.removeMessages(1);
-            qiDongMoShi = msg.substring(3, 4);//启动模式
-            wenduShangxian = msg.substring(4, 6);
-            wenduXiaxian = msg.substring(6, 9);
-            wenduKaiji = msg.substring(9, 11);
-            wenduGuanji = msg.substring(11, 13);
 
-            iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
-            iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);
-            iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
-            iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
+            if (zhuangTai.equals("0")) {
 
-            if (qiDongMoShi.equals("0")) {
+            } else {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
 
-                iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_kaiqi);
-                tv_wendu_shangxian.setText("当前设置温度：" + wenduShangxian);
-            } else if (qiDongMoShi.equals("1")) {
-                iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_kaiqi);
-                tv_wendu_xiaxian.setText("当前设置时间：" + wenduXiaxian);
-            } else if (qiDongMoShi.equals("2")) {
+                    }
 
-                tv_wendu_kaiji.setText("恒温上限" + wenduKaiji);
-                tv_wendu_guanji.setText("恒温下限" + wenduGuanji);
-                iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_kaiqi);
-                iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_kaiqi);
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
             }
+
+        dismissProgressDialog();
+                    handlerStart.removeMessages(1);
+                    qiDongMoShi = msg.substring(3, 4);//启动模式
+                    wenduShangxian = msg.substring(4, 6);
+                    wenduXiaxian = msg.substring(6, 9);
+                    wenduKaiji = msg.substring(9, 11);
+                    wenduGuanji = msg.substring(11, 13);
+
+                    iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_gianbi);
+                    iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_gianbi);
+                    iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_gianbi);
+                    iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_gianbi);
+
+                    if (qiDongMoShi.equals("0")) {
+
+                        iv_wendu_shangxian.setImageResource(R.mipmap.wd_btn_kaiqi);
+                        tv_wendu_shangxian.setText("当前设置温度：" + wenduShangxian);
+                    } else if (qiDongMoShi.equals("1")) {
+                        iv_wendu_xiaxian.setImageResource(R.mipmap.wd_btn_kaiqi);
+                        tv_wendu_xiaxian.setText("当前设置时间：" + wenduXiaxian);
+                    } else if (qiDongMoShi.equals("2")) {
+
+                        tv_wendu_kaiji.setText("恒温上限" + wenduKaiji);
+                        tv_wendu_guanji.setText("恒温下限" + wenduGuanji);
+                        iv_wendu_kaiji.setImageResource(R.mipmap.wd_btn_kaiqi);
+                        iv_wendu_guanji.setImageResource(R.mipmap.wd_btn_kaiqi);
+                    }
 //            isShangxian = msg.substring(3, 4);
 //            String shangxianLing = msg.substring(4, 5);
 //            wenduShangxian = msg.substring(5, 7);
@@ -243,8 +333,12 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
 //            guanjiLing = msg.substring(17, 18);
 //            wenduGuanji = msg.substring(18, 20);
 
-            setWendu();
-            handlerStart.removeMessages(1);
+                    setWendu();
+                    handlerStart.removeMessages(1);
+
+
+
+
         }
     }
 
@@ -428,7 +522,7 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
             wenduXiaxian = "0" + wenduXiaxian;
         }
         String zhiLing = "M_s19" + qiDongMoShi + wenduShangxian + wenduXiaxian + wenduKaiji + wenduGuanji + ".";
-
+        showProgressDialog("设置中，请稍后...");
 
         Y.e("我发送的数据是什么啊啊啊  " + zhiLing);
 
@@ -439,23 +533,8 @@ public class ShuinuanWendusetActivity extends ShuinuanBaseNewActivity {
                 .setTopic(SN_Send), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
-                    @Override
-                    public void onClickCancel(View v, TishiDialog dialog) {
+                zhiLingZhuangTai = "1";
 
-                    }
-
-                    @Override
-                    public void onClickConfirm(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onDismiss(TishiDialog dialog) {
-
-                    }
-                });
-                dialog.show();
             }
 
             @Override

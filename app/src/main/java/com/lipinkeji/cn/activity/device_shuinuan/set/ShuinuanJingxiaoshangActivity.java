@@ -11,6 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
@@ -24,9 +27,6 @@ import com.rairmmd.andmqtt.MqttSubscribe;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.math.BigDecimal;
 
@@ -78,6 +78,8 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
     TextView tv_qianyabaohu_24v;
     @BindView(R.id.bt_save)
     TextView bt_save;
+    @BindView(R.id.bt_huifuchuchang)
+    TextView btHuifuchuchang;
 
     private int dianhuosai12V;
     private int dianhuosai24V;
@@ -114,6 +116,32 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
         initData();
         initHuidiao();
         registerKtMqtt();
+        btHuifuchuchang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zhuangTai = "2";
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+                        huiFuChuChangSheZhi();
+                        showProgressDialog("正在恢复出厂,请稍后...");
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
+            }
+        });
+        showProgressDialog("加载中,请稍后...");
     }
 
     private void initData() {
@@ -277,8 +305,71 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
         }));
     }
 
+    private String zhuangTai = "0";//0 第一次进入 1.保存基本数据 2.恢复出厂设置
+
+    //恢复经销商主机参数
+    private void huiFuChuChangSheZhi() {
+
+        String mingling = "M_s10" + "1.";
+        Y.e("我发送的数据是什么啊啊啊  " + mingling);
+
+        //向水暖加热器发送获取实时数据
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg(mingling)
+                .setQos(2).setRetained(false)
+                .setTopic(SN_Send), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+        });
+    }
+
     private void getData(String msg) {
         if (msg.contains("m_s")) {
+            if (zhuangTai.equals("0")) {
+
+            } else {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
+            }
             dismissProgressDialog();
             handlerStart.removeMessages(1);
 
@@ -466,7 +557,26 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_save:
-                clickSave();
+
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+                        clickSave();
+                        showProgressDialog("保存中，请稍后...");
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+
                 break;
             case R.id.rl_back:
                 finish();
@@ -529,23 +639,7 @@ public class ShuinuanJingxiaoshangActivity extends ShuinuanBaseNewActivity {
                 .setTopic(SN_Send), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
-                    @Override
-                    public void onClickCancel(View v, TishiDialog dialog) {
 
-                    }
-
-                    @Override
-                    public void onClickConfirm(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onDismiss(TishiDialog dialog) {
-
-                    }
-                });
-                dialog.show();
             }
 
             @Override
