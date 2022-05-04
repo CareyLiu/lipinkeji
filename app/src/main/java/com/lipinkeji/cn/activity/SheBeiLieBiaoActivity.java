@@ -85,7 +85,7 @@ public class SheBeiLieBiaoActivity extends BaseActivity {
                             PreferenceHelper.getInstance(mContext).putString("is_platform_bendi", mDatas.get(position).is_platform);
                             if (mDatas.get(position).device_type.equals("1")) {
                                 int i = mDatas.get(position).ccid.length() - 1;
-                                 mDatas.get(position).ccid="aaaaaaaaaaaaaaaa50020018";
+                                mDatas.get(position).ccid="aaaaaaaaaaaaaaaa90170018";
                                 String str = String.valueOf(mDatas.get(position).ccid.charAt(i));
                                 PreferenceHelper.getInstance(mContext).putString("car_server_id", str + "/");
                                 PreferenceHelper.getInstance(mContext).putString("share_type", mDatas.get(position).share_type);

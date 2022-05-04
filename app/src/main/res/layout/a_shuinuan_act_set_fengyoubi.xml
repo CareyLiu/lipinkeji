@@ -65,6 +65,25 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15pt"
+                android:layout_marginTop="15pt"
+                android:text="风机参数设定要求 FanT小于FanP小于Fan1小于Fan2"
+                android:textColor="@color/red"
+                android:textSize="23pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15pt"
+                android:layout_marginTop="15pt"
+                android:layout_marginBottom="15pt"
+                android:text="油泵参数设定要求 OilT小于OilP小于Oil1小于Oil2"
+                android:textColor="@color/red"
+                android:textSize="23pt" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
@@ -97,7 +116,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="点火转速"
+                            android:text="点火转速(FanT)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -131,7 +150,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="点火油泵"
+                            android:text="点火油泵(OilT)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -157,11 +176,12 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginTop="19pt"
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
                 android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
                 android:paddingLeft="18pt">
@@ -190,7 +210,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="目标转速"
+                            android:text="目标转速(FanP)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -224,7 +244,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="目标油泵"
+                            android:text="目标油泵(Oil1)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -250,11 +270,12 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginTop="19pt"
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
                 android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
                 android:background="@mipmap/wd_kuang"
                 android:gravity="center_vertical"
                 android:paddingLeft="18pt">
@@ -283,7 +304,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="风机转速"
+                            android:text="风机转速(Fan1)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -317,7 +338,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="油泵频率"
+                            android:text="油泵频率(Oil1)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -377,7 +398,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="风机转速"
+                            android:text="风机转速(Fan2)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -411,7 +432,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="油泵频率"
+                            android:text="油泵频率(Oil2)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
