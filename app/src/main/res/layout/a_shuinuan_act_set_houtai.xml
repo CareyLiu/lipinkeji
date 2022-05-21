@@ -101,6 +101,8 @@
 
 
                     <TextView
+
+                        android:clickable="false"
                         android:id="@+id/tv_huoyan_neizu"
                         android:layout_width="144pt"
                         android:layout_height="58pt"

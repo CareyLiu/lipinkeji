@@ -335,6 +335,62 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
                 finish();
                 break;
             case R.id.bt_save:
+
+                int fengji1 = Y.getInt(ed1danFengji.getText().toString());
+                float youbeng1 = Y.getFloat(ed1danYoubeng.getText().toString());
+                int fengji2 = Y.getInt(ed2danFengji.getText().toString());
+                float youbeng2 = Y.getFloat(ed2danYoubeng.getText().toString());
+
+                int dianhuozhuansu = Y.getInt(etDianhuozhuansu.getText().toString());
+                float dianHuoYouBeng = Y.getFloat(etDianhuoyoubeng.getText().toString());
+
+                int muBianZhuanSu = Y.getInt(etMubiaozhuansu.getText().toString());
+                float muBiaoYouBeng = Y.getFloat(etMubiaoyoubeng.getText().toString());
+
+                if (youbeng2 < youbeng1) {
+                    UIHelper.ToastMessage(mContext, "请校验输出2档油泵频率大于1档油泵频率");
+                    return;
+                } else if (youbeng1 < muBiaoYouBeng) {
+                    UIHelper.ToastMessage(mContext, "请校验1档油泵频率大于目标油泵频率");
+                    return;
+                } else if (muBiaoYouBeng < dianHuoYouBeng) {
+                    UIHelper.ToastMessage(mContext, "请校验目标油泵频率大于点火油泵频率");
+                    return;
+                } else if (fengji2 < fengji1) {
+                    UIHelper.ToastMessage(mContext, "请校验2档风机转速大于1档风机转速");
+                    return;
+                } else if (fengji1 < muBianZhuanSu) {
+                    UIHelper.ToastMessage(mContext, "请校验1档风机转速大于目标转速");
+                    return;
+                } else if (muBianZhuanSu < dianhuozhuansu) {
+                    UIHelper.ToastMessage(mContext, "请校验目标转速大于点火转速");
+                    return;
+                } else if (dianhuozhuansu < 1000 || dianhuozhuansu > 3000) {
+                    Y.t("请输入正确的点火转速");
+                    return;
+                } else if (dianHuoYouBeng < 0.5 || dianHuoYouBeng > 10.0) {
+                    Y.t("请输入正确的点火油泵");
+                    return;
+                } else if (muBianZhuanSu < 3000 || muBianZhuanSu > 7000) {
+                    Y.t("请输入正确目标转速");
+                    return;
+                } else if (muBiaoYouBeng < 0.5 || muBiaoYouBeng > 10.0) {
+                    Y.t("请输入正确的目标油泵");
+                    return;
+                } else if (fengji1 < 5000 || fengji1 > 9000) {
+                    Y.t("请输入1档正确的风机转速");
+                    return;
+                } else if (youbeng1 < 0.5 || youbeng1 > 16) {
+                    Y.t("请输入1档正确的油泵频率");
+                    return;
+                } else if (fengji2 < 6000 || fengji2 > 9900) {
+                    Y.t("请输入2档正确的风机转速");
+                    return;
+                } else if (youbeng2 < 0.5 || youbeng2 > 16) {
+                    Y.t("请输入2档正确的油泵频率");
+                    return;
+                }
+
                 TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
                     @Override
                     public void onClickCancel(View v, TishiDialog dialog) {
@@ -345,8 +401,10 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
                     public void onClickConfirm(View v, TishiDialog dialog) {
                         //showProgressDialog("设置中，请稍后......");
                         zhuangTai = "1";
+
+
                         clickSave();
-                        showProgressDialog("设置中,请稍后...");
+
                     }
 
                     @Override
@@ -494,7 +552,7 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
                 .setTopic(SN_Send), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-
+                showProgressDialog("设置中,请稍后...");
             }
 
             @Override

@@ -15,6 +15,7 @@ import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
+import com.lipinkeji.cn.app.UIHelper;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
 import com.lipinkeji.cn.util.Y;
 import com.rairmmd.andmqtt.AndMqtt;
@@ -25,6 +26,7 @@ import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import androidx.annotation.NonNull;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -149,6 +151,7 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
         });
         showProgressDialog("加载中,请稍后...");
     }
+
     private String zhuangTai = "0";//0 第一次进入 1.保存基本数据 2.恢复出厂设置
 
     //恢复经销商主机参数
@@ -458,7 +461,7 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
                 clickYou("3");
                 break;
             case R.id.bt_save:
-                zhuangTai="1";
+                zhuangTai = "1";
                 TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
                     @Override
                     public void onClickCancel(View v, TishiDialog dialog) {
@@ -690,6 +693,10 @@ public class ShuinuanHoutaiActivity extends ShuinuanBaseNewActivity {
     }
 
     private void clickHuoyan(String type) {
+        if (type.equals("3")) {
+            UIHelper.ToastMessage(mContext,"");
+            return;
+        }
         cgq_huoyan = type;
         tv_huoyan_redianou.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
         tv_huoyan_pt1000.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);

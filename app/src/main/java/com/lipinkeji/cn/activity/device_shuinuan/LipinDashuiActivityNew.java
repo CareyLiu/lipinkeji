@@ -23,6 +23,7 @@ import com.lipinkeji.cn.activity.device_a.dialog.GuzhangDialog;
 import com.lipinkeji.cn.app.App;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
+import com.lipinkeji.cn.common.StringUtils;
 import com.lipinkeji.cn.config.MyApplication;
 import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
@@ -388,6 +389,15 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
                     tv_dangqianzhuangtai.setText("当前状态:关机");
                 }
             } else {
+                if (sn_state.equals("1")) {
+                    isCanKaiguan = true;
+                    handlerStart.removeMessages(1);
+                    tv_dangqianzhuangtai.setText("当前状态:开机");
+                } else if (sn_state.equals("0")) {
+                    isCanKaiguan = true;
+                    handlerStart.removeMessages(1);
+                    tv_dangqianzhuangtai.setText("当前状态:关机");
+                }
                 isCanKaiguan = true;
                 handlerStart.removeMessages(1);
             }
@@ -1040,15 +1050,21 @@ public class LipinDashuiActivityNew extends ShuinuanBaseNewActivity implements V
             return;
         }
 
-        if (isYoubeng) {
-            Y.tLong("当前油泵处于开启状态，请等待油泵关闭再进行操作");
-            return;
+        if (!StringUtils.isEmpty(fengjizhuansu)) {
+            if (Integer.valueOf(fengjizhuansu) > 0) {
+                Y.tLong("当前机器处于散热状态，请稍后再试");
+                return;
+            }
         }
-
-        if (isShuibeng) {
-            Y.tLong("当前水泵处于开启状态，请等待水泵关闭再进行操作");
-            return;
-        }
+//        if (isYoubeng) {
+//            Y.tLong("当前油泵处于开启状态，请等待油泵关闭再进行操作");
+//            return;
+//        }
+//
+//        if (isShuibeng) {
+//            Y.tLong("当前水泵处于开启状态，请等待水泵关闭再进行操作");
+//            return;
+//        }
 
         time = 0;
         isCanShuiYou = true;

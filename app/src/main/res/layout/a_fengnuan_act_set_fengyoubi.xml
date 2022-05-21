@@ -64,6 +64,119 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="1436dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15pt"
+                android:layout_marginTop="15pt"
+                android:text="风机参数设定要求 FANH0< FANH1< FANH2< FANH3< FANH4< FANH5< FANH6< FANH7< FANH8"
+                android:textColor="@color/red"
+                android:textSize="23pt" />
+
+            <TextView
+                android:layout_width="1332dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15pt"
+                android:layout_marginTop="15pt"
+                android:layout_marginBottom="15pt"
+                android:text="油泵参数设定要求 OILH0< OILH1< OILH2< OILH3< OILH4< OILH5< OILH6< OILH7< OILH8"
+                android:textColor="@color/red"
+                android:textSize="23pt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:paddingLeft="18pt">
+
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
+                    android:layout_marginRight="15pt"
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="通风"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="风机转速(FANH0)"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_tongfeng_fengjizhuansu"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="700"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：600-6000"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="油泵频率(OILH0)"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_tongfeng_youbengpinlv"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：0.50-9.00"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
@@ -96,11 +209,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="风机转速"
+                            android:text="风机转速(FANH1)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_1dang_fengjizhuansu"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -115,7 +229,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：600-5500"
+                            android:text="参数范围：600-6000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -128,12 +242,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:includeFontPadding="false"
-                            android:text="油泵频率"
+                            android:text="油泵频率(OILH1)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_1dang_youbengpinlv"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -148,7 +264,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-6.00"
+                            android:text="参数范围：0.50-9.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -188,11 +304,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="风机转速"
+                            android:text="风机转速(FANH2)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_2dang_fengjizhuansu"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -207,7 +324,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：600-5500"
+                            android:text="参数范围：600-6000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -221,11 +338,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="油泵频率"
+                            android:text="油泵频率(OILH2)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_2dang_youbengpinlv"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -240,7 +358,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-6.00"
+                            android:text="参数范围：0.50-9.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -281,11 +399,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="风机转速"
+                            android:text="风机转速(FANH3)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_3dang_fengjizhuansu"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -297,10 +416,11 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:id="@+id/tv_baocun"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：600-5500"
+                            android:text="参数范围：600-6000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -314,11 +434,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="油泵频率"
+                            android:text="油泵频率(OILH3)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_3dang_youbengpinlv"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -333,7 +454,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-6.00"
+                            android:text="参数范围：0.50-9.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -373,11 +494,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="风机转速"
+                            android:text="风机转速(FANH4)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_4dang_fengjizhuansu"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -392,7 +514,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：600-5500"
+                            android:text="参数范围：600-6000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -406,11 +528,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="油泵频率"
+                            android:text="油泵频率(OILH4)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_4dang_youbengpinlv"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -425,7 +548,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-6.00"
+                            android:text="参数范围：0.50-9.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -465,11 +588,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="风机转速"
+                            android:text="风机转速(FANH5)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_5dang_fengjizhuansu"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -484,7 +608,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：600-5500"
+                            android:text="参数范围：600-6000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -498,11 +622,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="油泵频率"
+                            android:text="油泵频率(OILH5)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_5dang_youbengpinlv"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
@@ -517,13 +642,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：0.50-6.00"
+                            android:text="参数范围：0.50-9.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -534,25 +658,15 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="18pt">
 
-                <RelativeLayout
-                    android:id="@+id/rl_outer_stop"
-                    android:layout_width="100pt"
-                    android:layout_height="100pt"
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
                     android:layout_marginRight="15pt"
-                    android:background="@drawable/bg_gear_outer">
-
-                    <TextView
-                        android:layout_width="60pt"
-                        android:layout_height="67pt"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/bg_gear_inner"
-                        android:gravity="center"
-                        android:text="P"
-                        android:textColor="@color/white"
-                        android:textSize="27pt" />
-
-                </RelativeLayout>
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="预热"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -568,18 +682,19 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="12v加热功率"
+                            android:text="风机转速(FANH6)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_yure_fengjizhuansu"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
                             android:background="@drawable/bg_fengyoubi_xian"
                             android:gravity="center"
                             android:inputType="number"
-                            android:text="70"
+                            android:text="700"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -587,7 +702,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：60-95"
+                            android:text="参数范围：600-6000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -601,18 +716,19 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="24v加热功率"
+                            android:text="油泵频率(OILH6)"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
                         <EditText
+                            android:id="@+id/et_yure_youbengpinlv"
                             android:layout_width="105pt"
                             android:layout_height="32pt"
                             android:layout_marginHorizontal="10pt"
                             android:background="@drawable/bg_fengyoubi_xian"
                             android:gravity="center"
-                            android:inputType="number"
-                            android:text="70"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
 
@@ -620,7 +736,195 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：60-95"
+                            android:text="参数范围：0.50-9.00"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:paddingLeft="18pt">
+
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
+                    android:layout_marginRight="15pt"
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="初始"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="风机转速(FANH7)"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_chushi_fengjizhuansu"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="700"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：600-6000"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="油泵频率(OILH7)"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_chushi_youbengpinlv"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：0.50-9.00"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:paddingLeft="18pt">
+
+                <TextView
+                    android:layout_width="106pt"
+                    android:layout_height="65pt"
+                    android:layout_marginRight="15pt"
+                    android:background="@mipmap/fn_fyb_dangwei"
+                    android:gravity="center"
+                    android:text="目标"
+                    android:textColor="@color/white"
+                    android:textSize="27pt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="风机转速(FANH8)"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_mubiao_fengjizhuansu"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="700"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：600-6000"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10pt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="油泵频率(OILH8)"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <EditText
+                            android:id="@+id/et_mubiao_youbengpinlv"
+                            android:layout_width="105pt"
+                            android:layout_height="32pt"
+                            android:layout_marginHorizontal="10pt"
+                            android:background="@drawable/bg_fengyoubi_xian"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="1.55"
+                            android:textColor="@color/white"
+                            android:textSize="27pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="参数范围：0.50-9.00"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
@@ -629,7 +933,20 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50pt" />
+                android:layout_height="15pt" />
+
+            <TextView
+                android:id="@+id/bt_huifuchuchang"
+                android:layout_width="match_parent"
+                android:layout_height="115pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="5pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center"
+                android:text="恢复出厂"
+                android:textColor="@color/white"
+                android:textSize="33pt"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

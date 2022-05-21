@@ -89,23 +89,23 @@ public class ShuinuanGaojiSetActiviy extends BaseActivity {
     private void getData(String msg) {
         if (msg.contains("h_s")) {
             dismissProgressDialog();
-                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
-                    @Override
-                    public void onClickCancel(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onClickConfirm(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onDismiss(TishiDialog dialog) {
-
-                    }
-                });
-                dialog.show();
+//                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+//                    @Override
+//                    public void onClickCancel(View v, TishiDialog dialog) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onClickConfirm(View v, TishiDialog dialog) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onDismiss(TishiDialog dialog) {
+//
+//                    }
+//                });
+//                dialog.show();
 
         }
     }
