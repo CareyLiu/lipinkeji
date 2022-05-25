@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_main"
+    android:background="@color/app_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100pt"
+        android:background="@color/app_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88pt"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_width="88pt"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40pt"
+                    android:layout_height="40pt"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/back_white" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:includeFontPadding="false"
+                android:text="油泵加热"
+                android:textColor="@color/white"
+                android:textSize="35pt"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240pt"
+                android:layout_marginHorizontal="30pt"
+                android:layout_marginTop="19pt"
+                android:background="@mipmap/wd_kuang"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29pt"
+                        android:layout_marginTop="30pt"
+                        android:text="油泵加热设置"
+                        android:textColor="#ffffffff"
+                        android:textSize="27pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15pt"
+                        android:layout_marginTop="30pt"
+                        android:text="范围000-240 秒"
+                        android:textColor="#ffffffff"
+                        android:textSize="17pt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_shezhishijian"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="31pt"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_1"
+                            android:layout_width="96pt"
+                            android:layout_height="79pt"
+
+                            android:background="@mipmap/dark_blue"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#ffffffff"
+                            android:textSize="46pt" />
+
+
+                        <TextView
+                            android:id="@+id/tv_2"
+                            android:layout_width="96pt"
+                            android:layout_height="79pt"
+                            android:layout_marginHorizontal="19pt"
+
+                            android:background="@mipmap/dark_blue"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#ffffffff"
+                            android:textSize="46pt" />
+
+
+                        <TextView
+                            android:id="@+id/tv_3"
+                            android:layout_width="96pt"
+                            android:layout_height="79pt"
+                            android:background="@mipmap/dark_blue"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#ffffffff"
+                            android:textSize="46pt" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_jiare"
+                android:layout_width="match_parent"
+                android:layout_height="90pt"
+                android:layout_marginHorizontal="30pt"
+                android:layout_marginTop="19pt"
+                android:background="@drawable/background_blue"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/tv_jiare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="加热"
+                    android:textColor="#ffffffff"
+                    android:textSize="27pt" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

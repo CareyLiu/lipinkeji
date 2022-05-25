@@ -1,4 +1,4 @@
-package com.lipinkeji.cn.activity;
+package com.lipinkeji.cn.activity.device_fengnuan.set;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.device_a.dialog.DianHuoSaiTiaoJieDialog;
+import com.lipinkeji.cn.activity.device_shuinuan.FengNuanBaseNewActivity;
 import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
 import com.lipinkeji.cn.app.UIHelper;
 import com.lipinkeji.cn.common.StringUtils;
@@ -28,7 +29,7 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import butterknife.BindView;
 
-public class YouBengActivity extends ShuinuanBaseNewActivity {
+public class YouBengActivity_FengNuan extends FengNuanBaseNewActivity {
     @BindView(R.id.rl_back)
     RelativeLayout rlBack;
     @BindView(R.id.tv_1)
@@ -198,7 +199,7 @@ public class YouBengActivity extends ShuinuanBaseNewActivity {
 
     @Override
     public int getContentViewResId() {
-        return R.layout.layout_youbeng;
+        return R.layout.layout_youbeng_fengnuan;
     }
 
     /**
@@ -207,7 +208,7 @@ public class YouBengActivity extends ShuinuanBaseNewActivity {
     public void jiaRe() {
         Log.i("dianHuoSai_Rair", youbeng + wendu_zhiling);
         MqttPublish mqttPublish = new MqttPublish();
-        mqttPublish.setTopic(SN_Send);
+        mqttPublish.setTopic(FN_Send);
         if (wendu_zhiling.length() == 2) {
             wendu_zhiling = "0" + wendu_zhiling;
         }else if (wendu_zhiling.length()==1){
@@ -235,7 +236,7 @@ public class YouBengActivity extends ShuinuanBaseNewActivity {
     public void jiaRe_stop() {
 
         MqttPublish mqttPublish = new MqttPublish();
-        mqttPublish.setTopic(SN_Send);
+        mqttPublish.setTopic(FN_Send);
         mqttPublish.setMsg(youbeng + "000.");
         mqttPublish.setQos(2);
         AndMqtt.getInstance().publish(mqttPublish, new IMqttActionListener() {
@@ -257,7 +258,7 @@ public class YouBengActivity extends ShuinuanBaseNewActivity {
      * @param context
      */
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, YouBengActivity.class);
+        Intent intent = new Intent(context, YouBengActivity_FengNuan.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

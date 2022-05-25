@@ -195,6 +195,8 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         initDialog();
         initHandlerNS();
         setUiGuanji();
+
+        showProgressDialog("数据加载中，请稍后");
     }
 
     private void initData() {
@@ -300,6 +302,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         messageData = msg.substring(1);
         Y.e("风暖的实时数据是" + messageData + "   " + messageData.length());
 
+        dismissProgressDialog();
         //当前档位1至5档	    1
         dangweiYushe = messageData.substring(0, 1);
         if (TextUtils.isEmpty(dangwei)) {

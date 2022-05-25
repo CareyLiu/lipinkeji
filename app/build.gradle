@@ -229,4 +229,5 @@ dependencies {
     //华为二维码扫描
     implementation 'com.huawei.hms:scanplus:2.2.0.300'
     implementation files('libs/tbs_sdk_thirdapp_v4.3.0.276_44176_sharewithdownloadwithfile_withoutGame_obfs_20220329_155659.jar')
+    androidTestImplementation 'junit:junit:4.12'
 }

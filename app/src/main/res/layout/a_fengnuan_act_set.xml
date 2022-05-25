@@ -5,6 +5,7 @@
     android:background="@color/app_bg"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="88pt"
@@ -30,6 +31,32 @@
             android:textColor="@color/white"
             android:textSize="35pt"
             android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/ll_gaojishezhi"
+            android:layout_width="wrap_content"
+            android:layout_height="64pt"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="right|center_vertical"
+            android:paddingRight="29pt">
+
+
+            <ImageView
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_marginRight="10pt"
+                android:src="@mipmap/gaojishezhi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:includeFontPadding="false"
+                android:text="高级设置"
+                android:textColor="@color/white"
+                android:textSize="29pt" />
+        </LinearLayout>
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -41,30 +68,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-            <LinearLayout
-                android:id="@+id/ll_gaojishezhi"
-                android:layout_width="match_parent"
-                android:layout_height="64pt"
-                android:gravity="right|center_vertical"
-                android:paddingRight="29pt">
-
-
-                <ImageView
-                    android:layout_width="30pt"
-                    android:layout_height="30pt"
-                    android:layout_marginRight="10pt"
-                    android:src="@mipmap/gaojishezhi" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:includeFontPadding="false"
-                    android:text="高级设置"
-                    android:textColor="@color/white"
-                    android:textSize="29pt" />
-            </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_dingshi"

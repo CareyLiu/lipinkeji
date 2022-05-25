@@ -11,9 +11,11 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.device_shuinuan.ShuinuanBaseNewActivity;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
@@ -26,8 +28,6 @@ import com.rairmmd.andmqtt.MqttSubscribe;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
@@ -63,30 +63,57 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
     @BindView(R.id.tv_youbengguige)
     TextView tv_youbengguige;
     @BindView(R.id.seekbar_guoyabaohu_12v)
-    SeekBar seekbar_guoyabaohu_12v;
+    SeekBar seekbar_guoyabaohu_12v;//高温降油阀值
     @BindView(R.id.tv_guoyabaohu_12v)
     TextView tv_guoyabaohu_12v;
     @BindView(R.id.seekbar_qianyabaohu_12v)
     SeekBar seekbar_qianyabaohu_12v;
     @BindView(R.id.tv_qianyabaohu_12v)
     TextView tv_qianyabaohu_12v;
-    @BindView(R.id.seekbar_guoyabaohu_24v)
-    SeekBar seekbar_guoyabaohu_24v;
-    @BindView(R.id.tv_guoyabaohu_24v)
-    TextView tv_guoyabaohu_24v;
-    @BindView(R.id.seekbar_qianyabaohu_24v)
-    SeekBar seekbar_qianyabaohu_24v;
-    @BindView(R.id.tv_qianyabaohu_24v)
-    TextView tv_qianyabaohu_24v;
+
     @BindView(R.id.bt_save)
     TextView bt_save;
+    @BindView(R.id.tv_shuangcitie)
+    TextView tvShuangcitie;
+    @BindView(R.id.tv_dancitie)
+    TextView tvDancitie;
+    @BindView(R.id.bt_huifuchuchang)
+    TextView btHuifuchuchang;
+    @BindView(R.id.tv_dayou_guanbi)
+    TextView tvDayouGuanbi;
+    @BindView(R.id.tv_dayou_kaiqi)
+    TextView tvDayouKaiqi;
+    @BindView(R.id.tv_dianhuosaineizu_guanbi)
+    TextView tvDianhuosaineizuGuanbi;
+    @BindView(R.id.tv_dianhuosaineizu_kaiqi)
+    TextView tvDianhuosaineizuKaiqi;
+    @BindView(R.id.tv_jidian_12)
+    TextView tvJidian12;
+    @BindView(R.id.tv_jidian_24)
+    TextView tvJidian24;
+    @BindView(R.id.tv_jidian_zidong)
+    TextView tvJidianZidong;
+    @BindView(R.id.tv_chuanganqi_0)
+    TextView tvChuanganqi0;
+    @BindView(R.id.tv_chuanganqi_1)
+    TextView tvChuanganqi1;
+    @BindView(R.id.tv_chuanganqi_2)
+    TextView tvChuanganqi2;
+    @BindView(R.id.tv_jiqigonglv_2kw)
+    TextView tvJiqigonglv2kw;
+    @BindView(R.id.tv_jiqigonglv_5kw)
+    TextView tvJiqigonglv5kw;
+    @BindView(R.id.tv_jiqigonglv_zidingyi)
+    TextView tvJiqigonglvZidingyi;
+    @BindView(R.id.tv_wucitie)
+    TextView tvWucitie;
 
     private int dianhuosai12V;
     private int dianhuosai24V;
     private int jiaresai;
     private int youbengguige;
-    private int guoya12V;
-    private int qianya12V;
+    private int gaowenjiangyou;
+    private int gaowenbaojing;
     private int guoya24V;
     private int qianya24V;
 
@@ -114,6 +141,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initData();
+        showProgressDialog("数据加载中，请稍后......");
         initHuidiao();
         registerKtMqtt();
     }
@@ -126,8 +154,8 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         dianhuosai24V = 60;
         jiaresai = 1;
         youbengguige = 12;
-        guoya12V = 12;
-        qianya12V = 7;
+        gaowenjiangyou = 12;
+        gaowenbaojing = 7;
         guoya24V = 24;
         qianya24V = 7;
 
@@ -195,8 +223,8 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         seekbar_guoyabaohu_12v.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                guoya12V = progress;
-                tv_guoyabaohu_12v.setText(guoya12V + "w");
+                gaowenjiangyou = progress;
+                tv_guoyabaohu_12v.setText(gaowenjiangyou + "w");
             }
 
             @Override
@@ -214,8 +242,8 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         seekbar_qianyabaohu_12v.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                qianya12V = progress;
-                tv_qianyabaohu_12v.setText(qianya12V + "w");
+                gaowenbaojing = progress;
+                tv_qianyabaohu_12v.setText(gaowenbaojing + "w");
             }
 
             @Override
@@ -230,82 +258,121 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         });
 
 
-        seekbar_guoyabaohu_24v.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                guoya24V = progress;
-                tv_guoyabaohu_24v.setText(guoya24V + "w");
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        seekbar_qianyabaohu_24v.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                qianya24V = progress;
-                tv_qianyabaohu_24v.setText(qianya24V + "w");
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+//        seekbar_guoyabaohu_24v.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                guoya24V = progress;
+//                tv_guoyabaohu_24v.setText(guoya24V + "w");
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//        });
     }
+
+    private String firstEnter = "0";
 
     private void initHuidiao() {
         _subscriptions.add(toObservable().observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Notice>() {
             @Override
             public void call(Notice message) {
-                if (message.type == ConstanceValue.MSG_SN_DATA) {
+                if (message.type == ConstanceValue.MSG_FENGNUAN_ZHUJI) {
                     String msg = message.content.toString();
                     getData(msg);
+                    dismissProgressDialog();
                 }
             }
         }));
     }
 
+    public String firstJinRu = "0";
+
     private void getData(String msg) {
         if (msg.contains("m")) {
+            if (firstJinRu.equals("0")) {
+
+            } else {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
             dismissProgressDialog();
+            firstJinRu = "1";
             handlerStart.removeMessages(1);
             msg = "aa" + msg;//加占位符
             //12v点火塞功率  60 - 100w
             dianhuosai12V = Y.getInt(msg.substring(3, 6));
             //24v点火塞功率  60 - 100w
             dianhuosai24V = Y.getInt(msg.substring(6, 9));
-            //加热塞  1、京瓷 2、利麦 3、盖得 4、拖博 5、默认
-            jiaresai = Y.getInt(msg.substring(9, 10));
             //油泵规格  12 - 70P
-            youbengguige = Y.getInt(msg.substring(10, 12));
-            //12v过压保护阙值  12 - 40v
-            guoya12V = Y.getInt(msg.substring(12, 14));
-            //12v欠压保护阙值  7 -12v
-            qianya12V = Y.getInt(msg.substring(14, 16));
-            //24v过压保护阙值  24 – 40v
-            guoya24V = Y.getInt(msg.substring(16, 18));
-            //24v欠压保护阙值  7 – 22v
-            qianya24V = Y.getInt(msg.substring(18, 20));
+            youbengguige = Y.getInt(msg.substring(9, 11));
+            //磁铁
+            ciTie = Y.getInt(msg.substring(11, 12));
+            //机器功率
+            jiqigonglv = Y.getInt(msg.substring(12, 14));
 
+            //大风大油
+            daYou = Y.getInt(msg.substring(14, 15));
+
+            //点火塞内阻
+            dianHuoSaiKaiOrGuanBie = Y.getInt(msg.substring(15, 16));
+            //传感器类型
+            chuanGanQi_NP0 = Y.getInt(msg.substring(16, 17));
+
+            //高温降油阀值  105 - 150
+            gaowenjiangyou = Y.getInt(msg.substring(17, 20));
+            //高温报警范围
+            gaowenbaojing = Y.getInt(msg.substring(20, 23));
+            //机电类型
+            jiDianLeiXing = Y.getInt(msg.substring(23, 25));
             setView();
         }
     }
 
     private void setView() {
+        clickDianhuosai_setview(jiaresai);
+
+        clickDanShuangCiTie(ciTie);
+        clickJiQiGongLv(jiqigonglv);
+        clickDaYou(daYou);
+        clickDianHuoSai_kaiQi_GuanBi(dianHuoSaiKaiOrGuanBie);
+        clickChuanGanQi_NP(chuanGanQi_NP0);
+        clickJiDianLeiXing(jiDianLeiXing);
+
+
+        seekbar_guoyabaohu_12v.setProgress(gaowenjiangyou);
+        tv_guoyabaohu_12v.setText(gaowenjiangyou + "w");
+
+        seekbar_qianyabaohu_12v.setProgress(gaowenbaojing);
+        tv_qianyabaohu_12v.setText(gaowenbaojing + "w");
+
+//        seekbar_guoyabaohu_24v.setProgress(guoya24V);
+//        tv_guoyabaohu_24v.setText(guoya24V + "w");
+//
+//        seekbar_qianyabaohu_24v.setProgress(qianya24V);
+//        tv_qianyabaohu_24v.setText(qianya24V + "w");
+
         seekbar_dianhuosai_12v.setProgress(dianhuosai12V);
         tv_dianhuosai_12v.setText(dianhuosai12V + "w");
 
@@ -315,19 +382,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         seekbar_youbengguige.setProgress(youbengguige);
         tv_youbengguige.setText(youbengguige + "w");
 
-        seekbar_guoyabaohu_12v.setProgress(guoya12V);
-        tv_guoyabaohu_12v.setText(guoya12V + "w");
 
-        seekbar_qianyabaohu_12v.setProgress(qianya12V);
-        tv_qianyabaohu_12v.setText(qianya12V + "w");
-
-        seekbar_guoyabaohu_24v.setProgress(guoya24V);
-        tv_guoyabaohu_24v.setText(guoya24V + "w");
-
-        seekbar_qianyabaohu_24v.setProgress(qianya24V);
-        tv_qianyabaohu_24v.setText(qianya24V + "w");
-
-        clickDianhuosai(jiaresai);
     }
 
     private void showNodata() {
@@ -464,9 +519,33 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         handlerStart.removeMessages(1);
     }
 
-    @OnClick({R.id.bt_save, R.id.rl_back, R.id.tv_dianhuosai_jingci, R.id.tv_dianhuosai_limai, R.id.tv_dianhuosai_gaide, R.id.tv_dianhuosai_tuobo})
+    @OnClick({R.id.bt_save, R.id.rl_back, R.id.tv_dianhuosai_jingci, R.id.tv_dianhuosai_limai, R.id.tv_dianhuosai_gaide, R.id.tv_dianhuosai_tuobo
+            , R.id.tv_dancitie, R.id.tv_shuangcitie, R.id.tv_dayou_kaiqi, R.id.tv_dayou_guanbi, R.id.tv_dianhuosaineizu_kaiqi, R.id.tv_dianhuosaineizu_guanbi,
+            R.id.tv_jidian_12, R.id.tv_jidian_24, R.id.tv_jidian_zidong, R.id.tv_chuanganqi_0, R.id.tv_chuanganqi_1, R.id.tv_chuanganqi_2, R.id.tv_jiqigonglv_2kw, R.id.tv_jiqigonglv_5kw
+            , R.id.tv_jiqigonglv_zidingyi, R.id.bt_huifuchuchang, R.id.tv_wucitie})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.bt_huifuchuchang:
+                clickHuiFuChuChang();
+                break;
+            case R.id.tv_chuanganqi_0:
+                clickChuanGanQi_NP(0);
+                break;
+            case R.id.tv_chuanganqi_1:
+                clickChuanGanQi_NP(1);
+                break;
+            case R.id.tv_chuanganqi_2:
+                clickChuanGanQi_NP(2);
+                break;
+            case R.id.tv_jidian_12:
+                clickJiDianLeiXing(1);
+                break;
+            case R.id.tv_jidian_24:
+                clickJiDianLeiXing(2);
+                break;
+            case R.id.tv_jidian_zidong:
+                clickJiDianLeiXing(15);
+                break;
             case R.id.bt_save:
                 clickSave();
                 break;
@@ -485,35 +564,43 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
             case R.id.tv_dianhuosai_tuobo:
                 clickDianhuosai(4);
                 break;
+            case R.id.tv_dancitie:
+                clickDanShuangCiTie(1);
+                break;
+            case R.id.tv_shuangcitie:
+                clickDanShuangCiTie(0);
+                break;
+            case R.id.tv_wucitie:
+                clickDanShuangCiTie(2);
+                break;
+            case R.id.tv_dayou_kaiqi:
+                clickDaYou(1);
+                break;
+            case R.id.tv_dayou_guanbi:
+                clickDaYou(0);
+                break;
+            case R.id.tv_dianhuosaineizu_kaiqi:
+                clickDianHuoSai_kaiQi_GuanBi(1);
+                break;
+            case R.id.tv_dianhuosaineizu_guanbi:
+                clickDianHuoSai_kaiQi_GuanBi(0);
+                break;
+            case R.id.tv_jiqigonglv_2kw:
+                clickJiQiGongLv(2);
+                break;
+            case R.id.tv_jiqigonglv_5kw:
+                clickJiQiGongLv(5);
+                break;
+            case R.id.tv_jiqigonglv_zidingyi:
+                clickJiQiGongLv(50);
+                break;
+
+
         }
     }
 
-    private void clickSave() {
-        String dianhuosai12VS = dianhuosai12V + "";
-        if (dianhuosai12VS.length() == 2) {
-            dianhuosai12VS = "0" + dianhuosai12VS;
-        }
-
-        String dianhuosai24VS = dianhuosai24V + "";
-        if (dianhuosai24VS.length() == 2) {
-            dianhuosai24VS = "0" + dianhuosai24VS;
-        }
-
-        String qianya12VS = qianya12V + "";
-        if (qianya12VS.length() == 1) {
-            qianya12VS = "0" + qianya12VS;
-        }
-
-
-        String qianya24VS = qianya24V + "";
-        if (qianya24VS.length() == 1) {
-            qianya24VS = "0" + qianya24VS;
-        }
-
-
-        String mingling = "m" + dianhuosai12VS + dianhuosai24VS + jiaresai + youbengguige + guoya12V + qianya12VS + guoya24V + qianya24VS + ".";
-        Y.e("我发送的数据是什么啊啊啊  " + mingling);
-
+    private void clickHuiFuChuChang() {
+        String mingling = "M501.";
         //向水暖加热器发送获取实时数据
         AndMqtt.getInstance().publish(new MqttPublish()
                 .setMsg(mingling)
@@ -563,6 +650,138 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         });
     }
 
+    private int jiqigonglv;
+
+    private void clickJiQiGongLv(int pos) {
+        jiqigonglv = pos;
+        tvJiqigonglv2kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvJiqigonglv5kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvJiqigonglvZidingyi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+
+        tvJiqigonglv2kw.setTextColor(Color.BLACK);
+        tvJiqigonglv5kw.setTextColor(Color.BLACK);
+        tvJiqigonglvZidingyi.setTextColor(Color.BLACK);
+
+
+        switch (pos) {
+            case 2:
+
+                tvJiqigonglv2kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvJiqigonglv2kw.setTextColor(Color.WHITE);
+                break;
+            case 3:
+
+                tvJiqigonglv5kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvJiqigonglv5kw.setTextColor(Color.WHITE);
+                break;
+            case 50:
+
+                tvJiqigonglvZidingyi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvJiqigonglvZidingyi.setTextColor(Color.WHITE);
+                break;
+            case 1:
+            default:
+                break;
+        }
+    }
+
+
+    private void clickSave() {
+        String dianhuosai12VS = dianhuosai12V + "";
+        if (dianhuosai12VS.length() == 2) {
+            dianhuosai12VS = "0" + dianhuosai12VS;
+        }
+
+        String dianhuosai24VS = dianhuosai24V + "";
+        if (dianhuosai24VS.length() == 2) {
+            dianhuosai24VS = "0" + dianhuosai24VS;
+        }
+
+        String gaoWenBaoJingVs = gaowenbaojing + "";
+        if (gaoWenBaoJingVs.length() == 1) {
+            gaoWenBaoJingVs = "0" + gaoWenBaoJingVs;
+        }
+        String youBengGuiGeVs = String.valueOf(youbengguige);//油泵规格
+        String ciTieShuLiangVs = String.valueOf(ciTie);
+
+        String jiQiGongLvVs = String.valueOf(jiqigonglv);
+
+        if (jiqigonglv > 10) {
+
+        } else {
+            jiQiGongLvVs = "0" + jiqigonglv;
+        }
+        String daYouVs = String.valueOf(daYou);
+        String dianHuoSaiNeiVs = String.valueOf(dianHuoSaiKaiOrGuanBie);
+        String chuanGanQiVs = String.valueOf(chuanGanQi_NP0);
+        String gaoWenJiangYouVs = String.valueOf(gaowenjiangyou);
+        String jiQiDianYaVs = String.valueOf(jiDianLeiXing);
+        if (jiDianLeiXing > 10) {
+
+        } else {
+            jiQiDianYaVs = "0" + jiDianLeiXing;
+        }
+
+
+        String mingling = "M55" + dianhuosai12VS + dianhuosai24VS +
+                youBengGuiGeVs + ciTieShuLiangVs + jiQiGongLvVs + daYouVs +
+                dianHuoSaiNeiVs + chuanGanQiVs + gaoWenJiangYouVs + gaoWenBaoJingVs + jiQiDianYaVs + ".";
+
+        Y.e("我发送的数据是什么啊啊啊  " + mingling);
+
+        //向水暖加热器发送获取实时数据
+        AndMqtt.getInstance().publish(new MqttPublish()
+                .setMsg(mingling)
+                .setQos(2).setRetained(false)
+                .setTopic(CAR_CTROL), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+//                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_CAOZUO, new TishiDialog.TishiDialogListener() {
+//                    @Override
+//                    public void onClickCancel(View v, TishiDialog dialog) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onClickConfirm(View v, TishiDialog dialog) {
+//
+//                        showProgressDialog("设置中，请稍后...");
+//                    }
+//
+//                    @Override
+//                    public void onDismiss(TishiDialog dialog) {
+//
+//                    }
+//                });
+//                dialog.show();
+
+                showProgressDialog("设置中，请稍后...");
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                    @Override
+                    public void onClickCancel(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onClickConfirm(View v, TishiDialog dialog) {
+
+                    }
+
+                    @Override
+                    public void onDismiss(TishiDialog dialog) {
+
+                    }
+                });
+                dialog.show();
+            }
+        });
+    }
+
     private void clickDianhuosai(int pos) {
         jiaresai = pos;
         tv_dianhuosai_jingci.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
@@ -577,22 +796,206 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
 
         switch (pos) {
             case 2:
+                seekbar_dianhuosai_12v.setProgress(83);
+                seekbar_dianhuosai_24v.setProgress(83);
                 tv_dianhuosai_limai.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tv_dianhuosai_limai.setTextColor(Color.WHITE);
                 break;
             case 3:
+                seekbar_dianhuosai_12v.setProgress(83);
+                seekbar_dianhuosai_24v.setProgress(93);
                 tv_dianhuosai_gaide.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tv_dianhuosai_gaide.setTextColor(Color.WHITE);
                 break;
             case 4:
+                seekbar_dianhuosai_12v.setProgress(83);
+                seekbar_dianhuosai_24v.setProgress(93);
                 tv_dianhuosai_tuobo.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tv_dianhuosai_tuobo.setTextColor(Color.WHITE);
                 break;
             case 1:
             default:
-                tv_dianhuosai_jingci.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
-                tv_dianhuosai_jingci.setTextColor(Color.WHITE);
                 break;
+        }
+    }
+
+    private void clickDianhuosai_setview(int pos) {
+        jiaresai = pos;
+        tv_dianhuosai_jingci.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tv_dianhuosai_limai.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tv_dianhuosai_gaide.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tv_dianhuosai_tuobo.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+        tv_dianhuosai_jingci.setTextColor(Color.BLACK);
+        tv_dianhuosai_limai.setTextColor(Color.BLACK);
+        tv_dianhuosai_gaide.setTextColor(Color.BLACK);
+        tv_dianhuosai_tuobo.setTextColor(Color.BLACK);
+
+        switch (pos) {
+            case 2:
+
+                tv_dianhuosai_limai.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tv_dianhuosai_limai.setTextColor(Color.WHITE);
+                break;
+            case 3:
+
+                tv_dianhuosai_gaide.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tv_dianhuosai_gaide.setTextColor(Color.WHITE);
+                break;
+            case 4:
+
+                tv_dianhuosai_tuobo.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tv_dianhuosai_tuobo.setTextColor(Color.WHITE);
+                break;
+            case 1:
+            default:
+                break;
+        }
+    }
+    private int ciTie;
+
+    private void clickDanShuangCiTie(int pos) {
+        ciTie = pos;
+        tvDancitie.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvShuangcitie.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+        tvWucitie.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+
+        tvDancitie.setTextColor(Color.BLACK);
+        tvShuangcitie.setTextColor(Color.BLACK);
+        tvWucitie.setTextColor(Color.BLACK);
+
+        switch (pos) {
+            case 0://双磁铁
+                tvShuangcitie.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvShuangcitie.setTextColor(Color.WHITE);
+                break;
+            case 1://单磁铁
+                tvDancitie.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvDancitie.setTextColor(Color.WHITE);
+                break;
+            case 2://无磁铁
+
+                tvWucitie.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvWucitie.setTextColor(Color.WHITE);
+
+        }
+    }
+
+    public int daYou;
+
+    private void clickDaYou(int pos) {
+        daYou = pos;
+        tvDayouKaiqi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvDayouGuanbi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+
+        tvDayouKaiqi.setTextColor(Color.BLACK);
+        tvDayouGuanbi.setTextColor(Color.BLACK);
+
+
+        switch (pos) {
+            case 1:
+                tvDayouKaiqi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvDayouKaiqi.setTextColor(Color.WHITE);
+                break;
+            case 0:
+                tvDayouGuanbi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvDayouGuanbi.setTextColor(Color.WHITE);
+                break;
+
+        }
+    }
+
+    private int dianHuoSaiKaiOrGuanBie = 0;//模式开启
+
+    private void clickDianHuoSai_kaiQi_GuanBi(int pos) {
+        //0关闭 1开启
+
+        dianHuoSaiKaiOrGuanBie = pos;
+        tvDianhuosaineizuKaiqi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvDianhuosaineizuGuanbi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+
+        tvDianhuosaineizuKaiqi.setTextColor(Color.BLACK);
+        tvDianhuosaineizuGuanbi.setTextColor(Color.BLACK);
+
+
+        switch (pos) {
+            case 0://关闭
+                tvDianhuosaineizuGuanbi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvDianhuosaineizuGuanbi.setTextColor(Color.WHITE);
+                break;
+            case 1://开启
+                tvDianhuosaineizuKaiqi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvDianhuosaineizuKaiqi.setTextColor(Color.WHITE);
+                break;
+
+        }
+    }
+
+    private int jiDianLeiXing;
+
+    private void clickJiDianLeiXing(int pos) {
+
+        jiDianLeiXing = pos;
+
+        tvJidian12.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvJidian24.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvJidianZidong.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+
+        tvJidian12.setTextColor(Color.BLACK);
+        tvJidian24.setTextColor(Color.BLACK);
+        tvJidianZidong.setTextColor(Color.BLACK);
+
+
+        switch (pos) {
+            case 1:
+                tvJidian12.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvJidian12.setTextColor(Color.WHITE);
+                break;
+            case 2:
+                tvJidian24.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvJidian24.setTextColor(Color.WHITE);
+                break;
+            case 15:
+                tvJidianZidong.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvJidianZidong.setTextColor(Color.WHITE);
+                break;
+        }
+    }
+
+    private int chuanGanQi_NP0;
+
+    private void clickChuanGanQi_NP(int pos) {
+
+        chuanGanQi_NP0 = pos;
+
+        tvChuanganqi0.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvChuanganqi1.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+        tvChuanganqi2.setBackgroundResource(R.drawable.jiareqi_dingshi_select_nor);
+
+        tvChuanganqi0.setTextColor(Color.BLACK);
+        tvChuanganqi1.setTextColor(Color.BLACK);
+        tvChuanganqi2.setTextColor(Color.BLACK);
+
+
+        switch (pos) {
+            case 0:
+                tvChuanganqi0.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvChuanganqi0.setTextColor(Color.WHITE);
+                break;
+            case 1:
+                tvChuanganqi1.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvChuanganqi1.setTextColor(Color.WHITE);
+                break;
+            case 2:
+                tvChuanganqi2.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
+                tvChuanganqi2.setTextColor(Color.WHITE);
+                break;
+
         }
     }
 }

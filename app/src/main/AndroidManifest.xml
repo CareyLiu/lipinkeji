@@ -71,6 +71,9 @@
             </intent-filter>
         </service>
 
+        <!--MQTT服务-->
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="developer-default" />
@@ -96,10 +99,10 @@
 
         <service android:name="com.amap.api.location.APSService" />
         <service android:name="com.lipinkeji.cn.service.DownLoadApkService" />
-        <service
-            android:name="org.eclipse.paho.android.service.MqttService"
-            android:enabled="true"
-            android:exported="true" />
+<!--        <service-->
+<!--            android:name="org.eclipse.paho.android.service.MqttService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true" />-->
 
         <meta-data
             android:name="UPDATE_APP_KEY"
@@ -143,6 +146,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
 
         <activity
             android:name="com.lipinkeji.cn.activity.HomeActivity"
@@ -1272,5 +1277,16 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
+        <activity android:name=".activity.device_fengnuan.set.DianHuoSaiActivity_FengNuan"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity"></activity>
+
+        <activity android:name=".activity.device_fengnuan.set.YouBengActivity_FengNuan"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            tools:ignore="LockedOrientationActivity"></activity>
     </application>
 </manifest>

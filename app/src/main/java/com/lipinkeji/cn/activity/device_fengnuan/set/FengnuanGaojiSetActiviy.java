@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.activity.RatioActivity;
+import com.lipinkeji.cn.activity.YouBengActivity;
 import com.lipinkeji.cn.activity.device_a.dialog.JiareqiMimaDialog;
 import com.lipinkeji.cn.activity.device_fengnuan.FengnuanWendusetActivity;
 import com.lipinkeji.cn.app.BaseActivity;
@@ -99,9 +100,18 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
         mimaDialog.show();
     }
 
-    @OnClick({R.id.rl_wendushezhi, R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu, R.id.rl_back, R.id.rl_zhujicanshu, R.id.rl_fengyoubicanshu, R.id.rl_daqiyacanshu, R.id.tv_youbeng_16p, R.id.tv_youbeng_22p, R.id.tv_youbeng_28p, R.id.tv_youbeng_32p, R.id.tv_youbeng_35p, R.id.tv_youbeng_65p})
+    @OnClick({R.id.rl_wendushezhi, R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu,
+            R.id.rl_back, R.id.rl_zhujicanshu, R.id.rl_fengyoubicanshu,
+            R.id.rl_daqiyacanshu, R.id.tv_youbeng_16p, R.id.tv_youbeng_22p,
+            R.id.tv_youbeng_28p, R.id.tv_youbeng_32p, R.id.tv_youbeng_35p, R.id.tv_youbeng_65p, R.id.rl_dianhuosai_shezhi, R.id.rl_youbeng_shezhi})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.rl_dianhuosai_shezhi:
+                DianHuoSaiActivity_FengNuan.actionStart(mContext);
+                break;
+            case R.id.rl_youbeng_shezhi:
+                YouBengActivity_FengNuan.actionStart(mContext);
+                break;
             case R.id.rl_back:
                 finish();
                 break;

@@ -167,4 +167,5 @@ public interface ConstanceValue {
 
 
     int MSG_SHOUYELIEBIAO = 0x10141;//智能家居设备列表
+    int MSG_FENGNUAN_ZHUJI = 0x10142;//水暖主机参数
 }

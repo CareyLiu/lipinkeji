@@ -134,6 +134,22 @@ public class Y {
         }
     }
 
+    public static String getFloatZhuanString(String content) {
+        if (!TextUtils.isEmpty(content)) {
+            try {
+                Float floatStr = Float.valueOf(content);
+                String str = getMoney(floatStr);
+                str = str.replace(".", "");
+
+                return str;
+            } catch (Exception e) {
+                return "";
+            }
+        } else {
+            return "";
+        }
+    }
+
 
     public static String formatNum(float num) {
         String format = new DecimalFormat("#.#").format(num);
@@ -319,5 +335,36 @@ public class Y {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
         return format.format(date);
+    }
+
+    public static String fenJieString(String str) {
+        String str1 = str.substring(0, 1);
+        String str2 = str.substring(1);
+        return str1 + "." + str2;
+    }
+
+    /**
+     * 首字母零去掉
+     *
+     * @param str
+     * @return
+     */
+    public static String quShouZiMuLing(String str) {
+        if (str.charAt(0) == '0') {
+            str = str.substring(1);
+        }
+        return str;
+    }
+
+    public static String zengJiaShouZiMuLing(String str) {
+
+        if (str.length() == 3) {
+            str = "0" + str;
+        } else if (str.length() == 2) {
+            str = "00" + str;
+        } else if (str.length() == 1) {
+            str = "000" + str;
+        }
+        return str;
     }
 }

@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:includeFontPadding="false"
-                android:text="经销商设置主机参数"
+                android:text="主机参数"
                 android:textColor="@color/white"
                 android:textSize="35pt"
                 android:textStyle="bold" />
@@ -95,9 +95,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10pt"
                     android:background="@color/transparent"
-                    android:max="100"
+                    android:max="95"
                     android:maxHeight="12pt"
-                    android:min="60"
+                    android:min="45"
                     android:minHeight="12pt"
                     android:progress="1"
                     android:progressDrawable="@drawable/seekbar_img"
@@ -159,9 +159,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10pt"
                     android:background="@color/transparent"
-                    android:max="100"
+                    android:max="95"
                     android:maxHeight="12pt"
-                    android:min="60"
+                    android:min="45"
                     android:minHeight="12pt"
                     android:progress="1"
                     android:progressDrawable="@drawable/seekbar_img"
@@ -298,9 +298,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10pt"
                     android:background="@color/transparent"
-                    android:max="70"
+                    android:max="65"
                     android:maxHeight="12pt"
-                    android:min="12"
+                    android:min="16"
                     android:minHeight="12pt"
                     android:progress="1"
                     android:progressDrawable="@drawable/seekbar_img"
@@ -351,13 +351,14 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_shuangcitie"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
                             android:background="@drawable/jiareqi_selector_days"
                             android:button="@null"
                             android:gravity="center"
-                            android:text="京瓷"
+                            android:text="双磁铁"
                             android:textColor="@drawable/jiareqi_selector_days_text"
                             android:textSize="29pt" />
                     </LinearLayout>
@@ -370,18 +371,38 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_dancitie"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
                             android:background="@drawable/jiareqi_selector_days"
                             android:button="@null"
                             android:gravity="center"
-                            android:text="立麦"
+                            android:text="单磁铁"
                             android:textColor="@drawable/jiareqi_selector_days_text"
                             android:textSize="29pt" />
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_wucitie"
+                            android:layout_width="144pt"
+                            android:layout_height="58pt"
+                            android:layout_marginRight="10pt"
+                            android:background="@drawable/jiareqi_selector_days"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="无磁铁"
+                            android:textColor="@drawable/jiareqi_selector_days_text"
+                            android:textSize="29pt" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>
@@ -418,6 +439,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_dayou_guanbi"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -437,6 +459,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_dayou_kaiqi"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -452,6 +475,96 @@
 
                 </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="173pt"
+                android:layout_marginHorizontal="19pt"
+                android:layout_marginTop="20pt"
+                android:background="@mipmap/wd_kuang"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="19pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15pt"
+                    android:includeFontPadding="false"
+                    android:text="机器功率"
+                    android:textColor="@color/white"
+                    android:textSize="29pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_jiqigonglv_2kw"
+                            android:layout_width="144pt"
+                            android:layout_height="58pt"
+                            android:layout_marginRight="10pt"
+                            android:background="@drawable/jiareqi_selector_days"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="2kw"
+                            android:textColor="@drawable/jiareqi_selector_days_text"
+                            android:textSize="29pt" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_jiqigonglv_5kw"
+                            android:layout_width="144pt"
+                            android:layout_height="58pt"
+                            android:layout_marginRight="10pt"
+                            android:background="@drawable/jiareqi_selector_days"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="5kw"
+                            android:textColor="@drawable/jiareqi_selector_days_text"
+                            android:textSize="29pt" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_jiqigonglv_zidingyi"
+                            android:layout_width="144pt"
+                            android:layout_height="58pt"
+                            android:layout_marginRight="10pt"
+                            android:background="@drawable/jiareqi_selector_days"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="自定义"
+                            android:textColor="@drawable/jiareqi_selector_days_text"
+                            android:textSize="29pt" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
@@ -484,6 +597,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_dianhuosaineizu_guanbi"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -503,6 +617,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_dianhuosaineizu_kaiqi"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -518,7 +633,6 @@
 
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
@@ -551,6 +665,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_jidian_12"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -570,6 +685,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_jidian_24"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -581,6 +697,7 @@
                             android:textSize="29pt" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -588,6 +705,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_jidian_zidong"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -602,6 +720,7 @@
 
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
@@ -644,9 +763,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10pt"
                     android:background="@color/transparent"
-                    android:max="40"
+                    android:max="150"
                     android:maxHeight="12pt"
-                    android:min="12"
+                    android:min="105"
                     android:minHeight="12pt"
                     android:progress="1"
                     android:progressDrawable="@drawable/seekbar_img"
@@ -707,9 +826,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10pt"
                     android:background="@color/transparent"
-                    android:max="12"
+                    android:max="150"
                     android:maxHeight="12pt"
-                    android:min="7"
+                    android:min="125"
                     android:minHeight="12pt"
                     android:progress="7"
                     android:progressDrawable="@drawable/seekbar_img"
@@ -744,7 +863,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15pt"
                     android:includeFontPadding="false"
-                    android:text="火焰传感器类型"
+                    android:text="传感器类型"
                     android:textColor="@color/white"
                     android:textSize="29pt"
                     android:textStyle="bold" />
@@ -761,6 +880,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_chuanganqi_0"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -780,6 +900,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tv_chuanganqi_1"
                             android:layout_width="144pt"
                             android:layout_height="58pt"
                             android:layout_marginRight="10pt"
@@ -792,9 +913,30 @@
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_chuanganqi_2"
+                            android:layout_width="144pt"
+                            android:layout_height="58pt"
+                            android:layout_marginRight="10pt"
+                            android:background="@drawable/jiareqi_selector_days"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="无"
+                            android:textColor="@drawable/jiareqi_selector_days_text"
+                            android:textSize="29pt" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </LinearLayout>
+
             <TextView
                 android:id="@+id/bt_save"
                 android:layout_width="match_parent"

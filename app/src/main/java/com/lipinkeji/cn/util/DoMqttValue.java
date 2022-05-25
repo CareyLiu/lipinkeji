@@ -196,7 +196,12 @@ public class DoMqttValue {
                     n.type = ConstanceValue.MSG_CAR_FEGNYOUBI;
                     n.content = message.toString();
                     RxBus.getDefault().sendRx(n);
-                } else if (message.toString().equals("M001.")) {
+                } else if (message.toString().contains("m")) {//h是风油比
+                    Notice n = new Notice();
+                    n.type = ConstanceValue.MSG_FENGNUAN_ZHUJI;
+                    n.content = message.toString();
+                    RxBus.getDefault().sendRx(n);
+                }  else if (message.toString().equals("M001.")) {
                     Notice n = new Notice();
                     n.type = ConstanceValue.MSG_CAR_J_G;
 //                            n.content = message.toString();

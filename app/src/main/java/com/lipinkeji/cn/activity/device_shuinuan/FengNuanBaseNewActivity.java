@@ -6,18 +6,20 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.lipinkeji.cn.app.BaseActivity;
+import com.lipinkeji.cn.config.MyApplication;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
+
+import static com.lipinkeji.cn.config.MyApplication.getServer_id;
 
 public class FengNuanBaseNewActivity extends BaseActivity {
 
-    public static String FN_Send = "wh/hardware/";//"wh/hardware/";
-    public static String FN_Accept;//"wh/app/";
+    public static String FN_Send = "wit/cbox/hardware/" + getServer_id() + MyApplication.getCcid();
+    public static String FN_Accept = "wit/cbox/app/" + getServer_id() + MyApplication.getCcid();
     public static String ccid;
     public static String msgData;
 
-    public final String dianHuoSai = "M_s03";//点火塞加热命令
-    public final String youbeng = "M_s04";//油泵加热命令
-
+    public final String dianHuoSai = "M56";//点火塞加热命令
+    public final String youbeng = "M57";//油泵加热命令
 
 
     @Override
