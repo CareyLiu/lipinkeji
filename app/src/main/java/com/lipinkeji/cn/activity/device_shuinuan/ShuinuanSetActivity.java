@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Map;
 
 import androidx.annotation.Nullable;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
@@ -176,6 +177,7 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
         Map<String, String> map = new HashMap<>();
         map.put("code", "03521");
         map.put("key", Urls.key);
+        map.put("device_type", "2");
         map.put("token", UserManager.getManager(mContext).getAppToken());
         Gson gson = new Gson();
         OkGo.<AppResponse<XufeiModel.DataBean>>post(Urls.SERVER_URL + "wit/app")

@@ -65,6 +65,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginHorizontal="18pt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/fn_fyb_kuang">
+
+                </ImageView>
+            </RelativeLayout>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +88,8 @@
                 android:layout_marginTop="15pt"
                 android:text="风机参数设定要求:"
                 android:textColor="@color/red"
-                android:textSize="23pt" />
+                android:textSize="23pt"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,7 +98,8 @@
                 android:layout_marginTop="15pt"
                 android:text="FANH1小于FANH2小于FANH3小于FANH4小于FANH5并且 FANH6小于FANH7小于FANH8"
                 android:textColor="@color/red"
-                android:textSize="23pt" />
+                android:textSize="23pt"
+                android:visibility="gone" />
 
 
             <TextView
@@ -92,7 +110,8 @@
                 android:layout_marginBottom="15pt"
                 android:text="油泵参数设定要求:"
                 android:textColor="@color/red"
-                android:textSize="23pt" />
+                android:textSize="23pt"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -101,7 +120,8 @@
                 android:layout_marginBottom="15pt"
                 android:text="OILH1小于OILH2小于OILH3小于OILH4小于OILH5并且OILH6小于OILH7小于OILH8"
                 android:textColor="@color/red"
-                android:textSize="23pt" />
+                android:textSize="23pt"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -911,9 +931,9 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -936,9 +956,9 @@
                             android:textSize="27pt" />
 
                         <TextView
-                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:includeFontPadding="false"
                             android:text="参数范围：600-6000"
                             android:textColor="@color/white"

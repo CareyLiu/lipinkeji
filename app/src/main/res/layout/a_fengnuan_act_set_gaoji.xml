@@ -144,11 +144,11 @@
                     </TextView>
 
                     <ImageView
-                        android:layout_marginLeft="20pt"
                         android:layout_width="31pt"
                         android:layout_height="31pt"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="20pt"
                         android:layout_marginRight="19pt"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/push_white" />
@@ -191,11 +191,11 @@
                     </TextView>
 
                     <ImageView
-                        android:layout_marginLeft="20pt"
                         android:layout_width="31pt"
                         android:layout_height="31pt"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="20pt"
                         android:layout_marginRight="19pt"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/push_white" />
@@ -204,13 +204,13 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:visibility="gone"
                 android:id="@+id/rl_houtaifuwu"
                 android:layout_width="match_parent"
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -238,11 +238,11 @@
                     </TextView>
 
                     <ImageView
-                        android:layout_marginLeft="20pt"
                         android:layout_width="31pt"
                         android:layout_height="31pt"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="20pt"
                         android:layout_marginRight="19pt"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/push_white" />
@@ -285,11 +285,11 @@
                     </TextView>
 
                     <ImageView
-                        android:layout_marginLeft="20pt"
                         android:layout_width="31pt"
                         android:layout_height="31pt"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="20pt"
                         android:layout_marginRight="19pt"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/push_white" />
@@ -298,13 +298,13 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:visibility="gone"
                 android:id="@+id/rl_wendushezhi"
                 android:layout_width="match_parent"
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -332,11 +332,11 @@
                     </TextView>
 
                     <ImageView
-                        android:layout_marginLeft="20pt"
                         android:layout_width="31pt"
                         android:layout_height="31pt"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="20pt"
                         android:layout_marginRight="19pt"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/push_white" />
@@ -344,13 +344,16 @@
 
             </RelativeLayout>
 
+
+
             <RelativeLayout
-                android:id="@+id/rl_dianhuosai_shezhi"
+                android:id="@+id/rl_huifuchuchang_shezhi"
                 android:layout_width="match_parent"
                 android:layout_height="115pt"
                 android:layout_marginHorizontal="19pt"
                 android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
+                android:background="@mipmap/wd_kuang"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -358,52 +361,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="29pt"
                     android:includeFontPadding="false"
-                    android:text="点火塞设置"
-                    android:textColor="@color/white"
-                    android:textSize="29pt" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="设置"
-                        android:textColor="@color/white"
-                        android:textSize="29pt" />
-
-                    <ImageView
-                        android:layout_width="31pt"
-                        android:layout_height="31pt"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="30pt"
-                        android:layout_marginRight="29pt"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/push_white" />
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rl_youbeng_shezhi"
-                android:layout_width="match_parent"
-                android:layout_height="115pt"
-                android:layout_marginHorizontal="19pt"
-                android:layout_marginTop="19pt"
-                android:background="@mipmap/wd_kuang">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="29pt"
-                    android:includeFontPadding="false"
-                    android:text="油泵设置"
+                    android:text="恢复出厂设置"
                     android:textColor="@color/white"
                     android:textSize="29pt" />
 

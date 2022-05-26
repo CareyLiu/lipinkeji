@@ -14,7 +14,9 @@ import com.lipinkeji.cn.activity.device_a.DriveinfoActivity;
 import com.lipinkeji.cn.activity.device_a.UserInfoActivity;
 import com.lipinkeji.cn.activity.device_a.JiareqiGuzhangActivity;
 import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangActivity;
+import com.lipinkeji.cn.activity.device_fengnuan.set.DianHuoSaiActivity_FengNuan;
 import com.lipinkeji.cn.activity.device_fengnuan.set.FengnuanGaojiSetActiviy;
+import com.lipinkeji.cn.activity.device_fengnuan.set.YouBengActivity_FengNuan;
 import com.lipinkeji.cn.util.Y;
 import com.lipinkeji.cn.activity.device_a.gongxiang.GongxiangModel;
 import com.lipinkeji.cn.activity.device_a.vip.dialog.XufeiDialog;
@@ -184,6 +186,7 @@ public class FengnuanSetActivity extends BaseActivity {
         Map<String, String> map = new HashMap<>();
         map.put("code", "03521");
         map.put("key", Urls.key);
+        map.put("device_type", "2");
         map.put("token", UserManager.getManager(mContext).getAppToken());
         Gson gson = new Gson();
         OkGo.<AppResponse<XufeiModel.DataBean>>post(Urls.SERVER_URL + "wit/app")
@@ -228,6 +231,7 @@ public class FengnuanSetActivity extends BaseActivity {
         map.put("ccid", ccid);
         map.put("project_type", "lp");
         map.put("pay_m_y_type", pay_m_y_type);
+
         String myHeaderLog = new Gson().toJson(map);
         String myHeaderInfo = StringEscapeUtils.unescapeJava(myHeaderLog);
         OkGo.<AppResponse<YuZhiFuModel.DataBean>>post(Urls.DALIBAO_PAY)
@@ -268,9 +272,21 @@ public class FengnuanSetActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.rl_back, R.id.ll_gaojishezhi, R.id.rl_dingshi, R.id.rl_jiareqizhuangtai, R.id.rl_wendushezhi, R.id.rl_chezhuxinxi, R.id.rl_lingpeijianxinxi, R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.rl_jiebangshebei, R.id.rl_jiareqizhenduan, R.id.rl_shebeixufei})
+    @OnClick({R.id.rl_back, R.id.ll_gaojishezhi,
+            R.id.rl_dingshi, R.id.rl_jiareqizhuangtai,
+            R.id.rl_wendushezhi, R.id.rl_chezhuxinxi,
+            R.id.rl_lingpeijianxinxi, R.id.rl_gongxiang,
+            R.id.rl_gongxiang_jie, R.id.rl_jiebangshebei,
+            R.id.rl_jiareqizhenduan, R.id.rl_shebeixufei,
+            R.id.rl_dianhuosai_shezhi, R.id.rl_youbeng_shezhi})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.rl_dianhuosai_shezhi:
+                DianHuoSaiActivity_FengNuan.actionStart(mContext);
+                break;
+            case R.id.rl_youbeng_shezhi:
+                YouBengActivity_FengNuan.actionStart(mContext);
+                break;
             case R.id.rl_back:
                 finish();
                 break;

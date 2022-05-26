@@ -239,6 +239,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
     }
 
     public void registerKtMqtt() {
+
         AndMqtt.getInstance().subscribe(new MqttSubscribe()
                 .setTopic(CAR_NOTIFY)
                 .setQos(2), new IMqttActionListener() {

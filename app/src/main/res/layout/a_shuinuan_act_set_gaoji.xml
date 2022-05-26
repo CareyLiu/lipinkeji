@@ -423,6 +423,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/rl_huifuchuchang"
                 android:layout_width="match_parent"
                 android:layout_height="115pt"

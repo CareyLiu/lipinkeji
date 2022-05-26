@@ -100,7 +100,8 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
 
                     if (firstJinRu.equals("0")) {
 
-                    } else {
+                    } else if (firstJinRu.equals("1")) {
+                        firstJinRu = "0";
                         TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
                             @Override
                             public void onClickCancel(View v, TishiDialog dialog) {
@@ -120,7 +121,7 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
                         dialog.show();
                     }
 
-                    firstJinRu = "1";
+
                     dismissProgressDialog();
                     handlerStart.removeMessages(1);
                     //接收到信息
@@ -216,7 +217,9 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
                         .setTopic(FN_Send), new IMqttActionListener() {
                     @Override
                     public void onSuccess(IMqttToken asyncActionToken) {
+
                         showProgressDialog("设置中,请稍后...");
+                        firstJinRu = "1";
                     }
 
                     @Override
@@ -430,6 +433,7 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
                 .setTopic(FN_Send), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
+                firstJinRu = "1";
                 showProgressDialog("设置中,请稍后...");
             }
 

@@ -19,6 +19,7 @@ import com.lipinkeji.cn.R;
 import com.lipinkeji.cn.app.BaseActivity;
 import com.lipinkeji.cn.app.ConstanceValue;
 import com.lipinkeji.cn.app.Notice;
+import com.lipinkeji.cn.app.UIHelper;
 import com.lipinkeji.cn.dialog.newdia.TishiDialog;
 import com.lipinkeji.cn.util.Y;
 import com.rairmmd.andmqtt.AndMqtt;
@@ -298,7 +299,8 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
         if (msg.contains("m")) {
             if (firstJinRu.equals("0")) {
 
-            } else {
+            } else if (firstJinRu.equals("1")) {
+                firstJinRu = "0";
                 TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
                     @Override
                     public void onClickCancel(View v, TishiDialog dialog) {
@@ -318,7 +320,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
                 dialog.show();
             }
             dismissProgressDialog();
-            firstJinRu = "1";
+
             handlerStart.removeMessages(1);
             msg = "aa" + msg;//加占位符
             //12v点火塞功率  60 - 100w
@@ -608,23 +610,9 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
                 .setTopic(CAR_CTROL), new IMqttActionListener() {
             @Override
             public void onSuccess(IMqttToken asyncActionToken) {
-                TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_SUCESS, new TishiDialog.TishiDialogListener() {
-                    @Override
-                    public void onClickCancel(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onClickConfirm(View v, TishiDialog dialog) {
-
-                    }
-
-                    @Override
-                    public void onDismiss(TishiDialog dialog) {
-
-                    }
-                });
-                dialog.show();
+               // UIHelper.ToastMessage(mContext, "设置中，请稍后......");
+                showProgressDialog("设置中,请稍后......");
+                firstJinRu = "1";
             }
 
             @Override
@@ -757,6 +745,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
 //                dialog.show();
 
                 showProgressDialog("设置中，请稍后...");
+                firstJinRu = "1";
             }
 
             @Override
@@ -852,6 +841,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
                 break;
         }
     }
+
     private int ciTie;
 
     private void clickDanShuangCiTie(int pos) {

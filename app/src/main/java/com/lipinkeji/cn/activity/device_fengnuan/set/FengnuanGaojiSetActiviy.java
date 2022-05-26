@@ -4,24 +4,36 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lipinkeji.cn.R;
-import com.lipinkeji.cn.activity.RatioActivity;
-import com.lipinkeji.cn.activity.YouBengActivity;
 import com.lipinkeji.cn.activity.device_a.dialog.JiareqiMimaDialog;
 import com.lipinkeji.cn.activity.device_fengnuan.FengnuanWendusetActivity;
+import com.lipinkeji.cn.activity.device_shuinuan.FengNuanBaseNewActivity;
 import com.lipinkeji.cn.app.BaseActivity;
+import com.lipinkeji.cn.app.ConstanceValue;
+import com.lipinkeji.cn.app.Notice;
+import com.lipinkeji.cn.dialog.newdia.TishiDialog;
 import com.lipinkeji.cn.util.Y;
+import com.rairmmd.andmqtt.AndMqtt;
+import com.rairmmd.andmqtt.MqttPublish;
+
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 
-public class FengnuanGaojiSetActiviy extends BaseActivity {
+import static com.lipinkeji.cn.activity.device_shuinuan.FengNuanBaseNewActivity.FN_Send;
+
+public class FengnuanGaojiSetActiviy extends FengNuanBaseNewActivity {
 
 
     @BindView(R.id.rl_back)
@@ -51,6 +63,7 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
     @BindView(R.id.rl_wendushezhi)
     RelativeLayout rl_wendushezhi;
 
+
     @Override
     public void initImmersion() {
         mImmersionBar = ImmersionBar.with(this);
@@ -77,6 +90,7 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
         showMimaDialog();
+        initHuidiao();
 //        selectYoubeng(0);
     }
 
@@ -103,15 +117,10 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
     @OnClick({R.id.rl_wendushezhi, R.id.rl_jingxiaoshang, R.id.rl_houtaifuwu,
             R.id.rl_back, R.id.rl_zhujicanshu, R.id.rl_fengyoubicanshu,
             R.id.rl_daqiyacanshu, R.id.tv_youbeng_16p, R.id.tv_youbeng_22p,
-            R.id.tv_youbeng_28p, R.id.tv_youbeng_32p, R.id.tv_youbeng_35p, R.id.tv_youbeng_65p, R.id.rl_dianhuosai_shezhi, R.id.rl_youbeng_shezhi})
+            R.id.tv_youbeng_28p, R.id.tv_youbeng_32p, R.id.tv_youbeng_35p, R.id.tv_youbeng_65p})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.rl_dianhuosai_shezhi:
-                DianHuoSaiActivity_FengNuan.actionStart(mContext);
-                break;
-            case R.id.rl_youbeng_shezhi:
-                YouBengActivity_FengNuan.actionStart(mContext);
-                break;
+
             case R.id.rl_back:
                 finish();
                 break;
@@ -152,7 +161,45 @@ public class FengnuanGaojiSetActiviy extends BaseActivity {
             case R.id.rl_wendushezhi:
                 FengnuanWendusetActivity.actionStart(mContext);
                 break;
+            case R.id.rl_huifuchuchang_shezhi:
+                String mingling = "M503.";
+                //向水暖加热器发送获取实时数据
+                AndMqtt.getInstance().publish(new MqttPublish()
+                        .setMsg(mingling)
+                        .setQos(2).setRetained(false)
+                        .setTopic(FN_Send), new IMqttActionListener() {
+                    @Override
+                    public void onSuccess(IMqttToken asyncActionToken) {
+                        showProgressDialog("设置中,请稍后...");
+                    }
+
+                    @Override
+                    public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                        TishiDialog dialog = new TishiDialog(mContext, TishiDialog.TYPE_FAILED, new TishiDialog.TishiDialogListener() {
+                            @Override
+                            public void onClickCancel(View v, TishiDialog dialog) {
+
+                            }
+
+                            @Override
+                            public void onClickConfirm(View v, TishiDialog dialog) {
+
+                            }
+
+                            @Override
+                            public void onDismiss(TishiDialog dialog) {
+
+                            }
+                        });
+                        dialog.show();
+                    }
+                });
+                break;
         }
+    }
+
+    private void initHuidiao() {
+
     }
 
     private void selectYoubeng(int pos) {
