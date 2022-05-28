@@ -204,6 +204,35 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        //注册水暖加热器订阅
+        AndMqtt.getInstance().subscribe(new MqttSubscribe()
+                .setTopic(FN_Send)
+                .setQos(2), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+            }
+        });
+
+        //模拟水暖加热器订阅app
+        AndMqtt.getInstance().subscribe(new MqttSubscribe()
+                .setTopic(FN_Accept)
+                .setQos(2), new IMqttActionListener() {
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+            }
+        });
         registerKtMqtt();
         initHuidiao();
         showProgressDialog("正在加载风油比参数,请稍后...");
@@ -492,35 +521,7 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
 
 
     private void getHost() {
-        //注册水暖加热器订阅
-        AndMqtt.getInstance().subscribe(new MqttSubscribe()
-                .setTopic(FN_Send)
-                .setQos(2), new IMqttActionListener() {
-            @Override
-            public void onSuccess(IMqttToken asyncActionToken) {
 
-            }
-
-            @Override
-            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-
-            }
-        });
-
-        //模拟水暖加热器订阅app
-        AndMqtt.getInstance().subscribe(new MqttSubscribe()
-                .setTopic(FN_Accept)
-                .setQos(2), new IMqttActionListener() {
-            @Override
-            public void onSuccess(IMqttToken asyncActionToken) {
-
-            }
-
-            @Override
-            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-
-            }
-        });
 
         //订阅和请求 mqtt  查询风油比参数
 

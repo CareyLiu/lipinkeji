@@ -20,9 +20,8 @@ android {
         applicationId "com.lipinkeji.cn"
         minSdkVersion 19
         targetSdkVersion 29
-
-        versionCode 18
-        versionName "1.0.18"
+        versionCode 21
+        versionName "2.1"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         ndk {
@@ -55,7 +54,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-           proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     repositories {
@@ -77,7 +76,6 @@ android {
         exclude 'assets/location_map_gps_locked.png'
         exclude 'assets/location_map_gps_3d.png'
     }
-
 
 
     lintOptions {
@@ -186,7 +184,7 @@ dependencies {
     //没有使用特殊Header，可以不加这行
     implementation(name: 'alipaySdk-15.6.8-20191021122455-noUtdid', ext: 'aar')
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.1.4'
-  //  implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
+    //  implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
 
     /**
      *      RecyclerView的强大的BaseAdapter
