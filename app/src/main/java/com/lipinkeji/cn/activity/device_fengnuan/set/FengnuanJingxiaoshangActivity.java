@@ -658,7 +658,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
                 tvJiqigonglv2kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tvJiqigonglv2kw.setTextColor(Color.WHITE);
                 break;
-            case 3:
+            case 5:
 
                 tvJiqigonglv5kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tvJiqigonglv5kw.setTextColor(Color.WHITE);

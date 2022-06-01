@@ -189,6 +189,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+        showProgressDialog("数据加载中，请稍后");
         initData();
         initMqtt();
         initHuidiao();
@@ -196,7 +197,7 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
         initHandlerNS();
         setUiGuanji();
 
-        showProgressDialog("数据加载中，请稍后");
+
     }
 
     private void initData() {
@@ -365,21 +366,23 @@ public class LipinFengnuanActivityNew extends BaseActivity implements View.OnLon
 
         //水泵开关 0:关 1:开 a:无水泵            1
         String shuibengzhuangtai = messageData.substring(37, 38);
+        if (messageData.length() > 38) {
+            //工作时长(单位:小时)           6
+            String gongzuoshichang = messageData.substring(38, 44);
 
-        //工作时长(单位:小时)           6
-        String gongzuoshichang = messageData.substring(38, 44);
+            //加热器故障码:定制->01至18      2
+            String guzhangdaima_dingzhi = messageData.substring(44, 46);
 
-        //加热器故障码:定制->01至18      2
-        String guzhangdaima_dingzhi = messageData.substring(44, 46);
+            //大气压kpa         3
+            String daqiya = messageData.substring(46, 49);
 
-        //大气压kpa         3
-        String daqiya = messageData.substring(46, 49);
+            //海拔高度m         4
+            String haibagaodu = messageData.substring(49, 53);
 
-        //海拔高度m         4
-        String haibagaodu = messageData.substring(49, 53);
+            //含氧量g/立方米      2
+            String hanyangliang = messageData.substring(53);
+        }
 
-        //含氧量g/立方米      2
-        String hanyangliang = messageData.substring(53);
 
         tv_dianya.setText(dianya + "V");
         tv_chufengkouwendu.setText(Y.getInt(wendu_chufengkou) + "℃");

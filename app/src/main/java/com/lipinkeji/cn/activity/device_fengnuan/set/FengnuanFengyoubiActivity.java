@@ -153,12 +153,24 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
         String siDangYouBengPinLv = messageStr.substring(33, 36);//4档油泵频率
         String wuDangFengJiZhuanSu = Y.quShouZiMuLing(messageStr.substring(36, 40));//5档风机转速
         String wuDangYouBengPinLv = messageStr.substring(40, 43);//5档油泵频率
-        String yuReFengJiZhuanSu = Y.quShouZiMuLing(messageStr.substring(43, 47));//预热风机转速
-        String yuReYouBengPinLv = messageStr.substring(47, 50);//预热油泵频率
-        String chuShiFengJiZhuanSu = Y.quShouZiMuLing(messageStr.substring(50, 54));//初始风机转速
-        String chuShiYouBengPinLv = messageStr.substring(54, 57);//初始油泵频率
-        String muBiaoFengJiZhuanSu = Y.quShouZiMuLing(messageStr.substring(57, 61));//目标风机转速
-        String muBiaoYouBengPinLv = messageStr.substring(61, 64);//目标油泵频率
+        if (messageStr.length()>46){
+            String yuReFengJiZhuanSu = Y.quShouZiMuLing(messageStr.substring(43, 47));//预热风机转速
+            String yuReYouBengPinLv = messageStr.substring(47, 50);//预热油泵频率
+            String chuShiFengJiZhuanSu = Y.quShouZiMuLing(messageStr.substring(50, 54));//初始风机转速
+            String chuShiYouBengPinLv = messageStr.substring(54, 57);//初始油泵频率
+            String muBiaoFengJiZhuanSu = Y.quShouZiMuLing(messageStr.substring(57, 61));//目标风机转速
+            String muBiaoYouBengPinLv = messageStr.substring(61, 64);//目标油泵频率
+            etYureFengjizhuansu.setText(yuReFengJiZhuanSu);
+            etYureYoubengpinlv.setText(Y.fenJieString(yuReYouBengPinLv));
+
+            etChushiFengjizhuansu.setText(chuShiFengJiZhuanSu);
+            etChushiYoubengpinlv.setText(Y.fenJieString(chuShiYouBengPinLv));
+
+            etMubiaoFengjizhuansu.setText(muBiaoFengJiZhuanSu);
+            etMubiaoYoubengpinlv.setText(Y.fenJieString(muBiaoYouBengPinLv));
+
+        }
+
 
         etTongfengFengjizhuansu.setText(tongFeng_fengJiZhuanSu);
 
@@ -180,14 +192,7 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
         et5dangFengjizhuansu.setText(wuDangFengJiZhuanSu);
         et5dangYoubengpinlv.setText(Y.fenJieString(wuDangYouBengPinLv));
 
-        etYureFengjizhuansu.setText(yuReFengJiZhuanSu);
-        etYureYoubengpinlv.setText(Y.fenJieString(yuReYouBengPinLv));
 
-        etChushiFengjizhuansu.setText(chuShiFengJiZhuanSu);
-        etChushiYoubengpinlv.setText(Y.fenJieString(chuShiYouBengPinLv));
-
-        etMubiaoFengjizhuansu.setText(muBiaoFengJiZhuanSu);
-        etMubiaoYoubengpinlv.setText(Y.fenJieString(muBiaoYouBengPinLv));
 
     }
 
@@ -204,6 +209,7 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        showProgressDialog("正在加载风油比参数,请稍后...");
         //注册水暖加热器订阅
         AndMqtt.getInstance().subscribe(new MqttSubscribe()
                 .setTopic(FN_Send)
@@ -235,7 +241,7 @@ public class FengnuanFengyoubiActivity extends FengNuanBaseNewActivity {
         });
         registerKtMqtt();
         initHuidiao();
-        showProgressDialog("正在加载风油比参数,请稍后...");
+
         btHuifuchuchang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
