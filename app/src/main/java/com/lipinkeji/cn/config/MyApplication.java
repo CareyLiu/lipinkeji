@@ -25,6 +25,7 @@ import androidx.multidex.MultiDexApplication;
 import com.billy.android.loading.Gloading;
 import com.bulong.rudeness.RudenessScreenHelper;
 import com.google.gson.Gson;
+import com.lipinkeji.cn.util.Hex2Image;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -181,6 +182,12 @@ public class MyApplication extends MultiDexApplication {
     DoMqttValue doMqttValue;
 
     public void onCreate() {
+//        Hex2Image hex2Image =new Hex2Image();
+//        try {
+//            hex2Image.main();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 //        StringBuffer param = new StringBuffer();
  //        param.append("appid=" + getString(R.string.app_id));
 //        param.append(",");

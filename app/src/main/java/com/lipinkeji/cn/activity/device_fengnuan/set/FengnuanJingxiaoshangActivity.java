@@ -588,10 +588,10 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
                 clickDianHuoSai_kaiQi_GuanBi(0);
                 break;
             case R.id.tv_jiqigonglv_2kw:
-                clickJiQiGongLv(2);
+                clickJiQiGongLv(0);
                 break;
             case R.id.tv_jiqigonglv_5kw:
-                clickJiQiGongLv(5);
+                clickJiQiGongLv(1);
                 break;
             case R.id.tv_jiqigonglv_zidingyi:
                 clickJiQiGongLv(50);
@@ -653,12 +653,12 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
 
 
         switch (pos) {
-            case 2:
+            case 0:
 
                 tvJiqigonglv2kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tvJiqigonglv2kw.setTextColor(Color.WHITE);
                 break;
-            case 5:
+            case 1:
 
                 tvJiqigonglv5kw.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tvJiqigonglv5kw.setTextColor(Color.WHITE);
@@ -668,7 +668,7 @@ public class FengnuanJingxiaoshangActivity extends BaseActivity {
                 tvJiqigonglvZidingyi.setBackgroundResource(R.drawable.jiareqi_dingshi_select_sel);
                 tvJiqigonglvZidingyi.setTextColor(Color.WHITE);
                 break;
-            case 1:
+
             default:
                 break;
         }

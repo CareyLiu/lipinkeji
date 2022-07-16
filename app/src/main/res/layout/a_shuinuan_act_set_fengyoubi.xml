@@ -109,6 +109,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -133,15 +134,17 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：1000-8000"
+                            android:text="参数范围：500-10000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10pt">
@@ -167,6 +170,7 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -178,6 +182,7 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="173pt"
                 android:layout_marginHorizontal="19pt"
@@ -203,6 +208,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -227,15 +233,17 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：3000-7000"
+                            android:text="参数范围：1000-10000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10pt">
@@ -261,6 +269,7 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -297,6 +306,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -321,15 +331,17 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：5000-9000"
+                            android:text="参数范围：1000-10000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10pt">
@@ -355,6 +367,7 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
@@ -391,6 +404,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -415,15 +429,17 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"
-                            android:text="参数范围：6000-9900"
+                            android:text="参数范围：1000-10000"
                             android:textColor="@color/white"
                             android:textSize="27pt" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10pt">
@@ -449,6 +465,7 @@
                             android:textSize="27pt" />
 
                         <TextView
+                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:includeFontPadding="false"

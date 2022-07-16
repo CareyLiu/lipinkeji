@@ -70,7 +70,12 @@
                 <action android:name="cn.jpush.android.intent.PUSH_TIME" />
             </intent-filter>
         </service>
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="84f8431d5de1e9d634e48b81f9e8652d" /> <!-- <provider -->
 
+
+        <service android:name="com.amap.api.location.APSService" />
         <!--MQTT服务-->
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 
@@ -93,16 +98,14 @@
         <meta-data
             android:name="BUGLY_ENABLE_DEBUG"
             android:value="true" />
-        <meta-data
-            android:name="com.amap.api.v2.apikey"
-            android:value="dfe8cf41a198e40f0193e2f75cfe69ae" /> <!-- <provider -->
 
-        <service android:name="com.amap.api.location.APSService" />
+
+
         <service android:name="com.lipinkeji.cn.service.DownLoadApkService" />
-<!--        <service-->
-<!--            android:name="org.eclipse.paho.android.service.MqttService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="true" />-->
+        <!--        <service-->
+        <!--            android:name="org.eclipse.paho.android.service.MqttService"-->
+        <!--            android:enabled="true"-->
+        <!--            android:exported="true" />-->
 
         <meta-data
             android:name="UPDATE_APP_KEY"
@@ -120,18 +123,18 @@
                 tools:replace="android:resource" />
         </provider>
 
-<!--        <activity-->
-<!--            android:name="com.lipinkeji.cn.activity.device_shuinuan.set.ShuiNuanKaiJiMoShiSheZhiActivity"-->
-<!--            android:configChanges="keyboardHidden|orientation|fontScale|screenSize"-->
-<!--            android:label="@string/app_name"-->
-<!--            android:screenOrientation="portrait"-->
-<!--            tools:ignore="LockedOrientationActivity">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--        <activity-->
+        <!--            android:name="com.lipinkeji.cn.activity.device_shuinuan.set.ShuiNuanKaiJiMoShiSheZhiActivity"-->
+        <!--            android:configChanges="keyboardHidden|orientation|fontScale|screenSize"-->
+        <!--            android:label="@string/app_name"-->
+        <!--            android:screenOrientation="portrait"-->
+        <!--            tools:ignore="LockedOrientationActivity">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
 
         <activity
@@ -146,7 +149,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
 
         <activity
@@ -1277,13 +1279,15 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity" />
 
-        <activity android:name=".activity.device_fengnuan.set.DianHuoSaiActivity_FengNuan"
+        <activity
+            android:name=".activity.device_fengnuan.set.DianHuoSaiActivity_FengNuan"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             tools:ignore="LockedOrientationActivity"></activity>
 
-        <activity android:name=".activity.device_fengnuan.set.YouBengActivity_FengNuan"
+        <activity
+            android:name=".activity.device_fengnuan.set.YouBengActivity_FengNuan"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"

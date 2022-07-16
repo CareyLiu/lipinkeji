@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.huawei.hms.hmsscankit.ScanUtil;
 import com.huawei.hms.ml.scan.HmsScan;
 import com.huawei.hms.ml.scan.HmsScanAnalyzerOptions;
+import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lipinkeji.cn.R;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 import androidx.core.app.ActivityCompat;
+
 import pub.devrel.easypermissions.EasyPermissions;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -189,6 +191,10 @@ public class BindBoxActivity extends BaseActivity implements View.OnClickListene
         Map<String, String> map = new HashMap<>();
         map.put("code", "03532");
         map.put("key", Urls.key);
+        String jingdu = PreferenceHelper.getInstance(mContext).getString("JINGDU", "");
+        String weidu = PreferenceHelper.getInstance(mContext).getString("WEIDU", "");
+        map.put("gps_x", weidu);
+        map.put("gps_y", jingdu);
         map.put("token", UserManager.getManager(mContext).getAppToken());
         map.put("ccid", ccid);
 

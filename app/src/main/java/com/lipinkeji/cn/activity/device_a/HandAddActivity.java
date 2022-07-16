@@ -7,6 +7,7 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
+import com.lipinkeji.cn.config.PreferenceHelper;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lipinkeji.cn.R;
@@ -101,6 +102,10 @@ public class HandAddActivity extends BaseActivity implements View.OnClickListene
         Map<String, String> map = new HashMap<>();
         map.put("code", "03532");
         map.put("key", Urls.key);
+        String jingdu = PreferenceHelper.getInstance(mContext).getString("JINGDU", "");
+        String weidu = PreferenceHelper.getInstance(mContext).getString("WEIDU", "");
+        map.put("gps_x", weidu);
+        map.put("gps_y", jingdu);
         map.put("token", UserManager.getManager(mContext).getAppToken());
         map.put("ccid", ccid);
         Gson gson = new Gson();

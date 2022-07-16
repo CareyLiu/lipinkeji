@@ -84,7 +84,7 @@ public class FengnuanJieActivity extends BaseActivity {
         user_phone = PreferenceHelper.getInstance(mContext).getString("user_phone", "");
         ccid = PreferenceHelper.getInstance(this).getString("ccid", "");
         tv_shebeima.setText(ccid);
-        timeCount = new TimeCount(60000, 1000, tv_send_code,1);
+        timeCount = new TimeCount(60000, 1000, tv_send_code, 1);
     }
 
     private void jiebang() {
@@ -107,7 +107,7 @@ public class FengnuanJieActivity extends BaseActivity {
         map.put("ccid", ccid);
         map.put("sms_id", smsId);
         map.put("sms_code", code);
-        map.put("is_platform", PreferenceHelper.getInstance(mContext).getString("is_platform_bendi", ""));
+        map.put("is_platform", "1");
         Gson gson = new Gson();
         OkGo.<AppResponse<Message.DataBean>>post(Urls.SERVER_URL + "fn/common")
                 .tag(this)//

@@ -257,6 +257,10 @@ public class ShuinuanSetActivity extends ShuinuanBaseNewActivity {
         req.sign = out.getPay().getSign();
         req.packageValue = out.getPay().getPackageX();
         api.sendReq(req);
+
+        if (xufeiDialog != null) {
+            xufeiDialog.dismiss();
+        }
     }
 
     @OnClick({R.id.rl_jiareqizhenduan, R.id.rl_waikongzhuangzhi, R.id.rl_danweiqiehuan, R.id.rl_zhujicanshu, R.id.rl_back, R.id.ll_gaojishezhi, R.id.rl_caozuoquanxian, R.id.rl_dingshi, R.id.rl_jiareqizhuangtai, R.id.rl_wendushezhi, R.id.rl_gongxiang, R.id.rl_gongxiang_jie, R.id.rl_jiebangshebei, R.id.rl_shebeixufei})

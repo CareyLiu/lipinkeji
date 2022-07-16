@@ -20,8 +20,8 @@ android {
         applicationId "com.lipinkeji.cn"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 22
-        versionName "2.2"
+        versionCode 23
+        versionName "2.3"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         ndk {
@@ -228,4 +228,8 @@ dependencies {
     implementation 'com.huawei.hms:scanplus:2.2.0.300'
     implementation files('libs/tbs_sdk_thirdapp_v4.3.0.276_44176_sharewithdownloadwithfile_withoutGame_obfs_20220329_155659.jar')
     androidTestImplementation 'junit:junit:4.12'
+    //3D地图so及jar
+    implementation 'com.amap.api:map2d:latest.integration'
+    implementation 'com.amap.api:location:latest.integration'
+    implementation 'com.amap.api:search:latest.integration'
 }

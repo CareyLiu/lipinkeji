@@ -108,7 +108,7 @@ public class ShuinuanJieActicity extends BaseActivity {
         map.put("ccid", ccid);
         map.put("sms_id", smsId);
         map.put("sms_code", code);
-        map.put("is_platform", PreferenceHelper.getInstance(mContext).getString("is_platform_bendi", ""));
+        map.put("is_platform", "1");
         Gson gson = new Gson();
         OkGo.<AppResponse<Message.DataBean>>post(Urls.SERVER_URL + "fn/common")
                 .tag(this)//

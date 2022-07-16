@@ -186,7 +186,7 @@ public class FengnuanSetActivity extends BaseActivity {
         Map<String, String> map = new HashMap<>();
         map.put("code", "03521");
         map.put("key", Urls.key);
-        map.put("device_type", "2");
+        map.put("device_type", "1");
         map.put("token", UserManager.getManager(mContext).getAppToken());
         Gson gson = new Gson();
         OkGo.<AppResponse<XufeiModel.DataBean>>post(Urls.SERVER_URL + "wit/app")
@@ -269,6 +269,9 @@ public class FengnuanSetActivity extends BaseActivity {
         req.sign = out.getPay().getSign();
         req.packageValue = out.getPay().getPackageX();
         api.sendReq(req);
+        if (xufeiDialog != null) {
+            xufeiDialog.dismiss();
+        }
     }
 
 

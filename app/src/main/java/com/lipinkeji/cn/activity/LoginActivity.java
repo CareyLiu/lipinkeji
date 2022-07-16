@@ -212,6 +212,12 @@ public class LoginActivity extends BaseActivity implements EasyPermissions.Permi
                 public void onClickConfirm() {
 
                     String[] perms = {
+                            Manifest.permission.WRITE_SETTINGS,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_PHONE_STATE,
+                            Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE};
                     EasyPermissions.requestPermissions(LoginActivity.this, "申请开启app需要的权限", 0, perms);
                     fuWuDialog.dismiss();

@@ -365,25 +365,25 @@ public class ShuinuanFengyoubiActivity extends ShuinuanBaseNewActivity {
                 } else if (muBianZhuanSu < dianhuozhuansu) {
                     UIHelper.ToastMessage(mContext, "请校验目标转速大于点火转速");
                     return;
-                } else if (dianhuozhuansu < 1000 || dianhuozhuansu > 3000) {
+                } else if (dianhuozhuansu < 500 || dianhuozhuansu > 10000) {
                     Y.t("请输入正确的点火转速");
                     return;
                 } else if (dianHuoYouBeng < 0.5 || dianHuoYouBeng > 10.0) {
                     Y.t("请输入正确的点火油泵");
                     return;
-                } else if (muBianZhuanSu < 3000 || muBianZhuanSu > 7000) {
+                } else if (muBianZhuanSu < 1000 || muBianZhuanSu > 10000) {
                     Y.t("请输入正确目标转速");
                     return;
                 } else if (muBiaoYouBeng < 0.5 || muBiaoYouBeng > 10.0) {
                     Y.t("请输入正确的目标油泵");
                     return;
-                } else if (fengji1 < 5000 || fengji1 > 9000) {
+                } else if (fengji1 < 1000 || fengji1 > 10000) {
                     Y.t("请输入1档正确的风机转速");
                     return;
                 } else if (youbeng1 < 0.5 || youbeng1 > 16) {
                     Y.t("请输入1档正确的油泵频率");
                     return;
-                } else if (fengji2 < 6000 || fengji2 > 9900) {
+                } else if (fengji2 < 1000 || fengji2 > 10000) {
                     Y.t("请输入2档正确的风机转速");
                     return;
                 } else if (youbeng2 < 0.5 || youbeng2 > 16) {
